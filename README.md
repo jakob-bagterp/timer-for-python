@@ -60,7 +60,7 @@ timer.stop(thread = "A")  # Output example: 6.78 seconds for thread A
 ```
 
 ## Features and Documentation
-### Precision
+### Precision in Nanoseconds
 Timer for Python uses the native `time.perf_counter_ns()` function for maximum resolution in nanoseconds.
 
 ### Decimals in Output
