@@ -78,7 +78,7 @@ class Timer:
 			elif fractions.microseconds > 0:
 				print(f"{text_intro} {self.count_microseconds_to_float(fractions):.{decimals}f} microseconds") # Format: 234.56 microseconds
 			else:
-				print(f"{text_intro} {fractions.nanoseconds:.{decimals}f} nanoseconds") # Format: 345.67 nanoseconds
+				print(f"{text_intro} {fractions.nanoseconds} nanoseconds") # Format: 345.67 nanoseconds
 		except Exception:
 			self.print_error_message_for_action(f"in the Timer's output message module", thread = thread)
 
