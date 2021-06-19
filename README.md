@@ -19,6 +19,7 @@ Wrap your code with the Timer function to measure performance of the executed co
 ```python
 timer = Timer()
 timer.start()
+
 # Insert your code here
 
 timer.stop() # Output example: 12.34 seconds
@@ -72,9 +73,11 @@ timer.stop() # Output example: 0.123456789 seconds
 Default value for `decimals` is 2, and maximum value is 9.
 
 ## Humanised Output
-Timer for Python supports measurement in multiple threads from nanoseconds to days.
+Timer for Python supports time measurement from nanoseconds to days.
 
-If the Timer runs for several minutes, it doesn't make sense to display display the output time in milliseconds. And similarly if it runs for hours, it doesn't make sense to display the output time in seconds. Therefore the output is humanised:
+But. If the Timer runs for several minutes, it doesn't make sense to display display the output time in milliseconds. And similarly if it runs for hours, it doesn't make sense to display the output time in seconds.
+
+Therefore the output is "humanised" so it's easier to read:
 
 ```
 Elapsed time: 7.89 seconds
