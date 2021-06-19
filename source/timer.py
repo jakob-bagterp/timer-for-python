@@ -1,38 +1,5 @@
 import time
 
-# This timer function supports time measuremnt in multiple threads from nanoseconds to days.
-# Wrap your code with the timer function to measure performance of the executed code block. How to use:
-# 		
-#		timer = Timer()
-#		timer.start()
-#
-#		[Insert your code here]
-#
-#		timer.stop()
-#
-# To set the number of decimals of the output time (only if less than an hour), add the decimals argument upon inititalising. Default is 2 decimals, e.g. "5.25".
-#
-# 		timer = Timer(decimals = 5) Output example: 0.12345 seconds
-#
-# To measure time in multiple instances within the same code block, use the thread parameter. How to use:
-#
-#		timer = Timer()
-#		timer.start(thread = "A", decimals = 2)
-#
-#		[Insert code here]
-#
-#			timer.start(thread = "B", decimals = 5)
-#
-#			[Insert code here]
-#
-#			timer.stop(thread = "B") # Output example: 1.23456 seconds
-#
-#		[Insert code here]
-#
-#		timer.stop(thread = "A")  # Output example: 7.89 seconds
-# 
-# Timer function inspired by: https://realpython.com/python-timer/
-
 class _TextColour:
 	def __init__(self):
 		self.green = "\033[92m"
