@@ -21,7 +21,7 @@ class Timer:
 
 	def start(self, thread = None, decimals = None):
 		try:
-			start_time = time.perf_counter() # For precision, this is the first operation of the function.
+			start_time = time.perf_counter_ns() # For precision, this is the first operation of the function.
 			thread = self.normalise_thread_to_string_and_uppercase(thread)
 			decimals = self.decimals_controller(decimals)
 			self.thread_controller_start(thread, start_time, decimals)
@@ -30,7 +30,7 @@ class Timer:
 
 	def stop(self, thread = None):
 		try:
-			stop_time = time.perf_counter() # For precision, this is the first operation of the function.
+			stop_time = time.perf_counter_ns() # 	For precision, this is the first operation of the function.
 			thread = self.normalise_thread_to_string_and_uppercase(thread)
 			self.thread_controller_stop(thread, stop_time)
 		except Exception:
@@ -38,13 +38,28 @@ class Timer:
 
 	class _Fractions:
 		def __init__(self, elapsed_time):
-			_minutes, _seconds = divmod(round(elapsed_time, 0), 60)
+			_microseconds, _nanoseconds = divmod(elapsed_time, 1000)
+			_milliseconds, _microseconds = divmod(_microseconds, 1000)
+			_seconds, _milliseconds = divmod(_milliseconds, 1000)
+			_minutes, _seconds = divmod(_seconds, 60)
 			_hours, _minutes = divmod(_minutes, 60)
 			_days, _hours = divmod(_hours, 24)
+			self.nanoseconds = int(_nanoseconds)
+			self.microseconds = int(_microseconds)
+			self.milliseconds = int(_milliseconds)
 			self.seconds = int(_seconds)
 			self.minutes = int(_minutes)
 			self.hours = int(_hours)
 			self.days = int(_days)
+		
+	def count_microseconds_to_float(self, fractions):
+		return fractions.microseconds + fractions.nanoseconds / 1000
+		
+	def count_milliseconds_to_float(self, fractions):
+		return fractions.milliseconds + self.count_microseconds_to_float(fractions) / 1000
+
+	def count_seconds_to_float(self, fractions):
+		return fractions.seconds + self.count_milliseconds_to_float(fractions) / 1000
 
 	def output_message(self, thread, elapsed_time, decimals):
 		try:
@@ -55,9 +70,15 @@ class Timer:
 			elif fractions.hours > 0:
 				print(f"{text_intro} {fractions.hours}h {fractions.minutes}m {fractions.seconds}s") # Format: 1h 2m 3s
 			elif fractions.minutes > 0:
-				print(f"{text_intro} {elapsed_time:.{decimals}f} seconds ({fractions.minutes}m {fractions.seconds}s)") # Format: 1m 2s
-			elif fractions.minutes == 0:
-				print(f"{text_intro} {elapsed_time:.{decimals}f} seconds") # Format: 0.123456789 seconds
+				print(f"{text_intro} {self.count_seconds_to_float(fractions):.{decimals}f} seconds ({fractions.minutes}m {fractions.seconds}s)") # Format: 1m 2s
+			elif fractions.seconds > 0:
+				print(f"{text_intro} {self.count_seconds_to_float(fractions):.{decimals}f} seconds") # Format: 0.123456789 seconds
+			elif fractions.milliseconds > 0:
+				print(f"{text_intro} {self.count_milliseconds_to_float(fractions):.{decimals}f} milliseconds") # Format: 123.45 milliseconds
+			elif fractions.microseconds > 0:
+				print(f"{text_intro} {self.count_microseconds_to_float(fractions):.{decimals}f} microseconds") # Format: 234.56 microseconds
+			else:
+				print(f"{text_intro} {fractions.nanoseconds:.{decimals}f} nanoseconds") # Format: 345.67 nanoseconds
 		except Exception:
 			self.print_error_message_for_action(f"in the Timer's output message module", thread = thread)
 
