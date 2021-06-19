@@ -46,14 +46,17 @@ class Timer:
 	_list_key_thread = "thread"
 	_list_key_start_time = "start_time"
 	_list_key_decimals = "decimals"
+	_decimals_default = 2
 
-	def __init__(self):
+	def __init__(self, decimals = _decimals_default):
 		self.thread_list = []
+		self.decimals = decimals if decimals == self._decimals_default else self.verify_decimals(decimals)
 
-	def start(self, thread = None, decimals = 2):
+	def start(self, thread = None, decimals = None):
 		try:
 			start_time = time.perf_counter() # For precision, this is the first operation of the function.
 			thread = self.normalise_thread_to_string_and_uppercase(thread)
+			decimals = self.decimals_controller(decimals)
 			self.thread_controller_start(thread, start_time, decimals)
 		except Exception:
 			self.print_error_message_for_action("when trying to start the Timer", thread = thread)
@@ -91,9 +94,14 @@ class Timer:
 		except Exception:
 			self.print_error_message_for_action(f"in the Timer's output message module", thread = thread)
 
+	def decimals_controller(self, decimals):
+		if decimals == None:
+			return self.decimals
+		else:
+			return self.verify_decimals(decimals)
+
 	def thread_controller_start(self, thread, start_time, decimals):
 		try:
-			decimals = self.verify_decimals(decimals)
 			entry_index = self.lookup_index_in_thread_list(thread)
 			if entry_index == None: # If no match in existing threads, create new entry in the thread list.
 				self.add_to_thread_list(thread, start_time, decimals)
@@ -175,16 +183,16 @@ class Timer:
 	def verify_decimals(self, decimals):
 		try:
 			if isinstance(decimals, str) == True or decimals == None:
-				print(f"{textcolour.yellow}Decimals set to 2 due to invalid input.{textcolour.reset}")
-				return 2
+				print(f"{textcolour.yellow}Decimals set to default {self._decimals_default} due to invalid input.{textcolour.reset}")
+				return self._decimals_default
 			elif decimals in range(1, 10):
 				return int(decimals)
 			elif decimals > 9:
 				print(f"{textcolour.yellow}Decimals set to 9 as the Timer doesn't support more than 9 decimals (i.e. nanoseconds).{textcolour.reset}")
 				return 9
 			else:
-				print(f"{textcolour.yellow}Decimals set to 2 due to invalid input.{textcolour.reset}")
-				return 2
+				print(f"{textcolour.yellow}Decimals set to default {self._decimals_default} due to invalid input.{textcolour.reset}")
+				return self._decimals_default
 		except Exception:
 			self.print_error_message_for_action(f"when trying to verify the Timer's decimals input \"{decimals}\"")
 
