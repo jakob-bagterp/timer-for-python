@@ -74,7 +74,7 @@ Default value for `decimals` is 2, and maximum value is 9.
 ## Humanised Output
 Timer for Python supports measurement in multiple threads from nanoseconds to days.
 
-If the Timer runs for several minutes, it doesn't make sense to display display the output time in milliseconds. And similarly if it runs for hours, it doesn't make to display the output time in seconds. Therefore the output is humanised:
+If the Timer runs for several minutes, it doesn't make sense to display display the output time in milliseconds. And similarly if it runs for hours, it doesn't make sense to display the output time in seconds. Therefore the output is humanised:
 
 ```
 Elapsed time: 7.89 seconds
