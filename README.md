@@ -33,11 +33,11 @@ timer.start(thread = "A")
 
 # Insert your code here
 
-timer.start(thread = "B", decimals = 5)
+	timer.start(thread = "B", decimals = 5)
 
-# Insert more code here
+	# Insert more code here
 
-timer.stop(thread = "B") # Output example: 1.23456 seconds
+	timer.stop(thread = "B") # Output example: 1.23456 seconds
 
 # Insert even more code here
 
