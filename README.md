@@ -90,6 +90,9 @@ Elapsed time: 2h 3m 4s
 Elapsed time: 1d 2h 3m 4s
 ```
 
+## Graceful Error Handling
+Timer for Python is designed with several nested `try/catch` clauses so it handles exceptions gracefully and therefore shouldn't break your application while running. However, if you find a bug, please report it.
+
 # Donate
 TBC
 
