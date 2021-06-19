@@ -9,7 +9,7 @@ class _TextColour:
 textcolour = _TextColour()
 
 class Timer:
-	_none_value = "NONE"
+	_none_value = "NONE" # NB: Has to be string and upppercase.
 	_list_key_thread = "thread"
 	_list_key_start_time = "start_time"
 	_list_key_decimals = "decimals"
@@ -123,7 +123,7 @@ class Timer:
 	def normalise_thread_to_string_and_uppercase(self, thread):
 		try:
 			if self.is_thread_none(thread):
-				return str(self._none_value).upper() # The thread list iterator only supports strings and numbers and not None, hence the renaming.
+				return self._none_value # The thread list iterator only supports strings and numbers and not None, hence the renaming to "NONE".
 			else:
 				return str(thread).upper()
 		except Exception:
