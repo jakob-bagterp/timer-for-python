@@ -46,7 +46,10 @@ timer.stop(thread = "A")  # Output example: 7.89 seconds
 ```
 
 # Features
-## Set Decimals and Output Precision
+## Precision
+Timer for Python uses the native `time.perf_counter_ns()` function for maximum resolution in nanoseconds.
+
+## Decimals in Output
 To set the number of decimals of the output (only if less than an hour), use the `decimals` argument.
 
 Either, set the general precision of decimals when initiating the Timer:
