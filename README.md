@@ -26,7 +26,20 @@ timer.start()
 timer.stop() # Output example: 12.34 seconds
 ```
 
-### Advanced and Multiple Threads
+### Advanced
+#### Decimals
+Instead of the default value `2` for `decimals`, you can set the output precision up to `9` in the `decimals` argument:
+
+```python
+timer = Timer()
+timer.start(decimals = 5)
+
+# Insert your code here
+
+timer.stop() # Output example: 0.12345 seconds
+```
+
+#### Multiple Threads
 To measure time of multiple instances within the same code block, use the `thread` argument:
 
 ```python
@@ -39,14 +52,14 @@ timer.start(thread = "A")
 
 	# Insert more code here
 
-	timer.stop(thread = "B") # Output example: 1.23456 seconds
+	timer.stop(thread = "B") # Output example: 0.12345 seconds for thread B
 
 # Insert even more code here
 
-timer.stop(thread = "A")  # Output example: 7.89 seconds
+timer.stop(thread = "A")  # Output example: 6.78 seconds for thread A
 ```
 
-## Features
+## Features and Documentation
 ### Precision
 Timer for Python uses the native `time.perf_counter_ns()` function for maximum resolution in nanoseconds.
 
@@ -64,9 +77,10 @@ timer.start()
 timer.stop() # Output example: 0.12345 seconds
 ```
 
-Or set the decimals when starting a new thread:
+Or set the decimals when starting a new thread, which will also override the general decimals defined when initiating the Timer:
 
 ```python
+timer = Timer(decimals = 5)
 timer.start(decimals = 9)
 
 # Insert your code here
