@@ -9,7 +9,7 @@ Timer for Python makes it easy for beginners and experts to measure how much tim
 
 ## Getting Started
 ### Simple
-Add the Timer to your imports:
+Firstly, add the Timer to your imports:
 
 ```python
 from timer import Timer
