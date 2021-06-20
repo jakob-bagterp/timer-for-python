@@ -13,3 +13,12 @@ class TimeFractions:
 		self.minutes = int(_minutes)
 		self.hours = int(_hours)
 		self.days = int(_days)
+
+	def count_microseconds_to_float(self):
+		return self.microseconds + self.nanoseconds / 1000
+		
+	def count_milliseconds_to_float(self):
+		return self.milliseconds + self.count_microseconds_to_float() / 1000
+
+	def count_seconds_to_float(self):
+		return self.seconds + self.count_milliseconds_to_float() / 1000
