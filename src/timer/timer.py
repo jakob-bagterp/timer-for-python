@@ -1,12 +1,7 @@
 import time
+from textcolour import TextColour
 
-class _TextColour:
-	def __init__(self):
-		self.green = "\033[92m"
-		self.yellow = "\033[93m"
-		self.reset = "\033[0m"
-
-textcolour = _TextColour()
+textcolour = TextColour()
 
 class Timer:
 	_none_value = "NONE" # NB: Has to be string and upppercase.
