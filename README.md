@@ -3,7 +3,6 @@ Timer for Python makes it easy for beginners and experts to measure how much tim
 
 ## Prerequisites
 * Python 3.8 or higher
-	* It may work on earlier versions, but hasn't been tested
 * macOS
 	* It may work on Windows or Linux, but hasn't been tested
 

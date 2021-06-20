@@ -70,7 +70,7 @@ class Timer:
 		if self.is_thread_none(thread):
 			print(f"{textcolour.yellow}Timer is running. Use .stop() to stop it.{textcolour.reset}")
 		else:
-			print(f"{textcolour.yellow}Timer for thread {thread} is running. Use .stop(thread={thread}) to stop it.{textcolour.reset}")
+			print(f"{textcolour.yellow}Timer for thread {thread} is running. Use .stop({thread = }) to stop it.{textcolour.reset}")
 
 	def thread_controller_stop(self, thread, stop_time):
 		try:
@@ -89,7 +89,7 @@ class Timer:
 		if self.is_thread_none(thread):
 			print(f"{textcolour.yellow}Timer is not running. Use .start() to start it.{textcolour.reset}")
 		else:
-			print(f"{textcolour.yellow}Timer for thread {thread} is not running. Use .start(thread={thread}) to start it.{textcolour.reset}")
+			print(f"{textcolour.yellow}Timer for thread {thread} is not running. Use .start({thread = }) to start it.{textcolour.reset}")
 		if len(self.thread_list) > 0:
 			open_threads = [entry.get(self._list_key_thread) for entry in self.thread_list]
 			print(f"Or maybe you aren't stopping the right thread? Currently open threads: {', '.join(open_threads)}")
