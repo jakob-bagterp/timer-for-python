@@ -1,7 +1,7 @@
 class TimeFractions:
 	def __init__(self, elapsed_time_ns): # elapsed_time_ns is in nanoseconds and should be calculated as difference between start and stop time using on the time.perf_counter_ns() function. 
 		_microseconds, _nanoseconds = divmod(elapsed_time_ns, 1000)
-		_milliseconds, _microseconds = divmod(_microseconds, 1000) if _microseconds > 0 else (0, 0)
+		_milliseconds, _microseconds = divmod(_microseconds, 1000) if _microseconds > 0 else (0, 0) # As divmod() can be slow, let's return 0s as a tuple if divmod() isn't needed.
 		_seconds, _milliseconds = divmod(_milliseconds, 1000) if _milliseconds > 0 else (0, 0)
 		_minutes, _seconds = divmod(_seconds, 60) if _seconds > 0 else (0, 0)
 		_hours, _minutes = divmod(_minutes, 60) if _minutes > 0 else (0, 0)
@@ -18,10 +18,10 @@ class TimeFractions:
 		return self.microseconds + self.nanoseconds / 1000
 		
 	def count_milliseconds_to_float(self):
-		return self.milliseconds + self.count_microseconds_to_float() / 1000 # This could be faster by dividing self.microseconds by a 1000 directly, yet we don't want to lose precision in the decimals.
+		return self.milliseconds + self.count_microseconds_to_float() / 1000 # This could potentially be faster by dividing self.microseconds by a 1000 directly, yet we don't want to lose precision in the decimals.
 
 	def count_seconds_to_float(self):
-		return self.seconds + self.count_milliseconds_to_float() / 1000 # This could be faster by dividing self.milliseconds by a 1000 directly, yet we don't want to lose precision in the decimals.
+		return self.seconds + self.count_milliseconds_to_float() / 1000 # This could potentially be faster by dividing self.milliseconds by a 1000 directly, yet we don't want to lose precision in the decimals.
 
 	def seconds_rounded(self): # If 2 seconds and 567 milliseconds, ensure it'll be rounded up to 3 seconds.
 		return round(self.count_seconds_to_float(), 0)
