@@ -22,3 +22,6 @@ class TimeFractions:
 
 	def count_seconds_to_float(self):
 		return self.seconds + self.count_milliseconds_to_float() / 1000
+
+	def seconds_rounded(self): # If 2 seconds and 567 milliseconds, ensure it'll be rounded up to 3 seconds.
+		return round(self.count_seconds_to_float(), 0)

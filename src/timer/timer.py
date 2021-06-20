@@ -37,14 +37,11 @@ class Timer:
 			fractions = TimeFractions(elapsed_time)
 			text_intro = "Elapsed time:" if self.is_thread_none(thread) else f"Elapsed time (thread {textcolour.green}{thread}{textcolour.reset}):"
 			if fractions.days > 0:
-				seconds_rounded = round(fractions.count_seconds_to_float(), 0)
-				print(f"{text_intro} {fractions.days}d {fractions.hours}h {fractions.minutes}m {seconds_rounded}s") # Format: 1d 2h 3m 4s
+				print(f"{text_intro} {fractions.days}d {fractions.hours}h {fractions.minutes}m {fractions.seconds_rounded}s") # Format: 1d 2h 3m 4s
 			elif fractions.hours > 0:
-				seconds_rounded = round(fractions.count_seconds_to_float(), 0)				
-				print(f"{text_intro} {fractions.hours}h {fractions.minutes}m {seconds_rounded}s") # Format: 1h 2m 3s
+				print(f"{text_intro} {fractions.hours}h {fractions.minutes}m {fractions.seconds_rounded}s") # Format: 1h 2m 3s
 			elif fractions.minutes > 0:
-				seconds_rounded = round(fractions.count_seconds_to_float(), 0)				
-				print(f"{text_intro} {fractions.count_seconds_to_float():.{decimals}f} seconds ({fractions.minutes}m {seconds_rounded}s)") # Format: 1m 2s
+				print(f"{text_intro} {fractions.count_seconds_to_float():.{decimals}f} seconds ({fractions.minutes}m {fractions.seconds_rounded}s)") # Format: 1m 2s
 			elif fractions.seconds > 0:
 				print(f"{text_intro} {fractions.count_seconds_to_float():.{decimals}f} seconds") # Format: 0.123456789 seconds
 			elif fractions.milliseconds > 0:
