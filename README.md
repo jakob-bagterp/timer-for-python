@@ -2,7 +2,7 @@
 Timer for Python makes it easy for beginners and experts to measure how much time it takes to run Python programs and gauge performance of multiple, smaller bits of code.
 
 ## Prerequisites
-* Python 3.8 or higher
+* Python 3.10 or higher
 * macOS
 	* It may work on Windows or Linux, but hasn't been tested
 
