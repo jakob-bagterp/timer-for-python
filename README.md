@@ -25,7 +25,7 @@ Firstly, add the Timer to your imports:
 from timer import Timer
 ```
 
-Wrap your code with the Timer function to measure performance of the executed code block:
+Wrap the Timer function around your code to measure performance of the executed block of code:
 
 ```python
 timer = Timer()
@@ -50,7 +50,9 @@ timer.stop() # Output example: 0.12345 seconds
 ```
 
 #### Multiple Threads
-To measure time of multiple instances within the same code block, use the `thread` argument:
+Imagine that you want to troubleshoot which parts of your code are performing better or worse? Or you want to split-test the performance of different methods? Timer for Python is a quick, easy way to get the job done.
+
+To measure performance of multiple blocks of code, use the `thread` argument to split the Timer instances:
 
 ```python
 timer = Timer()
@@ -69,7 +71,7 @@ timer.start(thread = "A")
 timer.stop(thread = "A")  # Output example: 6.78 seconds for thread A
 ```
 
-## Features and Documentation
+## Documentation and Other Features
 ### Precision in Nanoseconds
 Timer for Python uses the native `time.perf_counter_ns()` function for maximum resolution in nanoseconds.
 
@@ -106,7 +108,7 @@ Timer for Python supports time measurement from nanoseconds to days.
 
 But. If the Timer runs for several minutes, it doesn't make sense to display display the output time in milliseconds. And similarly if it runs for hours, it doesn't make sense to display the output time in seconds.
 
-Therefore the output is "humanised" so it's easier to read:
+Therefore the output is "humanised" so it's easier to understand:
 
 ```
 Elapsed time: 7.89 seconds
