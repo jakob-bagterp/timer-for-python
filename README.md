@@ -89,7 +89,7 @@ timer.stop() # Output example: 0.123456789 seconds
 ```
 
 #### Default Decimals and Supported Interval
-Default value for `decimals` is `2`. The range is minimum `1` and maximum `9`.
+Default value for `decimals` is `2`. The range is minimum `0` (for no decimals) and up to maximum `9`.
 
 ### Humanised Output
 Timer for Python supports time measurement from nanoseconds to days.
