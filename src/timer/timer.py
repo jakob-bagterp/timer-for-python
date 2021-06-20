@@ -26,7 +26,7 @@ class Timer:
 
 	def stop(self, thread = None):
 		try:
-			stop_time = time.perf_counter_ns() # 	For precision, this is the first operation of the function.
+			stop_time = time.perf_counter_ns() # For precision, this is the first operation of the function.
 			thread = self.normalise_thread_to_string_and_uppercase(thread)
 			self.thread_controller_stop(thread, stop_time)
 		except Exception:
