@@ -31,35 +31,26 @@ class Timer:
 			self.thread_controller_stop(thread, stop_time)
 		except Exception:
 			self.print_error_message_for_action("when trying to stop the Timer", thread = thread)
-		
-	def count_microseconds_to_float(self, fractions):
-		return fractions.microseconds + fractions.nanoseconds / 1000
-		
-	def count_milliseconds_to_float(self, fractions):
-		return fractions.milliseconds + self.count_microseconds_to_float(fractions) / 1000
-
-	def count_seconds_to_float(self, fractions):
-		return fractions.seconds + self.count_milliseconds_to_float(fractions) / 1000
 
 	def output_message(self, thread, elapsed_time, decimals):
 		try:
 			fractions = TimeFractions(elapsed_time)
 			text_intro = "Elapsed time:" if self.is_thread_none(thread) else f"Elapsed time (thread {textcolour.green}{thread}{textcolour.reset}):"
 			if fractions.days > 0:
-				seconds_rounded = round(self.count_seconds_to_float(fractions), 0)
+				seconds_rounded = round(fractions.count_seconds_to_float(), 0)
 				print(f"{text_intro} {fractions.days}d {fractions.hours}h {fractions.minutes}m {seconds_rounded}s") # Format: 1d 2h 3m 4s
 			elif fractions.hours > 0:
-				seconds_rounded = round(self.count_seconds_to_float(fractions), 0)				
+				seconds_rounded = round(fractions.count_seconds_to_float(), 0)				
 				print(f"{text_intro} {fractions.hours}h {fractions.minutes}m {seconds_rounded}s") # Format: 1h 2m 3s
 			elif fractions.minutes > 0:
-				seconds_rounded = round(self.count_seconds_to_float(fractions), 0)				
-				print(f"{text_intro} {self.count_seconds_to_float(fractions):.{decimals}f} seconds ({fractions.minutes}m {seconds_rounded}s)") # Format: 1m 2s
+				seconds_rounded = round(fractions.count_seconds_to_float(), 0)				
+				print(f"{text_intro} {fractions.count_seconds_to_float():.{decimals}f} seconds ({fractions.minutes}m {seconds_rounded}s)") # Format: 1m 2s
 			elif fractions.seconds > 0:
-				print(f"{text_intro} {self.count_seconds_to_float(fractions):.{decimals}f} seconds") # Format: 0.123456789 seconds
+				print(f"{text_intro} {fractions.count_seconds_to_float():.{decimals}f} seconds") # Format: 0.123456789 seconds
 			elif fractions.milliseconds > 0:
-				print(f"{text_intro} {self.count_milliseconds_to_float(fractions):.{decimals}f} milliseconds") # Format: 123.45 milliseconds
+				print(f"{text_intro} {fractions.count_milliseconds_to_float():.{decimals}f} milliseconds") # Format: 123.45 milliseconds
 			elif fractions.microseconds > 0:
-				print(f"{text_intro} {self.count_microseconds_to_float(fractions):.{decimals}f} microseconds") # Format: 234.56 microseconds
+				print(f"{text_intro} {fractions.count_microseconds_to_float():.{decimals}f} microseconds") # Format: 234.56 microseconds
 			else:
 				print(f"{text_intro} {fractions.nanoseconds} nanoseconds") # Format: 345 nanoseconds
 		except Exception:
