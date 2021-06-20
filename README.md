@@ -7,6 +7,16 @@ Timer for Python makes it easy for beginners and experts to measure how much tim
 * macOS
 	* It may work on Windows or Linux, but hasn't been tested
 
+## Installation
+### PyPI
+TBC
+
+### Homebrew
+TBC
+
+### NuGet
+TBC
+
 ## Getting Started
 ### Simple
 Firstly, add the Timer to your imports:
