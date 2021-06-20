@@ -135,11 +135,11 @@ class Timer:
 			if isinstance(decimals, str) == True or decimals == None:
 				print(f"{textcolour.yellow}Timer: Decimals set to default {self._decimals_default} due to invalid input.{textcolour.reset}")
 				return self._decimals_default
-			elif decimals in range(0, 10):
-				return int(decimals)
 			elif decimals > 9:
 				print(f"{textcolour.yellow}Timer: Decimals set to 9 as the Timer doesn't support more than 9 decimals (i.e. nanoseconds).{textcolour.reset}")
 				return 9
+			elif decimals in range(0, 10):
+				return int(decimals)
 			else:
 				print(f"{textcolour.yellow}Timer: Decimals set to default {self._decimals_default} due to invalid input.{textcolour.reset}")
 				return self._decimals_default
