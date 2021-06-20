@@ -88,14 +88,8 @@ class Timer:
 		except Exception:
 			self.print_error_message_for_action(f"in the Timer's stop thread controller", thread = thread)
 
-	def normalise_thread_to_string_and_uppercase(self, thread):
-		try:
-			if self.is_thread_none(thread):
-				return self._none_value # The thread list iterator only supports strings and numbers and not None, hence the renaming to "NONE".
-			else:
-				return str(thread).upper()
-		except Exception:
-			self.print_error_message_for_action(f"when trying to normalise the Timer's input", thread = thread)
+	def normalise_thread_to_string_and_uppercase(self, thread): # The thread list iterator only supports strings and numbers and not None, hence the renaming to "NONE".
+		return self._none_value if self.is_thread_none(thread) else str(thread).upper()
 
 	def lookup_index_in_thread_list(self, thread):
 		try:
