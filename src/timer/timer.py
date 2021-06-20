@@ -54,8 +54,8 @@ class Timer:
 			self.print_error_message_for_action(f"in the Timer's output message module", thread = thread)
 
 	def decimals_controller(self, decimals):
-		if decimals == None:
-			return self.decimals
+		if decimals == None: # If the start function doesn't have decimals defined...
+			return self.decimals # ... then use the decimals value defined upon initiating the Timer().
 		else:
 			return self.verify_decimals(decimals)
 
