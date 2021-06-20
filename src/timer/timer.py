@@ -159,7 +159,4 @@ class Timer:
 		return True if thread == None or thread == self._none_value else False
 
 	def print_error_message_for_action(self, action, thread = None):
-		if self.is_thread_none(thread):
-			print(f"{textcolour.yellow}Timer: Something went wrong {action}.{textcolour.reset}")
-		else:
-			print(f"{textcolour.yellow}Timer: Something went wrong {action} for thread {thread}.{textcolour.reset}")
+		print(f"{textcolour.yellow}Timer: Something went wrong {action}{'' if self.is_thread_none(thread) else f' for thread {thread}'}.{textcolour.reset}")
