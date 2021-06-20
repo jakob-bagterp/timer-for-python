@@ -34,7 +34,7 @@ class Timer:
 
 	def output_message(self, thread, elapsed_time, decimals):
 		try:
-			text_intro = "Elapsed time:" if self.is_thread_none(thread) else f"Elapsed time (thread {textcolour.green}{thread}{textcolour.reset}):"
+			text_intro = f"Elapsed time{'' if self.is_thread_none(thread) else f' (thread {textcolour.green}{thread}{textcolour.reset})'}:"
 			fractions = TimeFractions(elapsed_time)
 			if fractions.days > 0:
 				print(f"{text_intro} {fractions.days}d {fractions.hours}h {fractions.minutes}m {fractions.seconds_rounded}s") # Format: 1d 2h 3m 4s
