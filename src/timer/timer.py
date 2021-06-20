@@ -41,7 +41,7 @@ class Timer:
 			elif fractions.hours > 0:
 				print(f"{text_intro} {fractions.hours}h {fractions.minutes}m {fractions.seconds_rounded()}s") # Format: 1h 2m 3s
 			elif fractions.minutes > 0:
-				print(f"{text_intro} {fractions.count_seconds_to_float():.{decimals}f} seconds ({fractions.minutes}m {fractions.seconds_rounded()}s)") # Format: 1m 2s
+				print(f"{text_intro} {fractions.count_minutes_to_seconds():.{decimals}f} seconds ({fractions.minutes}m {fractions.seconds_rounded()}s)") # Format: 1m 2s
 			elif fractions.seconds > 0:
 				print(f"{text_intro} {fractions.count_seconds_to_float():.{decimals}f} seconds") # Format: 0.123456789 seconds
 			elif fractions.milliseconds > 0:
