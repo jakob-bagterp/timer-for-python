@@ -62,12 +62,15 @@ class Timer:
 			if entry_index == None: # If no match in existing threads, create new entry in the thread list.
 				self.add_to_thread_list(thread, start_time, decimals)
 			else:
-				if self.is_thread_none(thread):
-					print(f"{textcolour.yellow}Timer is running. Use .stop() to stop it.{textcolour.reset}")
-				else:
-					print(f"{textcolour.yellow}Timer for thread {thread} is running. Use .stop(thread={thread}) to stop it.{textcolour.reset}")
+				self.error_handling_of_start_controller(thread)
 		except Exception:
 			self.print_error_message_for_action(f"in the Timer's start thread controller", thread = thread)
+
+	def error_handling_of_start_controller(self, thread):
+		if self.is_thread_none(thread):
+			print(f"{textcolour.yellow}Timer is running. Use .stop() to stop it.{textcolour.reset}")
+		else:
+			print(f"{textcolour.yellow}Timer for thread {thread} is running. Use .stop(thread={thread}) to stop it.{textcolour.reset}")
 
 	def thread_controller_stop(self, thread, stop_time):
 		try:
@@ -78,15 +81,18 @@ class Timer:
 				self.remove_from_thread_list(entry_index)
 				self.output_message(thread, elapsed_time, decimals)
 			else:
-				if self.is_thread_none(thread):
-					print(f"{textcolour.yellow}Timer is not running. Use .start() to start it.{textcolour.reset}")
-				else:
-					print(f"{textcolour.yellow}Timer for thread {thread} is not running. Use .start(thread={thread}) to start it.{textcolour.reset}")
-				if len(self.thread_list) > 0:
-					open_threads = [entry.get(self._list_key_thread) for entry in self.thread_list]
-					print(f"Or maybe you aren't stopping the right thread? Currently open threads: {', '.join(open_threads)}")
+				self.error_handling_of_stop_controller(thread)
 		except Exception:
 			self.print_error_message_for_action(f"in the Timer's stop thread controller", thread = thread)
+
+	def error_handling_of_stop_controller(self, thread):
+		if self.is_thread_none(thread):
+			print(f"{textcolour.yellow}Timer is not running. Use .start() to start it.{textcolour.reset}")
+		else:
+			print(f"{textcolour.yellow}Timer for thread {thread} is not running. Use .start(thread={thread}) to start it.{textcolour.reset}")
+		if len(self.thread_list) > 0:
+			open_threads = [entry.get(self._list_key_thread) for entry in self.thread_list]
+			print(f"Or maybe you aren't stopping the right thread? Currently open threads: {', '.join(open_threads)}")
 
 	def normalise_thread_to_string_and_uppercase(self, thread): # The thread list iterator only supports strings and numbers and not None, hence the renaming to "NONE".
 		return self._none_value if self.is_thread_none(thread) else str(thread).upper()
