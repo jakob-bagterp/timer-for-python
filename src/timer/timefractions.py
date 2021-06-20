@@ -18,10 +18,10 @@ class TimeFractions:
 		return self.microseconds + self.nanoseconds / 1000
 		
 	def count_milliseconds_to_float(self):
-		return self.milliseconds + self.count_microseconds_to_float() / 1000
+		return self.milliseconds + self.count_microseconds_to_float() / 1000 # This could be faster by dividing self.microseconds by a 1000 directly, yet we don't want to lose precision in the decimals.
 
 	def count_seconds_to_float(self):
-		return self.seconds + self.count_milliseconds_to_float() / 1000
+		return self.seconds + self.count_milliseconds_to_float() / 1000 # This could be faster by dividing self.milliseconds by a 1000 directly, yet we don't want to lose precision in the decimals.
 
 	def seconds_rounded(self): # If 2 seconds and 567 milliseconds, ensure it'll be rounded up to 3 seconds.
 		return round(self.count_seconds_to_float(), 0)
