@@ -1,4 +1,5 @@
 import time
+from timefractions import TimeFractions
 from textcolour import TextColour
 
 textcolour = TextColour()
@@ -30,22 +31,6 @@ class Timer:
 			self.thread_controller_stop(thread, stop_time)
 		except Exception:
 			self.print_error_message_for_action("when trying to stop the Timer", thread = thread)
-
-	class _Fractions:
-		def __init__(self, elapsed_time):
-			_microseconds, _nanoseconds = divmod(elapsed_time, 1000)
-			_milliseconds, _microseconds = divmod(_microseconds, 1000) if _microseconds > 0 else (0, 0)
-			_seconds, _milliseconds = divmod(_milliseconds, 1000) if _milliseconds > 0 else (0, 0)
-			_minutes, _seconds = divmod(_seconds, 60) if _seconds > 0 else (0, 0)
-			_hours, _minutes = divmod(_minutes, 60) if _minutes > 0 else (0, 0)
-			_days, _hours = divmod(_hours, 24) if _hours > 0 else (0, 0)
-			self.nanoseconds = int(_nanoseconds)
-			self.microseconds = int(_microseconds)
-			self.milliseconds = int(_milliseconds)
-			self.seconds = int(_seconds)
-			self.minutes = int(_minutes)
-			self.hours = int(_hours)
-			self.days = int(_days)
 		
 	def count_microseconds_to_float(self, fractions):
 		return fractions.microseconds + fractions.nanoseconds / 1000
@@ -58,7 +43,7 @@ class Timer:
 
 	def output_message(self, thread, elapsed_time, decimals):
 		try:
-			fractions = self._Fractions(elapsed_time)
+			fractions = TimeFractions(elapsed_time)
 			text_intro = "Elapsed time:" if self.is_thread_none(thread) else f"Elapsed time (thread {textcolour.green}{thread}{textcolour.reset}):"
 			if fractions.days > 0:
 				print(f"{text_intro} {fractions.days}d {fractions.hours}h {fractions.minutes}m {fractions.seconds}s") # Format: 1d 2h 3m 4s
