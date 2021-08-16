@@ -1,6 +1,6 @@
 import time
-from timefractions import TimeFractions
-from textcolour import TextColour
+from time_fractions import TimeFractions
+from text_colour import TextColour
 
 textcolour = TextColour()
 
