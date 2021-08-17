@@ -14,17 +14,17 @@ class TimeFractions:
 		self.hours = int(_hours)
 		self.days = int(_days)
 
-	def count_microseconds_to_float(self):
+	def count_microseconds_to_float(self) -> float:
 		return self.microseconds + self.nanoseconds / 1000
 		
-	def count_milliseconds_to_float(self):
+	def count_milliseconds_to_float(self) -> float:
 		return self.milliseconds + self.count_microseconds_to_float() / 1000 # This could potentially be faster by dividing self.microseconds by a 1000 directly, yet we don't want to lose precision in the decimals.
 
-	def count_seconds_to_float(self):
+	def count_seconds_to_float(self) -> float:
 		return self.seconds + self.count_milliseconds_to_float() / 1000 # This could potentially be faster by dividing self.milliseconds by a 1000 directly, yet we don't want to lose precision in the decimals.
 
-	def seconds_rounded(self): # If 2 seconds and 567 milliseconds, ensure it'll be rounded up to 3 seconds.
+	def seconds_rounded(self) -> float: # If 2 seconds and 567 milliseconds, ensure it'll be rounded up to 3 seconds.
 		return int(round(self.count_seconds_to_float(), 0))
 
-	def count_minutes_to_seconds(self):
+	def count_minutes_to_seconds(self) -> float:
 		return self.minutes * 60 + self.count_seconds_to_float()
