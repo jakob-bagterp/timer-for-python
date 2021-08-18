@@ -1,5 +1,5 @@
 class TimeFractions:
-	def __init__(self, elapsed_time_ns): # elapsed_time_ns is in nanoseconds and should be calculated as difference between start and stop time using on the time.perf_counter_ns() function. 
+	def __init__(self, elapsed_time_ns) -> None: # elapsed_time_ns is in nanoseconds and should be calculated as difference between start and stop time using on the time.perf_counter_ns() function. 
 		_microseconds, _nanoseconds = divmod(elapsed_time_ns, 1000)
 		_milliseconds, _microseconds = divmod(_microseconds, 1000) if _microseconds > 0 else (0, 0) # As divmod() can be slow, let's return 0s as a tuple if divmod() isn't needed.
 		_seconds, _milliseconds = divmod(_milliseconds, 1000) if _milliseconds > 0 else (0, 0)

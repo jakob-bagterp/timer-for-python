@@ -11,11 +11,11 @@ class Timer:
 	_list_key_decimals = "decimals"
 	_decimals_default = 2
 
-	def __init__(self, decimals: int = _decimals_default):
+	def __init__(self, decimals: int = _decimals_default) -> None:
 		self.thread_list = []
 		self.decimals = decimals if decimals == self._decimals_default else self.verify_decimals(decimals)
 
-	def start(self, thread: str = None, decimals: int = None):
+	def start(self, thread: str = None, decimals: int = None) -> None:
 		try:
 			start_time = time.perf_counter_ns() # For precision, this is the first operation of the function.
 			thread = self.normalise_thread_to_string_and_uppercase(thread)
@@ -24,7 +24,7 @@ class Timer:
 		except Exception:
 			self.print_error_message_for_action("when trying to start the Timer", thread = thread)
 
-	def stop(self, thread: str = None):
+	def stop(self, thread: str = None) -> None:
 		try:
 			stop_time = time.perf_counter_ns() # For precision, this is the first operation of the function.
 			thread = self.normalise_thread_to_string_and_uppercase(thread)
@@ -32,7 +32,7 @@ class Timer:
 		except Exception:
 			self.print_error_message_for_action("when trying to stop the Timer", thread = thread)
 
-	def output_message(self, thread: str, elapsed_time: int, decimals: int):
+	def output_message(self, thread: str, elapsed_time: int, decimals: int) -> None:
 		try:
 			text_intro = f"Elapsed time{'' if self.is_thread_none(thread) else f' (thread {textcolour.green}{thread}{textcolour.reset})'}:"
 			fractions = TimeFractions(elapsed_time)
@@ -56,7 +56,7 @@ class Timer:
 	def decimals_controller(self, decimals: str) -> int: # If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated.
 		return self.decimals if decimals == None else self.verify_decimals(decimals)
 
-	def thread_controller_start(self, thread: str, start_time: int, decimals: int):
+	def thread_controller_start(self, thread: str, start_time: int, decimals: int) -> None:
 		try:
 			entry_index = self.lookup_index_in_thread_list(thread)
 			if entry_index == None: # If no match in existing threads, create new entry in the thread list.
@@ -66,13 +66,13 @@ class Timer:
 		except Exception:
 			self.print_error_message_for_action(f"in the Timer's start thread controller", thread = thread)
 
-	def error_handling_of_start_controller(self, thread: str):
+	def error_handling_of_start_controller(self, thread: str) -> None:
 		if self.is_thread_none(thread):
 			print(f"{textcolour.yellow}Timer is running. Use .stop() to stop it.{textcolour.reset}")
 		else:
 			print(f"{textcolour.yellow}Timer for thread {thread} is running. Use .stop({thread = }) to stop it.{textcolour.reset}")
 
-	def thread_controller_stop(self, thread: str, stop_time: int):
+	def thread_controller_stop(self, thread: str, stop_time: int) -> None:
 		try:
 			entry_index = self.lookup_index_in_thread_list(thread)
 			if entry_index != None: # If there's a match in existing threads, return values to the stop function and remove the entry.
@@ -85,7 +85,7 @@ class Timer:
 		except Exception:
 			self.print_error_message_for_action(f"in the Timer's stop thread controller", thread = thread)
 
-	def error_handling_of_stop_controller(self, thread: str):
+	def error_handling_of_stop_controller(self, thread: str) -> None:
 		if self.is_thread_none(thread):
 			print(f"{textcolour.yellow}Timer is not running. Use .start() to start it.{textcolour.reset}")
 		else:
@@ -120,7 +120,7 @@ class Timer:
 		except Exception:
 			self.print_error_message_for_action(f"when trying to look up the Timer values for entry index \"{entry_index}\"")
 
-	def add_to_thread_list(self, thread, start_time: int, decimals: int):
+	def add_to_thread_list(self, thread, start_time: int, decimals: int) -> None:
 		try:
 			self.thread_list.append({
 				self._list_key_thread: thread,
@@ -130,7 +130,7 @@ class Timer:
 		except Exception:
 			self.print_error_message_for_action(f"when trying to add entry to the Timer's thread list", thread = thread)
 
-	def remove_from_thread_list(self, entry_index: int):
+	def remove_from_thread_list(self, entry_index: int) -> None:
 		try:
 			self.thread_list.pop(entry_index)
 		except Exception:
@@ -155,5 +155,5 @@ class Timer:
 	def is_thread_none(self, thread: str) -> bool:
 		return True if thread == None or thread == self._none_value else False
 
-	def print_error_message_for_action(self, action: str, thread: str = None):
+	def print_error_message_for_action(self, action: str, thread: str = None) -> None:
 		print(f"{textcolour.yellow}Timer: Something went wrong {action}{'' if self.is_thread_none(thread) else f' for thread {thread}'}.{textcolour.reset}")
