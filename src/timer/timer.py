@@ -2,7 +2,7 @@ import time
 from time_fractions import TimeFractions
 from text_colour import TextColour
 
-textcolour = TextColour()
+colour = TextColour()
 
 class Timer:
 	_none_value = "NONE" # NB: Has to be string and upppercase.
@@ -34,7 +34,7 @@ class Timer:
 
 	def output_message(self, thread: str, elapsed_time: int, decimals: int) -> None:
 		try:
-			text_intro = f"Elapsed time{'' if self.is_thread_none(thread) else f' (thread {textcolour.green}{thread}{textcolour.reset})'}:"
+			text_intro = f"Elapsed time{'' if self.is_thread_none(thread) else f' (thread {colour.green}{thread}{colour.reset})'}:"
 			fractions = TimeFractions(elapsed_time)
 			if fractions.days > 0:
 				print(f"{text_intro} {fractions.days}d {fractions.hours}h {fractions.minutes}m {fractions.seconds_rounded()}s") # Format: 1d 2h 3m 4s
@@ -68,9 +68,9 @@ class Timer:
 
 	def error_handling_of_start_controller(self, thread: str) -> None:
 		if self.is_thread_none(thread):
-			print(f"{textcolour.yellow}Timer is running. Use .stop() to stop it.{textcolour.reset}")
+			print(f"{colour.yellow}Timer is running. Use .stop() to stop it.{colour.reset}")
 		else:
-			print(f"{textcolour.yellow}Timer for thread {thread} is running. Use .stop({thread = }) to stop it.{textcolour.reset}")
+			print(f"{colour.yellow}Timer for thread {thread} is running. Use .stop({thread = }) to stop it.{colour.reset}")
 
 	def thread_controller_stop(self, thread: str, stop_time: int) -> None:
 		try:
@@ -87,9 +87,9 @@ class Timer:
 
 	def error_handling_of_stop_controller(self, thread: str) -> None:
 		if self.is_thread_none(thread):
-			print(f"{textcolour.yellow}Timer is not running. Use .start() to start it.{textcolour.reset}")
+			print(f"{colour.yellow}Timer is not running. Use .start() to start it.{colour.reset}")
 		else:
-			print(f"{textcolour.yellow}Timer for thread {thread} is not running. Use .start({thread = }) to start it.{textcolour.reset}")
+			print(f"{colour.yellow}Timer for thread {thread} is not running. Use .start({thread = }) to start it.{colour.reset}")
 		if len(self.thread_list) > 0:
 			open_threads = [entry.get(self._list_key_thread) for entry in self.thread_list]
 			print(f"Or maybe you aren't stopping the right thread? Currently open threads: {', '.join(open_threads)}")
@@ -139,15 +139,15 @@ class Timer:
 	def verify_decimals(self, decimals: int) -> int:
 		try:
 			if isinstance(decimals, str) == True or decimals == None:
-				print(f"{textcolour.yellow}Timer: Decimals set to default {self._decimals_default} due to invalid input.{textcolour.reset}")
+				print(f"{colour.yellow}Timer: Decimals set to default {self._decimals_default} due to invalid input.{colour.reset}")
 				return self._decimals_default
 			elif decimals > 9:
-				print(f"{textcolour.yellow}Timer: Decimals set to 9 as the Timer doesn't support more than 9 decimals (i.e. nanoseconds).{textcolour.reset}")
+				print(f"{colour.yellow}Timer: Decimals set to 9 as the Timer doesn't support more than 9 decimals (i.e. nanoseconds).{colour.reset}")
 				return 9
 			elif decimals in range(0, 10):
 				return int(decimals)
 			else:
-				print(f"{textcolour.yellow}Timer: Decimals set to default {self._decimals_default} due to invalid input.{textcolour.reset}")
+				print(f"{colour.yellow}Timer: Decimals set to default {self._decimals_default} due to invalid input.{colour.reset}")
 				return self._decimals_default
 		except Exception:
 			self.print_error_message_for_action(f"when trying to verify the Timer's decimals input \"{decimals}\"")
@@ -156,4 +156,4 @@ class Timer:
 		return True if thread == None or thread == self._none_value else False
 
 	def print_error_message_for_action(self, action: str, thread: str = None) -> None:
-		print(f"{textcolour.yellow}Timer: Something went wrong {action}{'' if self.is_thread_none(thread) else f' for thread {thread}'}.{textcolour.reset}")
+		print(f"{colour.yellow}Timer: Something went wrong {action}{'' if self.is_thread_none(thread) else f' for thread {thread}'}.{colour.reset}")
