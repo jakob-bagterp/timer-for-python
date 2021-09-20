@@ -3,7 +3,7 @@ __all__ = ["verify_decimals", "output_message", "colour", "thread"]
 import error
 import helper.colour as colour
 import helper.thread
-from time_fractions import TimeFractions
+from helper.time_fractions import TimeFractions
 
 from constants import Constants
 constants = Constants()

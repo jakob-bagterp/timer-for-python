@@ -1,3 +1,5 @@
+__all__ = ["TimeFractions"]
+
 class TimeFractions:
 	def __init__(self, elapsed_time_ns) -> None: # elapsed_time_ns is in nanoseconds and should be calculated as difference between start and stop time using on the time.perf_counter_ns() function. 
 		_microseconds, _nanoseconds = divmod(elapsed_time_ns, 1000)
