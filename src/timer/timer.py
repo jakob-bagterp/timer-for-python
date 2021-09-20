@@ -1,19 +1,17 @@
 import time
 from time_fractions import TimeFractions
+import thread_helper
+
+from constants import Constants
+constants = Constants()
 
 from text_colour import TextColour
 colour = TextColour()
 
 class Timer:
-	_none_value = "NONE" # NB: Has to be string and upppercase.
-	_list_key_thread = "thread"
-	_list_key_start_time = "start_time"
-	_list_key_decimals = "decimals"
-	_decimals_default = 2
-
-	def __init__(self, decimals: int = _decimals_default) -> None:
+	def __init__(self, decimals: int = constants.decimals.default) -> None:
 		self.thread_list = []
-		self.decimals = decimals if decimals == self._decimals_default else self.verify_decimals(decimals)
+		self.decimals = decimals if decimals == constants.decimals.default else self.verify_decimals(decimals)
 
 	def start(self, thread: str = None, decimals: int = None) -> None:
 		try:
@@ -91,18 +89,18 @@ class Timer:
 		else:
 			print(f"{colour.yellow}Timer for thread {thread} is not running. Use .start({thread = }) to start it.{colour.reset}")
 		if len(self.thread_list) > 0:
-			open_threads = [entry.get(self._list_key_thread) for entry in self.thread_list]
+			open_threads = [entry.get(constants.list_key.thread) for entry in self.thread_list]
 			print(f"Or maybe you aren't stopping the right thread? Currently open threads: {', '.join(open_threads)}")
 
 	def normalise_thread_to_string_and_uppercase(self, thread: str) -> str: # The thread list iterator only supports strings and numbers and not None, hence the renaming to "NONE".
-		return self._none_value if self.is_thread_none(thread) else str(thread).upper()
+		return constants.none_value if self.is_thread_none(thread) else str(thread).upper()
 
 	def lookup_index_in_thread_list(self, thread: str) -> int:
 		try:
 			entry_index = None
 			entry_counter = 0
 			for entry in self.thread_list:
-				if entry.get(self._list_key_thread) == thread: # Check if thread already exists in list. Note that this expects a normalised thread (i.e. string and not None) and already in uppercase so it evaluates as intended.
+				if entry.get(constants.list_key.thread) == thread: # Check if thread already exists in list. Note that this expects a normalised thread (i.e. string and not None) and already in uppercase so it evaluates as intended.
 					entry_index = entry_counter
 					break # Make sure only the first match is returned, yet the main function is not designed to allow input of duplicates.
 				else:
@@ -114,8 +112,8 @@ class Timer:
 	def get_start_time_and_decimals_from_thread_list(self, entry_index: int) -> tuple[int, int]:
 		try:
 			entry = self.thread_list[entry_index]
-			start_time = entry.get(self._list_key_start_time)
-			decimals = entry.get(self._list_key_decimals)
+			start_time = entry.get(constants.list_key.start_time)
+			decimals = entry.get(constants.list_key.decimals)
 			return start_time, decimals
 		except Exception:
 			self.print_error_message_for_action(f"when trying to look up the Timer values for entry index \"{entry_index}\"")
@@ -123,9 +121,9 @@ class Timer:
 	def add_to_thread_list(self, thread, start_time: int, decimals: int) -> None:
 		try:
 			self.thread_list.append({
-				self._list_key_thread: thread,
-				self._list_key_start_time: start_time,
-				self._list_key_decimals: decimals
+				constants.list_key.thread: thread,
+				constants.list_key.start_time: start_time,
+				constants.list_key.decimals: decimals
 			})
 		except Exception:
 			self.print_error_message_for_action(f"when trying to add entry to the Timer's thread list", thread = thread)
@@ -139,16 +137,16 @@ class Timer:
 	def verify_decimals(self, decimals: int) -> int:
 		try:
 			if isinstance(decimals, str) == True or decimals == None:
-				print(f"{colour.yellow}Timer: Decimals set to default {self._decimals_default} due to invalid input.{colour.reset}")
-				return self._decimals_default
+				print(f"{colour.yellow}Timer: Decimals set to default {constants.decimals.default} due to invalid input.{colour.reset}")
+				return constants.decimals.default
 			elif decimals > 9:
 				print(f"{colour.yellow}Timer: Decimals set to 9 as the Timer doesn't support more than 9 decimals (i.e. nanoseconds).{colour.reset}")
 				return 9
 			elif decimals in range(0, 10):
 				return int(decimals)
 			else:
-				print(f"{colour.yellow}Timer: Decimals set to default {self._decimals_default} due to invalid input.{colour.reset}")
-				return self._decimals_default
+				print(f"{colour.yellow}Timer: Decimals set to default {constants.decimals.default} due to invalid input.{colour.reset}")
+				return constants.decimals.default
 		except Exception:
 			self.print_error_message_for_action(f"when trying to verify the Timer's decimals input \"{decimals}\"")
 
