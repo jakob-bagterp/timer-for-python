@@ -1,1 +1,1 @@
-__all__ = ["Timer", "TimeFractions", "TextColour"]
+__all__ = ["Timer", "TimeFractions"]

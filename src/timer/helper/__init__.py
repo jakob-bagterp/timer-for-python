@@ -1,34 +1,32 @@
-__all__ = ["verify_decimals", "output_message", "thread"]
+__all__ = ["verify_decimals", "output_message", "colour", "thread"]
 
 import error
+import helper.colour as colour
 import helper.thread
 from time_fractions import TimeFractions
 
 from constants import Constants
 constants = Constants()
 
-from text_colour import TextColour
-colour = TextColour()
-
 def verify_decimals(decimals: int) -> int:
     try:
         if isinstance(decimals, str) == True or decimals == None:
-            print(f"{colour.yellow}Timer: Decimals set to default {constants.decimals.default} due to invalid input.{colour.reset}")
+            print(f"{colour.yellow()}Timer: Decimals set to default {constants.decimals.default} due to invalid input.{colour.reset()}")
             return constants.decimals.default
         elif decimals > 9:
-            print(f"{colour.yellow}Timer: Decimals set to 9 as the Timer doesn't support more than 9 decimals (i.e. nanoseconds).{colour.reset}")
+            print(f"{colour.yellow()}Timer: Decimals set to 9 as the Timer doesn't support more than 9 decimals (i.e. nanoseconds).{colour.reset()}")
             return 9
         elif decimals in range(0, 10):
             return int(decimals)
         else:
-            print(f"{colour.yellow}Timer: Decimals set to default {constants.decimals.default} due to invalid input.{colour.reset}")
+            print(f"{colour.yellow()}Timer: Decimals set to default {constants.decimals.default} due to invalid input.{colour.reset()}")
             return constants.decimals.default
     except Exception:
         error.message_for_action(f"when trying to verify the Timer's decimals input \"{decimals}\"")
 
 def output_message(thread: str, elapsed_time: int, decimals: int) -> None:
     try:
-        text_intro = f"Elapsed time{'' if helper.thread.is_none(thread) else f' (thread {colour.green}{thread}{colour.reset})'}:"
+        text_intro = f"Elapsed time{'' if helper.thread.is_none(thread) else f' (thread {colour.green()}{thread}{colour.reset()})'}:"
         fractions = TimeFractions(elapsed_time)
         if fractions.days > 0:
             print(f"{text_intro} {fractions.days}d {fractions.hours}h {fractions.minutes}m {fractions.seconds_rounded()}s") # Format: 1d 2h 3m 4s
