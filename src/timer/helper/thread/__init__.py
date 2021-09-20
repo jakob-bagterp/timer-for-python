@@ -1,4 +1,4 @@
-__all__ = ["is_none", "normalise_to_string_and_uppercase"]
+__all__ = ["is_none", "normalise_to_string_and_uppercase", "list"]
 
 from constants import Constants
 constants = Constants()

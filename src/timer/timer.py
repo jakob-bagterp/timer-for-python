@@ -1,5 +1,6 @@
 import time
 import helper.thread
+import helper.thread.list
 import error
 from time_fractions import TimeFractions
 
@@ -57,7 +58,7 @@ class Timer:
 
 	def thread_controller_start(self, thread: str, start_time: int, decimals: int) -> None:
 		try:
-			entry_index = self.lookup_index_in_thread_list(thread)
+			entry_index = helper.thread.list.lookup_index(self, thread)
 			if entry_index == None: # If no match in existing threads, create new entry in the thread list.
 				self.add_to_thread_list(thread, start_time, decimals)
 			else:
@@ -73,7 +74,7 @@ class Timer:
 
 	def thread_controller_stop(self, thread: str, stop_time: int) -> None:
 		try:
-			entry_index = self.lookup_index_in_thread_list(thread)
+			entry_index = helper.thread.list.lookup_index(self, thread)
 			if entry_index != None: # If there's a match in existing threads, return values to the stop function and remove the entry.
 				start_time, decimals = self.get_start_time_and_decimals_from_thread_list(entry_index)
 				elapsed_time = stop_time - start_time
@@ -92,20 +93,6 @@ class Timer:
 		if len(self.thread_list) > 0:
 			open_threads = [entry.get(constants.list_key.thread) for entry in self.thread_list]
 			print(f"Or maybe you aren't stopping the right thread? Currently open threads: {', '.join(open_threads)}")
-
-	def lookup_index_in_thread_list(self, thread: str) -> int:
-		try:
-			entry_index = None
-			entry_counter = 0
-			for entry in self.thread_list:
-				if entry.get(constants.list_key.thread) == thread: # Check if thread already exists in list. Note that this expects a normalised thread (i.e. string and not None) and already in uppercase so it evaluates as intended.
-					entry_index = entry_counter
-					break # Make sure only the first match is returned, yet the main function is not designed to allow input of duplicates.
-				else:
-					entry_counter += 1
-			return entry_index
-		except Exception:
-			error.message_for_action(f"in the Timer's lookup module", thread = thread)
 
 	def get_start_time_and_decimals_from_thread_list(self, entry_index: int) -> tuple[int, int]:
 		try:

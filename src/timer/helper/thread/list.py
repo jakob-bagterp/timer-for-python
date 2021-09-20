@@ -1,0 +1,18 @@
+import error
+
+from constants import Constants
+constants = Constants()
+
+def lookup_index(timer: object, thread: str) -> int:
+    try:
+        entry_index = None
+        entry_counter = 0
+        for entry in timer.thread_list:
+            if entry.get(constants.list_key.thread) == thread: # Check if thread already exists in list. Note that this expects a normalised thread (i.e. string and not None) and already in uppercase so it evaluates as intended.
+                entry_index = entry_counter
+                break # Make sure only the first match is returned, yet the main function is not designed to allow input of duplicates.
+            else:
+                entry_counter += 1
+        return entry_index
+    except Exception:
+        error.message_for_action(f"in the Timer's lookup module", thread = thread)
