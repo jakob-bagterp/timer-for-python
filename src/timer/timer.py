@@ -16,7 +16,7 @@ class Timer:
 	def start(self, thread: str = None, decimals: int = None) -> None:
 		try:
 			start_time = time.perf_counter_ns() # For precision, this is the first operation of the function.
-			thread = self.normalise_thread_to_string_and_uppercase(thread)
+			thread = helper.thread.normalise_to_string_and_uppercase(thread)
 			decimals = self.decimals_controller(decimals)
 			self.thread_controller_start(thread, start_time, decimals)
 		except Exception:
@@ -25,7 +25,7 @@ class Timer:
 	def stop(self, thread: str = None) -> None:
 		try:
 			stop_time = time.perf_counter_ns() # For precision, this is the first operation of the function.
-			thread = self.normalise_thread_to_string_and_uppercase(thread)
+			thread = helper.thread.normalise_to_string_and_uppercase(thread)
 			self.thread_controller_stop(thread, stop_time)
 		except Exception:
 			self.print_error_message_for_action("when trying to stop the Timer", thread = thread)
@@ -91,9 +91,6 @@ class Timer:
 		if len(self.thread_list) > 0:
 			open_threads = [entry.get(constants.list_key.thread) for entry in self.thread_list]
 			print(f"Or maybe you aren't stopping the right thread? Currently open threads: {', '.join(open_threads)}")
-
-	def normalise_thread_to_string_and_uppercase(self, thread: str) -> str: # The thread list iterator only supports strings and numbers and not None, hence the renaming to "NONE".
-		return constants.none_value if helper.thread.is_none(thread) else str(thread).upper()
 
 	def lookup_index_in_thread_list(self, thread: str) -> int:
 		try:
