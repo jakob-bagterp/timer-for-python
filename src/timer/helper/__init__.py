@@ -8,7 +8,7 @@ constants = Constants()
 from text_colour import TextColour
 colour = TextColour()
 
-def verify_decimals(self, decimals: int) -> int:
+def verify_decimals(decimals: int) -> int:
     try:
         if isinstance(decimals, str) == True or decimals == None:
             print(f"{colour.yellow}Timer: Decimals set to default {constants.decimals.default} due to invalid input.{colour.reset}")
