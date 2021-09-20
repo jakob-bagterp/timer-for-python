@@ -21,7 +21,7 @@ class Timer:
 			start_time = time.perf_counter_ns() # For precision, this is the first operation of the function.
 			thread = helper.thread.normalise_to_string_and_uppercase(thread)
 			decimals = controller.decimals(self, decimals)
-			self.thread_controller_start(thread, start_time, decimals)
+			controller.start(self, thread, start_time, decimals)
 		except Exception:
 			error.message_for_action("when trying to start the Timer", thread = thread)
 
@@ -53,22 +53,6 @@ class Timer:
 				print(f"{text_intro} {fractions.nanoseconds} nanoseconds") # Format: 345 nanoseconds
 		except Exception:
 			error.message_for_action(f"in the Timer's output message module", thread = thread)
-
-	def thread_controller_start(self, thread: str, start_time: int, decimals: int) -> None:
-		try:
-			entry_index = helper.thread.list.lookup_index(self, thread)
-			if entry_index == None: # If no match in existing threads, create new entry in the thread list.
-				helper.thread.list.add(self, thread, start_time, decimals)
-			else:
-				self.error_handling_of_start_controller(thread)
-		except Exception:
-			error.message_for_action(f"in the Timer's start thread controller", thread = thread)
-
-	def error_handling_of_start_controller(self, thread: str) -> None:
-		if helper.thread.is_none(thread):
-			print(f"{colour.yellow}Timer is running. Use .stop() to stop it.{colour.reset}")
-		else:
-			print(f"{colour.yellow}Timer for thread {thread} is running. Use .stop({thread = }) to stop it.{colour.reset}")
 
 	def thread_controller_stop(self, thread: str, stop_time: int) -> None:
 		try:
