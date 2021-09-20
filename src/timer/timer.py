@@ -11,7 +11,7 @@ colour = TextColour()
 class Timer:
 	def __init__(self, decimals: int = constants.decimals.default) -> None:
 		self.thread_list = []
-		self.decimals = decimals if decimals == constants.decimals.default else self.verify_decimals(decimals)
+		self.decimals = decimals if decimals == constants.decimals.default else helper.verify_decimals(decimals)
 
 	def start(self, thread: str = None, decimals: int = None) -> None:
 		try:
@@ -52,7 +52,7 @@ class Timer:
 			self.print_error_message_for_action(f"in the Timer's output message module", thread = thread)
 
 	def decimals_controller(self, decimals: str) -> int: # If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated.
-		return self.decimals if decimals == None else self.verify_decimals(decimals)
+		return self.decimals if decimals == None else helper.verify_decimals(decimals)
 
 	def thread_controller_start(self, thread: str, start_time: int, decimals: int) -> None:
 		try:
@@ -130,22 +130,6 @@ class Timer:
 			self.thread_list.pop(entry_index)
 		except Exception:
 			self.print_error_message_for_action(f"when trying to remove entry from the Timer's thread list for entry index \"{entry_index}\"")
-
-	def verify_decimals(self, decimals: int) -> int:
-		try:
-			if isinstance(decimals, str) == True or decimals == None:
-				print(f"{colour.yellow}Timer: Decimals set to default {constants.decimals.default} due to invalid input.{colour.reset}")
-				return constants.decimals.default
-			elif decimals > 9:
-				print(f"{colour.yellow}Timer: Decimals set to 9 as the Timer doesn't support more than 9 decimals (i.e. nanoseconds).{colour.reset}")
-				return 9
-			elif decimals in range(0, 10):
-				return int(decimals)
-			else:
-				print(f"{colour.yellow}Timer: Decimals set to default {constants.decimals.default} due to invalid input.{colour.reset}")
-				return constants.decimals.default
-		except Exception:
-			self.print_error_message_for_action(f"when trying to verify the Timer's decimals input \"{decimals}\"")
 
 	def print_error_message_for_action(self, action: str, thread: str = None) -> None:
 		print(f"{colour.yellow}Timer: Something went wrong {action}{'' if helper.thread.is_none(thread) else f' for thread {thread}'}.{colour.reset}")
