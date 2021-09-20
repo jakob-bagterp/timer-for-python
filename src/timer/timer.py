@@ -1,4 +1,5 @@
 import time
+import controller
 import helper.thread
 import helper.thread.list
 import error
@@ -19,7 +20,7 @@ class Timer:
 		try:
 			start_time = time.perf_counter_ns() # For precision, this is the first operation of the function.
 			thread = helper.thread.normalise_to_string_and_uppercase(thread)
-			decimals = self.decimals_controller(decimals)
+			decimals = controller.decimals(self, decimals)
 			self.thread_controller_start(thread, start_time, decimals)
 		except Exception:
 			error.message_for_action("when trying to start the Timer", thread = thread)
@@ -52,9 +53,6 @@ class Timer:
 				print(f"{text_intro} {fractions.nanoseconds} nanoseconds") # Format: 345 nanoseconds
 		except Exception:
 			error.message_for_action(f"in the Timer's output message module", thread = thread)
-
-	def decimals_controller(self, decimals: str) -> int: # If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated.
-		return self.decimals if decimals == None else helper.verify_decimals(decimals)
 
 	def thread_controller_start(self, thread: str, start_time: int, decimals: int) -> None:
 		try:
