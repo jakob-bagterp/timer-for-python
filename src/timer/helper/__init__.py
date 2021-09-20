@@ -1,5 +1,7 @@
 __all__ = ["verify_decimals", "thread"]
 
+import error
+
 from constants import Constants
 constants = Constants()
 
@@ -20,4 +22,4 @@ def verify_decimals(self, decimals: int) -> int:
             print(f"{colour.yellow}Timer: Decimals set to default {constants.decimals.default} due to invalid input.{colour.reset}")
             return constants.decimals.default
     except Exception:
-        self.print_error_message_for_action(f"when trying to verify the Timer's decimals input \"{decimals}\"")
+        error.message_for_action(f"when trying to verify the Timer's decimals input \"{decimals}\"")

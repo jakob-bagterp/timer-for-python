@@ -1,5 +1,6 @@
 import time
 import helper.thread
+import error
 from time_fractions import TimeFractions
 
 from constants import Constants
@@ -20,7 +21,7 @@ class Timer:
 			decimals = self.decimals_controller(decimals)
 			self.thread_controller_start(thread, start_time, decimals)
 		except Exception:
-			self.print_error_message_for_action("when trying to start the Timer", thread = thread)
+			error.message_for_action("when trying to start the Timer", thread = thread)
 
 	def stop(self, thread: str = None) -> None:
 		try:
@@ -28,7 +29,7 @@ class Timer:
 			thread = helper.thread.normalise_to_string_and_uppercase(thread)
 			self.thread_controller_stop(thread, stop_time)
 		except Exception:
-			self.print_error_message_for_action("when trying to stop the Timer", thread = thread)
+			error.message_for_action("when trying to stop the Timer", thread = thread)
 
 	def output_message(self, thread: str, elapsed_time: int, decimals: int) -> None:
 		try:
@@ -49,7 +50,7 @@ class Timer:
 			else:
 				print(f"{text_intro} {fractions.nanoseconds} nanoseconds") # Format: 345 nanoseconds
 		except Exception:
-			self.print_error_message_for_action(f"in the Timer's output message module", thread = thread)
+			error.message_for_action(f"in the Timer's output message module", thread = thread)
 
 	def decimals_controller(self, decimals: str) -> int: # If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated.
 		return self.decimals if decimals == None else helper.verify_decimals(decimals)
@@ -62,7 +63,7 @@ class Timer:
 			else:
 				self.error_handling_of_start_controller(thread)
 		except Exception:
-			self.print_error_message_for_action(f"in the Timer's start thread controller", thread = thread)
+			error.message_for_action(f"in the Timer's start thread controller", thread = thread)
 
 	def error_handling_of_start_controller(self, thread: str) -> None:
 		if helper.thread.is_none(thread):
@@ -81,7 +82,7 @@ class Timer:
 			else:
 				self.error_handling_of_stop_controller(thread)
 		except Exception:
-			self.print_error_message_for_action(f"in the Timer's stop thread controller", thread = thread)
+			error.message_for_action(f"in the Timer's stop thread controller", thread = thread)
 
 	def error_handling_of_stop_controller(self, thread: str) -> None:
 		if helper.thread.is_none(thread):
@@ -104,7 +105,7 @@ class Timer:
 					entry_counter += 1
 			return entry_index
 		except Exception:
-			self.print_error_message_for_action(f"in the Timer's lookup module", thread = thread)
+			error.message_for_action(f"in the Timer's lookup module", thread = thread)
 
 	def get_start_time_and_decimals_from_thread_list(self, entry_index: int) -> tuple[int, int]:
 		try:
@@ -113,7 +114,7 @@ class Timer:
 			decimals = entry.get(constants.list_key.decimals)
 			return start_time, decimals
 		except Exception:
-			self.print_error_message_for_action(f"when trying to look up the Timer values for entry index \"{entry_index}\"")
+			error.message_for_action(f"when trying to look up the Timer values for entry index \"{entry_index}\"")
 
 	def add_to_thread_list(self, thread, start_time: int, decimals: int) -> None:
 		try:
@@ -123,13 +124,10 @@ class Timer:
 				constants.list_key.decimals: decimals
 			})
 		except Exception:
-			self.print_error_message_for_action(f"when trying to add entry to the Timer's thread list", thread = thread)
+			error.message_for_action(f"when trying to add entry to the Timer's thread list", thread = thread)
 
 	def remove_from_thread_list(self, entry_index: int) -> None:
 		try:
 			self.thread_list.pop(entry_index)
 		except Exception:
-			self.print_error_message_for_action(f"when trying to remove entry from the Timer's thread list for entry index \"{entry_index}\"")
-
-	def print_error_message_for_action(self, action: str, thread: str = None) -> None:
-		print(f"{colour.yellow}Timer: Something went wrong {action}{'' if helper.thread.is_none(thread) else f' for thread {thread}'}.{colour.reset}")
+			error.message_for_action(f"when trying to remove entry from the Timer's thread list for entry index \"{entry_index}\"")
