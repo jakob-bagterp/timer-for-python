@@ -76,7 +76,7 @@ class Timer:
 		try:
 			entry_index = helper.thread.list.lookup_index(self, thread)
 			if entry_index != None: # If there's a match in existing threads, return values to the stop function and remove the entry.
-				start_time, decimals = self.get_start_time_and_decimals_from_thread_list(entry_index)
+				start_time, decimals = helper.thread.list.get_start_time_and_decimals(self, entry_index)
 				elapsed_time = stop_time - start_time
 				self.remove_from_thread_list(entry_index)
 				self.output_message(thread, elapsed_time, decimals)
@@ -93,15 +93,6 @@ class Timer:
 		if len(self.thread_list) > 0:
 			open_threads = [entry.get(constants.list_key.thread) for entry in self.thread_list]
 			print(f"Or maybe you aren't stopping the right thread? Currently open threads: {', '.join(open_threads)}")
-
-	def get_start_time_and_decimals_from_thread_list(self, entry_index: int) -> tuple[int, int]:
-		try:
-			entry = self.thread_list[entry_index]
-			start_time = entry.get(constants.list_key.start_time)
-			decimals = entry.get(constants.list_key.decimals)
-			return start_time, decimals
-		except Exception:
-			error.message_for_action(f"when trying to look up the Timer values for entry index \"{entry_index}\"")
 
 	def add_to_thread_list(self, thread, start_time: int, decimals: int) -> None:
 		try:

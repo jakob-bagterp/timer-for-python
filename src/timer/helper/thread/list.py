@@ -16,3 +16,12 @@ def lookup_index(timer: object, thread: str) -> int:
         return entry_index
     except Exception:
         error.message_for_action(f"in the Timer's lookup module", thread = thread)
+
+def get_start_time_and_decimals(timer: object, entry_index: int) -> tuple[int, int]:
+    try:
+        entry = timer.thread_list[entry_index]
+        start_time = entry.get(constants.list_key.start_time)
+        decimals = entry.get(constants.list_key.decimals)
+        return start_time, decimals
+    except Exception:
+        error.message_for_action(f"when trying to look up the Timer values for entry index \"{entry_index}\"")
