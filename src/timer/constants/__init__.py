@@ -1,17 +1,4 @@
-__all__ = ["Constants"]
+__all__ = ["none_value", "decimals", "list_key"]
 
-class Decimals:
-    def __init__(self) -> None:
-        self.default = 2
-
-class ListKey:
-    def __init__(self) -> None:
-        self.thread = "thread"
-        self.start_time = "start_time"
-        self.decimals = "decimals"
-
-class Constants:
-    def __init__(self) -> None:
-        self.none_value = "NONE" # NB: Has to be string and upppercase.
-        self.list_key = ListKey()
-        self.decimals = Decimals()
+def none_value() -> str:
+    return "NONE" # NB: Has to be string and upppercase.
