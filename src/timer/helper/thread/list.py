@@ -25,3 +25,13 @@ def get_start_time_and_decimals(timer: object, entry_index: int) -> tuple[int, i
         return start_time, decimals
     except Exception:
         error.message_for_action(f"when trying to look up the Timer values for entry index \"{entry_index}\"")
+
+def add(timer: object, thread, start_time: int, decimals: int) -> None:
+    try:
+        timer.thread_list.append({
+            constants.list_key.thread: thread,
+            constants.list_key.start_time: start_time,
+            constants.list_key.decimals: decimals
+        })
+    except Exception:
+        error.message_for_action(f"when trying to add entry to the Timer's thread list", thread = thread)

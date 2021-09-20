@@ -60,7 +60,7 @@ class Timer:
 		try:
 			entry_index = helper.thread.list.lookup_index(self, thread)
 			if entry_index == None: # If no match in existing threads, create new entry in the thread list.
-				self.add_to_thread_list(thread, start_time, decimals)
+				helper.thread.list.add(self, thread, start_time, decimals)
 			else:
 				self.error_handling_of_start_controller(thread)
 		except Exception:
@@ -93,16 +93,6 @@ class Timer:
 		if len(self.thread_list) > 0:
 			open_threads = [entry.get(constants.list_key.thread) for entry in self.thread_list]
 			print(f"Or maybe you aren't stopping the right thread? Currently open threads: {', '.join(open_threads)}")
-
-	def add_to_thread_list(self, thread, start_time: int, decimals: int) -> None:
-		try:
-			self.thread_list.append({
-				constants.list_key.thread: thread,
-				constants.list_key.start_time: start_time,
-				constants.list_key.decimals: decimals
-			})
-		except Exception:
-			error.message_for_action(f"when trying to add entry to the Timer's thread list", thread = thread)
 
 	def remove_from_thread_list(self, entry_index: int) -> None:
 		try:
