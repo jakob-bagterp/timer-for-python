@@ -1,7 +1,7 @@
 import time
 from time_fractions import TimeFractions
-from text_colour import TextColour
 
+from text_colour import TextColour
 colour = TextColour()
 
 class Timer:
