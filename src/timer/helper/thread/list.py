@@ -35,3 +35,9 @@ def add(timer: object, thread, start_time: int, decimals: int) -> None:
         })
     except Exception:
         error.message_for_action(f"when trying to add entry to the Timer's thread list", thread = thread)
+
+def remove(timer: object, entry_index: int) -> None:
+    try:
+        timer.thread_list.pop(entry_index)
+    except Exception:
+        error.message_for_action(f"when trying to remove entry from the Timer's thread list for entry index \"{entry_index}\"")

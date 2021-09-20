@@ -78,7 +78,7 @@ class Timer:
 			if entry_index != None: # If there's a match in existing threads, return values to the stop function and remove the entry.
 				start_time, decimals = helper.thread.list.get_start_time_and_decimals(self, entry_index)
 				elapsed_time = stop_time - start_time
-				self.remove_from_thread_list(entry_index)
+				helper.thread.list.remove(self, entry_index)
 				self.output_message(thread, elapsed_time, decimals)
 			else:
 				self.error_handling_of_stop_controller(thread)
@@ -93,9 +93,3 @@ class Timer:
 		if len(self.thread_list) > 0:
 			open_threads = [entry.get(constants.list_key.thread) for entry in self.thread_list]
 			print(f"Or maybe you aren't stopping the right thread? Currently open threads: {', '.join(open_threads)}")
-
-	def remove_from_thread_list(self, entry_index: int) -> None:
-		try:
-			self.thread_list.pop(entry_index)
-		except Exception:
-			error.message_for_action(f"when trying to remove entry from the Timer's thread list for entry index \"{entry_index}\"")
