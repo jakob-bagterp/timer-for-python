@@ -1,6 +1,6 @@
 import time
+import helper.thread
 from time_fractions import TimeFractions
-import thread_helper
 
 from constants import Constants
 constants = Constants()
@@ -32,7 +32,7 @@ class Timer:
 
 	def output_message(self, thread: str, elapsed_time: int, decimals: int) -> None:
 		try:
-			text_intro = f"Elapsed time{'' if self.is_thread_none(thread) else f' (thread {colour.green}{thread}{colour.reset})'}:"
+			text_intro = f"Elapsed time{'' if helper.thread.is_none(thread) else f' (thread {colour.green}{thread}{colour.reset})'}:"
 			fractions = TimeFractions(elapsed_time)
 			if fractions.days > 0:
 				print(f"{text_intro} {fractions.days}d {fractions.hours}h {fractions.minutes}m {fractions.seconds_rounded()}s") # Format: 1d 2h 3m 4s
@@ -65,7 +65,7 @@ class Timer:
 			self.print_error_message_for_action(f"in the Timer's start thread controller", thread = thread)
 
 	def error_handling_of_start_controller(self, thread: str) -> None:
-		if self.is_thread_none(thread):
+		if helper.thread.is_none(thread):
 			print(f"{colour.yellow}Timer is running. Use .stop() to stop it.{colour.reset}")
 		else:
 			print(f"{colour.yellow}Timer for thread {thread} is running. Use .stop({thread = }) to stop it.{colour.reset}")
@@ -84,7 +84,7 @@ class Timer:
 			self.print_error_message_for_action(f"in the Timer's stop thread controller", thread = thread)
 
 	def error_handling_of_stop_controller(self, thread: str) -> None:
-		if self.is_thread_none(thread):
+		if helper.thread.is_none(thread):
 			print(f"{colour.yellow}Timer is not running. Use .start() to start it.{colour.reset}")
 		else:
 			print(f"{colour.yellow}Timer for thread {thread} is not running. Use .start({thread = }) to start it.{colour.reset}")
@@ -93,7 +93,7 @@ class Timer:
 			print(f"Or maybe you aren't stopping the right thread? Currently open threads: {', '.join(open_threads)}")
 
 	def normalise_thread_to_string_and_uppercase(self, thread: str) -> str: # The thread list iterator only supports strings and numbers and not None, hence the renaming to "NONE".
-		return constants.none_value if self.is_thread_none(thread) else str(thread).upper()
+		return constants.none_value if helper.thread.is_none(thread) else str(thread).upper()
 
 	def lookup_index_in_thread_list(self, thread: str) -> int:
 		try:
@@ -150,8 +150,5 @@ class Timer:
 		except Exception:
 			self.print_error_message_for_action(f"when trying to verify the Timer's decimals input \"{decimals}\"")
 
-	def is_thread_none(self, thread: str) -> bool:
-		return True if thread == None or thread == self._none_value else False
-
 	def print_error_message_for_action(self, action: str, thread: str = None) -> None:
-		print(f"{colour.yellow}Timer: Something went wrong {action}{'' if self.is_thread_none(thread) else f' for thread {thread}'}.{colour.reset}")
+		print(f"{colour.yellow}Timer: Something went wrong {action}{'' if helper.thread.is_none(thread) else f' for thread {thread}'}.{colour.reset}")
