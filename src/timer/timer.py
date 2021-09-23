@@ -1,8 +1,8 @@
-import time
 import constants.decimals
 import controller
-import helper.thread
 import error
+import helper.thread
+import time
 
 class Timer:
 	def __init__(self, decimals: int = constants.decimals.default()) -> None:
