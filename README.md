@@ -49,7 +49,7 @@ timer.stop() # Output example: 0.12345 seconds
 ```
 
 #### Multiple Threads
-Imagine that you want to troubleshoot which parts of your code are performing better or worse? Or you want to split-test the performance of different methods? Timer for Python is a quick, easy way to get the job done.
+Imagine that you want to troubleshoot which parts of your code are performing better or worse? Or you want to split test the performance of different methods? Timer for Python is a quick, easy way to get the job done.
 
 To measure performance of multiple blocks of code, use the `thread` argument to split the Timer instances:
 
@@ -105,7 +105,7 @@ Default value for `decimals` is `2`. The range is minimum `0` (for no decimals) 
 ### Humanised Output
 Timer for Python supports time measurement from nanoseconds to days.
 
-But. If the Timer runs for several minutes, it doesn't make sense to display display the output time in milliseconds. And similarly if it runs for hours, it doesn't make sense to display the output time in seconds.
+But. If the Timer runs for several minutes, it doesn't make sense to display the output time in milliseconds. And similarly if it runs for hours, it doesn't make sense to display the output time in seconds.
 
 Therefore, the output is "humanised" so it's easier to read. Examples:
 
