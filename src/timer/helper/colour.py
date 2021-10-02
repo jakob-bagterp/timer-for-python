@@ -1,5 +1,3 @@
-__all__ = ["green", "yellow", "red", "reset"]
-
 def green() -> str:
     return "\033[92m"
 
