@@ -5,6 +5,13 @@ import helper.thread
 import time
 
 class Timer:
+	_instance = None
+
+	def __new__(cls, *args, **kwargs) -> object:
+		if not cls._instance:
+			cls._instance = object.__new__(cls, *args, **kwargs)
+		return cls._instance
+
 	def __init__(self, decimals: int = constants.decimals.default()) -> None:
 		self.thread_list = []
 		self.decimals = decimals if decimals == constants.decimals.default() else helper.verify_decimals(decimals)
