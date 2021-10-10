@@ -3,4 +3,8 @@ include pyproject.toml
 include README.md
 include setup.cfg
 
-recursive-include src *
+graft src
+
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store
