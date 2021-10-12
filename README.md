@@ -4,7 +4,7 @@ Timer for Python makes it easy for beginners and experts to measure how much tim
 ## Prerequisites
 * Python 3.8 or higher
 * macOS
-	* It may work on Windows or Linux, but hasn't been tested
+    * It may work on Windows or Linux, but hasn't been tested
 
 ## Installation
 ### PyPI
@@ -59,11 +59,11 @@ timer.start(thread = "A")
 
 # Insert your code here
 
-	timer.start(thread = "B", decimals = 5)
+    timer.start(thread = "B", decimals = 5)
 
-	# Insert more code here
+    # Insert more code here
 
-	timer.stop(thread = "B") # Output example: 0.12345 seconds for thread B
+    timer.stop(thread = "B") # Output example: 0.12345 seconds for thread B
 
 # Insert even more code here
 
