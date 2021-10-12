@@ -9,8 +9,8 @@ def has_build_directory() -> bool:
 
 def prune_all_files_from_build_directory() -> None:
     if has_build_directory():
-        files = glob.glob(f"{_build_directory}/*")
-        for file in files:            
+        all_build_files = glob.glob(f"{_build_directory}/*")
+        for file in all_build_files:            
             os.remove(file)
 
 def build_package() -> None:
