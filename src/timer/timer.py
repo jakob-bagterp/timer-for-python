@@ -4,6 +4,7 @@ import error
 import helper
 import helper.thread
 import time
+from models import *
 
 class Timer:
 	_instance = None
@@ -14,8 +15,8 @@ class Timer:
 		return cls._instance
 
 	def __init__(self, decimals: int = constants.decimals.default()) -> None:
-		self.thread_list = []
-		self.decimals = decimals if decimals == constants.decimals.default() else helper.verify_decimals(decimals)
+		self.thread_list: list[Thread] = []
+		self.decimals: int = decimals if decimals == constants.decimals.default() else helper.verify_decimals(decimals)
 
 	def start(self, thread: str = None, decimals: int = None) -> None:
 		try:
