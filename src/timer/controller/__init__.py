@@ -22,10 +22,10 @@ def stop(timer: object, thread: str, stop_time: int) -> None:
         thread = helper.thread.normalise_to_string_and_uppercase(thread)
         entry_index = helper.thread.list.lookup_index(timer, thread)
         if entry_index != None: # If there's a match in existing threads, return values to the stop function and remove the entry.
-            start_time, decimals = helper.thread.list.get_start_time_and_decimals(timer, entry_index)
-            elapsed_time = stop_time - start_time
+            thread_item = helper.thread.list.get_thread_item(timer, entry_index)
+            elapsed_time = stop_time - thread_item.start_time
             helper.thread.list.remove(timer, entry_index)
-            helper.output_message(thread, elapsed_time, decimals)
+            helper.output_message(thread, elapsed_time, thread_item.decimals)
         else:
             error.stop_controller(timer, thread)
     except Exception:
