@@ -22,6 +22,7 @@ def start(timer: object, thread: str, start_time: int, decimals: int) -> None:
 
 def stop(timer: object, thread: str, stop_time: int) -> None:
     try:
+        thread = helper.thread.normalise_to_string_and_uppercase(thread)
         entry_index = helper.thread.list.lookup_index(timer, thread)
         if entry_index != None: # If there's a match in existing threads, return values to the stop function and remove the entry.
             start_time, decimals = helper.thread.list.get_start_time_and_decimals(timer, entry_index)
