@@ -7,7 +7,7 @@ import helper.thread
 from helper.time_fractions import TimeFractions
 
 def mediate_decimals(timer: object, decimals: int) -> int: # If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated.
-    return timer.decimals if decimals == None else helper.verify_decimals(decimals)
+    return timer.decimals if decimals == None else verify_decimals(decimals)
 
 def verify_decimals(decimals: int) -> int:
     try:
