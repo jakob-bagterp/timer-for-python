@@ -1,6 +1,5 @@
 __all__ = ["start_controller", "stop_controller", "message_for_action"]
 
-import constants.list_key
 import helper.colour as colour
 import helper.thread
 
@@ -16,7 +15,7 @@ def stop_controller(timer: object, thread: str) -> None:
     else:
         print(f"{colour.yellow()}Timer for thread {thread} is not running. Use .start({thread = }) to start it.{colour.reset()}")
     if len(timer.threads) > 0:
-        open_threads = [entry.get(constants.list_key.thread()) for entry in timer.threads]
+        open_threads = [thread_item.name for thread_item in timer.threads]
         print(f"Or maybe you aren't stopping the right thread? Currently open threads: {', '.join(open_threads)}")
 
 def message_for_action(action: str, thread: str = None) -> None:

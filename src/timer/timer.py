@@ -4,7 +4,7 @@ import error
 import helper.decimals
 import helper.thread
 import time
-from timer.models import ThreadItem
+from model import ThreadItem
 
 class Timer:
 	_instance = None
