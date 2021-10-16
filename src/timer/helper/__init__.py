@@ -7,9 +7,9 @@ import helper.thread
 from helper.time_fractions import TimeFractions
 
 def mediate_decimals(timer: object, decimals: int) -> int: # If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated.
-    return timer.decimals if decimals == None else verify_decimals(decimals)
+    return timer.decimals if decimals == None else validate_and_normalise_decimals(decimals)
 
-def verify_decimals(decimals: int) -> int:
+def validate_and_normalise_decimals(decimals: int) -> int:
     try:
         if isinstance(decimals, str) == True or decimals == None:
             print(f"{colour.yellow()}Timer: Decimals set to default {constants.decimals.default()} due to invalid input.{colour.reset()}")
