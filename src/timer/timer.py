@@ -20,8 +20,6 @@ class Timer:
 	def start(self, thread: str = None, decimals: int = None) -> None:
 		try:
 			start_time = time.perf_counter_ns() # For precision, this is the first operation of the function.
-			thread = helper.thread.normalise_to_string_and_uppercase(thread)
-			decimals = controller.decimals(self, decimals)
 			controller.start(self, thread, start_time, decimals)
 		except Exception:
 			error.message_for_action("when trying to start the Timer", thread = thread)
