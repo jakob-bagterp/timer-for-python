@@ -1,4 +1,4 @@
-__all__ = ["colour", "time_fractions", "thread"]
+__all__ = ["colour", "time_fractions", "thread", "output_message", "verify_decimals"]
 
 import constants.decimals
 import error
