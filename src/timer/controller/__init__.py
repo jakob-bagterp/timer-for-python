@@ -1,16 +1,16 @@
-__all__ = ["decimals", "start", "stop"]
+__all__ = ["update_decimals", "start", "stop"]
 
 import error
-import helper
+import helper.decimals
+import helper.thread
 import helper.thread.list
-
-def decimals(timer: object, decimals: int) -> int: # If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated.
-    return timer.decimals if decimals == None else helper.verify_decimals(decimals)
 
 def start(timer: object, thread: str, start_time: int, decimals: int) -> None:
     try:
+        thread = helper.thread.normalise_to_string_and_uppercase(thread)
+        decimals = helper.decimals.mediate(timer, decimals)
         entry_index = helper.thread.list.lookup_index(timer, thread)
-        if entry_index == None: # If no match in existing threads, create new entry in the thread list.
+        if entry_index is None: # If no match in existing threads, create new entry in the thread list.
             helper.thread.list.add(timer, thread, start_time, decimals)
         else:
             error.start_controller(thread)
@@ -19,12 +19,13 @@ def start(timer: object, thread: str, start_time: int, decimals: int) -> None:
 
 def stop(timer: object, thread: str, stop_time: int) -> None:
     try:
+        thread = helper.thread.normalise_to_string_and_uppercase(thread)
         entry_index = helper.thread.list.lookup_index(timer, thread)
-        if entry_index != None: # If there's a match in existing threads, return values to the stop function and remove the entry.
-            start_time, decimals = helper.thread.list.get_start_time_and_decimals(timer, entry_index)
-            elapsed_time = stop_time - start_time
+        if entry_index is not None: # If there's a match in existing threads, return values to the stop function and remove the entry.
+            thread_item = helper.thread.list.get_thread_item(timer, entry_index)
+            elapsed_time = stop_time - thread_item.start_time
             helper.thread.list.remove(timer, entry_index)
-            helper.output_message(thread, elapsed_time, decimals)
+            helper.output_message(thread, elapsed_time, thread_item.decimals)
         else:
             error.stop_controller(timer, thread)
     except Exception:

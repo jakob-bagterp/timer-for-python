@@ -1,26 +1,9 @@
-__all__ = ["colour", "time_fractions", "thread"]
+__all__ = ["colour", "decimals", "time_fractions", "thread", "output_message"]
 
-import constants.decimals
 import error
 import helper.colour as colour
 import helper.thread
 from helper.time_fractions import TimeFractions
-
-def verify_decimals(decimals: int) -> int:
-    try:
-        if isinstance(decimals, str) == True or decimals == None:
-            print(f"{colour.yellow()}Timer: Decimals set to default {constants.decimals.default()} due to invalid input.{colour.reset()}")
-            return constants.decimals.default()
-        elif decimals > 9:
-            print(f"{colour.yellow()}Timer: Decimals set to 9 as the Timer doesn't support more than 9 decimals (i.e. nanoseconds).{colour.reset()}")
-            return 9
-        elif decimals in range(0, 10):
-            return int(decimals)
-        else:
-            print(f"{colour.yellow()}Timer: Decimals set to default {constants.decimals.default()} due to invalid input.{colour.reset()}")
-            return constants.decimals.default()
-    except Exception:
-        error.message_for_action(f"when trying to verify the Timer's decimals input \"{decimals}\"")
 
 def output_message(thread: str, elapsed_time: int, decimals: int) -> None:
     try:
