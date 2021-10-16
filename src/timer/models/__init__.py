@@ -1,4 +1,4 @@
-__all__ = ["Thread"]
+__all__ = ["ThreadItem"]
 
 from dataclasses import dataclass
 
