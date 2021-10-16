@@ -1,3 +1,5 @@
+__all__ = ["ThreadItem"]
+
 from dataclasses import dataclass
 
 @dataclass(frozen = True)
