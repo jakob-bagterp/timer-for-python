@@ -1,7 +1,7 @@
 import constants.decimals
 import controller
 import error
-import helper
+import helper.decimals
 import helper.thread
 import time
 
@@ -15,7 +15,7 @@ class Timer:
 
 	def __init__(self, decimals: int = constants.decimals.default()) -> None:
 		self.thread_list = []
-		self.decimals = decimals if decimals == constants.decimals.default() else helper.verify_decimals(decimals)
+		self.decimals = decimals if decimals == constants.decimals.default() else helper.decimals.validate_and_normalise(decimals)
 
 	def start(self, thread: str = None, decimals: int = None) -> None:
 		try:
