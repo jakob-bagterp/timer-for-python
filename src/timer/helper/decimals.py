@@ -3,11 +3,11 @@ import helper.colour as colour
 import error
 
 def mediate(timer: object, decimals: int) -> int: # If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated.
-    return timer.decimals if decimals == None else validate_and_normalise(decimals)
+    return timer.decimals if decimals is None else validate_and_normalise(decimals)
 
 def validate_and_normalise(decimals: int) -> int:
     try:
-        if isinstance(decimals, str) == True or decimals == None:
+        if isinstance(decimals, str) == True or decimals is None:
             print(f"{colour.yellow()}Timer: Decimals set to default {constants.decimals.default()} due to invalid input.{colour.reset()}")
             return constants.decimals.default()
         elif decimals > 9:

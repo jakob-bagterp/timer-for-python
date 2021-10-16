@@ -10,7 +10,7 @@ def start(timer: object, thread: str, start_time: int, decimals: int) -> None:
         thread = helper.thread.normalise_to_string_and_uppercase(thread)
         decimals = helper.decimals.mediate(timer, decimals)
         entry_index = helper.thread.list.lookup_index(timer, thread)
-        if entry_index == None: # If no match in existing threads, create new entry in the thread list.
+        if entry_index is None: # If no match in existing threads, create new entry in the thread list.
             helper.thread.list.add(timer, thread, start_time, decimals)
         else:
             error.start_controller(thread)
@@ -21,7 +21,7 @@ def stop(timer: object, thread: str, stop_time: int) -> None:
     try:
         thread = helper.thread.normalise_to_string_and_uppercase(thread)
         entry_index = helper.thread.list.lookup_index(timer, thread)
-        if entry_index != None: # If there's a match in existing threads, return values to the stop function and remove the entry.
+        if entry_index is not None: # If there's a match in existing threads, return values to the stop function and remove the entry.
             thread_item = helper.thread.list.get_thread_item(timer, entry_index)
             elapsed_time = stop_time - thread_item.start_time
             helper.thread.list.remove(timer, entry_index)
