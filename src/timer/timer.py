@@ -8,8 +8,8 @@ import time
 class Timer:
 	_instance = None
 
-	def __new__(cls, *args, **kwargs) -> object: # Singleton: Ensure there's only a single instance of Timer running.
-		if not cls._instance:
+	def __new__(cls, *args, **kwargs) -> object:
+		if not cls._instance: # Singleton: Ensure there's only a single instance of Timer running.
 			cls._instance = object.__new__(cls, *args, **kwargs)
 		return cls._instance
 
