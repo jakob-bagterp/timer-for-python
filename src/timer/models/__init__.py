@@ -3,7 +3,7 @@ __all__ = ["Thread"]
 from dataclasses import dataclass
 
 @dataclass(frozen = True)
-class Thread:
+class ThreadItem:
     """Class to define a thread's name, start time, and decimals"""
 
     name: str
