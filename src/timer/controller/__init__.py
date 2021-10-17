@@ -5,6 +5,7 @@ import helper
 import helper.decimals
 import helper.thread
 import helper.thread.list
+from helper.time_fractions import TimeFractions
 
 def start(timer: object, thread: str, start_time: int, decimals: int) -> None:
     try:
@@ -25,7 +26,8 @@ def stop(timer: object, thread: str, stop_time: int) -> None:
         if thread_item is not None: # If there's a match in existing threads, return values to the stop function and remove the entry.
             helper.thread.list.remove(timer, entry_index)
             elapsed_time = stop_time - thread_item.start_time
-            helper.output_message(thread, elapsed_time, thread_item.decimals)
+            time_fractions = TimeFractions(elapsed_time)
+            helper.output_message(thread, time_fractions, thread_item.decimals)
         else:
             error.stop_controller(timer, thread)
     except Exception:
