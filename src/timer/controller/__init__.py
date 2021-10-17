@@ -1,16 +1,19 @@
 __all__ = ["start", "stop"]
 
 import error
+import helper
 import helper.decimals
+import helper.output
 import helper.thread
 import helper.thread.list
+from helper.time_fractions import TimeFractions
 
 def start(timer: object, thread: str, start_time: int, decimals: int) -> None:
     try:
         thread = helper.thread.normalise_to_string_and_uppercase(thread)
         decimals = helper.decimals.mediate(timer, decimals)
-        entry_index = helper.thread.list.lookup_index(timer, thread)
-        if entry_index is None: # If no match in existing threads, create new entry in the thread list.
+        thread_item, _ = helper.thread.list.try_get_thread_item_and_index(timer, thread)
+        if thread_item is None: # If no match in existing threads, create new entry in the thread list.
             helper.thread.list.add(timer, thread, start_time, decimals)
         else:
             error.start_controller(thread)
@@ -20,12 +23,12 @@ def start(timer: object, thread: str, start_time: int, decimals: int) -> None:
 def stop(timer: object, thread: str, stop_time: int) -> None:
     try:
         thread = helper.thread.normalise_to_string_and_uppercase(thread)
-        entry_index = helper.thread.list.lookup_index(timer, thread)
-        if entry_index is not None: # If there's a match in existing threads, return values to the stop function and remove the entry.
-            thread_item = helper.thread.list.get_thread_item(timer, entry_index)
-            elapsed_time = stop_time - thread_item.start_time
+        thread_item, entry_index = helper.thread.list.try_get_thread_item_and_index(timer, thread)
+        if thread_item is not None: # If there's a match in existing threads, return values to the stop function and remove the entry.
             helper.thread.list.remove(timer, entry_index)
-            helper.output_message(thread, elapsed_time, thread_item.decimals)
+            elapsed_time = stop_time - thread_item.start_time
+            time_fractions = TimeFractions(elapsed_time)
+            helper.output.message(thread, time_fractions, thread_item.decimals)
         else:
             error.stop_controller(timer, thread)
     except Exception:
