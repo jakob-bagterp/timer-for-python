@@ -3,6 +3,7 @@ __all__ = ["start", "stop"]
 import error
 import helper
 import helper.decimals
+import helper.output
 import helper.thread
 import helper.thread.list
 from helper.time_fractions import TimeFractions
@@ -27,7 +28,7 @@ def stop(timer: object, thread: str, stop_time: int) -> None:
             helper.thread.list.remove(timer, entry_index)
             elapsed_time = stop_time - thread_item.start_time
             time_fractions = TimeFractions(elapsed_time)
-            helper.output_message(thread, time_fractions, thread_item.decimals)
+            helper.output.message(thread, time_fractions, thread_item.decimals)
         else:
             error.stop_controller(timer, thread)
     except Exception:
