@@ -16,7 +16,7 @@ class ElapsedTimeFractions:
 
     nanoseconds: int
     microseconds: int
-    microseconds: int
+    milliseconds: int
     seconds: int
     minutes: int
     hours: int
