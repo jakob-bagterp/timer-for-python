@@ -9,3 +9,15 @@ class ThreadItem:
     name: str
     start_time: str
     decimals: int
+
+@dataclass(frozen = True)
+class ElapsedTimeFractions:
+    """Class to define fractions of elapsed time"""
+
+    nanoseconds: int
+    microseconds: int
+    microseconds: int
+    seconds: int
+    minutes: int
+    hours: int
+    days: int
