@@ -1,5 +1,5 @@
 import error
-from model import ThreadItem
+from model.thread_item import ThreadItem
 
 def try_get_thread_item_and_index(timer: object, thread: str) -> tuple[ThreadItem, int]:
     try:
