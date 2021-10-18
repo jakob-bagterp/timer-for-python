@@ -1,4 +1,4 @@
-__all__ = ["ThreadItem"]
+__all__ = ["ThreadItem", "ElapsedTimeFractions"]
 
 from dataclasses import dataclass
 
