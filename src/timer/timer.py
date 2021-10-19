@@ -1,10 +1,9 @@
-import constants.decimals
-import controller
-import error
-import helper.decimals
-import helper.thread
 import time
-from model.thread_item import ThreadItem
+from . import constants
+from . import controller
+from . import error
+from . import helper
+from .model.thread_item import ThreadItem
 
 class Timer:
 	_instance = None

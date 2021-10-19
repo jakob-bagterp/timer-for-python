@@ -1,7 +1,7 @@
 __all__ = ["start_controller", "stop_controller", "message_for_action"]
 
-import helper.colour as colour
-import helper.thread
+from .. import helper
+from ..helper import colour
 
 def start_controller(thread: str) -> None:
     if helper.thread.is_none(thread):

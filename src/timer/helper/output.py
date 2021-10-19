@@ -1,7 +1,7 @@
-import error
-import helper.colour as colour
-import helper.thread
-from helper.time_fractions import TimeFractions
+from .. import error
+from . import colour
+from .. import helper
+from ..helper.time_fractions import TimeFractions
 
 def message(thread: str, fractions: TimeFractions, decimals: int) -> None:
     try:

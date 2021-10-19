@@ -1,6 +1,8 @@
 __all__ = ["is_none", "normalise_to_string_and_uppercase", "list"]
 
-import constants
+from . import list
+
+from ... import constants
 
 def is_none(thread: str) -> bool:
     return True if thread is None or thread == "NONE" else False # NB: Has to be string and upppercase.

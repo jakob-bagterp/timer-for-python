@@ -1,12 +1,8 @@
 __all__ = ["start", "stop"]
 
-import error
-import helper
-import helper.decimals
-import helper.output
-import helper.thread
-import helper.thread.list
-from helper.time_fractions import TimeFractions
+from .. import error
+from .. import helper
+from ..helper.time_fractions import TimeFractions
 
 def start(timer: object, thread: str, start_time: int, decimals: int) -> None:
     try:

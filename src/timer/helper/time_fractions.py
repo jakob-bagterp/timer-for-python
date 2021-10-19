@@ -1,4 +1,4 @@
-from model.elapsed_time_fractions import ElapsedTimeFractions
+from ..model.elapsed_time_fractions import ElapsedTimeFractions
 
 def calculate_time_fractions(elapsed_time_ns: int) -> ElapsedTimeFractions: # Elapsed time is in nanoseconds and should be calculated as difference between start and stop time using on the time.perf_counter_ns() function. 
 	microseconds, nanoseconds = divmod(elapsed_time_ns, 1000)

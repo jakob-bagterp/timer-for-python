@@ -1,6 +1,6 @@
-import constants.decimals
-import helper.colour as colour
-import error
+from .. import constants
+from . import colour
+from .. import error
 
 def mediate(timer: object, decimals: int) -> int: # If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated.
     return timer.decimals if decimals is None else validate_and_normalise(decimals)
