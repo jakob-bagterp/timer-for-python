@@ -9,7 +9,7 @@ Timer for Python makes it easy for beginners and experts to measure how much tim
 ## Installation
 ### PyPI
 ```shell
-pip install timer-for-python
+pip3 install timer-for-python
 ```
 
 ### Homebrew
