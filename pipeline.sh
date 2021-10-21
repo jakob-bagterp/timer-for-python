@@ -1,10 +1,31 @@
 #!/bin/bash
 
+PROD="prod"
+TEST="test"
+
+if [ $1 == $PROD ]; then
+    TARGET=$PROD
+elif [ $1 == $TEST ]; then
+    TARGET=$TEST
+else
+    echo "Argument \"$1\" is invalid."
+    echo "Use valid arguments instead:"
+    echo "Use \"bash pipeline.sh $PROD\" to run build pipeline for PRODUCTION."
+    echo "Use \"bash pipeline.sh $TEST\" to run build pipeline for TEST."
+    exit 1
+fi
+
 python3 build_package.py
 echo ""
 
-python3 deploy_package.py
-#python3 deploy_test_package.py
+if [ $TARGET == $PROD ]; then
+    python3 deploy_package.py
+elif [ $TARGET == $TEST ]; then
+    python3 deploy_test_package.py
+else
+    echo "Something went wrong. Try again."
+    exit 1
+fi
 echo ""
 
 pip3 uninstall timer-for-python
@@ -20,5 +41,12 @@ for i in {10..1}; do
     sleep 1s
 done
 
-pip3 install timer-for-python
-#python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps timer-for-python
+if [ $TARGET == $PROD ]; then
+    pip3 install timer-for-python
+elif [ $TARGET == $TEST ]; then
+    python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps timer-for-python
+else
+    echo "Something went wrong. Try again."
+    exit 1
+fi
+echo ""
