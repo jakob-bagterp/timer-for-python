@@ -4,7 +4,7 @@ To execute any of the build scripts, ensure that:
 
 * The scripts are executed from this `pipeline` folder
 * The current Git branch is `master`
-* The version number in `version.py` is updated
+* The version number in `version.py` is up to date
 
 ## Full Deployment
 The deployment script executes the following processes:
