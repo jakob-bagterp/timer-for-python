@@ -1,3 +1,5 @@
+#!/bin/bash
+
 python3 build_package.py;
 echo "";
 
