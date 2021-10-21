@@ -34,12 +34,12 @@ python3 build_package.py
 ```
 
 ### Upload to PyPI
-### Production
+#### Production
 ```shell
 python3 deploy_package.py
 ```
 
-### Test
+#### Test
 ```shell
 python3 deploy_test_package.py
 ```
