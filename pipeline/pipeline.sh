@@ -3,6 +3,7 @@
 PROD="prod"
 TEST="test"
 
+# Get and set arguments for either deployment to production or test.
 if [ $1 == $PROD ]; then
     TARGET=$PROD
 elif [ $1 == $TEST ]; then
@@ -15,9 +16,11 @@ else
     exit 1
 fi
 
+# Build new package from current branch (i.e. remember to set branch to "master" in Git).
 python3 build_package.py
 echo ""
 
+# Upload newly built package to PyPI.
 if [ $TARGET == $PROD ]; then
     python3 deploy_package.py
 elif [ $TARGET == $TEST ]; then
@@ -28,6 +31,7 @@ else
 fi
 echo ""
 
+# Remove existing installation of Timer for Python before reinstallation.
 pip3 uninstall timer-for-python
 echo ""
 
@@ -41,6 +45,7 @@ for i in {10..1}; do
     sleep 1s
 done
 
+# Reinstall newly uploaded and latest version Timer for Python.
 if [ $TARGET == $PROD ]; then
     pip3 install timer-for-python
 elif [ $TARGET == $TEST ]; then
