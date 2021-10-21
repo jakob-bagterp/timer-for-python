@@ -4,13 +4,14 @@ from . import controller
 from . import error
 from . import helper
 from .model.thread_item import ThreadItem
+from .model.timer import TimerObject
 
-class Timer:
+class Timer(TimerObject):
 	_instance = None
 
-	def __new__(cls, *args, **kwargs) -> object:
+	def __new__(cls, *args, **kwargs) -> TimerObject:
 		if not cls._instance: # Singleton: Ensure there's only a single instance of Timer running.
-			cls._instance = object.__new__(cls, *args, **kwargs)
+			cls._instance = TimerObject.__new__(cls, *args, **kwargs)
 		return cls._instance
 
 	def __init__(self, decimals: int = constants.decimals.default()) -> None:

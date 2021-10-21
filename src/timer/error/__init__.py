@@ -2,6 +2,7 @@ __all__ = ["start_controller", "stop_controller", "message_for_action"]
 
 from .. import helper
 from ..helper import colour
+from ..model.timer import TimerObject
 
 def start_controller(thread: str) -> None:
     if helper.thread.is_none(thread):
@@ -9,7 +10,7 @@ def start_controller(thread: str) -> None:
     else:
         print(f"{colour.yellow()}Timer for thread {thread} is running. Use .stop({thread = }) to stop it.{colour.reset()}")
 
-def stop_controller(timer: object, thread: str) -> None:
+def stop_controller(timer: TimerObject, thread: str) -> None:
     if helper.thread.is_none(thread):
         print(f"{colour.yellow()}Timer is not running. Use .start() to start it.{colour.reset()}")
     else:

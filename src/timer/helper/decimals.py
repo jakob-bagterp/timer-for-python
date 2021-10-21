@@ -1,8 +1,9 @@
 from .. import constants
 from . import colour
 from .. import error
+from ..model.timer import TimerObject
 
-def mediate(timer: object, decimals: int) -> int: # If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated.
+def mediate(timer: TimerObject, decimals: int) -> int: # If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated.
     return timer.decimals if decimals is None else validate_and_normalise(decimals)
 
 def validate_and_normalise(decimals: int) -> int:
