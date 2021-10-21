@@ -11,16 +11,16 @@ The deployment script executes the following processes:
 
 1. Build package from current source code
 2. Upload newly built package to PyPI
-3. Reinstall Timer for Python
+3. Reinstall newly uploaded version of Timer for Python from PyPI
 
 To run the full deployment to either production or test, use the following commands with `prod` or `test` as argument:
 
-### Production
+#### Production
 ```shell
 bash pipeline.sh prod
 ```
 
-### Test
+#### Test
 ```shell
 bash pipeline.sh test
 ```
