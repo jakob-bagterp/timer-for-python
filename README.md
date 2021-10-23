@@ -53,7 +53,7 @@ timer.stop() # Output example: 0.12345 seconds
 #### Multiple Threads
 Imagine that you want to troubleshoot which parts of your code are performing better or worse? Or you want to split test the performance of different methods? Timer for Python is a quick, easy way to get the job done.
 
-To measure performance of multiple blocks of code, use the `thread` argument to split the Timer instances:
+To measure performance of multiple blocks of code, use the `thread` argument to name different threads:
 
 ```python
 timer = Timer()
