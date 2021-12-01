@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 @dataclass(frozen = True)
 class ElapsedTimeFractions:
-    """Class to define fractions of elapsed time"""
+    """Class to define fractions of elapsed time."""
 
     nanoseconds: int
     microseconds: int
