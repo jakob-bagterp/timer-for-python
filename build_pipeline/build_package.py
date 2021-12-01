@@ -1,16 +1,15 @@
 import glob
 import os
 import subprocess
+import constants
 import pipeline_helper
 
-_build_directory = "./dist" # Destination directory "dist" viewed from the project base.
-
 def has_build_directory() -> bool:
-    return os.path.exists(_build_directory)
+    return os.path.exists(constants.build_directory())
 
 def prune_all_files_from_build_directory() -> None:
     if has_build_directory():
-        all_build_files = glob.glob(f"{_build_directory}/*")
+        all_build_files = glob.glob(f"{constants.build_directory()}/*")
         for file in all_build_files:            
             os.remove(file)
 
