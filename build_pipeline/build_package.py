@@ -1,15 +1,15 @@
 import glob
 import os
 import subprocess
-import constants
+from pipeline_constants import build_directory
 import pipeline_helper
 
 def has_build_directory() -> bool:
-    return os.path.exists(f"./{constants.build_directory()}")
+    return os.path.exists(f"./{build_directory()}")
 
 def prune_all_files_from_build_directory() -> None:
     if has_build_directory():
-        all_build_files = glob.glob(f"./{constants.build_directory()}/*")
+        all_build_files = glob.glob(f"./{build_directory()}/*")
         for file in all_build_files:            
             os.remove(file)
 
