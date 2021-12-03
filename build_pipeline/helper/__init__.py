@@ -1,5 +1,5 @@
-__all__ = ["build_directory", "constants", "working_directory"]
+__all__ = ["build_directory", "config", "working_directory"]
 
 from . import build_directory
-from . import constants
+from . import config
 from . import working_directory
