@@ -1,3 +1,4 @@
+import numpy
 import timer.helper.decimals as decimals
 
 class TestDecimalsValidationAndNormalisation():
@@ -15,6 +16,10 @@ class TestDecimalsValidationAndNormalisation():
     def test_float_should_default(self):
         assert decimals.validate_and_normalise(3.5) == 2
         assert decimals.validate_and_normalise(-10.1) == 2
+
+    def test_negative_float_should_default(self):
+        for input in numpy.arange(-100, 0, 0.1):
+            assert decimals.validate_and_normalise(input) == 2
 
     def test_text_should_default(self):
         assert decimals.validate_and_normalise("10") == 2
