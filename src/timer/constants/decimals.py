@@ -3,7 +3,7 @@ def default() -> int:
     
     return 2
 
-def max() -> int:
+def maximum() -> int:
     """Returns 9."""
 
     return 9
