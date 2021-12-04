@@ -16,7 +16,7 @@ def validate_and_normalise(decimals: int) -> int:
             return constants.decimals.maximum()
         elif 0 <= decimals <= constants.decimals.maximum():
             if decimals % 1 != 0:
-                decimals_rounded = round(decimals, 0)
+                decimals_rounded = int(round(decimals))
                 print(f"{colour.yellow()}Timer: Decimals set to {decimals_rounded} as a floating number is invalid input.{colour.reset()}")
                 return decimals_rounded
             else:
