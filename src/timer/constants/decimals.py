@@ -3,6 +3,11 @@ def default() -> int:
     
     return 2
 
+def minimum() -> int:
+    """Returns 0."""
+
+    return 0
+
 def maximum() -> int:
     """Returns 9."""
 
