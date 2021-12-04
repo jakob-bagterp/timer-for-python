@@ -10,9 +10,11 @@ class TestDecimalsValidationAndNormalisation():
 
     def test_negative_number_should_default(self):
         assert decimals.validate_and_normalise(-1) == 2
+        assert decimals.validate_and_normalise(-15) == 2
     
     def test_float_should_default(self):
         assert decimals.validate_and_normalise(3.5) == 2
+        assert decimals.validate_and_normalise(-10.1) == 2
 
     def test_text_should_default(self):
         assert decimals.validate_and_normalise("10") == 2
