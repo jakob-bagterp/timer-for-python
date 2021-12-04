@@ -11,7 +11,7 @@ def validate_and_normalise(decimals: int) -> int:
         if isinstance(decimals, (str, list, dict, tuple)) is True or decimals is None:
             print(f"{colour.yellow()}Timer: Decimals set to default {default()} due to invalid input.{colour.reset()}")
             return default()
-        elif decimals > constants.decimals.maximum():
+        elif decimals > maximum():
             print(f"{colour.yellow()}Timer: Decimals set to {maximum()} as the Timer doesn't support more than {maximum()} decimals (i.e. nanoseconds).{colour.reset()}")
             return maximum()
         elif minimum() <= decimals <= maximum():
