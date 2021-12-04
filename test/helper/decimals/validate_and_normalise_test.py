@@ -14,14 +14,13 @@ class TestDecimalsValidationAndNormalisation():
     def test_negative_number_should_default(self):
         for input in range(-1, -100):
             assert validate_and_normalise(input) == decimals.default()
+    
+    def test_float_within_maximum_should_not_default(self):
+        for input in numpy.arange(0, decimals.maximum() + 0.4, 0.1):
+            assert validate_and_normalise(input) == int(round(input))
 
-    def test_whole_number_as_float_should_not_default(self):
-        for input in [input for input in numpy.arange(0, decimals.maximum() + 0.4, 0.1) if input % 1 == 0]:
-            assert validate_and_normalise(input) == round(input, 0)
-
-    def test_float_larger_than_9_should_default(self):
-        for input in [input for input in numpy.arange(decimals.maximum() + 0.5, 100, 0.1)]:
-            print(input)
+    def test_float_larger_than_maximum_should_default(self):
+        for input in numpy.arange(decimals.maximum() + 0.5, 100, 0.1):
             assert validate_and_normalise(input) == decimals.maximum()
 
     def test_negative_float_should_default(self):
