@@ -8,7 +8,7 @@ def mediate(timer: TimerObject, decimals: int) -> int: # If the start function d
 
 def validate_and_normalise(decimals: int) -> int:
     try:
-        if isinstance(decimals, str) is True or decimals is None:
+        if isinstance(decimals, (str, list, dict, tuple)) is True or decimals is None:
             print(f"{colour.yellow()}Timer: Decimals set to default {constants.decimals.default()} due to invalid input.{colour.reset()}")
             return constants.decimals.default()
         elif decimals > constants.decimals.maximum():
