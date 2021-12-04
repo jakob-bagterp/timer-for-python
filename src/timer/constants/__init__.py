@@ -3,4 +3,6 @@ __all__ = ["decimals"]
 from . import decimals
 
 def none_value() -> str:
-    return "NONE" # NB: Has to be string and upppercase.
+    """Returns "NONE". Note that is bas to be an upppercase string."""
+
+    return "NONE"
