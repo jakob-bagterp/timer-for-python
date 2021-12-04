@@ -14,8 +14,13 @@ def validate_and_normalise(decimals: int) -> int:
         elif decimals > constants.decimals.maximum():
             print(f"{colour.yellow()}Timer: Decimals set to {constants.decimals.maximum()} as the Timer doesn't support more than {constants.decimals.maximum()} decimals (i.e. nanoseconds).{colour.reset()}")
             return constants.decimals.maximum()
-        elif decimals in range(0, constants.decimals.maximum() + 1):
-            return int(decimals)
+        elif 0 <= decimals <= constants.decimals.maximum():
+            if decimals % 1 != 0:
+                decimals_rounded = round(decimals, 0)
+                print(f"{colour.yellow()}Timer: Decimals set to {decimals_rounded} as a floating number is invalid input.{colour.reset()}")
+                return decimals_rounded
+            else:
+                return int(decimals)
         else:
             print(f"{colour.yellow()}Timer: Decimals set to default {constants.decimals.default()} due to invalid input.{colour.reset()}")
             return constants.decimals.default()
