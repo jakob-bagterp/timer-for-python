@@ -22,7 +22,7 @@ def validate_and_normalise(decimals: int) -> int:
             else:
                 return int(decimals)
         else:
-            print(f"{colour.yellow()}Timer: Decimals set to default {constants.decimals.default()} due to invalid input.{colour.reset()}")
+            print(f"{colour.yellow()}Timer: Decimals set to default {default()} due to invalid input.{colour.reset()}")
             return default()
     except Exception:
         error.message_for_action(f"when trying to verify the Timer's decimals input \"{decimals}\"")
