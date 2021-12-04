@@ -3,11 +3,11 @@ from timer.constants import decimals
 from timer.helper.decimals import validate_and_normalise
 
 class TestDecimalsValidationAndNormalisation():
-    def test_range_0_10(self):
+    def test_number_from_0_to_9(self):
         for input in range(0, decimals.maximum() + 1):
             assert validate_and_normalise(input) == input
     
-    def test_number_larger_than_9_should_default(self):
+    def test_number_larger_than_maximum_should_default(self):
         for input in range(decimals.maximum() + 1, 100):
             assert validate_and_normalise(input) == decimals.maximum()
 
