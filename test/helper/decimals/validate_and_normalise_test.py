@@ -6,8 +6,9 @@ class TestDecimalsValidationAndNormalisation():
         for input in range(0, 10):
             assert decimals.validate_and_normalise(input) == input
     
-    def test_larger_than_9_should_default(self):
-        assert decimals.validate_and_normalise(10) == 9
+    def test_number_larger_than_9_should_default(self):
+        for input in range(10, 100):
+            assert decimals.validate_and_normalise(input) == 9
 
     def test_negative_number_should_default(self):
         assert decimals.validate_and_normalise(-1) == 2
