@@ -1,4 +1,3 @@
-import pytest
 import timer.helper.thread as thread
 
 class TestThreadIsNone():
