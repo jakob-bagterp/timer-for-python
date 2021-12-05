@@ -22,24 +22,24 @@ def days_as_ns(days: int) -> int:
 def random_elapsed_time_ns_and_fractions() -> tuple[int, ElapsedTimeFractions]:
     """Returns tuple of elapsed time in nanoseconds and a corresponding ElapsedTimeFractions object."""
     
-    _days = randint(0, 60)
-    _hours = randint(0, 24 - 1)
-    _minutes = randint(0, 60 - 1)
-    _seconds = randint(0, 60 - 1)
-    _milliseconds = randint(0, 1000 - 1)
-    _microseconds = randint(0, 1000 - 1)
-    _nanoseconds = randint(0, 1000 - 1)
+    days = randint(0, 60)
+    hours = randint(0, 24 - 1)
+    minutes = randint(0, 60 - 1)
+    seconds = randint(0, 60 - 1)
+    milliseconds = randint(0, 1000 - 1)
+    microseconds = randint(0, 1000 - 1)
+    nanoseconds = randint(0, 1000 - 1)
     
-    elapsed_time_ns = days_as_ns(_days) + hours_as_ns(_hours) + minutes_as_ns(_minutes) + seconds_as_ns(_seconds) + milliseconds_as_ns(_milliseconds) + microseconds_as_ns(_microseconds) + _nanoseconds
+    elapsed_time_ns = days_as_ns(days) + hours_as_ns(hours) + minutes_as_ns(minutes) + seconds_as_ns(seconds) + milliseconds_as_ns(milliseconds) + microseconds_as_ns(microseconds) + nanoseconds
     
     elapsed_time_fractions = ElapsedTimeFractions(
-        _nanoseconds,
-        _microseconds,
-        _milliseconds,
-        _seconds,
-        _minutes,
-        _hours,
-        _days)
+        nanoseconds,
+        microseconds,
+        milliseconds,
+        seconds,
+        minutes,
+        hours,
+        days)
 
     return elapsed_time_ns, elapsed_time_fractions
 
