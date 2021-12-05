@@ -42,3 +42,16 @@ def random_elapsed_time_ns_and_fractions() -> tuple[int, ElapsedTimeFractions]:
         _days)
 
     return elapsed_time_ns, elapsed_time_fractions
+
+def random_microseconds_as_ns() -> int:
+    random_nanoseconds = randint(0, 1000 - 1)
+    random_microseconds = randint(0, 1000 - 1)
+    return microseconds_as_ns(random_microseconds) + random_nanoseconds
+
+def random_milliseconds_as_ns() -> int:
+    random_milliseconds = randint(0, 1000 - 1)
+    return milliseconds_as_ns(random_milliseconds) + random_microseconds_as_ns()
+
+def random_seconds_as_ns() -> int:
+    random_seconds = randint(0, 60 - 1)
+    return seconds_as_ns(random_seconds) + random_milliseconds_as_ns()
