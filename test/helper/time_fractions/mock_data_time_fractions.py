@@ -55,3 +55,7 @@ def random_milliseconds_as_ns() -> int:
 def random_seconds_as_ns() -> int:
     random_seconds = randint(0, 60 - 1)
     return seconds_as_ns(random_seconds) + random_milliseconds_as_ns()
+
+def random_minutes_as_ns() -> int:
+    random_minutes = randint(0, 60 - 1)
+    return minutes_as_ns(random_minutes) + random_milliseconds_as_ns()
