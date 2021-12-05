@@ -33,8 +33,8 @@ def empty_threads_list() -> list[ThreadItem]:
 def generate_timer_with_threads_list() -> Timer:
     timer = Timer()
     timer.threads = [
-        thread_item_default,
-        thread_item_a,
-        thread_item_b,
-        thread_item_c]
+        thread_item_default(),
+        thread_item_a(),
+        thread_item_b(),
+        thread_item_c()]
     return timer
