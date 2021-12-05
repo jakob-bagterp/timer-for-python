@@ -1,6 +1,6 @@
 from timer import Timer
 import timer.helper.thread as thread
-from mock_data import thread_item_default, thread_item_a, thread_item_b, thread_item_c, generate_timer_with_threads_list
+from mock_data_thread_list import thread_item_default, thread_item_a, thread_item_b, thread_item_c, generate_timer_with_threads_list
 
 class TestRemoveFromThreadList():
     def test_remove_items_from_threads_list(self):
