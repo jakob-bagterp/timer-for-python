@@ -43,30 +43,33 @@ def random_elapsed_time_ns_and_fractions() -> tuple[int, ElapsedTimeFractions]:
 
     return elapsed_time_ns, elapsed_time_fractions
 
-def random_nanoseconds_as_ns() -> int:
-    random_nanoseconds = randint(0, 1000 - 1)
+def handle_zero(no_zero: bool) -> int:
+    return 0 if no_zero is False else 1
+
+def random_nanoseconds_as_ns(no_zero = False) -> int:
+    random_nanoseconds = randint(handle_zero(no_zero), 1000 - 1)
     return random_nanoseconds
 
-def random_microseconds_as_ns() -> int:
-    random_microseconds = randint(0, 1000 - 1)
+def random_microseconds_as_ns(no_zero = False) -> int:
+    random_microseconds = randint(handle_zero(no_zero), 1000 - 1)
     return microseconds_as_ns(random_microseconds) + random_nanoseconds_as_ns()
 
-def random_milliseconds_as_ns() -> int:
-    random_milliseconds = randint(0, 1000 - 1)
+def random_milliseconds_as_ns(no_zero = False) -> int:
+    random_milliseconds = randint(handle_zero(no_zero), 1000 - 1)
     return milliseconds_as_ns(random_milliseconds) + random_microseconds_as_ns()
 
-def random_seconds_as_ns() -> int:
-    random_seconds = randint(0, 60 - 1)
+def random_seconds_as_ns(no_zero = False) -> int:
+    random_seconds = randint(handle_zero(no_zero), 60 - 1)
     return seconds_as_ns(random_seconds) + random_milliseconds_as_ns()
 
-def random_minutes_as_ns() -> int:
-    random_minutes = randint(0, 60 - 1)
+def random_minutes_as_ns(no_zero = False) -> int:
+    random_minutes = randint(handle_zero(no_zero), 60 - 1)
     return minutes_as_ns(random_minutes) + random_milliseconds_as_ns()
 
-def random_hours_as_ns() -> int:
-    random_hours = randint(0, 24 - 1)
+def random_hours_as_ns(no_zero = False) -> int:
+    random_hours = randint(handle_zero(no_zero), 24 - 1)
     return hours_as_ns(random_hours) + random_minutes_as_ns()
 
-def random_days_as_ns() -> int:
-    random_days = randint(0, 60 - 1)
+def random_days_as_ns(no_zero = False) -> int:
+    random_days = randint(handle_zero(no_zero), 60 - 1)
     return days_as_ns(random_days) + random_hours_as_ns()
