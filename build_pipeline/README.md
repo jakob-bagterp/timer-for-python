@@ -9,9 +9,10 @@ To execute any of the build scripts, ensure that:
 ## Full Deployment
 The deployment script executes the following processes:
 
-1. Build package from current source code
-2. Upload newly built package to PyPI
-3. Reinstall newly uploaded version of Timer for Python from PyPI
+1. Run unit tests and only continue if all tests passed
+2. Build package from current source code
+3. Upload newly built package to PyPI
+4. Reinstall newly uploaded version of Timer for Python from PyPI
 
 To run the full deployment to either production or test, use the following commands with `prod` or `test` as argument:
 

@@ -16,6 +16,16 @@ else
     exit 1
 fi
 
+# Run unit tests and only continue if all tests passed.
+python3 run_tests.py
+EXIT_CODE=$?
+if [ $EXIT_CODE != 0 ]; then # If exit code 0, all tests passed. But if any other exit code, some error happened. More info: https://docs.pytest.org/en/latest/reference/exit-codes.html
+    echo "Unit tests not passed. Try again."
+    echo "Exit code: $EXIT_CODE"
+    exit 1
+fi
+echo ""
+
 # Build new package from current branch (i.e. remember to set branch to "master" in Git).
 python3 build_package.py
 echo ""
