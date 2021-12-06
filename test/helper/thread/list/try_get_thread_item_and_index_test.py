@@ -4,7 +4,7 @@ import timer.helper.thread as thread
 from mock_data_thread_list import thread_item_default, thread_item_a, thread_item_b, thread_item_c
 
 class TestTryGetThreadTtemAndIndexFromThreadList():
-    def test_try_get_thread_item_and_index(self):
+    def test_try_get_thread_item_and_index(self) -> None:
         timer = Timer()
         assert len(timer.threads) == 0
         _thread_item_default = thread_item_default()

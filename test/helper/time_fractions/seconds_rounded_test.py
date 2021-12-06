@@ -2,7 +2,7 @@ from timer.helper.time_fractions import TimeFractions
 from mock_data_time_fractions import random_seconds_as_ns
 
 class TestTimeFractionsSecondsRounded():
-    def test_seconds_rounded(self):
+    def test_seconds_rounded(self) -> None:
         for _ in range(100):
             mock_elapsed_time_ns = random_seconds_as_ns()
             round_seconds = TimeFractions(mock_elapsed_time_ns).seconds_rounded()

@@ -5,7 +5,7 @@ import timer.helper.thread as thread
 from mock_data_thread_list import thread_item_a, thread_item_b, thread_item_c
 
 class TestAddToThreadList():
-    def test_add_to_empty_threads_list(self):
+    def test_add_to_empty_threads_list(self) -> None:
         timer = Timer()
         assert len(timer.threads) == 0
         thread.list.add(
@@ -22,7 +22,7 @@ class TestAddToThreadList():
         assert len(timer.threads) == 2
         del timer
     
-    def test_added_thread_item_matches_input(self):
+    def test_added_thread_item_matches_input(self) -> None:
         _thread_item_a = thread_item_a()
         _thread_item_b = thread_item_b()
         _thread_item_c = thread_item_c()
