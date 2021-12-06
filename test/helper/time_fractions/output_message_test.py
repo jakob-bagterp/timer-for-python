@@ -1,10 +1,11 @@
 from timer.constants import none_value
 from timer.helper.output import message
 from timer.helper.time_fractions import TimeFractions
+from timer.model.elapsed_time_fractions import ElapsedTimeFractions
 from mock_data_time_fractions import random_days_as_ns, random_hours_as_ns, random_minutes_as_ns, random_seconds_as_ns, random_milliseconds_as_ns, random_microseconds_as_ns, random_nanoseconds_as_ns
 from mock_data_output_message import random_decimals
 
-def process_output_message(elapsed_time_ns: int, capfd: object) -> str:
+def process_output_message(elapsed_time_ns: int, capfd: object) -> tuple[str, TimeFractions, ElapsedTimeFractions, int]:
     fractions = TimeFractions(elapsed_time_ns)
     time = fractions.time
     decimals = random_decimals()
