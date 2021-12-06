@@ -43,33 +43,33 @@ def random_elapsed_time_ns_and_fractions() -> tuple[int, ElapsedTimeFractions]:
 
     return elapsed_time_ns, elapsed_time_fractions
 
-def mediate_zero(no_zero: bool) -> int:
-    return 0 if no_zero is False else 1 # Used for ranges where you need at least 1 day, 1 hour, 1 minute, etc.
+def mediate_zero(allow_zero: bool) -> int:
+    return 0 if allow_zero is True else 1 # Used for ranges where you need at least 1 day, 1 hour, 1 minute, etc.
 
-def random_nanoseconds_as_ns(no_zero = False) -> int:
-    random_nanoseconds = randint(mediate_zero(no_zero), 1000 - 1)
+def random_nanoseconds_as_ns(allow_zero = True) -> int:
+    random_nanoseconds = randint(mediate_zero(allow_zero), 1000 - 1)
     return random_nanoseconds
 
-def random_microseconds_as_ns(no_zero = False) -> int:
-    random_microseconds = randint(mediate_zero(no_zero), 1000 - 1)
+def random_microseconds_as_ns(allow_zero = True) -> int:
+    random_microseconds = randint(mediate_zero(allow_zero), 1000 - 1)
     return microseconds_as_ns(random_microseconds) + random_nanoseconds_as_ns()
 
-def random_milliseconds_as_ns(no_zero = False) -> int:
-    random_milliseconds = randint(mediate_zero(no_zero), 1000 - 1)
+def random_milliseconds_as_ns(allow_zero = True) -> int:
+    random_milliseconds = randint(mediate_zero(allow_zero), 1000 - 1)
     return milliseconds_as_ns(random_milliseconds) + random_microseconds_as_ns()
 
-def random_seconds_as_ns(no_zero = False) -> int:
-    random_seconds = randint(mediate_zero(no_zero), 60 - 1)
+def random_seconds_as_ns(allow_zero = True) -> int:
+    random_seconds = randint(mediate_zero(allow_zero), 60 - 1)
     return seconds_as_ns(random_seconds) + random_milliseconds_as_ns()
 
-def random_minutes_as_ns(no_zero = False) -> int:
-    random_minutes = randint(mediate_zero(no_zero), 60 - 1)
+def random_minutes_as_ns(allow_zero = True) -> int:
+    random_minutes = randint(mediate_zero(allow_zero), 60 - 1)
     return minutes_as_ns(random_minutes) + random_milliseconds_as_ns()
 
-def random_hours_as_ns(no_zero = False) -> int:
-    random_hours = randint(mediate_zero(no_zero), 24 - 1)
+def random_hours_as_ns(allow_zero = True) -> int:
+    random_hours = randint(mediate_zero(allow_zero), 24 - 1)
     return hours_as_ns(random_hours) + random_minutes_as_ns()
 
-def random_days_as_ns(no_zero = False) -> int:
-    random_days = randint(mediate_zero(no_zero), 60 - 1)
+def random_days_as_ns(allow_zero = True) -> int:
+    random_days = randint(mediate_zero(allow_zero), 60 - 1)
     return days_as_ns(random_days) + random_hours_as_ns()
