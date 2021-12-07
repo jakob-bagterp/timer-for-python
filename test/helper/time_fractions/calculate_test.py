@@ -1,5 +1,5 @@
 from timer.helper.time_fractions import calculate_time_fractions
-from mock_data_time_fractions import random_elapsed_time_ns_and_fractions
+from mock_data.time_fractions import random_elapsed_time_ns_and_fractions
 
 class TestCalculateTimeFractions():
     def test_calculate_time_fractions(self) -> None:

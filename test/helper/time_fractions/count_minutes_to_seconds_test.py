@@ -1,5 +1,5 @@
 from timer.helper.time_fractions import TimeFractions
-from mock_data_time_fractions import random_minutes_as_ns
+from mock_data.time_fractions import random_minutes_as_ns
 
 class TestTimeFractionsCountMinutesToSeconds():
     def test_count_minutes_to_seconds(self) -> None:

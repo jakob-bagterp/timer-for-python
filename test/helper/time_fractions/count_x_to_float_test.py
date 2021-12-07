@@ -1,5 +1,5 @@
 from timer.helper.time_fractions import TimeFractions
-from mock_data_time_fractions import random_microseconds_as_ns, random_milliseconds_as_ns, random_seconds_as_ns
+from mock_data.time_fractions import random_microseconds_as_ns, random_milliseconds_as_ns, random_seconds_as_ns
 
 class TestTimeFractionsCountXToFloat():
     def test_count_microseconds_to_float(self) -> None:
