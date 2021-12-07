@@ -29,6 +29,11 @@ bash pipeline.sh test
 ## Separate Scripts
 Use the following commands to execute separate scripts.
 
+### Run Tests
+```shell
+python3 run_tests.py
+```
+
 ### Build
 ```shell
 python3 build_package.py
