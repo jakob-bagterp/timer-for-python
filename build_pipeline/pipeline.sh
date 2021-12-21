@@ -17,7 +17,7 @@ else
 fi
 
 # Run unit tests and only continue if all tests passed.
-python3 run_tests.py
+python3 helper/test.py
 EXIT_CODE=$?
 if [ $EXIT_CODE != 0 ]; then # If exit code 0, all tests passed. But if any other exit code, some error happened. More info: https://docs.pytest.org/en/latest/reference/exit-codes.html
     echo "Unit tests not passed. Try again."

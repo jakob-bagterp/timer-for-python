@@ -31,7 +31,7 @@ Use the following commands to execute separate scripts.
 
 ### Run Tests
 ```shell
-python3 run_tests.py
+python3 helper/test.py
 ```
 
 ### Build

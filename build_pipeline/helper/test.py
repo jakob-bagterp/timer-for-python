@@ -1,6 +1,6 @@
 import subprocess
 import sys
-from helper import working_directory
+import working_directory
 
 def run_pytest() -> None:
     working_directory.set_as_project_base_path()
