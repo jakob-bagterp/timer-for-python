@@ -31,7 +31,7 @@ Use the following commands to execute separate scripts.
 
 ### Run Tests
 ```shell
-python3 -m helper.test
+python3 -m helper.run_tests
 ```
 
 ### Build
@@ -42,10 +42,10 @@ python3 -m helper.build_package
 ### Upload to PyPI
 #### Production
 ```shell
-python3 -m helper.deploy_package
+python3 -m helper.deploy_package.prod
 ```
 
 #### Test
 ```shell
-python3 -m helper.deploy_test_package
+python3 -m helper.deploy_package.test
 ```

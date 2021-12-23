@@ -1,1 +1,1 @@
-__all__ = ["build_directory", "build_package", "deploy_package", "deploy_test_package", "test", "working_directory"]
+__all__ = ["deploy_package", "directory", "build_package", "run_tests"]

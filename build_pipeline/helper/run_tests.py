@@ -1,9 +1,9 @@
 import subprocess
 import sys
-from . import working_directory
+from . import directory
 
 def run_pytest() -> None:
-    working_directory.set_as_project_base_path()
+    directory.working.set_as_project_base_path()
     returncode = subprocess.run("pytest".split()).returncode
     sys.exit(returncode)
 

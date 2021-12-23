@@ -17,7 +17,7 @@ else
 fi
 
 # Run unit tests and only continue if all tests passed.
-python3 -m helper.test
+python3 -m helper.run_tests
 EXIT_CODE=$?
 if [ $EXIT_CODE != 0 ]; then # If exit code 0, all tests passed. But if any other exit code, some error happened. More info: https://docs.pytest.org/en/latest/reference/exit-codes.html
     echo "Unit tests not passed. Try again."
@@ -32,9 +32,9 @@ echo ""
 
 # Upload newly built package to PyPI.
 if [ $TARGET == $PROD ]; then
-    python3 -m helper.deploy_package
+    python3 -m helper.deploy_package.prod
 elif [ $TARGET == $TEST ]; then
-    python3 -m helper.deploy_test_package
+    python3 -m helper.deploy_package.test
 else
     echo "Something went wrong. Try again."
     exit 1
