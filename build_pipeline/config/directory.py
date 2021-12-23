@@ -3,5 +3,5 @@ def temp_builds() -> str:
 
     return "dist"
 
-def builds() -> str:
-    return "builds"
+def releases() -> str:
+    return "releases"
