@@ -17,7 +17,7 @@ else
 fi
 
 # Run unit tests and only continue if all tests passed.
-python3 helper/test.py
+python3 -m helper.test
 EXIT_CODE=$?
 if [ $EXIT_CODE != 0 ]; then # If exit code 0, all tests passed. But if any other exit code, some error happened. More info: https://docs.pytest.org/en/latest/reference/exit-codes.html
     echo "Unit tests not passed. Try again."
@@ -27,14 +27,14 @@ fi
 echo ""
 
 # Build new package from current branch (i.e. remember to set branch to "master" in Git).
-python3 build_package.py
+python3 -m helper.build_package
 echo ""
 
 # Upload newly built package to PyPI.
 if [ $TARGET == $PROD ]; then
-    python3 deploy_package.py
+    python3 -m helper.deploy_package
 elif [ $TARGET == $TEST ]; then
-    python3 deploy_test_package.py
+    python3 -m helper.deploy_test_package
 else
     echo "Something went wrong. Try again."
     exit 1

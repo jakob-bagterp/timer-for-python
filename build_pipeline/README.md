@@ -31,21 +31,21 @@ Use the following commands to execute separate scripts.
 
 ### Run Tests
 ```shell
-python3 helper/test.py
+python3 -m helper.test
 ```
 
 ### Build
 ```shell
-python3 build_package.py
+python3 -m helper.build_package
 ```
 
 ### Upload to PyPI
 #### Production
 ```shell
-python3 deploy_package.py
+python3 -m helper.deploy_package
 ```
 
 #### Test
 ```shell
-python3 deploy_test_package.py
+python3 -m helper.deploy_test_package
 ```

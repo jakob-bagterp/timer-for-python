@@ -1,6 +1,6 @@
 import subprocess
-from helper import build_directory
-from helper import working_directory
+from . import build_directory
+from . import working_directory
 
 def build_package() -> None:
     working_directory.set_as_project_base_path()
