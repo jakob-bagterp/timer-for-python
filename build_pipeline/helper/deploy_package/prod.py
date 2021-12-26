@@ -1,5 +1,5 @@
+import shutil
 import subprocess
-from shutil import copyfile
 from .. import directory
 from .. import get_release_file_name
 from config.directory import releases, temp_builds
@@ -9,7 +9,7 @@ def copy_package_to_releases() -> None:
     release_file_name = get_release_file_name()
     source = f"./{temp_builds()}/{release_file_name}"
     destination = f"./{releases()}/{release_file_name}"
-    copyfile(source, destination)
+    shutil.copy2(source, destination)
 
 def deploy_to_pypi() -> None:
     directory.working.set_as_project_base_path()
