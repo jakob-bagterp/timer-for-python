@@ -1,7 +1,6 @@
 import subprocess
 from shutil import copyfile
-from .. import directory
-from .. import get_release_file_name
+from .. import directory, get_release_file_name, output_release_file_checksum
 from config.directory import releases, temp_builds
 
 def copy_package_to_releases() -> None:
@@ -17,4 +16,5 @@ def deploy_to_pypi() -> None:
 
 if __name__ == "__main__":
     copy_package_to_releases()
+    output_release_file_checksum()
     deploy_to_pypi()
