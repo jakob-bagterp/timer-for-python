@@ -2,7 +2,7 @@
 ## Prerequisites
 To execute any of the build scripts, ensure that:
 
-* The scripts are executed from this `build_pipeline` folder
+* The scripts are executed from this `build_pipeline` directory
 * The current Git branch is `master`
 * The version number in `version.py` is up to date
 
@@ -39,7 +39,7 @@ python3 -m helper.run_tests
 python3 -m helper.build_package
 ```
 
-### Upload to PyPI
+### Deploy to PyPI
 #### Production
 ```shell
 python3 -m helper.deploy_package.prod
