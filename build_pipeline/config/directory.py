@@ -3,7 +3,12 @@ def temp_builds() -> str:
 
     return "dist"
 
-def homebrew_formulas() -> str:
-    """Path of Homebrew formulas."""
+def homebrew_core() -> str:
+    """Path of Homebrew core library."""
     
-    return "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula"
+    return "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core"
+
+def homebrew_formulas() -> str:
+    """Path of Homebrew formulas of the core library."""
+    
+    return f"{homebrew_core()}/Formula"
