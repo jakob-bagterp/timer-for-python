@@ -13,7 +13,9 @@ pip3 install timer-for-python
 ```
 
 ### Homebrew
-TBC
+```shell
+brew install timer-for-python
+```
 
 ### NuGet
 TBC
