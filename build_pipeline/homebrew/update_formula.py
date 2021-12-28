@@ -2,6 +2,7 @@ import subprocess
 from shutil import copyfile
 from pathlib import Path
 from config import directory, package_install_name
+from helper import confirm_to_proceed
 
 def homebrew_update() -> None:
     command = "brew update"
@@ -27,4 +28,5 @@ if __name__ == "__main__":
     homebrew_update()
     homebrew_upgrade()
     homebrew_audit_package()
+    confirm_to_proceed()
     copy_formula_to_homebrew_formulas()

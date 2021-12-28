@@ -1,6 +1,7 @@
 __all__ = ["deploy_package", "directory", "build_package", "run_tests"]
 
 import subprocess
+from distutils.util import strtobool
 from timer.version import __version__
 from config import package_name
 from config.directory import temp_builds
@@ -18,3 +19,18 @@ def output_release_file_checksum() -> None:
     print(f"Checksum SHA256 for {release_file_name}:")
     subprocess.call(f"shasum -a 256 ./{temp_builds()}/{release_file_name}".split())
     print("")
+
+def prompt_user_yes_or_no(question: str) -> bool:
+    """Prompt a yes/no question to the user."""
+
+    while True:
+        user_input = input(f"{question} (y/n)?: ")
+        try:
+            return bool(strtobool(user_input))
+        except ValueError:
+            print("Please use y/n or yes/no.\n")    
+
+def confirm_to_proceed() -> None:
+    user_confirmation = prompt_user_yes_or_no("Continue")
+    if user_confirmation is not True:
+        exit(0)
