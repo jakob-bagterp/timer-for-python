@@ -49,3 +49,15 @@ python3 -m helper.deploy_package.prod
 ```shell
 python3 -m helper.deploy_package.test
 ```
+
+### Deploy to Homebrew
+When a new package is built, deployment to Homebrew has the following manual steps:
+
+1. Ensure that a [tag](https://github.com/jakob-bagterp/timer_for_python/tags) has been created for the latest version.
+2. Based on the relevant version tag, create a [new release](https://github.com/jakob-bagterp/timer_for_python/releases) and upload the relevant `tar.gz` package.
+3. Update the [Homebrew formula](https://github.com/jakob-bagterp/timer_for_python/blob/master/build_pipeline/homebrew/formula.rb) with link to the latest package file from step 2 and the the file SHA256 checksum.
+4. From the `build_pipeline` directory, execute this script to update the Homebrew tap:
+
+```shell
+python3 -m homebrew.update_formula
+```
