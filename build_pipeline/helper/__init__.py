@@ -34,3 +34,7 @@ def confirm_to_proceed() -> None:
     user_confirmation = prompt_user_yes_or_no("Continue")
     if user_confirmation is not True:
         exit(0)
+
+def execute_command_and_print(command: str) -> None:
+    print(f"Executing command \"{command}\"...")
+    subprocess.call(command.split())

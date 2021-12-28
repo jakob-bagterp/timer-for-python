@@ -1,21 +1,16 @@
-import subprocess
 from shutil import copyfile
 from pathlib import Path
 from config import directory, package_install_name
-from helper import confirm_to_proceed
+from helper import confirm_to_proceed, execute_command_and_print
 
 def homebrew_update() -> None:
-    command = "brew update"
-    print(f"Executing command \"{command}\"...")
-    subprocess.call(command.split())
+    execute_command_and_print("brew update")
 
 def homebrew_upgrade() -> None:
-    command = "brew upgrade"
-    print(f"Executing command \"{command}\"...")
-    subprocess.call(command.split())
+    execute_command_and_print("brew upgrade")
 
 def homebrew_audit_package() -> None:
-    subprocess.call(f"brew audit --strict --online {package_install_name()}".split())
+    execute_command_and_print(f"brew audit --strict --online {package_install_name()}")
  
 def copy_formula_to_homebrew_formulas() -> None:
     path_of_this_file = Path(__file__)
