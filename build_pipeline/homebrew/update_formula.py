@@ -28,5 +28,5 @@ if __name__ == "__main__":
     homebrew_update()
     homebrew_upgrade()
     homebrew_audit_package()
-    confirm_to_proceed()
+    confirm_to_proceed() # If any errors or extraordinary manual updates are needed.
     copy_formula_to_homebrew_formulas()
