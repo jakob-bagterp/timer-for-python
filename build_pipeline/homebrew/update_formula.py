@@ -17,6 +17,7 @@ def homebrew_test_formula(formula: str) -> None:
     execute_command_and_print(f"brew test {formula}")
 
 def homebrew_audit_formula(formula: str) -> None:
+    execute_command_and_print(f"brew audit --new-formula {formula}")
     execute_command_and_print(f"brew audit --strict --online {formula}")
  
 def copy_formula_to_homebrew_formulas() -> None:
