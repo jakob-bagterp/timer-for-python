@@ -38,7 +38,7 @@ if __name__ == "__main__":
     homebrew_update() # Sometimes Homebrew isn't fully updated after one round so we do it a second time.
     homebrew_upgrade()
     homebrew_audit_package()
-    confirm_to_proceed("Continue?") # If any errors or extraordinary manual updates are needed.
+    confirm_to_proceed("Continue and update formula?") # If any errors or extraordinary manual updates are needed.
     copy_formula_to_homebrew_formulas()
     homebrew_git_stage_file(f"Formula/{package_install_name()}.rb")
     homebrew_git_check_status()
