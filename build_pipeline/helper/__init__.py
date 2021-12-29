@@ -24,14 +24,14 @@ def prompt_user_yes_or_no(question: str) -> bool:
     """Prompt a yes/no question to the user."""
 
     while True:
-        user_input = input(f"{question} (y/n)?: ")
+        user_input = input(f"{question} (y/n): ")
         try:
             return bool(strtobool(user_input))
         except ValueError:
             print("Please use y/n or yes/no.\n")    
 
 def confirm_to_proceed() -> None:
-    user_confirmation = prompt_user_yes_or_no("Continue")
+    user_confirmation = prompt_user_yes_or_no("Continue?")
     if user_confirmation is not True:
         exit(0)
 
