@@ -35,7 +35,7 @@ def homebrew_git_stage_file(filename: str) -> None:
 if __name__ == "__main__":
     homebrew_git_checkout_branch("master")
     homebrew_update()
-    homebrew_update()
+    homebrew_update() # Sometimes Homebrew isn't fully updated after one round so we do it a second time.
     homebrew_upgrade()
     homebrew_audit_package()
     confirm_to_proceed("Continue?") # If any errors or extraordinary manual updates are needed.
