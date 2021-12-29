@@ -33,6 +33,7 @@ def prompt_user_yes_or_no(question: str) -> bool:
 def confirm_to_proceed() -> None:
     user_confirmation = prompt_user_yes_or_no("Continue?")
     if user_confirmation is not True:
+        print("Exiting...")
         exit(0)
 
 def execute_command_and_print(command: str) -> None:
