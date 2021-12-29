@@ -41,6 +41,14 @@ def homebrew_git_check_status() -> None:
 def homebrew_git_stage_file(filename: str) -> None:
     working_directory.set_as_homebrew_core()
     execute_command_and_print(f"git add {filename}")
+    
+def homebrew_git_commit_changes(message: str) -> None:
+    working_directory.set_as_homebrew_core()
+    execute_command_and_print(f"git commit -m \"{message}\"")
+
+def homebrew_git_push_changes(username: str, branch: str) -> None:
+    working_directory.set_as_homebrew_core()
+    execute_command_and_print(f"git push --set-upstream {username} {branch}")
 
 if __name__ == "__main__": # Reference: https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request
     homebrew_git_checkout_branch("master")
@@ -58,3 +66,5 @@ if __name__ == "__main__": # Reference: https://docs.brew.sh/How-To-Open-a-Homeb
     homebrew_test_package(f"{package_install_name()}")
     homebrew_audit_package(f"{package_install_name()}")
     confirm_to_proceed("Commit changes and create pull request?")
+    homebrew_git_commit_changes(f"{package_install_name()} {get_version()}")
+    homebrew_git_push_changes("jakob-bagterp", new_branch)
