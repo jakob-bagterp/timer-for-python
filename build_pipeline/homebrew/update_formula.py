@@ -10,6 +10,12 @@ def homebrew_update() -> None:
 def homebrew_upgrade() -> None:
     execute_command_and_print("brew upgrade")
 
+def homebrew_install_local_package(package: str) -> None:
+    execute_command_and_print(f"brew install --build-from-source {package}")
+
+def homebrew_test_package(package: str) -> None:
+    execute_command_and_print(f"brew test {package}")
+
 def homebrew_audit_package(package: str) -> None:
     execute_command_and_print(f"brew audit --strict --online {package}")
  
@@ -48,4 +54,7 @@ if __name__ == "__main__": # Reference: https://docs.brew.sh/How-To-Open-a-Homeb
     copy_formula_to_homebrew_formulas()
     homebrew_git_stage_file(f"Formula/{package_install_name()}.rb")
     homebrew_git_check_status()
+    homebrew_install_local_package(f"{package_install_name()}")
+    homebrew_test_package(f"{package_install_name()}")
+    homebrew_audit_package(f"{package_install_name()}")
     confirm_to_proceed("Commit changes and create pull request?")
