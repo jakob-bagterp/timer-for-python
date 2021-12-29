@@ -36,6 +36,12 @@ def confirm_to_proceed(question: str) -> None:
         print("Exiting...")
         exit(0)
 
-def execute_command_and_print(command: str) -> None:
-    print(f"Executing command \"{command}\"...")
-    subprocess.call(command.split())
+def execute_command_and_print(command: str, no_split_appendix: str = None) -> None:
+    if no_split_appendix is not None:
+        print(f"Executing command \"{command} {no_split_appendix}\"...")
+        command_list = command.split()
+        command_list.append(no_split_appendix)
+        subprocess.call(command_list)
+    else:
+        print(f"Executing command \"{command}\"...")
+        subprocess.call(command.split())

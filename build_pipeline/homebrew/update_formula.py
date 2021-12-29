@@ -44,7 +44,7 @@ def homebrew_git_stage_file(filename: str) -> None:
     
 def homebrew_git_commit_changes(message: str) -> None:
     working_directory.set_as_homebrew_core()
-    execute_command_and_print(f"git commit -m \"{message}\"")
+    execute_command_and_print(command = "git commit -m", no_split_appendix = f"\"{message}\"")
 
 def homebrew_git_push_changes(username: str, branch: str) -> None:
     working_directory.set_as_homebrew_core()
