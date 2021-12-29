@@ -43,7 +43,8 @@ if __name__ == "__main__": # Reference: https://docs.brew.sh/How-To-Open-a-Homeb
     homebrew_upgrade()
     homebrew_audit_package(f"{package_install_name()}")
     confirm_to_proceed("Continue and update formula?") # If any errors or extraordinary manual updates are needed.
-    homebrew_git_create_branch_from_master(f"{package_install_name()}-{get_version()}")
+    new_branch = f"{package_install_name()}-{get_version()}"
+    homebrew_git_create_branch_from_master(new_branch)
     copy_formula_to_homebrew_formulas()
     homebrew_git_stage_file(f"Formula/{package_install_name()}.rb")
     homebrew_git_check_status()
