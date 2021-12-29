@@ -56,6 +56,7 @@ if __name__ == "__main__": # Reference: https://docs.brew.sh/How-To-Open-a-Homeb
     homebrew_update() # Sometimes Homebrew isn't fully updated after one round so we do it a second time.
     homebrew_upgrade()
     homebrew_audit_formula(f"{package_install_name()}")
+
     confirm_to_proceed("Continue and update formula?") # If any errors or extraordinary manual updates are needed.
     new_branch = f"{package_install_name()}-{get_version()}"
     homebrew_git_create_branch_from_master(new_branch)
@@ -65,6 +66,7 @@ if __name__ == "__main__": # Reference: https://docs.brew.sh/How-To-Open-a-Homeb
     homebrew_install_local_formula(f"{package_install_name()}")
     homebrew_test_formula(f"{package_install_name()}")
     homebrew_audit_formula(f"{package_install_name()}")
+
     confirm_to_proceed("Commit changes and create pull request?")
     homebrew_git_commit_changes(f"{package_install_name()} {get_version()}")
     homebrew_git_push_changes("jakob-bagterp", new_branch)
