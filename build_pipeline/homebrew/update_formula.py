@@ -10,14 +10,14 @@ def homebrew_update() -> None:
 def homebrew_upgrade() -> None:
     execute_command_and_print("brew upgrade")
 
-def homebrew_install_local_package(package: str) -> None:
-    execute_command_and_print(f"brew install --build-from-source {package}")
+def homebrew_install_local_formula(formula: str) -> None:
+    execute_command_and_print(f"brew install --build-from-source {formula}")
 
-def homebrew_test_package(package: str) -> None:
-    execute_command_and_print(f"brew test {package}")
+def homebrew_test_formula(formula: str) -> None:
+    execute_command_and_print(f"brew test {formula}")
 
-def homebrew_audit_package(package: str) -> None:
-    execute_command_and_print(f"brew audit --strict --online {package}")
+def homebrew_audit_formula(formula: str) -> None:
+    execute_command_and_print(f"brew audit --strict --online {formula}")
  
 def copy_formula_to_homebrew_formulas() -> None:
     path_of_this_file = Path(__file__)
@@ -55,16 +55,16 @@ if __name__ == "__main__": # Reference: https://docs.brew.sh/How-To-Open-a-Homeb
     homebrew_update()
     homebrew_update() # Sometimes Homebrew isn't fully updated after one round so we do it a second time.
     homebrew_upgrade()
-    homebrew_audit_package(f"{package_install_name()}")
+    homebrew_audit_formula(f"{package_install_name()}")
     confirm_to_proceed("Continue and update formula?") # If any errors or extraordinary manual updates are needed.
     new_branch = f"{package_install_name()}-{get_version()}"
     homebrew_git_create_branch_from_master(new_branch)
     copy_formula_to_homebrew_formulas()
     homebrew_git_stage_file(f"Formula/{package_install_name()}.rb")
     homebrew_git_check_status()
-    homebrew_install_local_package(f"{package_install_name()}")
-    homebrew_test_package(f"{package_install_name()}")
-    homebrew_audit_package(f"{package_install_name()}")
+    homebrew_install_local_formula(f"{package_install_name()}")
+    homebrew_test_formula(f"{package_install_name()}")
+    homebrew_audit_formula(f"{package_install_name()}")
     confirm_to_proceed("Commit changes and create pull request?")
     homebrew_git_commit_changes(f"{package_install_name()} {get_version()}")
     homebrew_git_push_changes("jakob-bagterp", new_branch)
