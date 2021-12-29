@@ -32,7 +32,7 @@ def homebrew_git_stage_file(filename: str) -> None:
     working_directory.set_as_homebrew_core()
     execute_command_and_print(f"git add {filename}")
 
-if __name__ == "__main__":
+if __name__ == "__main__": # Reference: https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request
     homebrew_git_checkout_branch("master")
     homebrew_update()
     homebrew_update() # Sometimes Homebrew isn't fully updated after one round so we do it a second time.
