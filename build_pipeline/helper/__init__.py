@@ -30,8 +30,8 @@ def prompt_user_yes_or_no(question: str) -> bool:
         except ValueError:
             print("Please use y/n or yes/no.\n")    
 
-def confirm_to_proceed() -> None:
-    is_confirmed = prompt_user_yes_or_no("Continue?")
+def confirm_to_proceed(question: str) -> None:
+    is_confirmed = prompt_user_yes_or_no(question)
     if is_confirmed is not True:
         print("Exiting...")
         exit(0)

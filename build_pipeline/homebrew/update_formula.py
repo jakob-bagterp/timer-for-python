@@ -1,7 +1,7 @@
 from shutil import copyfile
 from pathlib import Path
 from config import directory, package_install_name
-from helper import confirm_to_proceed, execute_command_and_print
+from helper import confirm_to_proceed, directory, execute_command_and_print
 
 def homebrew_update() -> None:
     execute_command_and_print("brew update")
