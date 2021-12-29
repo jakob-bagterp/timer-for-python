@@ -30,6 +30,7 @@ def homebrew_git_stage_file(filename: str) -> None:
 
 if __name__ == "__main__":
     homebrew_update()
+    homebrew_update()
     homebrew_upgrade()
     homebrew_audit_package()
     confirm_to_proceed("Continue?") # If any errors or extraordinary manual updates are needed.
