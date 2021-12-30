@@ -1,3 +1,5 @@
+[![MIT license](https://img.shields.io/static/v1?label=license&message=MIT&color=blue)](https://github.com/jakob-bagterp/timer_for_python/blob/master/LICENSE.md)
+
 # Timer for Python
 Timer for Python makes it easy for beginners and experts to measure how much time it takes to run Python programs and gauge performance of multiple, smaller bits of code.
 
