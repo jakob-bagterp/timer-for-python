@@ -8,7 +8,11 @@ class TimerForPython < Formula
   depends_on "python@3.8"
 
   def install
-    bin.install "timer-for-python"
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
+    system "make", "install"
   end
 
   test do
