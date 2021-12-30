@@ -19,7 +19,7 @@ def homebrew_test_formula(formula: str) -> None:
 def homebrew_audit_formula(formula: str) -> None:
     execute_command_and_print(f"brew audit --new-formula {formula}")
     execute_command_and_print(f"brew audit --strict --online {formula}")
- 
+
 def copy_formula_to_homebrew_formulas() -> None:
     path_of_this_file = Path(__file__)
     path_of_this_directory = path_of_this_file.parent.absolute()
