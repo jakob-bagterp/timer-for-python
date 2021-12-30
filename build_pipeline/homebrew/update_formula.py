@@ -1,7 +1,7 @@
 from shutil import copyfile
 from pathlib import Path
 from config import directory, package_install_name
-from helper import confirm_to_proceed, execute_command_and_print, get_version
+from helper import confirm_to_proceed, execute_command_and_print, get_version, prompt_user_yes_or_no
 from helper.directory import working as working_directory
 
 def homebrew_update() -> None:
@@ -16,8 +16,8 @@ def homebrew_install_local_formula(formula: str) -> None:
 def homebrew_test_formula(formula: str) -> None:
     execute_command_and_print(f"brew test {formula}")
 
-def homebrew_audit_formula(formula: str) -> None:
-    execute_command_and_print(f"brew audit --new-formula {formula}")
+def homebrew_audit_formula(formula: str, debug: bool = False) -> None:
+    execute_command_and_print(f"brew audit --new-formula {formula}{'' if debug is False else ' --verbose --debug'}")
     execute_command_and_print(f"brew audit --strict --online {formula}")
 
 def copy_formula_to_homebrew_formulas() -> None:
@@ -68,6 +68,10 @@ if __name__ == "__main__": # Reference: https://docs.brew.sh/How-To-Open-a-Homeb
     homebrew_install_local_formula(f"{package_install_name()}")
     homebrew_test_formula(f"{package_install_name()}")
     homebrew_audit_formula(f"{package_install_name()}")
+    
+    should_debug = prompt_user_yes_or_no("Run audit again in debug mode for more information?")
+    if should_debug is True:
+        homebrew_audit_formula(f"{package_install_name()}", debug = True)
 
     confirm_to_proceed("Commit changes and create pull request?")
     homebrew_git_commit_changes(f"{package_install_name()} {get_version()}")
