@@ -5,7 +5,7 @@ class TimerForPython < Formula
   sha256 "71f49d1b98fb05dbc572a34c2edf1411fbf42ab4ba0063e2bf7c9cb36cf38d98"
   license "MIT"
 
-  depends_on "python@3.8" => :optional
+  depends_on "python@3.8"
 
   def install
     bin.install "timer-for-python"
