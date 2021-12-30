@@ -1,3 +1,4 @@
+[![Latest version](https://img.shields.io/static/v1?label=version&message=v0.3.3&color=yellowgreen)](https://github.com/jakob-bagterp/timer_for_python/releases)
 ![Python 3.8](https://img.shields.io/static/v1?label=python&message=v3.8&color=green)
 [![MIT license](https://img.shields.io/static/v1?label=license&message=MIT&color=blue)](https://github.com/jakob-bagterp/timer_for_python/blob/master/LICENSE.md)
 
