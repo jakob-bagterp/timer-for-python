@@ -1,3 +1,4 @@
+![Python 3.8](https://img.shields.io/static/v1?label=python&message=v3.8&color=green)
 [![MIT license](https://img.shields.io/static/v1?label=license&message=MIT&color=blue)](https://github.com/jakob-bagterp/timer_for_python/blob/master/LICENSE.md)
 
 # Timer for Python
