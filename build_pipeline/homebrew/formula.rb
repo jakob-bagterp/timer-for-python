@@ -10,4 +10,8 @@ class TimerForPython < Formula
     def install
         bin.install "timer-for-python"
     end
+
+    test do
+        system "false"
+    end
 end
