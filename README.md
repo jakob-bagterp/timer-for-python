@@ -1,6 +1,6 @@
-[![Latest version](https://img.shields.io/static/v1?label=version&message=v0.3.3&color=yellowgreen)](https://github.com/jakob-bagterp/timer_for_python/releases)
+[![Latest version](https://img.shields.io/static/v1?label=version&message=v0.3.3&color=yellowgreen)](https://github.com/jakob-bagterp/timer-for-python/releases)
 ![Python 3.8](https://img.shields.io/static/v1?label=python&message=v3.8&color=green)
-[![MIT license](https://img.shields.io/static/v1?label=license&message=MIT&color=blue)](https://github.com/jakob-bagterp/timer_for_python/blob/master/LICENSE.md)
+[![MIT license](https://img.shields.io/static/v1?label=license&message=MIT&color=blue)](https://github.com/jakob-bagterp/timer-for-python/blob/master/LICENSE.md)
 
 # Timer for Python
 Timer for Python makes it easy for beginners and experts to measure how much time it takes to run Python programs and gauge performance of multiple, smaller bits of code.
@@ -129,7 +129,7 @@ Elapsed time: 1d 2h 3m 4s
 ```
 
 ### Graceful Error Handling
-Timer for Python is designed with several nested `try/catch` clauses so it handles exceptions gracefully and therefore shouldn't break your application while running. However, if you find a bug, please [report it](https://github.com/jakob-bagterp/timer_for_python/issues).
+Timer for Python is designed with several nested `try/catch` clauses so it handles exceptions gracefully and therefore shouldn't break your application while running. However, if you find a bug, please [report it](https://github.com/jakob-bagterp/timer-for-python/issues).
 
 ## Donate
 TBC
@@ -138,4 +138,4 @@ TBC
 TBC
 
 ## Report Bugs
-Report bugs and issues [here](https://github.com/jakob-bagterp/timer_for_python/issues).
+Report bugs and issues [here](https://github.com/jakob-bagterp/timer-for-python/issues).
