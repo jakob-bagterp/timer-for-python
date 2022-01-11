@@ -47,8 +47,7 @@ def mediate_zero(allow_zero: bool) -> int:
     return 0 if allow_zero is True else 1 # Used for ranges where you need at least 1 day, 1 hour, 1 minute, etc.
 
 def random_nanoseconds_as_ns(allow_zero: bool = True) -> int:
-    random_nanoseconds = randint(mediate_zero(allow_zero), 1000 - 1)
-    return random_nanoseconds
+    return randint(mediate_zero(allow_zero), 1000 - 1)
 
 def random_microseconds_as_ns(allow_zero: bool = True) -> int:
     random_microseconds = randint(mediate_zero(allow_zero), 1000 - 1)
