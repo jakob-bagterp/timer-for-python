@@ -33,7 +33,7 @@ brew install timer-for-python
 TBC
 
 ## Getting Started
-### Simple
+### Basic
 Firstly, add the Timer to your imports:
 
 ```python
