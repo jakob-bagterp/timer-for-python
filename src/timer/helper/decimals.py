@@ -26,3 +26,4 @@ def validate_and_normalise(decimals: int) -> int:
             return default()
     except Exception:
         error.message_for_action(f"when trying to verify the Timer's decimals input \"{decimals}\"")
+        return default()
