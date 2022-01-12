@@ -1,4 +1,5 @@
 import time
+from typing import Any
 from . import constants
 from . import controller
 from . import error
@@ -8,7 +9,7 @@ from .model.timer import TimerObject
 class Timer(TimerObject):
 	_instance = None
 
-	def __new__(cls, *args, **kwargs) -> TimerObject:
+	def __new__(cls, *args: Any, **kwargs: Any) -> TimerObject:
 		if not cls._instance: # Singleton: Ensure there's only a single instance of Timer running.
 			cls._instance = TimerObject.__new__(cls, *args, **kwargs)
 		return cls._instance
