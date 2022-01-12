@@ -15,7 +15,7 @@ def start(timer: TimerObject, thread: str, start_time: int, decimals: int) -> No
         else:
             error.start_controller(thread)
     except Exception:
-        error.message_for_action(f"in the Timer's start thread controller", thread = thread)
+        error.message_for_action("in the Timer's start thread controller", thread = thread)
 
 def stop(timer: TimerObject, thread: str, stop_time: int) -> None:
     try:
@@ -29,4 +29,4 @@ def stop(timer: TimerObject, thread: str, stop_time: int) -> None:
         else:
             error.stop_controller(timer, thread)
     except Exception:
-        error.message_for_action(f"in the Timer's stop thread controller", thread = thread)
+        error.message_for_action("in the Timer's stop thread controller", thread = thread)
