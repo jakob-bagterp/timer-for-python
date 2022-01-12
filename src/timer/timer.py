@@ -1,5 +1,5 @@
 import time
-from typing import Any, Union
+from typing import Any, Optional
 from . import constants
 from . import controller
 from . import error
