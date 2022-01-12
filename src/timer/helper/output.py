@@ -22,4 +22,4 @@ def message(thread: str, fractions: TimeFractions, decimals: int) -> None:
         else:
             print(f"{text_intro} {time.nanoseconds} nanoseconds") # Format: 345 nanoseconds
     except Exception:
-        error.message_for_action(f"in the Timer's output message module", thread = thread)
+        error.message_for_action("in the Timer's output message module", thread = thread)
