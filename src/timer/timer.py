@@ -1,5 +1,5 @@
 import time
-from typing import Any
+from typing import Any, Union
 from . import constants
 from . import controller
 from . import error
@@ -18,14 +18,14 @@ class Timer(TimerObject):
 		self.threads = []
 		self.decimals = decimals if decimals == constants.decimals.default() else helper.decimals.validate_and_normalise(decimals)
 
-	def start(self, thread: str = None, decimals: int = None) -> None:
+	def start(self, thread: Optional[str] = None, decimals: Optional[int] = None) -> None:
 		try:
 			start_time = time.perf_counter_ns() # For precision, this is the first operation of the function.
 			controller.start(self, thread, start_time, decimals)
 		except Exception:
 			error.message_for_action("when trying to start the Timer", thread = thread)
 
-	def stop(self, thread: str = None) -> None:
+	def stop(self, thread: Optional[str] = None) -> None:
 		try:
 			stop_time = time.perf_counter_ns() # For precision, this is the first operation of the function.
 			controller.stop(self, thread, stop_time)
