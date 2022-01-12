@@ -1,8 +1,9 @@
+from typing import Union
 from ... import error
 from ...model.thread_item import ThreadItem
 from ...model.timer import TimerObject
 
-def try_get_thread_item_and_index(timer: TimerObject, thread: str) -> tuple[ThreadItem, int]:
+def try_get_thread_item_and_index(timer: TimerObject, thread: str) -> Union[tuple[ThreadItem, int], tuple[None, None], None]:
     try:
         index_counter = 0
         for thread_item in timer.threads:
