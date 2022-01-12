@@ -3,7 +3,6 @@ from . import constants
 from . import controller
 from . import error
 from . import helper
-from .model.thread_item import ThreadItem
 from .model.timer import TimerObject
 
 class Timer(TimerObject):
@@ -15,8 +14,8 @@ class Timer(TimerObject):
 		return cls._instance
 
 	def __init__(self, decimals: int = constants.decimals.default()) -> None:
-		self.threads: list[ThreadItem] = []
-		self.decimals: int = decimals if decimals == constants.decimals.default() else helper.decimals.validate_and_normalise(decimals)
+		self.threads = []
+		self.decimals = decimals if decimals == constants.decimals.default() else helper.decimals.validate_and_normalise(decimals)
 
 	def start(self, thread: str = None, decimals: int = None) -> None:
 		try:
