@@ -14,7 +14,11 @@ class TimerObject(ABC):
     @abstractmethod
     def start(self, thread: str, decimals: int) -> None:
         """Starts the Timer"""
+
+        raise NotImplementedError
     
     @abstractmethod
     def stop(self, thread: str) -> None:
         """Stops the Timer"""
+
+        raise NotImplementedError
