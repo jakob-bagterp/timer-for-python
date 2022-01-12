@@ -1,6 +1,7 @@
 __all__ = ["deploy_package", "directory", "build_package", "run_tests"]
 
 import subprocess
+from typing import Optional
 from distutils.util import strtobool
 from timer.helper import colour
 from timer.version import __version__
@@ -37,7 +38,7 @@ def confirm_to_proceed(question: str) -> None:
         print("Exiting...")
         exit(0)
 
-def execute_command_and_print(command: str, no_split_appendix: str = None) -> None:
+def execute_command_and_print(command: str, no_split_appendix: Optional[str] = None) -> None:
     if no_split_appendix is not None:
         print(f"Executing command: {colour.green()}{command} {no_split_appendix}{colour.reset()}...")
         command_list = command.split()
