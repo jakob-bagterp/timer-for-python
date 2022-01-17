@@ -143,7 +143,7 @@ Timer for Python is designed with several nested `try/catch` clauses so it handl
 This module is free to use. And if you it, feel free to [buy me a coffee](https://github.com/sponsors/jakob-bagterp).
 
 ## Contribute
-TBC
+If you have suggestions or changes to the module, feel free to add to the code and create a [pull request](https://github.com/jakob-bagterp/timer-for-python/pulls).
 
 ## Report Bugs
 Report bugs and issues [here](https://github.com/jakob-bagterp/timer-for-python/issues).
