@@ -3,7 +3,7 @@ from ... import error
 from ...model.thread_item import ThreadItem
 from ...model.timer import TimerObject
 
-def try_get_thread_item_and_index(timer: TimerObject, thread: str) -> Union[tuple[ThreadItem, int], tuple[None, None], None]:
+def try_get_thread_item_and_index(timer: TimerObject, thread: str) -> Union[tuple[ThreadItem, int], tuple[None, None]]:
     try:
         index_counter = 0
         for thread_item in timer.threads:
@@ -14,6 +14,7 @@ def try_get_thread_item_and_index(timer: TimerObject, thread: str) -> Union[tupl
         return None, None
     except Exception:
         error.message_for_action("in the Timer's lookup module", thread = thread)
+        return None, None
 
 def add(timer: TimerObject, thread: str, start_time: int, decimals: int) -> None:
     try:
