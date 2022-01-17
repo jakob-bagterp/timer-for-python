@@ -1,8 +1,7 @@
 __all__ = ["start", "stop"]
 
 from typing import Union
-from .. import error
-from .. import helper
+from .. import error, helper
 from ..helper.time_fractions import TimeFractions
 from ..model.timer import TimerObject
 
