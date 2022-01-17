@@ -1,9 +1,6 @@
 import time
 from typing import Any, Optional
-from . import constants
-from . import controller
-from . import error
-from . import helper
+from . import constants, controller, error, helper
 from .model.timer import TimerObject
 
 class Timer(TimerObject):

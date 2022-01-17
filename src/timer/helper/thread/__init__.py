@@ -2,7 +2,6 @@ __all__ = ["is_none", "normalise_to_string_and_uppercase", "list"]
 
 from typing import Union
 from . import list
-
 from ...constants import none_value
 
 def is_none(thread: Union[str, None]) -> bool:
