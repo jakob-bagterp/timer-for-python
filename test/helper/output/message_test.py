@@ -1,5 +1,5 @@
 from timer.constants import none_value
-from timer.helper import colour
+from timer.helper.colour import Colour
 from timer.helper.output import message
 from timer.helper.time_fractions import TimeFractions
 from timer.model.elapsed_time_fractions import ElapsedTimeFractions
@@ -62,4 +62,4 @@ class TestOutputMessage():
         for _ in range(100):
             mock_elapsed_time_ns = random_hours_as_ns(allow_zero = False)
             terminal_output, fractions, time, _, thread = process_output_message(mock_elapsed_time_ns, capfd, has_thread = True)
-            assert terminal_output == f"Elapsed time (thread {colour.green()}{thread}{colour.reset()}): {time.hours}h {time.minutes}m {fractions.seconds_rounded()}s\n"
+            assert terminal_output == f"Elapsed time (thread {Colour.GREEN}{thread}{Colour.RESET}): {time.hours}h {time.minutes}m {fractions.seconds_rounded()}s\n"

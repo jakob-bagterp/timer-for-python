@@ -1,11 +1,11 @@
 from .. import error
-from . import colour
+from .colour import Colour
 from .. import helper
 from ..helper.time_fractions import TimeFractions
 
 def message(thread: str, fractions: TimeFractions, decimals: int) -> None:
     try:
-        text_intro = f"Elapsed time{'' if helper.thread.is_none(thread) else f' (thread {colour.green()}{thread}{colour.reset()})'}:"
+        text_intro = f"Elapsed time{'' if helper.thread.is_none(thread) else f' (thread {Colour.GREEN}{thread}{Colour.RESET})'}:"
         time = fractions.time
         if time.days > 0:
             print(f"{text_intro} {time.days}d {time.hours}h {time.minutes}m {fractions.seconds_rounded()}s") # Format: 1d 2h 3m 4s
