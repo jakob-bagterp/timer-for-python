@@ -140,10 +140,10 @@ Elapsed time: 1d 2h 3m 4s
 Timer for Python is designed with several nested `try/catch` clauses so it handles exceptions gracefully and therefore shouldn't break your application while running. However, if you find a bug, please [report it](https://github.com/jakob-bagterp/timer-for-python/issues).
 
 ## Donate
-TBC
+This module is free to use. And if you it, feel free to [buy me a coffee](https://github.com/sponsors/jakob-bagterp).
 
 ## Contribute
-TBC
+If you have suggestions or changes to the module, feel free to add to the code and create a [pull request](https://github.com/jakob-bagterp/timer-for-python/pulls).
 
 ## Report Bugs
 Report bugs and issues [here](https://github.com/jakob-bagterp/timer-for-python/issues).

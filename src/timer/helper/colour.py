@@ -1,11 +1,7 @@
-def green() -> str:
-    return "\033[92m"
+from enum import Enum
 
-def yellow() -> str:
-    return "\033[93m"
-
-def red() -> str:
-    return "\033[91m"
-
-def reset() -> str:
-    return "\033[0m"
+class Colour(Enum):
+    GREEN = "\033[92m"
+    YELLOW = "\033[93m"
+    RED = "\033[91m"
+    RESET = "\033[0m"

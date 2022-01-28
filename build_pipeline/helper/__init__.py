@@ -3,7 +3,7 @@ __all__ = ["deploy_package", "directory", "build_package", "run_tests"]
 import subprocess
 from typing import Optional
 from distutils.util import strtobool
-from timer.helper import colour
+from timer.helper.colour import Colour
 from timer.version import __version__
 from config import package_name
 from config.directory import temp_builds
@@ -26,7 +26,7 @@ def prompt_user_yes_or_no(question: str) -> bool:
     """Prompt a yes/no question to the user."""
 
     while True:
-        user_input = input(f"{colour.yellow()}{question} (y/n): {colour.reset()}")
+        user_input = input(f"{Colour.YELLOW}{question} (y/n): {Colour.RESET}")
         try:
             return bool(strtobool(user_input))
         except ValueError:
@@ -40,10 +40,10 @@ def confirm_to_proceed(question: str) -> None:
 
 def execute_command_and_print(command: str, no_split_appendix: Optional[str] = None) -> None:
     if no_split_appendix is not None:
-        print(f"Executing command: {colour.green()}{command} {no_split_appendix}{colour.reset()}...")
+        print(f"Executing command: {Colour.GREEN}{command} {no_split_appendix}{Colour.RESET}...")
         command_list = command.split()
         command_list.append(no_split_appendix)
         subprocess.call(command_list)
     else:
-        print(f"Executing command: {colour.green()}{command}{colour.reset()}...")
+        print(f"Executing command: {Colour.GREEN}{command}{Colour.RESET}...")
         subprocess.call(command.split())
