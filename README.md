@@ -83,7 +83,7 @@ timer.start(thread = "A")
 
 # Insert even more code here
 
-timer.stop(thread = "A")  # Output example: 6.78 seconds for thread A
+timer.stop(thread = "A") # Output example: 6.78 seconds for thread A
 ```
 
 ## Documentation and Other Features
