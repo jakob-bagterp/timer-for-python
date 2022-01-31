@@ -1,9 +1,9 @@
-[![Latest version](https://img.shields.io/static/v1?label=version&message=v0.3.4&color=yellowgreen)](https://github.com/jakob-bagterp/timer-for-python/releases)
-![Python 3.9](https://img.shields.io/static/v1?label=python&message=v3.9&color=green)
+[![Latest version](https://img.shields.io/static/v1?label=version&message=0.3.4&color=yellowgreen)](https://github.com/jakob-bagterp/timer-for-python/releases)
+![Python >=3.9](https://img.shields.io/static/v1?label=python&message=>=3.9&color=blueviolet)
 [![MIT license](https://img.shields.io/static/v1?label=license&message=MIT&color=blue)](https://github.com/jakob-bagterp/timer-for-python/blob/master/LICENSE.md)
 
-# Timer for Python
-Timer for Python makes it easy to measure how much time it takes to run Python programs and gauge performance of multiple, smaller bits of code.
+# ⏳ Timer for Python ⌛️
+Lightweight Python package that makes it easy to measure how much time it takes to run Python programs and gauge performance of multiple, smaller bits of code.
 
 ## Prerequisites
 * Python 3.9 or higher
@@ -83,7 +83,7 @@ timer.start(thread = "A")
 
 # Insert even more code here
 
-timer.stop(thread = "A")  # Output example: 6.78 seconds for thread A
+timer.stop(thread = "A") # Output example: 6.78 seconds for thread A
 ```
 
 ## Documentation and Other Features
