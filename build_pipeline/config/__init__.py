@@ -1,5 +1,7 @@
 __all__ = ["directory"]
 
+from . import directory
+
 def package_name() -> str:
     return "timer-for-python"
 
