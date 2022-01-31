@@ -1,13 +1,13 @@
-__all__ = ["deploy_package", "directory", "build_package", "run_tests"]
+__all__ = ["build_package", "deploy_package", "directory", "run_tests"]
 
 import subprocess
 from typing import Optional
 from distutils.util import strtobool
-from timer.helper.colour import Colour
-from timer.version import __version__
+from . import build_package, directory, deploy_package, run_tests
 from config import package_name
 from config.directory import temp_builds
-from . import directory 
+from timer.helper.colour import Colour
+from timer.version import __version__
 
 def get_version() -> str:
     return __version__
