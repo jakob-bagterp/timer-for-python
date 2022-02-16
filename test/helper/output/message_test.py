@@ -10,7 +10,7 @@ def process_terminal_message(elapsed_time_ns: int, capfd: object, max_decimals: 
     fractions = TimeFractions(elapsed_time_ns)
     time = fractions.time
     decimals = random_decimals() if max_decimals is None else random_decimals(max_decimals)
-    thread = NONE_VALUE if has_thread is False else random_thread_name()
+    thread = NONE_VALUE if not has_thread else random_thread_name()
     message(thread, fractions, decimals)
     terminal_output, _ = capfd.readouterr()
     return terminal_output, fractions, time, decimals, thread
