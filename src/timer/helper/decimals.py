@@ -1,13 +1,12 @@
-from typing import Union
 from ..constants.decimals import default, maximum, minimum
 from .colour import Colour
 from .. import error
 from ..model.timer import TimerObject
 
-def mediate(timer: TimerObject, decimals: Union[int, None]) -> int: # If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated.
+def mediate(timer: TimerObject, decimals: int | None) -> int: # If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated.
     return timer.decimals if decimals is None else validate_and_normalise(decimals)
 
-def validate_and_normalise(decimals: Union[int, None]) -> int:
+def validate_and_normalise(decimals: int | None) -> int:
     try:
         if isinstance(decimals, (str, list, dict, tuple)) is True or decimals is None:
             print(f"{Colour.YELLOW}Timer: Decimals set to default {default()} due to invalid input.{Colour.RESET}")

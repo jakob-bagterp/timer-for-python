@@ -1,12 +1,12 @@
 [![Latest version](https://img.shields.io/static/v1?label=version&message=0.3.4&color=yellowgreen)](https://github.com/jakob-bagterp/timer-for-python/releases/latest)
-![Python >=3.9](https://img.shields.io/static/v1?label=python&message=>=3.9&color=blueviolet)
+![Python >=3.10](https://img.shields.io/static/v1?label=python&message=>=3.10&color=blueviolet)
 [![MIT license](https://img.shields.io/static/v1?label=license&message=MIT&color=blue)](https://github.com/jakob-bagterp/timer-for-python/blob/master/LICENSE.md)
 
 # ⏳ Timer for Python ⌛️
 Lightweight Python package that makes it easy to measure how much time it takes to run Python programs and gauge performance of multiple, smaller bits of code.
 
 ## Prerequisites
-* Python 3.9 or higher
+* Python 3.10 or higher
 * macOS
     * It may work on Windows or Linux, but hasn't been tested
 
