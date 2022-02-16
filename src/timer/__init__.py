@@ -1,5 +1,4 @@
-from timer import *
-from timefractions import *
-from textcolour import *
+__all__ = ["Timer"]
 
-__all__ = ["Timer", "TimeFractions", "TextColour"]
+from .version import __version__
+from .__main__ import Timer
