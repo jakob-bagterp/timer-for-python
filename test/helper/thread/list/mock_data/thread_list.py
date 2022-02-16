@@ -7,7 +7,7 @@ def thread_item_default() -> ThreadItem:
     return ThreadItem(
         name = constants.various.NONE_VALUE,
         start_time = time.perf_counter_ns(),
-        decimals = constants.decimals.default())
+        decimals = constants.decimals.DEFAULT)
 
 def thread_item_a() -> ThreadItem:
     return ThreadItem(

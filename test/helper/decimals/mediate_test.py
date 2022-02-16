@@ -1,4 +1,4 @@
-from timer.constants.decimals import default, maximum, minimum
+from timer.constants.decimals import DEFAULT, MAXIMUM, MINIMUM
 from timer.helper.decimals import mediate
 from timer import Timer
 
@@ -10,13 +10,13 @@ class TestDecimalsMediation():
         """Case: When the user initiates the Timer with default decimals and doesn't set any decimals when using "timer.start()", i.e. decimals should be default value."""
 
         timer = Timer()
-        assert mediate(timer, None) == default()
+        assert mediate(timer, None) == DEFAULT
         del timer
 
     def test_mediate_of_start_timer_with_decimals_override_set_by_user(self) -> None:
         """Case: When the user initiates the Timer with default or custom decimals and wants to override this by using, e.g., "timer.start(decimals = 7)"."""
 
-        decimals_range = range(minimum(), maximum() + 1)
+        decimals_range = range(MINIMUM, MAXIMUM + 1)
         for decimals_timer in decimals_range:
             timer = Timer(decimals_timer)
             for decimals_start in decimals_range:

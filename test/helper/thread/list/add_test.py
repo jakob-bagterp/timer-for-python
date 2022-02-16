@@ -12,13 +12,13 @@ class TestAddToThreadList():
             timer = timer,
             thread = constants.various.NONE_VALUE,
             start_time = time.perf_counter_ns(),
-            decimals = constants.decimals.default())
+            decimals = constants.decimals.DEFAULT)
         assert len(timer.threads) == 1
         thread.list.add(
             timer = timer,
             thread = "TEST",
             start_time = time.perf_counter_ns(),
-            decimals = constants.decimals.maximum())
+            decimals = constants.decimals.MAXIMUM)
         assert len(timer.threads) == 2
         del timer
     

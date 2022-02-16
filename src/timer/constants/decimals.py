@@ -1,14 +1,8 @@
-def default() -> int:
-    """Returns 2."""
-    
-    return 2
+DEFAULT: int = 2
+"""Returns 2."""
 
-def minimum() -> int:
-    """Returns 0."""
+MINIMUM: int = 0
+"""Returns 0."""
 
-    return 0
-
-def maximum() -> int:
-    """Returns 9."""
-
-    return 9
+MAXIMUM: int = 9
+"""Returns 9."""

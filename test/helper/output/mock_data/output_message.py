@@ -1,9 +1,9 @@
 from random import choices, randint
 from string import ascii_uppercase
-from timer.constants.decimals import maximum, minimum
+from timer.constants.decimals import MAXIMUM, MINIMUM
 
-def random_decimals(max: int = maximum()) -> int:
-    return randint(minimum(), max if minimum() < max <= maximum() else maximum())
+def random_decimals(max: int = MAXIMUM) -> int:
+    return randint(MINIMUM, max if MINIMUM < max <= MAXIMUM else MAXIMUM)
 
 def random_thread_name(length: int = randint(1, 10)) -> str:
     return "".join(choices(ascii_uppercase, k = length)) 
