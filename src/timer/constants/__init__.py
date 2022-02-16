@@ -1,8 +1,3 @@
-__all__ = ["decimals"]
+__all__ = ["decimals", "various"]
 
-from . import decimals
-
-def none_value() -> str:
-    """Returns "NONE". Note that is bas to be an upppercase string."""
-
-    return "NONE"
+from . import decimals, various

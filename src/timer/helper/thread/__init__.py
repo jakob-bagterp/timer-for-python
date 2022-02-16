@@ -1,7 +1,7 @@
 __all__ = ["is_none", "normalise_to_string_and_uppercase", "list"]
 
 from . import list
-from ...constants import none_value
+from ...constants.various import none_value
 
 def is_none(thread: str | None) -> bool:
     return thread is None or thread == none_value()
