@@ -1,4 +1,4 @@
-from ..constants.decimals import DEFAULT, MAXIMUM, MINIMUM
+from ..constant.decimals import DEFAULT, MAXIMUM, MINIMUM
 from .colour import Colour
 from .. import error
 from ..model.timer import TimerObject

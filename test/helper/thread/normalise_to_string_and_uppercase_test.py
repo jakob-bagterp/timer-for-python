@@ -1,4 +1,4 @@
-from timer.constants.various import NONE_VALUE
+from timer.constant.various import NONE_VALUE
 import timer.helper.thread as thread
 
 class TestNormalisationToStringAndUppercase():

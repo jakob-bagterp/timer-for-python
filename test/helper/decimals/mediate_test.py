@@ -1,4 +1,4 @@
-from timer.constants.decimals import DEFAULT, MAXIMUM, MINIMUM
+from timer.constant.decimals import DEFAULT, MAXIMUM, MINIMUM
 from timer.helper.decimals import mediate
 from timer import Timer
 

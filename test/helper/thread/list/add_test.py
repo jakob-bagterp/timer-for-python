@@ -1,6 +1,6 @@
 import time
 from timer import Timer
-import timer.constants as constants
+import timer.constant as constant
 import timer.helper.thread as thread
 from mock_data.thread_list import thread_item_a, thread_item_b, thread_item_c
 
@@ -10,15 +10,15 @@ class TestAddToThreadList():
         assert len(timer.threads) == 0
         thread.list.add(
             timer = timer,
-            thread = constants.various.NONE_VALUE,
+            thread = constant.various.NONE_VALUE,
             start_time = time.perf_counter_ns(),
-            decimals = constants.decimals.DEFAULT)
+            decimals = constant.decimals.DEFAULT)
         assert len(timer.threads) == 1
         thread.list.add(
             timer = timer,
             thread = "TEST",
             start_time = time.perf_counter_ns(),
-            decimals = constants.decimals.MAXIMUM)
+            decimals = constant.decimals.MAXIMUM)
         assert len(timer.threads) == 2
         del timer
     

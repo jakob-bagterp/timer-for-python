@@ -1,5 +1,5 @@
 import numpy
-from timer.constants.decimals import DEFAULT, MAXIMUM, MINIMUM 
+from timer.constant.decimals import DEFAULT, MAXIMUM, MINIMUM 
 from timer.helper.decimals import validate_and_normalise
 
 class TestDecimalsValidationAndNormalisation():

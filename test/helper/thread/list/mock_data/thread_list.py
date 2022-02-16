@@ -1,13 +1,13 @@
 import time
-import timer.constants as constants
+import timer.constant as constant
 from timer import Timer
 from timer.model.thread_item import ThreadItem
 
 def thread_item_default() -> ThreadItem:
     return ThreadItem(
-        name = constants.various.NONE_VALUE,
+        name = constant.various.NONE_VALUE,
         start_time = time.perf_counter_ns(),
-        decimals = constants.decimals.DEFAULT)
+        decimals = constant.decimals.DEFAULT)
 
 def thread_item_a() -> ThreadItem:
     return ThreadItem(

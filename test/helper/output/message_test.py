@@ -1,4 +1,4 @@
-from timer.constants.various import NONE_VALUE
+from timer.constant.various import NONE_VALUE
 from timer.helper.colour import Colour
 from timer.helper.output import message
 from timer.helper.time_fractions import TimeFractions
