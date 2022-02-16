@@ -1,9 +1,5 @@
 import time
-from . import constants
-from . import controller
-from . import error
-from . import helper
-from .model.thread_item import ThreadItem
+from . import controller, error
 from .model.timer import TimerObject
 
 class Timer(TimerObject):
@@ -13,10 +9,6 @@ class Timer(TimerObject):
         if not cls._instance: # Singleton: Ensure there's only a single instance of Timer running.
             cls._instance = TimerObject.__new__(cls, *args, **kwargs)
         return cls._instance
-
-    def __init__(self, decimals: int = constants.decimals.default()) -> None:
-        self.threads: list[ThreadItem] = []
-        self.decimals: int = decimals if decimals == constants.decimals.default() else helper.decimals.validate_and_normalise(decimals)
 
     def start(self, thread: str = None, decimals: int = None) -> None:
         try:
