@@ -3,13 +3,6 @@ from . import controller, error
 from .model.timer import TimerObject
 
 class Timer(TimerObject):
-    _instance = None
-
-    def __new__(cls, *args, **kwargs) -> TimerObject:
-        if not cls._instance: # Singleton: Ensure there's only a single instance of Timer running.
-            cls._instance = TimerObject.__new__(cls, *args, **kwargs)
-        return cls._instance
-
     def start(self, thread: str = None, decimals: int = None) -> None:
         try:
             start_time = time.perf_counter_ns() # For precision, this is the first operation of the function.

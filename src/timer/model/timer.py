@@ -6,6 +6,13 @@ from ..model.thread_item import ThreadItem
 class TimerObject(ABC):
     """Abstract base class of Timer object."""
 
+    _instance = None
+
+    def __new__(cls, decimals: int = constants.decimals.default()):
+        if not cls._instance: # Singleton: Ensure there's only a single instance of Timer running.
+            cls._instance = super(TimerObject, cls).__new__(cls)
+        return cls._instance
+
     def __init__(self, decimals: int = constants.decimals.default()) -> None:    
         """Initiates basic properties of the Timer."""
 
