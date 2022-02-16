@@ -5,7 +5,7 @@ from timer.model.thread_item import ThreadItem
 
 def thread_item_default() -> ThreadItem:
     return ThreadItem(
-        name = constants.various.none_value(),
+        name = constants.various.NONE_VALUE,
         start_time = time.perf_counter_ns(),
         decimals = constants.decimals.default())
 

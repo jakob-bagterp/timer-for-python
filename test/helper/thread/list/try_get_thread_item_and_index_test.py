@@ -1,5 +1,5 @@
 from timer import Timer
-import timer.constants.various as various
+import timer.constants as constants
 import timer.helper.thread as thread
 from mock_data.thread_list import thread_item_default, thread_item_a, thread_item_b, thread_item_c
 
@@ -17,7 +17,7 @@ class TestTryGetThreadTtemAndIndexFromThreadList():
             _thread_item_b,
             _thread_item_c]
         assert len(timer.threads) == 4
-        assert _thread_item_default, 0 == thread.list.try_get_thread_item_and_index(timer, various.none_value())
+        assert _thread_item_default, 0 == thread.list.try_get_thread_item_and_index(timer, constants.various.NONE_VALUE)
         assert _thread_item_a, 1 == thread.list.try_get_thread_item_and_index(timer, "A")
         assert _thread_item_b, 2 == thread.list.try_get_thread_item_and_index(timer, "B")
         assert _thread_item_c, 3 == thread.list.try_get_thread_item_and_index(timer, "C")

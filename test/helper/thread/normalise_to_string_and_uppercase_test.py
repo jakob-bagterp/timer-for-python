@@ -1,15 +1,15 @@
-from timer.constants.various import none_value
+from timer.constants.various import NONE_VALUE
 import timer.helper.thread as thread
 
 class TestNormalisationToStringAndUppercase():
     def test_real_none(self) -> None:
-        assert thread.normalise_to_string_and_uppercase(None) == none_value()
+        assert thread.normalise_to_string_and_uppercase(None) == NONE_VALUE
     
     def test_text_none_uppercase(self) -> None:
-        assert thread.normalise_to_string_and_uppercase("NONE") == none_value()
+        assert thread.normalise_to_string_and_uppercase("NONE") == NONE_VALUE
     
     def test_text_none_lowercase(self) -> None:
-        assert thread.normalise_to_string_and_uppercase("none") == none_value()
+        assert thread.normalise_to_string_and_uppercase("none") == NONE_VALUE
 
     def test_text_thread(self) -> None:
         assert thread.normalise_to_string_and_uppercase("thread a") == "THREAD A"

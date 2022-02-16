@@ -10,7 +10,7 @@ class TestAddToThreadList():
         assert len(timer.threads) == 0
         thread.list.add(
             timer = timer,
-            thread = constants.various.none_value(),
+            thread = constants.various.NONE_VALUE,
             start_time = time.perf_counter_ns(),
             decimals = constants.decimals.default())
         assert len(timer.threads) == 1

@@ -1,4 +1,4 @@
-from timer.constants.various import none_value
+from timer.constants.various import NONE_VALUE
 from timer.helper.colour import Colour
 from timer.helper.output import message
 from timer.helper.time_fractions import TimeFractions
@@ -10,7 +10,7 @@ def process_terminal_message(elapsed_time_ns: int, capfd: object, max_decimals: 
     fractions = TimeFractions(elapsed_time_ns)
     time = fractions.time
     decimals = random_decimals() if max_decimals is None else random_decimals(max_decimals)
-    thread = none_value() if has_thread is False else random_thread_name()
+    thread = NONE_VALUE if has_thread is False else random_thread_name()
     message(thread, fractions, decimals)
     terminal_output, _ = capfd.readouterr()
     return terminal_output, fractions, time, decimals, thread
