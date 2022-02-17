@@ -1,3 +1,3 @@
-__all__ = ["colour", "decimals", "output", "thread", "time_fractions"]
+__all__ = ["decimals", "output", "thread", "time_fractions"]
 
-from . import colour, decimals, output, thread, time_fractions
+from . import decimals, output, thread, time_fractions
