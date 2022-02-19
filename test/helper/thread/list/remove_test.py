@@ -26,7 +26,8 @@ def test_removed_item_from_threads_list_matches_remaining_items() -> None:
         _thread_item_default,
         _thread_item_a,
         _thread_item_b,
-        _thread_item_c]
+        _thread_item_c
+    ]
     assert len(timer.threads) == 4
     assert timer.threads[0] == _thread_item_default
     assert timer.threads[1] == _thread_item_a

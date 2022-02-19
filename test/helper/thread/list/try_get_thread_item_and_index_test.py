@@ -14,7 +14,8 @@ def test_try_get_thread_item_and_index() -> None:
         _thread_item_default,
         _thread_item_a,
         _thread_item_b,
-        _thread_item_c]
+        _thread_item_c
+    ]
     assert len(timer.threads) == 4
     assert _thread_item_default, 0 == thread.list.try_get_thread_item_and_index(timer, constant.various.NONE_VALUE)
     assert _thread_item_a, 1 == thread.list.try_get_thread_item_and_index(timer, "A")
