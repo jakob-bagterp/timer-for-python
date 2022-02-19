@@ -11,7 +11,7 @@ def test_add_to_empty_threads_list() -> None:
         timer = timer,
         thread = constant.various.NONE_VALUE,
         start_time = time.perf_counter_ns(),
-        decimals = constant.decimals.DEFAUL
+        decimals = constant.decimals.DEFAULT
     )
     assert len(timer.threads) == 1
     thread.list.add(
