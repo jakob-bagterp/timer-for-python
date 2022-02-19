@@ -44,7 +44,7 @@ def random_elapsed_time_ns_and_fractions() -> tuple[int, ElapsedTimeFractions]:
     return elapsed_time_ns, elapsed_time_fractions
 
 def mediate_zero(allow_zero: bool) -> int:
-    return 0 if allow_zero is True else 1 # Used for ranges where you need at least 1 day, 1 hour, 1 minute, etc.
+    return 0 if allow_zero else 1 # Used for ranges where you need at least 1 day, 1 hour, 1 minute, etc.
 
 def random_nanoseconds_as_ns(allow_zero: bool = True) -> int:
     return randint(mediate_zero(allow_zero), 1000 - 1)

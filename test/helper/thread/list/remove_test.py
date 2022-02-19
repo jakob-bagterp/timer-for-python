@@ -46,5 +46,5 @@ def test_removed_item_from_threads_list_matches_remaining_items() -> None:
     assert len(timer.threads) == 1
     assert timer.threads[0] == _thread_item_c
     thread.list.remove(timer, 0)
-    assert len(timer.threads) == 0
+    assert not timer.threads
     del timer
