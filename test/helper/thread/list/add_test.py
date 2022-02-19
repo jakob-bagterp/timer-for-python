@@ -2,7 +2,7 @@ import time
 from timer import Timer
 import timer.constant as constant
 import timer.helper.thread as thread
-from mock_data.thread_list import thread_item_a, thread_item_b, thread_item_c
+from _mock_data.thread_list import thread_item_a, thread_item_b, thread_item_c
 
 def test_add_to_empty_threads_list() -> None:
     timer = Timer()

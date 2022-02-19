@@ -1,5 +1,5 @@
 from timer.helper.time_fractions import TimeFractions
-from mock_data.time_fractions import random_minutes_as_ns
+from _mock_data.time_fractions import random_minutes_as_ns
 
 def test_count_minutes_to_seconds() -> None:
     float_precision = 6

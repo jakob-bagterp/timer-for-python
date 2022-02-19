@@ -1,7 +1,7 @@
 from timer import Timer
 import timer.constant as constant
 import timer.helper.thread as thread
-from mock_data.thread_list import thread_item_default, thread_item_a, thread_item_b, thread_item_c
+from _mock_data.thread_list import thread_item_default, thread_item_a, thread_item_b, thread_item_c
 
 def test_try_get_thread_item_and_index() -> None:
     timer = Timer()
