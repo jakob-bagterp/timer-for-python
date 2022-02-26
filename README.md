@@ -12,12 +12,20 @@ Lightweight Python package that makes it easy to measure how much time it takes 
 
 ## Installation
 ### PyPI
+Assuming that Python is installed already, execute this command in the terminal:
+
 ```shell
 pip3 install timer-for-python
 ```
 
+If you already have installed Timer for Python, use this command to upgrade to latest version:
+
+```shell
+pip3 install --upgrade timer-for-python
+```
+
 ### Homebrew
-If you already have installed the [Homebrew](https://brew.sh) package manager for Mac and Linux, use this terminal command to tap Timer for Python:
+If you already have installed the [Homebrew](https://brew.sh) package manager for Mac and Linux, execute this terminal command to tap Timer for Python:
 
 ```shell
 brew tap jakob-bagterp/timer-for-python
