@@ -5,8 +5,9 @@ from ..constant.decimals import DEFAULT, MAXIMUM, MINIMUM
 from ..model.timer import TimerObject
 
 
-# If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated.
 def mediate(timer: TimerObject, decimals: int | None) -> int:
+    """If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated."""
+
     return timer.decimals if decimals is None else validate_and_normalise(decimals)
 
 
