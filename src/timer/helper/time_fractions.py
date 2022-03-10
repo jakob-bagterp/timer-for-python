@@ -1,8 +1,9 @@
 from ..model.elapsed_time_fractions import ElapsedTimeFractions
 
 
-# Elapsed time is in nanoseconds and should be calculated as difference between start and stop time using on the time.perf_counter_ns() function.
 def calculate_time_fractions(elapsed_time_ns: int) -> ElapsedTimeFractions:
+    """Elapsed time is in nanoseconds and should be calculated as difference between start and stop time using on the time.perf_counter_ns() function."""
+
     microseconds, nanoseconds = divmod(elapsed_time_ns, 1000)
     # As divmod() can be slow, let's return 0s as a tuple if divmod() isn't needed.
     milliseconds, microseconds = divmod(microseconds, 1000) if microseconds > 0 else (0, 0)
@@ -29,14 +30,18 @@ class TimeFractions:
         return self.time.microseconds + self.time.nanoseconds / 1000
 
     def count_milliseconds_to_float(self) -> float:
-        # This could potentially be faster by dividing self.microseconds by a 1000 directly, yet we don't want to lose precision in the decimals.
+        """This could potentially be faster by dividing self.microseconds by a 1000 directly, yet we don't want to lose precision in the decimals."""
+
         return self.time.milliseconds + self.count_microseconds_to_float() / 1000
 
     def count_seconds_to_float(self) -> float:
-        # This could potentially be faster by dividing self.milliseconds by a 1000 directly, yet we don't want to lose precision in the decimals.
+        """This could potentially be faster by dividing self.milliseconds by a 1000 directly, yet we don't want to lose precision in the decimals."""
+
         return self.time.seconds + self.count_milliseconds_to_float() / 1000
 
-    def seconds_rounded(self) -> float:  # If 2 seconds and 567 milliseconds, ensure it'll be rounded up to 3 seconds.
+    def seconds_rounded(self) -> float:
+        """For instance, if 2 seconds and 567 milliseconds, ensure it'll be rounded up to 3 seconds."""
+
         return int(round(self.count_seconds_to_float(), 0))
 
     def count_minutes_to_seconds(self) -> float:
