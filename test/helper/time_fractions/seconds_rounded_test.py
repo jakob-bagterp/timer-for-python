@@ -1,5 +1,7 @@
-from timer.helper.time_fractions import TimeFractions
 from _mock_data.time_fractions import random_seconds_as_ns
+
+from timer.helper.time_fractions import TimeFractions
+
 
 def test_seconds_rounded() -> None:
     for _ in range(100):

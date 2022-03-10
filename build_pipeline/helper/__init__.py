@@ -1,19 +1,24 @@
 __all__ = ["build_package", "deploy_package", "directory", "run_tests"]
 
 import subprocess
-from colorist import Color
-from typing import Optional
 from distutils.util import strtobool
-from . import build_package, directory, deploy_package, run_tests
+
+from colorist import Color
 from config import package_name
 from config.directory import temp_builds
+
 from timer.version import __version__
+
+from . import build_package, deploy_package, directory, run_tests
+
 
 def get_version() -> str:
     return __version__
 
+
 def get_release_file_name() -> str:
     return f"{package_name()}-{get_version()}.tar.gz"
+
 
 def output_release_file_checksum() -> None:
     directory.working.set_as_project_base_path()
@@ -21,6 +26,7 @@ def output_release_file_checksum() -> None:
     print(f"Checksum SHA256 for {release_file_name}:")
     subprocess.call(f"shasum -a 256 ./{temp_builds()}/{release_file_name}".split())
     print("")
+
 
 def prompt_user_yes_or_no(question: str) -> bool:
     """Prompt a yes/no question to the user."""
@@ -30,7 +36,8 @@ def prompt_user_yes_or_no(question: str) -> bool:
         try:
             return bool(strtobool(user_input))
         except ValueError:
-            print("Please use y/n or yes/no.\n")    
+            print("Please use y/n or yes/no.\n")
+
 
 def confirm_to_proceed(question: str) -> None:
     is_confirmed = prompt_user_yes_or_no(question)
@@ -38,7 +45,8 @@ def confirm_to_proceed(question: str) -> None:
         print("Exiting...")
         exit(0)
 
-def execute_command_and_print(command: str, no_split_appendix: Optional[str] = None) -> None:
+
+def execute_command_and_print(command: str, no_split_appendix: str | None = None) -> None:
     if no_split_appendix is not None:
         print(f"Executing command: {Color.GREEN}{command} {no_split_appendix}{Color.OFF}...")
         command_list = command.split()
