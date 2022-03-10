@@ -1,6 +1,10 @@
-from timer import Timer
+from _mock_data.thread_list import (generate_timer_with_threads_list,
+                                    thread_item_a, thread_item_b,
+                                    thread_item_c, thread_item_default)
+
 import timer.helper.thread as thread
-from _mock_data.thread_list import thread_item_default, thread_item_a, thread_item_b, thread_item_c, generate_timer_with_threads_list
+from timer import Timer
+
 
 def test_remove_items_from_threads_list() -> None:
     timer = generate_timer_with_threads_list()
@@ -14,6 +18,7 @@ def test_remove_items_from_threads_list() -> None:
     thread.list.remove(timer, 0)
     assert len(timer.threads) == 0
     del timer
+
 
 def test_removed_item_from_threads_list_matches_remaining_items() -> None:
     timer = Timer()

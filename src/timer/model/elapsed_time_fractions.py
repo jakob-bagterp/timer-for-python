@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
-@dataclass(frozen = True)
+
+@dataclass(frozen=True)
 class ElapsedTimeFractions:
     """Class to define fractions of elapsed time."""
 
