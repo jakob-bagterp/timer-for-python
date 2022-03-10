@@ -12,12 +12,14 @@ def message(thread: str, fractions: TimeFractions, decimals: int) -> None:
             # Format: 1d 2h 3m 4s
             print(f"{text_intro} {time.days}d {time.hours}h {time.minutes}m {fractions.seconds_rounded()}s")
         elif time.hours > 0:
-            print(f"{text_intro} {time.hours}h {time.minutes}m {fractions.seconds_rounded()}s")  # Format: 1h 2m 3s
+            # Format: 1h 2m 3s
+            print(f"{text_intro} {time.hours}h {time.minutes}m {fractions.seconds_rounded()}s")
         elif time.minutes > 0:
             # Format: 62.34 seconds (1m 2s)
             print(f"{text_intro} {fractions.count_minutes_to_seconds():.{decimals}f} seconds ({time.minutes}m {fractions.seconds_rounded()}s)")
         elif time.seconds > 0:
-            print(f"{text_intro} {fractions.count_seconds_to_float():.{decimals}f} seconds")  # Format: 0.123456789 seconds
+            # Format: 0.123456789 seconds
+            print(f"{text_intro} {fractions.count_seconds_to_float():.{decimals}f} seconds")
         elif time.milliseconds > 0:
             # Format: 123.45 milliseconds
             print(f"{text_intro} {fractions.count_milliseconds_to_float():.{decimals}f} milliseconds")
@@ -25,6 +27,7 @@ def message(thread: str, fractions: TimeFractions, decimals: int) -> None:
             # Format: 234.56 microseconds
             print(f"{text_intro} {fractions.count_microseconds_to_float():.{decimals}f} microseconds")
         else:
-            print(f"{text_intro} {time.nanoseconds} nanoseconds")  # Format: 345 nanoseconds
+            # Format: 345 nanoseconds
+            print(f"{text_intro} {time.nanoseconds} nanoseconds")
     except Exception:
         error.message_for_action("in the Timer's output message module", thread=thread)
