@@ -1,2 +1,2 @@
 NONE_VALUE: str = "NONE"
-"""Returns "NONE". Note that is bas to be an upppercase string."""
+# Note that is bas to be an upppercase string to be compatible with the rest of the system.
