@@ -1,9 +1,9 @@
 import time
 
-from . import controller, error
-from .model.timer import TimerObject
-from . import constant, helper
+from . import constant, controller, error, helper
 from .model.thread_item import ThreadItem
+from .model.timer import TimerObject
+
 
 class Timer(TimerObject):
 
