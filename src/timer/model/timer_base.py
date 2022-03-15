@@ -7,8 +7,8 @@ class TimerBase(ABC):
     """Abstract base class of Timer object."""
 
     def __init__(self) -> None:
-        self.threads: list[ThreadItem]
         self.decimals: int
+        self.threads: list[ThreadItem]
 
     @abstractmethod
     def start(self, thread: str, decimals: int) -> None:
