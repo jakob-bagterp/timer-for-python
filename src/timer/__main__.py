@@ -2,10 +2,10 @@ import time
 
 from . import constant, controller, error, helper
 from .model.thread_item import ThreadItem
-from .model.timer import TimerObject
+from .model.timer import TimerBase
 
 
-class Timer(TimerObject):
+class Timer(TimerBase):
 
     _instance = None
 

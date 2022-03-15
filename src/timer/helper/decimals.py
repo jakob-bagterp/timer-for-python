@@ -2,10 +2,10 @@ from colorist import Color
 
 from .. import error
 from ..constant.decimals import DEFAULT, MAXIMUM, MINIMUM
-from ..model.timer import TimerObject
+from ..model.timer import TimerBase
 
 
-def mediate(timer: TimerObject, decimals: int | None) -> int:
+def mediate(timer: TimerBase, decimals: int | None) -> int:
     """If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated."""
 
     return timer.decimals if decimals is None else validate_and_normalise(decimals)

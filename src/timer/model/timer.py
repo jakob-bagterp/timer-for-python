@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 from .thread_item import ThreadItem
 
 
-class TimerObject(ABC):
+class TimerBase(ABC):
     """Abstract base class of Timer object."""
 
     def __init__(self) -> None:

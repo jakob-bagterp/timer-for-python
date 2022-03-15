@@ -2,10 +2,10 @@ __all__ = []
 
 from .. import error, helper
 from ..helper.time_fractions import TimeFractions
-from ..model.timer import TimerObject
+from ..model.timer import TimerBase
 
 
-def start(timer: TimerObject, thread: str | None, start_time: int, decimals: int | None) -> None:
+def start(timer: TimerBase, thread: str | None, start_time: int, decimals: int | None) -> None:
     try:
         thread = helper.thread.normalise_to_string_and_uppercase(thread)
         decimals = helper.decimals.mediate(timer, decimals)
@@ -18,7 +18,7 @@ def start(timer: TimerObject, thread: str | None, start_time: int, decimals: int
         error.message_for_action("in the Timer's start thread controller", thread=thread)
 
 
-def stop(timer: TimerObject, thread: str | None, stop_time: int) -> None:
+def stop(timer: TimerBase, thread: str | None, stop_time: int) -> None:
     try:
         thread = helper.thread.normalise_to_string_and_uppercase(thread)
         thread_item, entry_index = helper.thread.list.try_get_thread_item_and_index(timer, thread)
