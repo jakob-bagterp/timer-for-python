@@ -3,7 +3,7 @@ __all__ = []
 from colorist import Color
 
 from .. import helper
-from ..model.timer import TimerBase
+from ..model.timer_base import TimerBase
 
 
 def start_controller(thread: str | None) -> None:

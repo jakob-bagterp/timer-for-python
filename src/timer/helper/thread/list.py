@@ -1,6 +1,6 @@
 from ... import error
 from ...model.thread_item import ThreadItem
-from ...model.timer import TimerBase
+from ...model.timer_base import TimerBase
 
 
 def try_get_thread_item_and_index(timer: TimerBase, thread: str) -> tuple[ThreadItem, int] | tuple[None, None]:

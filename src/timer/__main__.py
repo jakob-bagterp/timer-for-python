@@ -2,7 +2,7 @@ import time
 
 from . import constant, controller, error, helper
 from .model.thread_item import ThreadItem
-from .model.timer import TimerBase
+from .model.timer_base import TimerBase
 
 
 class Timer(TimerBase):

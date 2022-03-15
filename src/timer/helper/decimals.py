@@ -2,7 +2,7 @@ from colorist import Color
 
 from .. import error
 from ..constant.decimals import DEFAULT, MAXIMUM, MINIMUM
-from ..model.timer import TimerBase
+from ..model.timer_base import TimerBase
 
 
 def mediate(timer: TimerBase, decimals: int | None) -> int:

@@ -2,7 +2,7 @@ __all__ = []
 
 from .. import error, helper
 from ..helper.time_fractions import TimeFractions
-from ..model.timer import TimerBase
+from ..model.timer_base import TimerBase
 
 
 def start(timer: TimerBase, thread: str | None, start_time: int, decimals: int | None) -> None:
