@@ -15,8 +15,6 @@ class TimerObject(ABC):
         return cls._instance
 
     def __init__(self, decimals: int = constant.decimals.DEFAULT) -> None:
-        """Initiates basic properties of the Timer."""
-
         self.threads: list[ThreadItem] = []
         self.decimals: int = decimals if decimals == constant.decimals.DEFAULT else helper.decimals.validate_and_normalise(
             decimals)
