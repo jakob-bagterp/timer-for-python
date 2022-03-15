@@ -15,7 +15,7 @@ def try_get_thread_item_and_index(timer: TimerBase, thread: str) -> tuple[Thread
                 index_counter += 1
         return None, None
     except Exception:
-        error.message_for_action("in the Timer's lookup module", thread=thread)
+        error.message_for_action("in the Timer's lookup module", thread)
         return None, None
 
 
@@ -23,7 +23,7 @@ def add(timer: TimerBase, thread: str, start_time: int, decimals: int) -> None:
     try:
         timer.threads.append(ThreadItem(name=thread, start_time=start_time, decimals=decimals))
     except Exception:
-        error.message_for_action("when trying to add entry to the Timer's thread list", thread=thread)
+        error.message_for_action("when trying to add entry to the Timer's thread list", thread)
 
 
 def remove(timer: TimerBase, entry_index: int) -> None:
