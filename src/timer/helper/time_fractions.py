@@ -5,7 +5,7 @@ def calculate_time_fractions(elapsed_time_ns: int) -> ElapsedTimeFractions:
     """Elapsed time is in nanoseconds and should be calculated as difference between start and stop time using on the time.perf_counter_ns() function."""
 
     microseconds, nanoseconds = divmod(elapsed_time_ns, 1000)
-    # As divmod() can be slow, let's return 0s as a tuple if divmod() isn't needed.
+    # As divmod() can be slow, let's return 0s as a tuple if divmod() isn't needed:
     milliseconds, microseconds = divmod(microseconds, 1000) if microseconds > 0 else (0, 0)
     seconds, milliseconds = divmod(milliseconds, 1000) if milliseconds > 0 else (0, 0)
     minutes, seconds = divmod(seconds, 60) if seconds > 0 else (0, 0)
