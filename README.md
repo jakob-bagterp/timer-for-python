@@ -64,7 +64,7 @@ Instead of the default value `2` for `decimals`, you can set the output precisio
 
 ```python
 timer = Timer()
-timer.start(decimals = 5)
+timer.start(decimals=5)
 
 # Insert your code here
 
@@ -78,19 +78,19 @@ To measure performance of multiple blocks of code, use the `thread` argument to 
 
 ```python
 timer = Timer()
-timer.start(thread = "A")
+timer.start(thread="A")
 
 # Insert your code here
 
-    timer.start(thread = "B", decimals = 5)
+    timer.start(thread="B", decimals=5)
 
     # Insert more code here
 
-    timer.stop(thread = "B") # Output example: 0.12345 seconds for thread B
+    timer.stop(thread="B") # Output example: 0.12345 seconds for thread B
 
 # Insert even more code here
 
-timer.stop(thread = "A") # Output example: 6.78 seconds for thread A
+timer.stop(thread="A") # Output example: 6.78 seconds for thread A
 ```
 
 ## Documentation and Other Features
@@ -103,7 +103,7 @@ To set the number of decimals in the output (only if less than an hour), use the
 Either, set the general precision of decimals when initiating the Timer:
 
 ```python
-timer = Timer(decimals = 5)
+timer = Timer(decimals=5)
 timer.start()
 
 # Insert your code here
@@ -114,8 +114,8 @@ timer.stop() # Output example: 0.12345 seconds
 Or set the decimals when starting a new thread, which will also override the general decimals defined when initiating the Timer:
 
 ```python
-timer = Timer(decimals = 5)
-timer.start(decimals = 9)
+timer = Timer(decimals=5)
+timer.start(decimals=9)
 
 # Insert your code here
 
