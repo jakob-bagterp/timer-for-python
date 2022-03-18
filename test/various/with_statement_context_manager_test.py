@@ -1,9 +1,9 @@
 import time
 
 from _helper.terminal_output import verify_decimals_in_terminal_output
+from _mock_data.decimals import DECIMALS_RANGE
 
 from timer import Timer
-from timer.constant.decimals import MAXIMUM, MINIMUM
 
 SHORT_INTERVAL: float = 0.01  # Seconds.
 
@@ -27,7 +27,7 @@ def test_with_statement_context_manager_with_thread(capfd: object) -> None:
 
 
 def test_with_statement_context_manager_with_decimals(capfd: object) -> None:
-    for decimals in range(MINIMUM, MAXIMUM + 1):
+    for decimals in DECIMALS_RANGE:
         with Timer(decimals=decimals):
             time.sleep(SHORT_INTERVAL)
         terminal_output, _ = capfd.readouterr()
@@ -37,7 +37,7 @@ def test_with_statement_context_manager_with_decimals(capfd: object) -> None:
 
 def test_with_statement_context_manager_with_thread_and_decimals(capfd: object) -> None:
     _thread = "thread"  # TODO: Use random thread name instead.
-    for decimals in range(MINIMUM, MAXIMUM + 1):
+    for decimals in DECIMALS_RANGE:
         with Timer(thread=_thread, decimals=decimals):
             time.sleep(SHORT_INTERVAL)
         terminal_output, _ = capfd.readouterr()
