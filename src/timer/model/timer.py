@@ -27,9 +27,8 @@ class Timer(TimerBase):
         return self
 
     def __exit__(self, exc_type, exc_value, traceback) -> None:
-        last_context_manager_thread = self.context_manager_threads[-1]
+        last_context_manager_thread = self.context_manager_threads.pop()
         self.stop(last_context_manager_thread)
-        print(last_context_manager_thread)
 
     def start(self, thread: str | None = None, decimals: int | None = None) -> None:
         try:
