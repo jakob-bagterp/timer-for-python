@@ -33,3 +33,14 @@ def test_with_statement_context_manager_with_decimals(capfd: object) -> None:
         terminal_output, _ = capfd.readouterr()
         assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output
         assert verify_decimals_in_terminal_output(decimals, terminal_output)
+
+
+def test_with_statement_context_manager_with_thread_and_decimals(capfd: object) -> None:
+    _thread = "thread"  # TODO: Use random thread name instead.
+    for decimals in range(MINIMUM, MAXIMUM + 1):
+        with Timer(thread=_thread, decimals=decimals):
+            time.sleep(SHORT_INTERVAL)
+        terminal_output, _ = capfd.readouterr()
+        assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output
+        assert _thread in terminal_output
+        assert verify_decimals_in_terminal_output(decimals, terminal_output)
