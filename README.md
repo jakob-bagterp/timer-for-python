@@ -58,6 +58,15 @@ timer.start()
 timer.stop() # Output example: 12.34 seconds
 ```
 
+Alternatively, use the `with` statement, which automatically will stop the Timer. Same result with less code:
+
+```python
+with Timer():
+    # Insert your code here
+
+# Output example: 12.34 seconds
+```
+
 ### Advanced
 #### Decimals
 Instead of the default value `2` for `decimals`, you can set the output precision up to `9` in the `decimals` argument:
@@ -91,6 +100,21 @@ timer.start(thread="A")
 # Insert even more code here
 
 timer.stop(thread="A") # Output example: 6.78 seconds for thread A
+```
+
+Or use the `with` statement to get the same result with less code:
+```python
+with Timer(thread="A")
+    # Insert your code here
+
+    with Timer(thread="B", decimals=5):
+        # Insert more code here
+
+    # Output example: 0.12345 seconds for thread B
+
+# Insert even more code here
+
+# Output example: 6.78 seconds for thread A
 ```
 
 ## Documentation and Other Features
