@@ -1,5 +1,6 @@
-import re
 import time
+
+from _helper.terminal_output import verify_decimals_in_terminal_output
 
 from timer import Timer
 from timer.constant.decimals import MAXIMUM, MINIMUM
@@ -25,17 +26,10 @@ def test_with_statement_context_manager_with_thread(capfd: object) -> None:
     assert _thread in terminal_output
 
 
-DECIMALS_PATTERN = re.compile(r"(?<=\.)\d*")
-
-
 def test_with_statement_context_manager_with_decimals(capfd: object) -> None:
     for decimals in range(MINIMUM, MAXIMUM + 1):
         with Timer(decimals=decimals):
             time.sleep(SHORT_INTERVAL)
         terminal_output, _ = capfd.readouterr()
         assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output
-        decimals_output = DECIMALS_PATTERN.search(terminal_output)
-        if decimals == 0:
-            assert decimals_output is None
-        else:
-            assert decimals == len(decimals_output.group(0))
+        assert verify_decimals_in_terminal_output(decimals, terminal_output)
