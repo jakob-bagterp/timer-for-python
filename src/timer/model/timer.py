@@ -6,7 +6,6 @@ from .timer_base import TimerBase
 
 
 class Timer(TimerBase):
-
     _instance = None
 
     def __new__(cls, thread: str | None = None, decimals: int = constant.decimals.DEFAULT):
