@@ -5,7 +5,7 @@ from _helper.terminal_output import verify_decimals_in_terminal_output
 from timer import Timer
 from timer.constant.decimals import MAXIMUM, MINIMUM
 
-SHORT_INTERVAL: float = 0.1  # Seconds.
+SHORT_INTERVAL: float = 0.01  # Seconds.
 
 EXPECTED_TERMINAL_OUTPUT_PREFIX: str = "Elapsed time"
 
