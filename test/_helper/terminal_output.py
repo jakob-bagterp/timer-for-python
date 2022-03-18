@@ -1,6 +1,6 @@
 import re
 
-DECIMALS_PATTERN = re.compile(r"(?<=\.)\d*")
+DECIMALS_PATTERN = re.compile(r"(?<=\.)\d*")  # Captures "456789" from "Elapsed time: 123.456789 milliseconds".
 
 
 def verify_decimals_in_terminal_output(decimals: int, terminal_output: str) -> bool:
