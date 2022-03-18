@@ -19,8 +19,7 @@ class Timer(TimerBase):
         self.threads: list[ThreadItem] = []
         self.context_manager_threads: list[str] = []
         self.context_manager_latest_thread: str = helper.thread.normalise_to_string_and_uppercase(thread)
-        self.context_manager_latest_decimals: int = decimals if decimals == constant.decimals.DEFAULT else helper.decimals.validate_and_normalise(
-            decimals)
+        self.context_manager_latest_decimals: int = self.decimals
 
     def __enter__(self) -> TimerBase:
         self.context_manager_threads.append(self.context_manager_latest_thread)
