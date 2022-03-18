@@ -16,20 +16,21 @@ class Timer(TimerBase):
     def __init__(self, thread: str | None = None, decimals: int = constant.decimals.DEFAULT) -> None:
         self.decimals: int = decimals if decimals == constant.decimals.DEFAULT else helper.decimals.validate_and_normalise(
             decimals)
-        if thread is None:
-            self.threads: list[ThreadItem] = []
-        else:
-            self.threads: list[ThreadItem] = [ThreadItem(
-                name=helper.thread.normalise_to_string_and_uppercase(thread),
-                start_time=time.perf_counter_ns(),
-                decimals=self.decimals
-            )]
+        self.threads: list[ThreadItem] = []
+        self.context_manager_threads: list[str] = []
+        self.context_manager_latest_thread: str = helper.thread.normalise_to_string_and_uppercase(thread)
+        self.context_manager_latest_decimals: int = decimals if decimals == constant.decimals.DEFAULT else helper.decimals.validate_and_normalise(
+            decimals)
 
-    def __enter__(self, thread: str | None = None, decimals: int | None = None):
-        return self.start(thread, decimals)
+    def __enter__(self) -> TimerBase:
+        self.context_manager_threads.append(self.context_manager_latest_thread)
+        self.start(self.context_manager_latest_thread, self.context_manager_latest_decimals)
+        return self
 
-    def __exit__(self, exc_type, exc_value, traceback, thread: str | None = None):
-        self.stop(thread)
+    def __exit__(self, exc_type, exc_value, traceback) -> None:
+        last_context_manager_thread = self.context_manager_threads[-1]
+        self.stop(last_context_manager_thread)
+        print(last_context_manager_thread)
 
     def start(self, thread: str | None = None, decimals: int | None = None) -> None:
         try:
