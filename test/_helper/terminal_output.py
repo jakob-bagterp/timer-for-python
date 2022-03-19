@@ -9,3 +9,10 @@ def verify_decimals_in_terminal_output(decimals: int, terminal_output: str) -> b
         return decimals_output is None
     else:
         return decimals == len(decimals_output.group(0))
+
+
+PREFIX_PATTERN = re.compile(r"^Elapsed time")
+
+
+def verify_prefix_in_terminal_output(terminal_output: str) -> bool:
+    return bool(PREFIX_PATTERN.match(terminal_output))

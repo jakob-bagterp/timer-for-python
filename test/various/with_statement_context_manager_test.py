@@ -1,6 +1,7 @@
 import time
 
-from _helper.terminal_output import verify_decimals_in_terminal_output
+from _helper.terminal_output import (verify_decimals_in_terminal_output,
+                                     verify_prefix_in_terminal_output)
 from _mock_data.decimals import DECIMALS_RANGE
 
 from timer import Timer
@@ -8,14 +9,12 @@ from timer.constant.decimals import DEFAULT
 
 SHORT_INTERVAL: float = 0.01  # Seconds.
 
-EXPECTED_TERMINAL_OUTPUT_PREFIX: str = "Elapsed time"
-
 
 def test_with_statement_context_manager(capfd: object) -> None:
     with Timer():
         time.sleep(SHORT_INTERVAL)
     terminal_output, _ = capfd.readouterr()
-    assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output
+    assert verify_prefix_in_terminal_output(terminal_output)
 
 
 def test_with_statement_context_manager_with_thread(capfd: object) -> None:
@@ -23,7 +22,7 @@ def test_with_statement_context_manager_with_thread(capfd: object) -> None:
     with Timer(thread=_thread):
         time.sleep(SHORT_INTERVAL)
     terminal_output, _ = capfd.readouterr()
-    assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output
+    assert verify_prefix_in_terminal_output(terminal_output)
     assert _thread in terminal_output
 
 
@@ -32,7 +31,7 @@ def test_with_statement_context_manager_with_decimals(capfd: object) -> None:
         with Timer(decimals=decimals):
             time.sleep(SHORT_INTERVAL)
         terminal_output, _ = capfd.readouterr()
-        assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output
+        assert verify_prefix_in_terminal_output(terminal_output)
         assert verify_decimals_in_terminal_output(decimals, terminal_output)
 
 
@@ -42,7 +41,7 @@ def test_with_statement_context_manager_with_thread_and_decimals(capfd: object) 
         with Timer(thread=_thread, decimals=decimals):
             time.sleep(SHORT_INTERVAL)
         terminal_output, _ = capfd.readouterr()
-        assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output
+        assert verify_prefix_in_terminal_output(terminal_output)
         assert _thread in terminal_output
         assert verify_decimals_in_terminal_output(decimals, terminal_output)
 
@@ -57,15 +56,15 @@ def test_with_statement_context_manager_with_multiple_nested_threads_and_decimal
                 with Timer(thread=_thread_b):
                     time.sleep(SHORT_INTERVAL)
                 terminal_output_1, _ = capfd.readouterr()
-                assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output_1
+                assert verify_prefix_in_terminal_output(terminal_output_1)
                 assert _thread_b in terminal_output_1
                 assert verify_decimals_in_terminal_output(DEFAULT, terminal_output_1)
             terminal_output_2, _ = capfd.readouterr()
-            assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output_2
+            assert verify_prefix_in_terminal_output(terminal_output_2)
             assert _thread_a in terminal_output_2
             assert verify_decimals_in_terminal_output(decimals, terminal_output_2)
         terminal_output_3, _ = capfd.readouterr()
-        assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output_3
+        assert verify_prefix_in_terminal_output(terminal_output_3)
 
 
 def test_mix_of_context_manager_standard(capfd: object) -> None:
@@ -75,8 +74,8 @@ def test_mix_of_context_manager_standard(capfd: object) -> None:
     with Timer():
         time.sleep(SHORT_INTERVAL)
     terminal_output_1, _ = capfd.readouterr()
-    assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output_1
+    assert verify_prefix_in_terminal_output(terminal_output_1)
     timer.stop(_thread)
     terminal_output_2, _ = capfd.readouterr()
     assert _thread in terminal_output_2
-    assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output_2
+    assert verify_prefix_in_terminal_output(terminal_output_2)
