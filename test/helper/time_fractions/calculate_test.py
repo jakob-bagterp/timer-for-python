@@ -1,4 +1,4 @@
-from _mock_data.time_fractions import random_elapsed_time_ns_and_fractions
+from _helper.time_fractions import random_elapsed_time_ns_and_fractions
 
 from timer.helper.time_fractions import calculate_time_fractions
 
