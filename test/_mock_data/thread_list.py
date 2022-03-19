@@ -31,11 +31,16 @@ THREAD_ITEM_C: ThreadItem = ThreadItem(
 EMPTY_THREADS_LIST: list[ThreadItem] = []
 
 
-def generate_timer_with_threads_list() -> Timer:
-    timer = Timer()
-    timer.threads = [
+def generate_threads_list() -> list[ThreadItem]:
+    return [
         THREAD_ITEM_DEFAULT,
         THREAD_ITEM_A,
         THREAD_ITEM_B,
-        THREAD_ITEM_C]
+        THREAD_ITEM_C
+    ]
+
+
+def generate_timer_with_threads_list() -> Timer:
+    timer = Timer()
+    timer.threads = generate_threads_list()
     return timer
