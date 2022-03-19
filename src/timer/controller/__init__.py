@@ -2,10 +2,10 @@ __all__ = []
 
 from .. import error, helper
 from ..helper.time_fractions import TimeFractions
-from ..model.timer import TimerObject
+from ..model.timer_base import TimerBase
 
 
-def start(timer: TimerObject, thread: str | None, start_time: int, decimals: int | None) -> None:
+def start(timer: TimerBase, thread: str | None, start_time: int, decimals: int | None) -> None:
     try:
         thread = helper.thread.normalise_to_string_and_uppercase(thread)
         decimals = helper.decimals.mediate(timer, decimals)
@@ -15,10 +15,10 @@ def start(timer: TimerObject, thread: str | None, start_time: int, decimals: int
         else:
             error.start_controller(thread)
     except Exception:
-        error.message_for_action("in the Timer's start thread controller", thread=thread)
+        error.message_for_action("in the Timer's start thread controller", thread)
 
 
-def stop(timer: TimerObject, thread: str | None, stop_time: int) -> None:
+def stop(timer: TimerBase, thread: str | None, stop_time: int) -> None:
     try:
         thread = helper.thread.normalise_to_string_and_uppercase(thread)
         thread_item, entry_index = helper.thread.list.try_get_thread_item_and_index(timer, thread)
@@ -31,4 +31,4 @@ def stop(timer: TimerObject, thread: str | None, stop_time: int) -> None:
         else:
             error.stop_controller(timer, thread)
     except Exception:
-        error.message_for_action("in the Timer's stop thread controller", thread=thread)
+        error.message_for_action("in the Timer's stop thread controller", thread)

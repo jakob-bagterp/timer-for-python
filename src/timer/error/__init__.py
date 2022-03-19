@@ -3,7 +3,7 @@ __all__ = []
 from colorist import Color
 
 from .. import helper
-from ..model.timer import TimerObject
+from ..model.timer_base import TimerBase
 
 
 def start_controller(thread: str | None) -> None:
@@ -13,7 +13,7 @@ def start_controller(thread: str | None) -> None:
         print(f"{Color.YELLOW}Timer for thread {thread} is running. Use .stop({thread = }) to stop it.{Color.OFF}")
 
 
-def stop_controller(timer: TimerObject, thread: str | None) -> None:
+def stop_controller(timer: TimerBase, thread: str | None) -> None:
     if helper.thread.is_none(thread):
         print(f"{Color.YELLOW}Timer is not running. Use .start() to start it.{Color.OFF}")
     else:

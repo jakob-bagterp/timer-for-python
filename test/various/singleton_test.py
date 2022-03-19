@@ -23,3 +23,9 @@ def test_only_one_instance_of_timer_with_decimals_3() -> None:
     timer_1 = Timer()
     timer_2 = Timer(decimals=5)
     assert timer_2 is timer_1
+
+
+def test_only_one_instance_of_timer_with_context_manager() -> None:
+    timer_1 = Timer()
+    with Timer() as timer_2:
+        assert timer_2 is timer_1

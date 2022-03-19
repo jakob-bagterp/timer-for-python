@@ -1,9 +1,9 @@
 from ... import error
 from ...model.thread_item import ThreadItem
-from ...model.timer import TimerObject
+from ...model.timer_base import TimerBase
 
 
-def try_get_thread_item_and_index(timer: TimerObject, thread: str) -> tuple[ThreadItem, int] | tuple[None, None]:
+def try_get_thread_item_and_index(timer: TimerBase, thread: str) -> tuple[ThreadItem, int] | tuple[None, None]:
     try:
         index_counter = 0
         for thread_item in timer.threads:
@@ -15,18 +15,18 @@ def try_get_thread_item_and_index(timer: TimerObject, thread: str) -> tuple[Thre
                 index_counter += 1
         return None, None
     except Exception:
-        error.message_for_action("in the Timer's lookup module", thread=thread)
+        error.message_for_action("in the Timer's lookup module", thread)
         return None, None
 
 
-def add(timer: TimerObject, thread: str, start_time: int, decimals: int) -> None:
+def add(timer: TimerBase, thread: str, start_time: int, decimals: int) -> None:
     try:
         timer.threads.append(ThreadItem(name=thread, start_time=start_time, decimals=decimals))
     except Exception:
-        error.message_for_action("when trying to add entry to the Timer's thread list", thread=thread)
+        error.message_for_action("when trying to add entry to the Timer's thread list", thread)
 
 
-def remove(timer: TimerObject, entry_index: int) -> None:
+def remove(timer: TimerBase, entry_index: int) -> None:
     try:
         timer.threads.pop(entry_index)
     except Exception:

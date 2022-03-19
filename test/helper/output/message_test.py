@@ -1,9 +1,11 @@
-from _mock_data.output_message import random_decimals, random_thread_name
+from _helper.random import random_decimals, random_thread_name
+from _helper.time_fractions import (random_days_as_ns, random_hours_as_ns,
+                                    random_microseconds_as_ns,
+                                    random_milliseconds_as_ns,
+                                    random_minutes_as_ns,
+                                    random_nanoseconds_as_ns,
+                                    random_seconds_as_ns)
 from colorist import Color
-from helper.time_fractions._mock_data.time_fractions import (
-    random_days_as_ns, random_hours_as_ns, random_microseconds_as_ns,
-    random_milliseconds_as_ns, random_minutes_as_ns, random_nanoseconds_as_ns,
-    random_seconds_as_ns)
 
 from timer.constant.various import NONE_VALUE
 from timer.helper.output import message

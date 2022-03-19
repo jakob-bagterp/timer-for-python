@@ -1,34 +1,45 @@
-from abc import ABC, abstractmethod
+import time
 
-from .. import constant, helper
+from .. import constant, controller, error, helper
 from .thread_item import ThreadItem
+from .timer_base import TimerBase
 
 
-class TimerObject(ABC):
-    """Abstract base class of Timer object."""
-
+class Timer(TimerBase):
     _instance = None
 
-    def __new__(cls, decimals: int = constant.decimals.DEFAULT):
+    def __new__(cls, thread: str | None = None, decimals: int = constant.decimals.DEFAULT) -> TimerBase:
         if not cls._instance:  # Singleton: Ensure there's only a single instance of Timer running.
             cls._instance = super().__new__(cls)
         return cls._instance
 
-    def __init__(self, decimals: int = constant.decimals.DEFAULT) -> None:
-        """Initiates basic properties of the Timer."""
-
-        self.threads: list[ThreadItem] = []
+    def __init__(self, thread: str | None = None, decimals: int = constant.decimals.DEFAULT) -> None:
         self.decimals: int = decimals if decimals == constant.decimals.DEFAULT else helper.decimals.validate_and_normalise(
             decimals)
+        self.threads: list[ThreadItem] = []
+        self.context_manager_threads: list[str] = []
+        self.context_manager_latest_thread: str = helper.thread.normalise_to_string_and_uppercase(thread)
+        self.context_manager_latest_decimals: int = self.decimals
 
-    @abstractmethod
-    def start(self, thread: str, decimals: int) -> None:
-        """Starts the Timer."""
+    def __enter__(self) -> TimerBase:
+        self.context_manager_threads.append(self.context_manager_latest_thread)
+        self.start(self.context_manager_latest_thread, self.context_manager_latest_decimals)
+        return self
 
-        raise NotImplementedError
+    def __exit__(self, exc_type, exc_value, traceback) -> None:
+        last_context_manager_thread = self.context_manager_threads.pop()
+        self.stop(last_context_manager_thread)
 
-    @abstractmethod
-    def stop(self, thread: str) -> None:
-        """Stops the Timer."""
+    def start(self, thread: str | None = None, decimals: int | None = None) -> None:
+        try:
+            start_time = time.perf_counter_ns()  # For precision, this is the first operation of the function.
+            controller.start(self, thread, start_time, decimals)
+        except Exception:
+            error.message_for_action("when trying to start the Timer", thread)
 
-        raise NotImplementedError
+    def stop(self, thread: str | None = None) -> None:
+        try:
+            stop_time = time.perf_counter_ns()  # For precision, this is the first operation of the function.
+            controller.stop(self, thread, stop_time)
+        except Exception:
+            error.message_for_action("when trying to stop the Timer", thread)

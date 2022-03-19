@@ -1,11 +1,12 @@
 import numpy
+from _mock_data.decimals import DECIMALS_RANGE
 
 from timer.constant.decimals import DEFAULT, MAXIMUM, MINIMUM
 from timer.helper.decimals import validate_and_normalise
 
 
 def test_number_from_minimum_to_maximum() -> None:
-    for decimals in range(MINIMUM, MAXIMUM + 1):
+    for decimals in DECIMALS_RANGE:
         assert validate_and_normalise(decimals) == decimals
 
 
