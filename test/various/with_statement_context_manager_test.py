@@ -66,3 +66,17 @@ def test_with_statement_context_manager_with_multiple_nested_threads_and_decimal
             assert verify_decimals_in_terminal_output(decimals, terminal_output_2)
         terminal_output_3, _ = capfd.readouterr()
         assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output_3
+
+
+def test_mix_of_context_manager_standard(capfd: object) -> None:
+    _thread = "thread"  # TODO: Use random thread name instead + None type.
+    timer = Timer()
+    timer.start(thread=_thread)
+    with Timer():
+        time.sleep(SHORT_INTERVAL)
+    terminal_output_1, _ = capfd.readouterr()
+    assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output_1
+    timer.stop(_thread)
+    terminal_output_2, _ = capfd.readouterr()
+    assert _thread in terminal_output_2
+    assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output_2
