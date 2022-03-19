@@ -7,6 +7,7 @@ from .timer_base import TimerBase
 
 class Timer(TimerBase):
     _instance = None
+    _lock_init = False
 
     def __new__(cls, thread: str | None = None, decimals: int = constant.decimals.DEFAULT) -> TimerBase:
         if not cls._instance:  # Singleton: Ensure there's only a single instance of Timer running.
@@ -14,10 +15,12 @@ class Timer(TimerBase):
         return cls._instance
 
     def __init__(self, thread: str | None = None, decimals: int = constant.decimals.DEFAULT) -> None:
+        if not self._lock_init:  # Ensure that initialisation of the lists only runs the first time.
+            self.threads: list[ThreadItem] = []
+            self.context_manager_threads: list[str] = []
+            self._lock_init = True
         self.decimals: int = decimals if decimals == constant.decimals.DEFAULT else helper.decimals.validate_and_normalise(
             decimals)
-        self.threads: list[ThreadItem] = []
-        self.context_manager_threads: list[str] = []
         self.context_manager_latest_thread: str = helper.thread.normalise_to_string_and_uppercase(thread)
         self.context_manager_latest_decimals: int = self.decimals
 
