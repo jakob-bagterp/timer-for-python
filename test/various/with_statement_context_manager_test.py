@@ -4,6 +4,7 @@ from _helper.terminal_output import verify_decimals_in_terminal_output
 from _mock_data.decimals import DECIMALS_RANGE
 
 from timer import Timer
+from timer.constant.decimals import DEFAULT
 
 SHORT_INTERVAL: float = 0.01  # Seconds.
 
@@ -44,3 +45,24 @@ def test_with_statement_context_manager_with_thread_and_decimals(capfd: object) 
         assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output
         assert _thread in terminal_output
         assert verify_decimals_in_terminal_output(decimals, terminal_output)
+
+
+def test_with_statement_context_manager_with_multiple_nested_threads_and_decimals(capfd: object) -> None:
+    _thread_a = "A-LIST"  # TODO: Use random thread name instead.
+    _thread_b = "B-LIST"  # TODO: Use random thread name instead.
+    for decimals in DECIMALS_RANGE:
+        with Timer():
+            with Timer(thread=_thread_a, decimals=decimals):
+                time.sleep(SHORT_INTERVAL)
+                with Timer(thread=_thread_b):
+                    time.sleep(SHORT_INTERVAL)
+                terminal_output_1, _ = capfd.readouterr()
+                assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output_1
+                assert _thread_b in terminal_output_1
+                assert verify_decimals_in_terminal_output(DEFAULT, terminal_output_1)
+            terminal_output_2, _ = capfd.readouterr()
+            assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output_2
+            assert _thread_a in terminal_output_2
+            assert verify_decimals_in_terminal_output(decimals, terminal_output_2)
+        terminal_output_3, _ = capfd.readouterr()
+        assert EXPECTED_TERMINAL_OUTPUT_PREFIX in terminal_output_3
