@@ -9,7 +9,8 @@ from timer import Timer
 
 def test_add_to_empty_threads_list() -> None:
     timer = Timer()
-    assert len(timer.threads) == 0
+    timer.threads = []
+    assert not timer.threads
     thread.list.add(
         timer=timer,
         thread=constant.various.NONE_VALUE,
@@ -29,7 +30,8 @@ def test_add_to_empty_threads_list() -> None:
 
 def test_added_thread_item_matches_input() -> None:
     timer = Timer()
-    assert len(timer.threads) == 0
+    timer.threads = []
+    assert not timer.threads
     thread.list.add(
         timer=timer,
         thread=THREAD_ITEM_A.name,
