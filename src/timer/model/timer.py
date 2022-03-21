@@ -1,4 +1,5 @@
 import time
+from types import TracebackType
 
 from .. import constant, controller, error, helper
 from .thread_item import ThreadItem
@@ -29,7 +30,7 @@ class Timer(TimerBase):
         self.start(self.context_manager_latest_thread, self.context_manager_latest_decimals)
         return self
 
-    def __exit__(self, exc_type, exc_value, traceback) -> None:
+    def __exit__(self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
         last_context_manager_thread = self.context_manager_threads.pop()
         self.stop(last_context_manager_thread)
 
