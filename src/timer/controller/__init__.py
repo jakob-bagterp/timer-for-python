@@ -1,4 +1,4 @@
-__all__ = []
+__all__: list[str] = []
 
 from .. import error, helper
 from ..helper.time_fractions import TimeFractions
