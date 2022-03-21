@@ -1,4 +1,5 @@
 import time
+from types import TracebackType
 
 from .. import constant, controller, error, helper
 from .thread_item import ThreadItem
@@ -9,7 +10,7 @@ class Timer(TimerBase):
     _instance = None
     _lock_init = False
 
-    def __new__(cls, thread: str | None = None, decimals: int = constant.decimals.DEFAULT) -> TimerBase:
+    def __new__(cls, thread: str | None = None, decimals: int = constant.decimals.DEFAULT) -> TimerBase:  # type: ignore
         if not cls._instance:  # Singleton: Ensure there's only a single instance of Timer running.
             cls._instance = super().__new__(cls)
         return cls._instance
@@ -29,7 +30,7 @@ class Timer(TimerBase):
         self.start(self.context_manager_latest_thread, self.context_manager_latest_decimals)
         return self
 
-    def __exit__(self, exc_type, exc_value, traceback) -> None:
+    def __exit__(self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
         last_context_manager_thread = self.context_manager_threads.pop()
         self.stop(last_context_manager_thread)
 
