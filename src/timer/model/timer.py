@@ -9,7 +9,7 @@ class Timer(TimerBase):
     _instance = None
     _lock_init = False
 
-    def __new__(cls, thread: str | None = None, decimals: int = constant.decimals.DEFAULT) -> TimerBase:
+    def __new__(cls, thread: str | None = None, decimals: int = constant.decimals.DEFAULT) -> TimerBase:  # type: ignore
         if not cls._instance:  # Singleton: Ensure there's only a single instance of Timer running.
             cls._instance = super().__new__(cls)
         return cls._instance
