@@ -9,8 +9,8 @@ from colorist import Color
 
 from timer.constant.various import NONE_VALUE
 from timer.helper.output import message
-from timer.helper.time_fractions import TimeFractions
 from timer.model.elapsed_time_fractions import ElapsedTimeFractions
+from timer.model.time_fractions import TimeFractions
 
 
 def process_terminal_message(elapsed_time_ns: int, capfd: object, max_decimals: int | None = None, has_thread: bool = False) -> tuple[str, TimeFractions, ElapsedTimeFractions, int, str]:
