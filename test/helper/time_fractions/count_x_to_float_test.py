@@ -2,7 +2,7 @@ from _helper.time_fractions import (random_microseconds_as_ns,
                                     random_milliseconds_as_ns,
                                     random_seconds_as_ns)
 
-from timer.helper.time_fractions import TimeFractions
+from timer.model.time_fractions import TimeFractions
 
 
 def test_count_microseconds_to_float() -> None:

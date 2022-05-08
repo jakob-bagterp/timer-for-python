@@ -1,6 +1,6 @@
 from _helper.time_fractions import random_minutes_as_ns
 
-from timer.helper.time_fractions import TimeFractions
+from timer.model.time_fractions import TimeFractions
 
 
 def test_count_minutes_to_seconds() -> None:

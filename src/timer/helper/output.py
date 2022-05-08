@@ -1,7 +1,7 @@
 from colorist import Color
 
 from .. import error, helper
-from ..helper.time_fractions import TimeFractions
+from ..model.time_fractions import TimeFractions
 
 
 def message(thread: str, fractions: TimeFractions, decimals: int) -> None:

@@ -1,6 +1,6 @@
 from _helper.time_fractions import random_seconds_as_ns
 
-from timer.helper.time_fractions import TimeFractions
+from timer.model.time_fractions import TimeFractions
 
 
 def test_seconds_rounded() -> None:

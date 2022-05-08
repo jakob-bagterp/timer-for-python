@@ -1,7 +1,7 @@
 __all__: list[str] = []
 
 from .. import error, helper
-from ..helper.time_fractions import TimeFractions
+from ..model.time_fractions import TimeFractions
 from ..model.timer_base import TimerBase
 
 
