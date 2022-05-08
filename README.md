@@ -1,4 +1,4 @@
-[![Latest version](https://img.shields.io/static/v1?label=version&message=0.6.1&color=yellowgreen)](https://github.com/jakob-bagterp/timer-for-python/releases/latest)
+[![Latest version](https://img.shields.io/static/v1?label=version&message=0.6.2&color=yellowgreen)](https://github.com/jakob-bagterp/timer-for-python/releases/latest)
 ![Python >=3.10](https://img.shields.io/static/v1?label=python&message=>=3.10&color=blueviolet)
 [![MIT license](https://img.shields.io/static/v1?label=license&message=MIT&color=blue)](https://github.com/jakob-bagterp/timer-for-python/blob/master/LICENSE.md)
 [![Test](https://github.com/jakob-bagterp/timer-for-python/actions/workflows/test.yml/badge.svg)](https://github.com/jakob-bagterp/timer-for-python/actions/workflows/test.yml)
