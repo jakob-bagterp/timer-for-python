@@ -9,6 +9,10 @@ from .timer_base import TimerBase
 
 
 class Timer(TimerBase):
+    __slots__ = ["threads", "decimals",
+                 "context_manager_threads", "context_manager_latest_thread", "context_manager_latest_decimals",
+                 "__dict__"]
+
     _instance = None
     _lock_init = False
 
