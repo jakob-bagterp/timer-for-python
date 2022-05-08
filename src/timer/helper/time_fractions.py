@@ -23,6 +23,8 @@ def calculate_time_fractions(elapsed_time_ns: int) -> ElapsedTimeFractions:
 
 
 class TimeFractions:
+    __slots__ = ["time"]
+
     def __init__(self, elapsed_time_ns: int) -> None:
         self.time: ElapsedTimeFractions = calculate_time_fractions(elapsed_time_ns)
 
