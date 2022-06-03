@@ -1,4 +1,4 @@
-coverage==6.4
+coverage==6.4.1
 flake8==4.0.1
 mypy==0.960
 numpy==1.22.4
