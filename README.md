@@ -58,6 +58,7 @@ timer.start()
 timer.stop() # Output example: 12.34 seconds
 ```
 
+#### With Statement
 Alternatively, use the `with` statement, which automatically will stop the Timer. Same result with less code:
 
 ```python
@@ -65,6 +66,21 @@ with Timer():
     # Insert your code here
 
 # Output example: 12.34 seconds
+```
+
+#### Decorator
+Or use the `benchmark_timer` as function decorator:
+
+```python
+from timer import benchmark_timer
+
+@benchmark_timer
+def test_function():
+    # Insert your code here
+
+test_function()
+
+# Output example: 12.34 seconds for thread TEST_FUNCTION
 ```
 
 ### Advanced
