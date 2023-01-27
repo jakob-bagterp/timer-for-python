@@ -1,6 +1,9 @@
 import functools
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
+
 from ..model.timer import Timer
+
 
 def benchmark_timer(function: Callable[..., Any]) -> Callable[..., Any]:
     @functools.wraps(function)
