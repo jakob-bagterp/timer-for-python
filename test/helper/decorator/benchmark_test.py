@@ -4,7 +4,7 @@ import time
 from timer.decorator.benchmark import benchmark_timer
 
 # Mathes pattern: "Elapsed time (thread \x1b[32mFUNCTION_TO_BE_BENCHMARKED\x1b[0m): 105.04 milliseconds\n"
-OUTPUT_MESSAGE_REGEX = r"Elapsed time \(thread [\Wx1b]\[32mFUNCTION_TO_BE_BENCHMARKED[\Wx1b]\[0m\): \d\d\d\.\d\d milliseconds[\Wn]"
+OUTPUT_MESSAGE_REGEX = r"Elapsed time \(thread [\Wx1b]\[32mFUNCTION_TO_BE_BENCHMARKED[\Wx1b]\[0m\): \d+\.\d\d milliseconds[\Wn]"
 
 
 @benchmark_timer
