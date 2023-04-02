@@ -7,38 +7,7 @@
 # ⏳ Timer for Python ⌛️
 Lightweight Python package that makes it easy to measure how much time it takes to run Python programs and gauge performance of multiple, smaller bits of code.
 
-## Prerequisites
-* Python 3.10 or higher
-
-## Installation
-### PyPI
-Assuming that Python is installed already, execute this command in the terminal:
-
-```shell
-pip3 install timer-for-python
-```
-
-If you already have installed Timer for Python, use this command to upgrade to latest version:
-
-```shell
-pip3 install --upgrade timer-for-python
-```
-
-### Homebrew
-If you already have installed the [Homebrew](https://brew.sh) package manager for Mac and Linux, execute this terminal command to tap Timer for Python:
-
-```shell
-brew tap jakob-bagterp/timer-for-python
-```
-
-And then install:
-
-```shell
-brew install timer-for-python
-```
-
-### NuGet
-TBC
+Ready to try? [Learn how to install](https://github.com/jakob-bagterp/timer-for-python/blob/master/INSTALLATION.md).
 
 ## Getting Started
 ### Basic
