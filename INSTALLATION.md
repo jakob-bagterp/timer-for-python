@@ -5,7 +5,6 @@
 [![Test](https://github.com/jakob-bagterp/timer-for-python/actions/workflows/test.yml/badge.svg)](https://github.com/jakob-bagterp/timer-for-python/actions/workflows/test.yml)
 
 # ⏳ How to Install Timer for Python ⌛️
-
 ## Prerequisites
 * Python 3.10 or higher
 
