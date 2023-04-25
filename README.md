@@ -1,7 +1,7 @@
 [![Latest version](https://img.shields.io/static/v1?label=version&message=0.7.0&color=yellowgreen)](https://github.com/jakob-bagterp/timer-for-python/releases/latest)
 ![Python 3.10 | 3.11 or higher](https://img.shields.io/static/v1?label=python&message=3.10%20|%203.11%2B&color=blueviolet)
 [![MIT license](https://img.shields.io/static/v1?label=license&message=MIT&color=blue)](https://github.com/jakob-bagterp/timer-for-python/blob/master/LICENSE.md)
-[![Codecov](https://codecov.io/gh/jakob-bagterp/browserist/branch/master/graph/badge.svg?token=P4IT8WQO0R)](https://codecov.io/gh/jakob-bagterp/timer-for-python)
+[![Codecov](https://img.shields.io/codecov/c/gh/jakob-bagterp/timer-for-python?label=codecov&logo=codecov)](https://codecov.io/gh/jakob-bagterp/timer-for-python)
 [![Test](https://github.com/jakob-bagterp/timer-for-python/actions/workflows/test.yml/badge.svg)](https://github.com/jakob-bagterp/timer-for-python/actions/workflows/test.yml)
 
 # ⏳ Timer for Python ⌛️
