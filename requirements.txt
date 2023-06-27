@@ -1,1 +1,1 @@
-colorist==1.5.1
+colorist==1.6.0
