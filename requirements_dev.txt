@@ -1,7 +1,7 @@
 coverage==7.2.7
 flake8==6.0.0
 mypy==1.4.1
-numpy==1.25.0
+numpy==1.25.1
 pre-commit==3.3.3
 pytest==7.4.0
 pytest-cov==4.1.0
