@@ -42,7 +42,7 @@ fi
 echo ""
 
 # Remove existing installation of Timer for Python before reinstallation.
-pip3 uninstall timer-for-python
+pip uninstall timer-for-python
 echo ""
 
 # It takes a moment before the latest version of the newly uploaded package on PyPI is avaible. Let's wait a moment.
@@ -57,7 +57,7 @@ done
 
 # Reinstall newly uploaded and latest version Timer for Python.
 if [ $TARGET == $PROD ]; then
-    pip3 install timer-for-python
+    pip install timer-for-python
 elif [ $TARGET == $TEST ]; then
     python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps timer-for-python
 else
