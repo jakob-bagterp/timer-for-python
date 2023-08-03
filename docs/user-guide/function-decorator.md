@@ -6,7 +6,7 @@ tags:
 
 # Function Decorator
 ## What Is a Decorated Function?
-The `@` above a function is called a decorator. Such decoractor wraps the function below and gives extra functionality without changing the original function.
+The `@` preceding a function is called a decorator. Such decoractor wraps a function and gives extra functionality without changing the original function.
 
 The pattern is:
 
@@ -17,7 +17,7 @@ def some_function():
 ```
 
 ## Example
-Use the `benchmark_timer` as function decorator:
+Use the `@benchmark_timer` as function decorator to measure performance time:
 
 ```python linenums="1" hl_lines="3"
 from timer import benchmark_timer
@@ -32,5 +32,5 @@ test_function()
 Terminal output example:
 
 ```text title=""
-12.34 seconds for thread TEST_FUNCTION
+Elapsed time: 12.34 seconds for thread TEST_FUNCTION
 ```

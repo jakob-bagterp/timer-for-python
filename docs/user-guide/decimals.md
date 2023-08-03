@@ -22,11 +22,13 @@ timer.stop()
 Terminal output example:
 
 ```text title=""
-0.12345 seconds
+Elapsed time: 0.12345 seconds
 ```
 
 !!! info "Default Decimals and Supported Interval"
     Default value for `decimals` is `2`. The range is minimum `0` (for no decimals) and up to `9`.
+
+    May be overruled in certain cases due to [humanised output](humanised-output.md).
 
 ## Set Decimals in Class Instance or Function
 It's also possible to set the decimals when initiating the Timer:
@@ -45,7 +47,7 @@ timer.stop()
 Terminal output example:
 
 ```text title=""
-0.12345 seconds
+Elapsed time: 0.12345 seconds
 ```
 
 Or set the decimals when starting a new thread, which will also override the general decimals defined when initiating the Timer:
@@ -64,7 +66,7 @@ timer.stop()
 Terminal output example:
 
 ```text title=""
-0.123456789 seconds
+Elapsed time: 0.123456789 seconds
 ```
 
 !!! info "Precision in Nanoseconds"

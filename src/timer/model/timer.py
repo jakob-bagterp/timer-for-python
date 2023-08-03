@@ -41,11 +41,11 @@ class Timer(TimerBase):
         self.stop(last_context_manager_thread)
 
     def start(self, thread: str | None = None, decimals: int | None = None) -> None:
-        """Starts the Timer.
+        """Starts the Timer. Should always be followed by `timer.stop()` later in the code.
 
         Args:
             thread (str | None, optional): Option to start new thread.
-            decimals (int | None, optional): Option to define decimals for output. Minimum `0` (for no decimals) and maximum `9`. If `None`, default is `2` decimals. May be overruled in certain cases due to [humanising the output](../user-guide/humanised-output.md).
+            decimals (int | None, optional): Option to define decimals for output. Minimum `0` (for no decimals) and maximum `9`. If `None`, default is `2` decimals. May be overruled in certain cases due to [humanised output](../user-guide/humanised-output.md).
 
         Example:
             Basic usage:
@@ -61,10 +61,10 @@ class Timer(TimerBase):
             timer.stop()
             ```
 
-            Output example:
+            Terminal output example:
 
             ```text title=""
-            12.34 seconds
+            Elapsed time: 12.34 seconds
             ```
 
             With custom thread name and decimals:
@@ -80,10 +80,10 @@ class Timer(TimerBase):
             timer.stop(thread="my_thread")
             ```
 
-            Output example:
+            Terminal output example:
 
             ```text title=""
-            0.12345 seconds for thread MY_THREAD
+            Elapsed time: 0.12345 seconds for thread MY_THREAD
             ```
         """
 
@@ -94,7 +94,7 @@ class Timer(TimerBase):
             error.message_for_action("when trying to start the Timer", thread)
 
     def stop(self, thread: str | None = None) -> None:
-        """Stops the Timer.
+        """Stops the Timer. Should always be called after `timer.start()`.
 
         Args:
             thread (str | None, optional): Option to stop specific thread.
@@ -113,10 +113,10 @@ class Timer(TimerBase):
             timer.stop()
             ```
 
-            Output example:
+            Terminal output example:
 
             ```text title=""
-            12.34 seconds
+            Elapsed time: 12.34 seconds
             ```
 
             With custom thread name and decimals:
@@ -132,10 +132,10 @@ class Timer(TimerBase):
             timer.stop(thread="my_thread")
             ```
 
-            Output example:
+            Terminal output example:
 
             ```text title=""
-            0.12345 seconds for thread MY_THREAD
+            Elapsed time: 0.12345 seconds for thread MY_THREAD
             ```
         """
 
