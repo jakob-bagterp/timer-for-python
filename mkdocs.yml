@@ -19,6 +19,7 @@ nav:
     - Installation: getting-started/installation.md
   - User Guide:
     - user-guide/index.md
+    - Multiple Threads: user-guide/multiple-threads.md
     - Decimals: user-guide/decimals.md
     - Humanised Output: user-guide/humanised-output.md
     - Graceful Error Handling: user-guide/graceful-error-handling.md
