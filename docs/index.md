@@ -15,7 +15,7 @@ title: Home
 Performance timing made easy. When you want to measure how much time it takes to run Python programs and gauge performance of multiple blocks of code, Timer for Python is a lightweight Python package that gets the job done.
 
 ## How It Works
-### Basic
+### Basics
 Simply wrap the Timer around a block of code that you want to measure:
 
 ```python linenums="1"
@@ -71,4 +71,4 @@ Terminal output example:
 12.34 seconds for thread TEST_FUNCTION
 ```
 
-Ready to try? [Learn how to install](./getting-started/index.md).
+Ready to try? [Let's get started](./getting-started/index.md).
