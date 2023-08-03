@@ -9,7 +9,7 @@
 # ⏳ Timer for Python ⌛️
 Lightweight Python package that makes it easy to measure how much time it takes to run Python programs and gauge performance of multiple, smaller bits of code.
 
-Ready to try? [Learn how to install](https://github.com/jakob-bagterp/timer-for-python/blob/master/INSTALLATION.md).
+Ready to try? [Learn how to install](https://jakob-bagterp.github.io/timer-for-python/getting-started/installation/).
 
 ## Getting Started
 ### Basic
