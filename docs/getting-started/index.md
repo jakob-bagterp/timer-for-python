@@ -20,13 +20,21 @@ Find more details and options in the [installation guide](installation.md).
 ## 2. First Script
 You're now ready to go:
 
-```python
-from colorist import Color, green
+```python linenums="1"
+from timer import Timer
 
-green("This is GREEN!")
+timer = Timer()
+timer.start()
 
-print(f"Both {Color.RED}red{Color.OFF}...")
-print(f"... and {Color.YELLOW}yellow{Color.OFF} are nice colors")
+# Insert your code here
+
+timer.stop()
+```
+
+After `timer.stop()`, example of what's printed in your terminal:
+
+```text title=""
+12.34 seconds
 ```
 
 ## Next Steps
