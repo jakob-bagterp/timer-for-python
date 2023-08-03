@@ -1,3 +1,9 @@
+---
+tags:
+    - Documentation
+    - Tutorial
+---
+
 # benchmark_timer
 
 ## Function Decorator
