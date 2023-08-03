@@ -50,5 +50,7 @@ with Timer(thread="A")
     # Insert even more code here
 ```
 
+Learn more about [context management](context-manager.md).
+
 !!! info "Singleton and Unique Threads"
     The `Timer()` class is a singleton, which means that there can only be one instance of the class. This is to ensure that the same `Timer()` is used for all threads and that each thread is unique.
