@@ -4,11 +4,15 @@ tags:
 ---
 
 # Humanised Output
-Timer for Python supports time measurement from nanoseconds to days.
+## What Is Humanised Time?
+Timer for Python supports measurement of time from nanoseconds to days.
 
-But. If the Timer runs for several minutes, it doesn't make sense to display the output time in milliseconds. And similarly if it runs for hours, it doesn't make sense to display the output time in seconds.
+But. If a program runs for a minute, it doesn't make sense to display the output time in 60,000 milliseconds. And similarly if it runs an hour, it doesn't make sense to display the output time in 3,600 seconds.
 
-Therefore, the output is "humanised" so it's easier to read. Examples:
+Therefore, the output of Timer is _humanised_ so it's easier to read.
+
+## Examples
+How different time ranges may appear in the terminal:
 
 ```text title=""
 Elapsed time: 123 nanoseconds
