@@ -28,6 +28,8 @@ Elapsed time: 0.12345 seconds
 !!! info "Default Decimals and Supported Interval"
     Default value for `decimals` is `2`. The range is minimum `0` (for no decimals) and up to `9`.
 
+    May be overruled in certain cases due to [humanised output](humanised-output.md).
+
 ## Set Decimals in Class Instance or Function
 It's also possible to set the decimals when initiating the Timer:
 

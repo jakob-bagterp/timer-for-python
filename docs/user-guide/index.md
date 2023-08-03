@@ -13,6 +13,7 @@ Firstly, import the Timer on top of your Python script:
 
 ```python linenums="1"
 from timer import Timer
+
 ```
 
 ### Wrap Your Code with Start and Stop
@@ -27,19 +28,28 @@ timer.start()
 timer.stop()
 ```
 
-## Advanced Features
-When the basics aren't sufficient, Timer for Python also offers more advanced features to measure performance of specific code blocks with threads, function decorators, and more. A few excerpts:
+## Core Features
+When the basics aren't sufficient, Timer for Python also offers more advanced features to measure performance of specific code blocks:
+
+* threads,
+* function decorators,
+* and more.
+
+A few excerpts:
 
 ### Multiple Threads
 Set [multiple threads](multiple-threads.md) to measure performance of different blocks of code:
 
 ```python title=""
-timer.start(thread="A")
-# Insert your code here
-timer.start(thread="B")
-# Insert more code here
-timer.stop(thread="B")
-timer.stop(thread="A")
+timer.start(thread="A") >-------|
+# Insert your code here         |
+                                |
+timer.start(thread="B") >---|   |
+for i in range(100):        |   |
+    # Insert more code here |   |
+timer.stop(thread="B") <----|   |
+                                |
+timer.stop(thread="A") <--------|
 ```
 
 ### Decimals
@@ -53,10 +63,13 @@ timer.start(decimals=5)
 Avoid using `start()` and `stop()` by applying the built-in [context manager](context-manager.md) `with` statement. This can be used in combination with decimals and multiple threads:
 
 ```python title=""
-with Timer(thread="A"):
-    # Insert your code here
-    with Timer(thread="B", decimals=5):
-    # Insert more code here
+with Timer(thread="A"): >----------------------|
+    # Insert your code here                    |
+                                               |
+    with Timer(thread="B", decimals=5): >--|   |
+        # Insert more code here            |   |
+        |<---------------------------------|   |
+    |<-----------------------------------------|
 ```
 
 ### Function Decorator
