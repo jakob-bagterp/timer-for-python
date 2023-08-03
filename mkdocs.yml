@@ -19,6 +19,9 @@ nav:
     - Installation: getting-started/installation.md
   - User Guide:
     - user-guide/index.md
+    - Decimals: user-guide/decimals.md
+    - Humanised Output: user-guide/humanised-output.md
+    - Graceful Error Handling: user-guide/graceful-error-handling.md
   - Reference:
     - reference/index.md
     - timer.start(): reference/start.md
