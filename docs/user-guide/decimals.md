@@ -22,7 +22,7 @@ timer.stop()
 Terminal output example:
 
 ```text title=""
-0.12345 seconds
+Elapsed time: 0.12345 seconds
 ```
 
 !!! info "Default Decimals and Supported Interval"
@@ -45,7 +45,7 @@ timer.stop()
 Terminal output example:
 
 ```text title=""
-0.12345 seconds
+Elapsed time: 0.12345 seconds
 ```
 
 Or set the decimals when starting a new thread, which will also override the general decimals defined when initiating the Timer:
@@ -64,7 +64,7 @@ timer.stop()
 Terminal output example:
 
 ```text title=""
-0.123456789 seconds
+Elapsed time: 0.123456789 seconds
 ```
 
 !!! info "Precision in Nanoseconds"

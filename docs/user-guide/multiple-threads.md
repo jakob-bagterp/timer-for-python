@@ -32,8 +32,8 @@ timer.stop(thread="A")
 Terminal output example:
 
 ```text title=""
-0.12345 seconds for thread B
-6.78 seconds for thread A
+Elapsed time: 0.12345 seconds for thread B
+Elapsed time: 6.78 seconds for thread A
 ```
 
 ## Context Manager

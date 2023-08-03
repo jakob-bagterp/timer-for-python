@@ -32,5 +32,5 @@ test_function()
 Terminal output example:
 
 ```text title=""
-12.34 seconds for thread TEST_FUNCTION
+Elapsed time: 12.34 seconds for thread TEST_FUNCTION
 ```

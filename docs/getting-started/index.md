@@ -34,7 +34,7 @@ timer.stop()
 After `timer.stop()`, example of what's printed in your terminal:
 
 ```text title=""
-12.34 seconds
+Elapsed time: 12.34 seconds
 ```
 
 ## Next Steps

@@ -61,10 +61,10 @@ class Timer(TimerBase):
             timer.stop()
             ```
 
-            Output example:
+            Terminal output example:
 
             ```text title=""
-            12.34 seconds
+            Elapsed time: 12.34 seconds
             ```
 
             With custom thread name and decimals:
@@ -80,10 +80,10 @@ class Timer(TimerBase):
             timer.stop(thread="my_thread")
             ```
 
-            Output example:
+            Terminal output example:
 
             ```text title=""
-            0.12345 seconds for thread MY_THREAD
+            Elapsed time: 0.12345 seconds for thread MY_THREAD
             ```
         """
 
@@ -113,10 +113,10 @@ class Timer(TimerBase):
             timer.stop()
             ```
 
-            Output example:
+            Terminal output example:
 
             ```text title=""
-            12.34 seconds
+            Elapsed time: 12.34 seconds
             ```
 
             With custom thread name and decimals:
@@ -132,10 +132,10 @@ class Timer(TimerBase):
             timer.stop(thread="my_thread")
             ```
 
-            Output example:
+            Terminal output example:
 
             ```text title=""
-            0.12345 seconds for thread MY_THREAD
+            Elapsed time: 0.12345 seconds for thread MY_THREAD
             ```
         """
 

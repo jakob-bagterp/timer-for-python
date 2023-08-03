@@ -57,9 +57,9 @@ with Timer(thread="A")
 ```
 
 ```text title=""
-0.12345 seconds for thread B
-0.123 seconds for thread B
-1.23 seconds for thread A
+Elapsed time: 0.12345 seconds for thread B
+Elapsed time: 0.123 seconds for thread B
+Elapsed time: 1.23 seconds for thread A
 ```
 
 Learn more about [decimals](decimals.md) and [threads](multiple-threads.md).
