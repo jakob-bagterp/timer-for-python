@@ -5,10 +5,10 @@ tags:
 ---
 
 # Multiple Threads
-Imagine that you want to troubleshoot which parts of your code are performing better or worse? Or you want to split test the performance of different methods? Timer for Python is a quick, easy way to get the job done.
+Imagine that you want to troubleshoot which parts of your code are performing better or worse. Or do you want to split-test the performance of different methods? Timer for Python is a quick, easy way to get the job done.
 
 ## Code Exmaple
-To measure performance of multiple blocks of code, use the `thread` argument to name different threads:
+To measure the performance of multiple blocks of code, use the `thread` argument to name different threads:
 
 ```python linenums="1" hl_lines="4 8 12 16"
 from timer import Timer
