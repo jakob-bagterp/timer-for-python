@@ -22,6 +22,7 @@ nav:
     - Multiple Threads: user-guide/multiple-threads.md
     - Decimals: user-guide/decimals.md
     - Context Manager: user-guide/context-manager.md
+    - Function Decorator: user-guide/function-decorator.md
     - Humanised Output: user-guide/humanised-output.md
     - Graceful Error Handling: user-guide/graceful-error-handling.md
   - Reference:
