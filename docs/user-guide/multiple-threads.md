@@ -1,6 +1,7 @@
 ---
 tags:
     - Features
+    - Tutorial
 ---
 
 # Multiple Threads
