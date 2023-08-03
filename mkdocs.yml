@@ -23,6 +23,7 @@ nav:
     - reference/index.md
     - timer.start(): reference/start.md
     - timer.stop(): reference/stop.md
+    - benchmark_timer: reference/benchmark-timer.md
 
 theme:
   name: material
