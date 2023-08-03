@@ -45,7 +45,7 @@ class Timer(TimerBase):
 
         Args:
             thread (str | None, optional): Option to start new thread.
-            decimals (int | None, optional): Option to define decimals for output. Minimum `0` (for no decimals) and maximum `9`. If `None`, default is `2` decimals. May be overruled in certain cases due to humanising the output.
+            decimals (int | None, optional): Option to define decimals for output. Minimum `0` (for no decimals) and maximum `9`. If `None`, default is `2` decimals. May be overruled in certain cases due to [humanising the output](../user-guide/humanised-output.md).
 
         Example:
             Basic usage:
