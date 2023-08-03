@@ -18,7 +18,7 @@ Performance timing made easy. When you want to measure how much time it takes to
 ### Basics
 Simply wrap the Timer around a block of code that you want to measure:
 
-```python linenums="1"
+```python linenums="1" hl_lines="6"
 from timer import Timer
 
 timer = Timer()
@@ -38,7 +38,7 @@ After `timer.stop()`, example of what's printed in your terminal:
 ### Context Manager
 Alternatively, use the `with` statement. This will automatically start and stop the Timer – and so no need to declare `timer.start()` and `timer.stop()`. Same result with as before, but less code:
 
-```python linenums="1"
+```python linenums="1" hl_lines="4"
 from timer import Timer
 
 with Timer():
@@ -54,7 +54,7 @@ Terminal output example:
 ### Function Decorator
 Or use the `@benchmark_timer` as function decorator:
 
-```python linenums="1"
+```python linenums="1" hl_lines="3"
 from timer import benchmark_timer
 
 @benchmark_timer
