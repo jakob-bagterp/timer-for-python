@@ -38,7 +38,7 @@ After `timer.stop()`, example of what's printed in your terminal:
 ### Context Manager
 Alternatively, use the `with` statement. This will automatically start and stop the Timer – and so no need to declare `timer.start()` and `timer.stop()`. Same result with as before, but less code:
 
-```python
+```python linenums="1"
 from timer import Timer
 
 with Timer():
@@ -54,7 +54,7 @@ Terminal output example:
 ### Function Decorator
 Or use the `@benchmark_timer` as function decorator:
 
-```python
+```python linenums="1"
 from timer import benchmark_timer
 
 @benchmark_timer
