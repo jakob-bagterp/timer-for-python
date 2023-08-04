@@ -36,7 +36,7 @@ Elapsed time: 12.34 seconds
 ```
 
 ### Context Manager
-Alternatively, use the `with` statement. This will automatically start and stop the Timer – and so no need to declare `timer.start()` and `timer.stop()`. Same result with as before, but less code:
+Alternatively, use the `with` statement. This will automatically start and stop the Timer – and so no need to declare `timer.start()` and `timer.stop()`. Same result as before, but less code:
 
 ```python linenums="1" hl_lines="4"
 from timer import Timer
@@ -52,7 +52,7 @@ Elapsed time: 12.34 seconds
 ```
 
 ### Function Decorator
-Or use the `@benchmark_timer` as function decorator:
+Or use `@benchmark_timer` as function decorator:
 
 ```python linenums="1" hl_lines="3"
 from timer import benchmark_timer

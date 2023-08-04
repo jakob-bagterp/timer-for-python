@@ -12,7 +12,7 @@ Lightweight Python package that makes it easy to measure how much time it takes 
 Ready to try? Learn [how to install](https://jakob-bagterp.github.io/timer-for-python/getting-started/installation/) and find tutorials in the [user guide](https://jakob-bagterp.github.io/timer-for-python/user-guide/).
 
 ## Getting Started
-### Basic
+### Basics
 Simply add the Timer to your imports, and then wrap the Timer function around your code to measure the performance of the executed block of code:
 
 ```python
@@ -26,8 +26,8 @@ timer.start()
 timer.stop() # Output example: 12.34 seconds
 ```
 
-#### With Statement
-Alternatively, use the `with` statement, which automatically will stop the Timer – without using `start()` or `stop()`. Same result with less code:
+#### Context Manager
+Alternatively, use the with statement. This will automatically start and stop the Timer – and so no need to declare `timer.start()` and `timer.stop()`. Same result as before, but less code:
 
 ```python
 with Timer():
