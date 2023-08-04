@@ -65,4 +65,4 @@ Elapsed time: 1.23 seconds for thread A
 Learn more about [decimals](decimals.md) and [threads](multiple-threads.md).
 
 !!! info "Singleton and Unique Threads"
-    The `Timer()` class is a singleton, which means that there can only be one instance of the class. This is to ensure that the same `Timer()` is used for all threads and that each thread is unique.
+    The `Timer()` class is a _singleton_, which means that there can only be one instance of the class. This is to ensure that the same `Timer()` is used for all threads and that each thread is unique.
