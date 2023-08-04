@@ -43,18 +43,27 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
+    - navigation.top
     - navigation.path
     - navigation.indexes
     - content.code.copy
     - content.code.select
   palette:
-    - scheme: default # Palette toggle for light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
       toggle:
-        icon: material/brightness-7
+        icon: material/eye
         name: Switch to dark mode
-    - scheme: slate # Palette toggle for dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
       toggle:
-        icon: material/brightness-4
+        icon: material/eye-outline
         name: Switch to light mode
 
 markdown_extensions:
@@ -137,6 +146,11 @@ plugins:
             show_symbol_type_heading: true
             show_symbol_type_toc: true
             merge_init_into_class: true
+  - git-revision-date-localized:
+      enabled: true
+      type: timeago
+      enable_creation_date: true
+      fallback_to_build_date: true
 
 watch:
   - src
