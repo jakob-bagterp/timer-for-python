@@ -5,7 +5,7 @@ tags:
 ---
 
 # User Guide 👨‍🔧
-Timer for Python is intended to lightweight and easy to use. A simple tool for measuring performance of Python programs or blocks of code.
+Timer for Python is a lightweight package and intended to be easy to use. A simple tool for measuring performance of Python programs or blocks of code.
 
 ## Basics
 ### Define Imports
@@ -73,7 +73,7 @@ with Timer(thread="A"): >----------------------|
 ```
 
 ### Function Decorator
-Use the [function decorator](function-decorator.md) to measure performance of functions:
+How to apply the [function decorator](function-decorator.md) to measure performance of functions:
 
 ```python title=""
 @benchmark_timer

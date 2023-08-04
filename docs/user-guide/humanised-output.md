@@ -12,7 +12,7 @@ But. If a program runs for a minute, it doesn't make sense to display the output
 Therefore, the output of Timer is _humanised_ so it's easier to read.
 
 ## Examples
-How different time ranges may appear in the terminal:
+How different time ranges may appear in the terminal from fractions of a second to minutes, hours, days:
 
 ```text title=""
 Elapsed time: 123 nanoseconds
