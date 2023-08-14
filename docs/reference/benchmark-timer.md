@@ -5,7 +5,6 @@ tags:
 ---
 
 # benchmark_timer
-
 ## Function Decorator
 How to use `@benchmark_timer` as function decorator:
 
