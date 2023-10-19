@@ -41,6 +41,52 @@ class Timer(TimerBase):
         self.stop(last_context_manager_thread)
 
     def start(self, thread: str | None = None, decimals: int | None = None) -> None:
+        """Starts the Timer. Should always be followed by `timer.stop()` later in the code.
+
+        Args:
+            thread (str | None, optional): Option to start new thread.
+            decimals (int | None, optional): Option to define decimals for output. Minimum `0` (for no decimals) and maximum `9`. If `None`, default is `2` decimals. May be overruled in certain cases due to [humanised output](../user-guide/humanised-output.md).
+
+        Example:
+            Basic usage:
+
+            ```python linenums="1" hl_lines="4"
+            from timer import Timer
+
+            timer = Timer()
+            timer.start()
+
+            # Insert your code here
+
+            timer.stop()
+            ```
+
+            Terminal output example:
+
+            ```text title=""
+            Elapsed time: 12.34 seconds
+            ```
+
+            With custom thread name and decimals:
+
+            ```python linenums="1" hl_lines="4"
+            from timer import Timer
+
+            timer = Timer()
+            timer.start(thread="my_thread", decimals=5)
+
+            # Insert your code here
+
+            timer.stop(thread="my_thread")
+            ```
+
+            Terminal output example:
+
+            ```text title=""
+            Elapsed time: 0.12345 seconds for thread MY_THREAD
+            ```
+        """
+
         try:
             start_time = time.perf_counter_ns()  # For precision, this is the first operation of the function.
             controller.start(self, thread, start_time, decimals)
@@ -48,6 +94,51 @@ class Timer(TimerBase):
             error.message_for_action("when trying to start the Timer", thread)
 
     def stop(self, thread: str | None = None) -> None:
+        """Stops the Timer. Should always be called after `timer.start()`.
+
+        Args:
+            thread (str | None, optional): Option to stop specific thread.
+
+        Example:
+            Basic usage:
+
+            ```python linenums="1" hl_lines="8"
+            from timer import Timer
+
+            timer = Timer()
+            timer.start()
+
+            # Insert your code here
+
+            timer.stop()
+            ```
+
+            Terminal output example:
+
+            ```text title=""
+            Elapsed time: 12.34 seconds
+            ```
+
+            With custom thread name and decimals:
+
+            ```python linenums="1" hl_lines="8"
+            from timer import Timer
+
+            timer = Timer()
+            timer.start(thread="my_thread", decimals=5)
+
+            # Insert your code here
+
+            timer.stop(thread="my_thread")
+            ```
+
+            Terminal output example:
+
+            ```text title=""
+            Elapsed time: 0.12345 seconds for thread MY_THREAD
+            ```
+        """
+
         try:
             stop_time = time.perf_counter_ns()  # For precision, this is the first operation of the function.
             controller.stop(self, thread, stop_time)
