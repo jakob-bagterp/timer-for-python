@@ -28,6 +28,12 @@ timer.start()
 timer.stop()
 ```
 
+After `timer.stop()`, the elapsed time will be printed in your terminal. Example:
+
+```text title=""
+Elapsed time: 12.34 seconds
+```
+
 ## Core Features
 When the basics aren't sufficient, Timer for Python also offers more advanced features to measure performance of specific code blocks:
 
