@@ -6,7 +6,4 @@ tags:
 
 # timer.start()
 
-::: timer.model.timer.Timer
-    options:
-        members:
-            - start
+::: timer.model.timer.Timer.start

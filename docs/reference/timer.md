@@ -4,6 +4,6 @@ tags:
     - Tutorial
 ---
 
-# timer.stop()
+# Timer
 
-::: timer.model.timer.Timer.stop
+::: timer.model.timer
