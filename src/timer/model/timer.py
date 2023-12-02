@@ -21,7 +21,7 @@ class Timer(TimerBase):
             cls._instance = super().__new__(cls)
         return cls._instance
 
-    def __init__(self, thread: str | None = None, decimals: int = constant.decimals.DEFAULT) -> None:
+    def __init__(self, thread: str | None = None, decimals: int = 2) -> None:
         if not self._lock_init:  # Ensure that initialisation of the lists only runs the first time.
             self.threads: list[ThreadItem] = []
             self.context_manager_threads: list[str] = []
