@@ -29,7 +29,7 @@ timer.start()
 timer.stop()
 ```
 
-After `timer.stop()`, example of what's printed in your terminal:
+After `timer.stop()`, the elapsed time will be printed in your terminal. Example:
 
 ```text title=""
 Elapsed time: 12.34 seconds
