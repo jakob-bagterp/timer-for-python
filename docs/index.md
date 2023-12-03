@@ -2,7 +2,7 @@
 title: Home
 ---
 
-[![Latest version](https://img.shields.io/static/v1?label=version&message=0.7.1&color=yellowgreen)](https://github.com/jakob-bagterp/timer-for-python/releases/latest)
+[![Latest version](https://img.shields.io/static/v1?label=version&message=0.7.2&color=yellowgreen)](https://github.com/jakob-bagterp/timer-for-python/releases/latest)
 [![Python 3.10 | 3.11 | 3.12+](https://img.shields.io/static/v1?label=python&message=3.10%20|%203.11%20|%203.12%2B&color=blueviolet)](https://www.python.org)
 [![MIT license](https://img.shields.io/static/v1?label=license&message=MIT&color=blue)](https://github.com/jakob-bagterp/timer-for-python/blob/master/LICENSE.md)
 [![Codecov](https://codecov.io/gh/jakob-bagterp/timer-for-python/branch/master/graph/badge.svg?token=P4IT8WQO0R)](https://codecov.io/gh/jakob-bagterp/timer-for-python)
