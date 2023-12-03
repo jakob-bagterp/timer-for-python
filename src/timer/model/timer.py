@@ -21,7 +21,71 @@ class Timer(TimerBase):
             cls._instance = super().__new__(cls)
         return cls._instance
 
-    def __init__(self, thread: str | None = None, decimals: int = constant.decimals.DEFAULT) -> None:
+    def __init__(self, thread: str | None = None, decimals: int = 2) -> None:
+        """Main class to create a Timer instance. If not using the class with a `with` statement as [context manager](../user-guide/context-manager.md), remember that a `timer.start()` should always be followed by `timer.stop()` later in the code.
+
+        Args:
+            thread (str | None, optional): Option to start new thread.
+            decimals (int | None, optional): Option to define decimals for output. Minimum `0` (for no decimals) and maximum `9`. If `None`, default is `2` decimals. May be overruled in certain cases due to [humanised output](../user-guide/humanised-output.md).
+
+        Example:
+            Basic usage:
+
+            ```python linenums="1" hl_lines="3"
+            from timer import Timer
+
+            timer = Timer()
+            timer.start()
+
+            # Insert your code here
+
+            timer.stop()
+            ```
+
+            Or with a `with` statement as [context manager](../user-guide/context-manager.md):
+
+            ```python linenums="1" hl_lines="3"
+            from timer import Timer
+
+            with Timer():
+                # Insert your code here
+            ```
+
+            In both cases, the terminal output example is the same:
+
+            ```text title=""
+            Elapsed time: 12.34 seconds
+            ```
+
+            With custom thread name and decimals:
+
+            ```python linenums="1" hl_lines="3"
+            from timer import Timer
+
+            timer = Timer(thread="my_thread", decimals=5)
+            timer.start()
+
+            # Insert your code here
+
+            timer.stop(thread="my_thread")
+            ```
+
+            Or with a `with` statement as [context manager](../user-guide/context-manager.md):
+
+            ```python linenums="1" hl_lines="3"
+            from timer import Timer
+
+            with Timer(thread="my_thread", decimals=5):
+                # Insert your code here
+            ```
+
+            As before, the terminal will output the same result in both cases:
+
+            ```text title=""
+            Elapsed time: 0.12345 seconds for thread MY_THREAD
+            ```
+        """
+
         if not self._lock_init:  # Ensure that initialisation of the lists only runs the first time.
             self.threads: list[ThreadItem] = []
             self.context_manager_threads: list[str] = []

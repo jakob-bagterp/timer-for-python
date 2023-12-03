@@ -6,7 +6,4 @@ tags:
 
 # timer.stop()
 
-::: timer.model.timer.Timer
-    options:
-        members:
-            - stop
+::: timer.model.timer.Timer.stop
