@@ -2,7 +2,7 @@ site_name: Timer for Python ⏳
 site_url: https://jakob-bagterp.github.io/timer-for-python/
 site_description: Lightweight Python package that makes it easy to measure how much time it takes to run Python programs and gauge performance of multiple, smaller bits of code
 site_author: Jakob Bagterp
-copyright: Copyright © 2022 - 2023, Jakob Bagterp. All Rights Reserved.
+copyright: Copyright © 2022 - 2024, Jakob Bagterp. All Rights Reserved.
 repo_url: https://github.com/jakob-bagterp/timer-for-python
 
 nav:
