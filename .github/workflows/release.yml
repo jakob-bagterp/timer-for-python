@@ -121,8 +121,8 @@ jobs:
       - name: Publish distribution to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
 
-  test_pypi:
-    name: Test PyPI
+  test_pypi_installation:
+    name: Test PyPI installation
     needs: [pypi_publish, details]
     runs-on: ubuntu-latest
     steps:
