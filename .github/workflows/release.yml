@@ -91,8 +91,8 @@ jobs:
 
       - name: Install build tools
         run: |
-            python -m pip install --upgrade pip
-            pip install build
+          python -m pip install --upgrade pip
+          pip install build
 
       - name: Build source and wheel distribution
         run: python -m build
@@ -100,8 +100,8 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-            name: dist
-            path: dist/
+          name: dist
+          path: dist/
 
   pypi_publish:
     name: Upload release to PyPI
@@ -131,26 +131,26 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-            python-version: "3.10"
+          python-version: "3.10"
 
       - name: Ensure latest version of pip is installed
         run: |
-            python -m pip install --upgrade pip
+          python -m pip install --upgrade pip
 
       - name: Wait for PyPI to update
         run: |
-            echo "Waiting for PyPI to update..."
-            sleep 120
+          echo "Waiting for PyPI to update..."
+          sleep 120
 
       - name: Install package from PyPI and verify that it matches the new version
         run: |
-            pip install ${{ env.PACKAGE_NAME }}
-            INSTALLED_VERSION=$(pip show ${{ env.PACKAGE_NAME }} | grep Version | cut -d ' ' -f 2)
-            echo "Installed version: $INSTALLED_VERSION"
-            if [ "$INSTALLED_VERSION" != "${{ needs.details.outputs.new_version }}" ]; then
-                echo "Installed version does not match the new version."
-                exit 1
-            fi
+          pip install ${{ env.PACKAGE_NAME }}
+          INSTALLED_VERSION=$(pip show ${{ env.PACKAGE_NAME }} | grep Version | cut -d ' ' -f 2)
+          echo "Installed version: $INSTALLED_VERSION"
+          if [ "$INSTALLED_VERSION" != "${{ needs.details.outputs.new_version }}" ]; then
+            echo "Installed version does not match the new version."
+            exit 1
+          fi
 
   github_release:
     name: Create GitHub release
