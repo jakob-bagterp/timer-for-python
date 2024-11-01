@@ -160,9 +160,9 @@ jobs:
           repository: ArjanCodes/homebrew-core
           event-type: "update-formula"
           client-payload: |-
-            { 
-              "formula_version": "${{env.FORMULA_VERSION}}", 
-              "formula_url": "${{ env.FORMULA_URL }}", 
+            {
+              "formula_version": "${{env.FORMULA_VERSION}}",
+              "formula_url": "${{ env.FORMULA_URL }}",
               "formula_name": "${{ env.FORMULA_NAME }}"
             }
         env:
