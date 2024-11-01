@@ -182,7 +182,7 @@ jobs:
 
   bump_homebrew_formula:
     name: Dispatch event to Repo B
-    needs: [details, github_release, pypi_publish]
+    needs: [details, github_release, pypi_publish, test_pypi_installation]
     runs-on: ubuntu-latest
     environment:
       name: release
@@ -206,7 +206,7 @@ jobs:
 
   bump_version:
     name: Bump version
-    needs: [details, github_release, pypi_publish]
+    needs: [details, github_release, pypi_publish, test_pypi_installation]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
