@@ -1,4 +1,4 @@
-name: release
+name: Release
 
 # Preparation steps and before triggering the workflow by pushing a version tag (e.g. v1.2.3):
 # 1. Update the version number in the following files:
