@@ -10,7 +10,7 @@ name: release
 # 3. Add a tag with the version number (e.g. v1.2.3) to the commit.
 # 4. Push the commit including the tag to the master branch, which triggers the release workflow.
 # 5. Check that the release workflow is completed successfully.
-# 6. Check the latest release notes on GitHub: https://github.com/jakob-bagterp/timer-for-python/releases
+# 6. Check the latest release notes on GitHub and edit if necessary: https://github.com/jakob-bagterp/timer-for-python/releases
 
 on:
   push:
