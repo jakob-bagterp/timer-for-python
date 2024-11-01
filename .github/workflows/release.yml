@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Extract tag and Details
+      - name: Extract tag and details
         id: release
         run: |
           if [ "${{ github.ref_type }}" = "tag" ]; then
@@ -118,13 +118,13 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
 
   github_release:
-    name: Create GitHub Release
+    name: Create GitHub release
     needs: [setup_and_build, details]
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0 # Fetch full history to avoid issues with tags and branches
@@ -135,7 +135,7 @@ jobs:
           name: dist
           path: dist/
 
-      - name: Create GitHub Release
+      - name: Create GitHub release
         id: create_release
         env:
           GH_TOKEN: ${{ github.token }}
