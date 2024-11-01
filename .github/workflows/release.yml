@@ -149,7 +149,7 @@ jobs:
     environment:
       name: release
     steps:
-      - name: Dispatch Repository Dispatch event
+      - name: Dispatch repository dispatch event
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.BREW_TAP_TOKEN }}
@@ -199,7 +199,7 @@ jobs:
           git commit -m "Bump version to $NEW_VERSION"
           git push origin version-bump-to-$NEW_VERSION
 
-      - name: Create Pull Request
+      - name: Create pull request
         uses: peter-evans/create-pull-request@v4
         with:
           branch: version-bump-${{ needs.details.outputs.new_version }}
