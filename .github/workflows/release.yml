@@ -227,7 +227,7 @@ jobs:
           client-payload: |-
             {
               "formula_previous_version": "${{ env.FORMULA_PREVIOUS_VERSION }}",
-              "formula_version": "${{ env.FORMULA_NEW_VERSION }}",
+              "formula_new_version": "${{ env.FORMULA_NEW_VERSION }}",
               "formula_url": "${{ env.FORMULA_URL }}",
               "formula_name": "${{ env.FORMULA_NAME }}"
             }
