@@ -191,7 +191,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.BREW_TAP_TOKEN }}
-          repository: ArjanCodes/homebrew-core
+          repository: ${{ env.OWNER }}/homebrew-${{ env.PACKAGE_NAME }}
           event-type: "update-formula"
           client-payload: |-
             {
