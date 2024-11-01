@@ -26,6 +26,7 @@ env:
 
 jobs:
   details:
+    name: Get details
     runs-on: ubuntu-latest
     outputs:
       new_version: ${{ steps.release.outputs.new_version }}
@@ -53,6 +54,7 @@ jobs:
           fi
 
   check_pypi:
+    name: Check PyPI for existing version
     needs: details
     runs-on: ubuntu-latest
     steps:
@@ -79,6 +81,7 @@ jobs:
           fi
 
   setup_and_build:
+    name: Build source and wheel distribution
     needs: [details, check_pypi]
     runs-on: ubuntu-latest
     steps:
@@ -202,6 +205,7 @@ jobs:
           FORMULA_URL: https://github.com/${{env.OWNER}}/${{env.PACKAGE_NAME}}/releases/download/${{ needs.details.outputs.new_version }}/${{env.PACKAGE_NAME}}-${{ needs.details.outputs.new_version }}.tar.gz
 
   bump_version:
+    name: Bump version
     needs: [details, github_release, pypi_publish]
     runs-on: ubuntu-latest
     steps:
