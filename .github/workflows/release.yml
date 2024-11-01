@@ -29,6 +29,7 @@ jobs:
     name: Get details
     runs-on: ubuntu-latest
     outputs:
+      previous_version: ${{ steps.release.outputs.previous_version }}
       new_version: ${{ steps.release.outputs.new_version }}
       suffix: ${{ steps.release.outputs.suffix }}
       tag_name: ${{ steps.release.outputs.tag_name }}
@@ -39,13 +40,16 @@ jobs:
         id: release
         run: |
           if [ "${{ github.ref_type }}" = "tag" ]; then
+            PREVIOUS_VERSION=$(git describe --abbrev=0 --tags)
             TAG_NAME=${GITHUB_REF#refs/tags/}
             NEW_VERSION=$(echo $TAG_NAME | sed 's/^v//' | awk -F'-' '{print $1}')
             SUFFIX=$(echo $TAG_NAME | grep -oP '[a-z]+[0-9]+' || echo "")
+            echo "previous_version=$PREVIOUS_VERSION" >> "$GITHUB_OUTPUT"
             echo "new_version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
             echo "suffix=$SUFFIX" >> "$GITHUB_OUTPUT"
             echo "tag_name=$TAG_NAME" >> "$GITHUB_OUTPUT"
-            echo "Version is $NEW_VERSION"
+            echo "Previous version was $PREVIOUS_VERSION"
+            echo "New version is $NEW_VERSION"
             echo "Suffix is $SUFFIX"
             echo "Tag name is $TAG_NAME"
           else
@@ -190,7 +194,8 @@ jobs:
       - name: Dispatch repository dispatch event
         uses: peter-evans/repository-dispatch@v2
         env:
-          FORMULA_VERSION: ${{ needs.details.outputs.new_version }}
+          FORMULA_PREVIOUS_VERSION: ${{ needs.details.outputs.previous_version }}
+          FORMULA_NEW_VERSION: ${{ needs.details.outputs.new_version }}
           FORMULA_NAME: ${{ env.PACKAGE_NAME }}
           FORMULA_URL: https://github.com/${{env.OWNER}}/${{env.PACKAGE_NAME}}/releases/download/${{ needs.details.outputs.new_version }}/${{env.PACKAGE_NAME}}-${{ needs.details.outputs.new_version }}.tar.gz
         with:
@@ -199,7 +204,8 @@ jobs:
           event-type: "update-formula"
           client-payload: |-
             {
-              "formula_version": "${{ env.FORMULA_VERSION }}",
+              "formula_previous_version": "${{ env.FORMULA_PREVIOUS_VERSION }}",
+              "formula_version": "${{ env.FORMULA_NEW_VERSION }}",
               "formula_url": "${{ env.FORMULA_URL }}",
               "formula_name": "${{ env.FORMULA_NAME }}"
             }
