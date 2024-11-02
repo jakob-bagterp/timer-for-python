@@ -42,11 +42,11 @@ jobs:
         id: release
         run: |
           if [[ "${{ github.ref }}" =~ refs/tags/v* ]]; then
-            PREVIOUS_TAG_NAME=$(git describe --abbrev=0 --tags --exclude ${GITHUB_REF#refs/tags/} || echo "v0.0.0")
-            PREVIOUS_VERSION=$(echo $PREVIOUS_TAG_NAME | sed 's/^v//' | awk -F'-' '{print $1}')
             NEW_TAG_NAME=${GITHUB_REF#refs/tags/}
             NEW_VERSION=$(echo $NEW_TAG_NAME | sed 's/^v//' | awk -F'-' '{print $1}')
             SUFFIX=$(echo $NEW_TAG_NAME | grep -oP '(?:a|b|rc)[0-9]+$' || echo "")
+            PREVIOUS_TAG_NAME=$(git describe --tags --abbrev=0 $NEW_TAG_NAME^ || echo "v0.0.0")
+            PREVIOUS_VERSION=$(echo $PREVIOUS_TAG_NAME | sed 's/^v//' | awk -F'-' '{print $1}')
 
             echo "previous_version=$PREVIOUS_VERSION" >> "$GITHUB_OUTPUT"
             echo "new_version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
