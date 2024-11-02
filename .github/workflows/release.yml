@@ -48,14 +48,17 @@ jobs:
             NEW_TAG_NAME=${GITHUB_REF#refs/tags/}
             NEW_VERSION=$(echo $NEW_TAG_NAME | sed 's/^v//' | awk -F'-' '{print $1}')
             SUFFIX=$(echo $NEW_TAG_NAME | grep -oP '(?:a|b|rc)[0-9]+$' || echo "")
+
             echo "previous_version=$PREVIOUS_VERSION" >> "$GITHUB_OUTPUT"
             echo "new_version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
             echo "suffix=$SUFFIX" >> "$GITHUB_OUTPUT"
             echo "tag_name=$NEW_TAG_NAME" >> "$GITHUB_OUTPUT"
+
+            echo "Previous tag name was $PREVIOUS_TAG_NAME"
             echo "Previous version was $PREVIOUS_VERSION"
+            echo "New tag name is $NEW_TAG_NAME"
             echo "New version is $NEW_VERSION"
             echo "Suffix is $SUFFIX"
-            echo "Tag name is $NEW_TAG_NAME"
           else
             echo "No tag found"
             exit 1
