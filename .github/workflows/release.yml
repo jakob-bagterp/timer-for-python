@@ -37,6 +37,8 @@ jobs:
       tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Fetch full history to avoid issues with tags and branches
 
       - name: Extract tag and details
         id: release
