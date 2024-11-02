@@ -41,7 +41,6 @@ jobs:
       - name: Extract tag and details
         id: release
         run: |
-          git fetch --prune --unshallow --tags
           if [[ "${{ github.ref }}" =~ refs/tags/v* ]]; then
             PREVIOUS_TAG_NAME=$(git describe --abbrev=0 --tags --exclude ${GITHUB_REF#refs/tags/} || echo "v0.0.0")
             PREVIOUS_VERSION=$(echo $PREVIOUS_TAG_NAME | sed 's/^v//' | awk -F'-' '{print $1}')
