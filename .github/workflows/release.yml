@@ -45,7 +45,7 @@ jobs:
             PREVIOUS_VERSION=$(git describe --abbrev=0 --tags)
             TAG_NAME=${GITHUB_REF#refs/tags/}
             NEW_VERSION=$(echo $TAG_NAME | sed 's/^v//' | awk -F'-' '{print $1}')
-            SUFFIX=$(echo $TAG_NAME | grep -oP '[a-z]+[0-9]+' || echo "")
+            SUFFIX=$(echo $TAG_NAME | grep -oP '(?:a|b|rc)[0-9]+$' || echo "")
             echo "previous_version=$PREVIOUS_VERSION" >> "$GITHUB_OUTPUT"
             echo "new_version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
             echo "suffix=$SUFFIX" >> "$GITHUB_OUTPUT"
