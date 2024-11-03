@@ -227,7 +227,7 @@ jobs:
         with:
           token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
           repository: ${{ github.repository_owner }}/homebrew-${{ env.PACKAGE_NAME }}
-          event-type: "update-formula"
+          event-type: update-formula
           client-payload: |-
             {
               "formula_previous_version": "${{ env.FORMULA_PREVIOUS_VERSION }}",
