@@ -8,12 +8,14 @@ repo_url: https://github.com/jakob-bagterp/timer-for-python
 nav:
   - Home:
     - index.md
-    - Donate: donate.md
-    - Support and Contribution: support-and-contribution.md
-    - License 🔗: https://github.com/jakob-bagterp/timer-for-python/blob/master/LICENSE.md
-    - Release Notes 🔗: https://github.com/jakob-bagterp/timer-for-python/releases
-    - Source Code 🔗: https://github.com/jakob-bagterp/timer-for-python
-    - Tags: tags.md
+    - Project:
+      - Donate: project/donate.md
+      - Support and Contribution: project/support-and-contribution.md
+      - License 🔗: https://github.com/jakob-bagterp/timer-for-python/blob/master/LICENSE.md
+      - Release Notes 🔗: https://github.com/jakob-bagterp/timer-for-python/releases
+      - Source Code 🔗: https://github.com/jakob-bagterp/timer-for-python
+    - Index:
+      - Tags: index/tags.md
   - Getting Started:
     - getting-started/index.md
     - Installation: getting-started/installation.md
@@ -133,7 +135,7 @@ plugins:
   - search:
       lang: en
   - tags:
-      tags_file: tags.md
+      tags_file: index/tags.md
   - mkdocstrings:
       default_handler: python
       handlers:
@@ -165,6 +167,11 @@ plugins:
       css_files:
           - css/timeago.css
           - assets/_mkdocstrings.css
+  - redirects:
+      redirect_maps:
+        donate.md: project/donate.md
+        support-and-contribution.md: project/support-and-contribution.md
+        tags.md: index/tags.md
 
 watch:
   - src
