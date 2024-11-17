@@ -1,11 +1,13 @@
 ---
+title: How to Set Decimals for Precision
+description: Learn how to control the precision in Timer for Python from 0 to 9 decimals. Includes code examples for beginners and advanced users.
 tags:
     - Features
     - Tutorial
 ---
 
 # Decimals
-## How to Use
+## How to Use Decimals for Precision
 To set the number of decimals in the output (only if less than an hour), use the `decimals` argument. Instead of the default value `2` for `decimals`, you can set the output precision up to `9` in the `decimals` argument:
 
 ```python linenums="1" hl_lines="4"

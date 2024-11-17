@@ -1,4 +1,6 @@
 ---
+title: Get Started with Measuring Time in 2 Easy Steps
+description: Quick guide to installing and using Timer for Python, so you can run your first script within minutes. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Installation

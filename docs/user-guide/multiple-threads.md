@@ -1,10 +1,13 @@
 ---
+title: How Measure Time with Multiple Threads
+description: Learn how to measure the time and performance of different blocks of code using multiple threads. Includes code examples for beginners and advanced users.
 tags:
     - Features
     - Tutorial
 ---
 
 # Multiple Threads
+## Why Use Multiple Threads?
 Imagine that you want to troubleshoot which parts of your code are performing better or worse. Or do you want to split-test the performance of different methods? Timer for Python is a quick, easy way to get the job done.
 
 ## Code Exmaple

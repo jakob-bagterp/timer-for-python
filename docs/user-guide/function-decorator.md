@@ -1,4 +1,6 @@
 ---
+title: How to Use Benchmark Timer and Function Decorator
+description: Tutorial on how to use the benchmark timer and function decorator to measure the execution time of Python functions. Includes code examples for beginners and advanced users.
 tags:
     - Features
     - Tutorial

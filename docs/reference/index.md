@@ -1,3 +1,10 @@
+---
+title: Documentation
+description: Timer for Python is the easy way to measure time and performance of your code. This comprehensive documentation includes code examples for beginners and advanced users.
+tags:
+    - Documentation
+---
+
 # Documentation 📚
 Find details about all methods in this section.
 
