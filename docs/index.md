@@ -1,5 +1,8 @@
 ---
-title: Home
+title: The Easy Way to Start, Stop and Measure Time
+description: Timer for Python is a lightweight package that measures performance of your code. Get started in minutes with code examples for beginners and advanced users.
+tags:
+    - Tutorial
 ---
 
 [![Latest version](https://img.shields.io/static/v1?label=version&message=0.8.0&color=yellowgreen)](https://github.com/jakob-bagterp/timer-for-python/releases/latest)
