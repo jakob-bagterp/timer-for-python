@@ -7,6 +7,7 @@ tags:
 ---
 
 # Multiple Threads
+## Why Use Multiple Threads?
 Imagine that you want to troubleshoot which parts of your code are performing better or worse. Or do you want to split-test the performance of different methods? Timer for Python is a quick, easy way to get the job done.
 
 ## Code Exmaple
