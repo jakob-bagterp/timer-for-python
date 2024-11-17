@@ -1,4 +1,6 @@
 ---
+title: Measure Time with Humanised Output
+description: Learn how Timer for Python automatically converts and displays time measurements in human-readable format, from nanoseconds to days.
 tags:
     - Features
 ---

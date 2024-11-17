@@ -1,4 +1,6 @@
 ---
+title: How to Automatically Start and Stop the Timer
+description: Learn how to use the context manager in Timer for Python to automatically start and stop the timer. Includes code examples for beginners and advanced users.
 tags:
     - Features
     - Tutorial

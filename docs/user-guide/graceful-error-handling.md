@@ -1,4 +1,6 @@
 ---
+title: Measure Time without Blocking Code
+description: How Timer for Python gracefully handles exceptions and non-blocking code to ensure that your application keeps running without interruption.
 tags:
     - Features
 ---

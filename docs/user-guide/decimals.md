@@ -1,4 +1,6 @@
 ---
+title: How to Set Decimals for Precision
+description: Learn how to control the precision in Timer for Python from 0 to 9 decimals. Includes code examples for beginners and advanced users.
 tags:
     - Features
     - Tutorial

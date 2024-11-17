@@ -1,4 +1,6 @@
 ---
+title: How Measure Time with Multiple Threads
+description: Learn how to measure the time and performance of different blocks of code using multiple threads. Includes code examples for beginners and advanced users.
 tags:
     - Features
     - Tutorial

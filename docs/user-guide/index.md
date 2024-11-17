@@ -1,4 +1,6 @@
 ---
+title: User Guide
+description: Get the most out of Timer for Python's many features with comprehensive tutorials, tips, and tricks. Includes guides and code examples for both beginners and advanced users.
 tags:
     - Features
     - Tutorial
