@@ -7,7 +7,7 @@ tags:
     - Homebrew
 ---
 
-# How to Install Timer for Python
+# How to Install
 ## Prerequisites
 * [Python 3.10 or higher](https://www.python.org)
 
