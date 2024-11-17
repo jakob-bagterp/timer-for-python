@@ -14,8 +14,8 @@ tags:
 [![Downloads](https://static.pepy.tech/badge/timer-for-python)](https://pepy.tech/project/timer-for-python)
 
 # Timer for Python ⏳
-## Introduction
-Performance timing made easy. When you want to measure how much time it takes to run Python programs and gauge performance of multiple blocks of code, Timer for Python is a lightweight Python package that gets the job done.
+## Why Use a Timer?
+Measuring time and performance should be easy. If you want to measure the time it takes to run Python programs and measure the performance of multiple blocks of code, Timer for Python is a lightweight package that does the job.
 
 ## How It Works
 ### Basics
@@ -65,7 +65,6 @@ def test_function():
     # Insert your code here
 
 test_function()
-
 ```
 
 Terminal output example:
