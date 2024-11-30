@@ -18,7 +18,7 @@ tags:
 Measuring time and performance should be easy. If you want to measure the time it takes to run Python programs and measure the performance of multiple blocks of code, Timer for Python is a lightweight package that does the job.
 
 ## How It Works
-### Basics
+### Basic Usage
 Simply wrap the Timer around a block of code that you want to measure:
 
 ```python linenums="1" hl_lines="6"
@@ -55,7 +55,7 @@ Elapsed time: 12.34 seconds
 ```
 
 ### Function Decorator
-Or use `@benchmark_timer` as function decorator:
+Or use `@benchmark_timer` as function decorator to measure the time it takes to run a function:
 
 ```python linenums="1" hl_lines="3"
 from timer import benchmark_timer
