@@ -48,16 +48,17 @@ A few excerpts:
 ### Multiple Threads
 Set [multiple threads](multiple-threads.md) to measure performance of different blocks of code:
 
-```python title=""
-timer.start(thread="A") >-------|
-# Insert your code here         |
-                                |
-timer.start(thread="B") >---|   |
-for i in range(100):        |   |
-    # Insert more code here |   |
-timer.stop(thread="B") <----|   |
-                                |
-timer.stop(thread="A") <--------|
+```python title="" hl_lines="1 4 8 10"
+timer.start(thread="A") >--------|
+# Insert your code here          |
+                                 |
+timer.start(thread="B") >----|   |
+for i in range(100):         |   |
+    # Insert more code here  |   |
+                             |   |
+timer.stop(thread="B") <-----|   |
+                                 |
+timer.stop(thread="A") <---------|
 ```
 
 ### Decimals
@@ -70,13 +71,14 @@ timer.start(decimals=5)
 ### Context Manager
 Avoid using `start()` and `stop()` by applying the built-in [context manager](context-manager.md) `with` statement. This can be used in combination with decimals and multiple threads:
 
-```python title=""
+```python title="" hl_lines="1 4"
 with Timer(thread="A"): >----------------------|
     # Insert your code here                    |
                                                |
     with Timer(thread="B", decimals=5): >--|   |
         # Insert more code here            |   |
         |<---------------------------------|   |
+                                               |
     |<-----------------------------------------|
 ```
 
