@@ -6,8 +6,7 @@ tags:
     - Tutorial
 ---
 
-# Multiple Threads
-## Why Use Multiple Threads?
+# Why Use Multiple Threads?
 Imagine that you want to troubleshoot which parts of your code are performing better or worse. Or do you want to split-test the performance of different methods? Timer for Python is a quick, easy way to get the job done.
 
 ## Code Exmaple
@@ -40,7 +39,7 @@ Elapsed time: 6.78 seconds for thread A
 ```
 
 ## Context Manager
-Or use the context manager `with` statement to get the same result with less code:
+Or use the [context manager](context-manager.md) `with` statement to get the same result with less code:
 
 ```python linenums="1" hl_lines="3 6"
 from timer import Timer

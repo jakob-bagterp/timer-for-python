@@ -6,8 +6,8 @@ tags:
     - Tutorial
 ---
 
-# Decimals
-## How to Use Decimals for Precision
+# How to Use Decimals for Precision
+## Basic Usage
 To set the number of decimals in the output (only if less than an hour), use the `decimals` argument. Instead of the default value `2` for `decimals`, you can set the output precision up to `9` in the `decimals` argument:
 
 ```python linenums="1" hl_lines="4"
@@ -33,6 +33,7 @@ Elapsed time: 0.12345 seconds
     May be overruled in certain cases due to [humanised output](humanised-output.md).
 
 ## Set Decimals in Class Instance or Function
+### General Configuration
 It's also possible to set the decimals when initiating the Timer:
 
 ```python linenums="1" hl_lines="3"
@@ -52,6 +53,7 @@ Terminal output example:
 Elapsed time: 0.12345 seconds
 ```
 
+### How to Bypass General Configuration and Set Decimals in Thread
 Or set the decimals when starting a new thread, which will also override the general decimals defined when initiating the Timer:
 
 ```python linenums="1" hl_lines="3 4"

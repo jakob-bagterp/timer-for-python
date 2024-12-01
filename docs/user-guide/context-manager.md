@@ -6,11 +6,10 @@ tags:
     - Tutorial
 ---
 
-# Context Management
-## How to Automatically Start and Stop the Timer
+# How to Automatically Start and Stop the Timer
 Instead of manually starting and stopping the Timer with `timer.start()` and `timer.stop()`, it's recommend to use the context manager and `with Timer():` statements.
 
-### Advantages
+## Advantages
 Apart from less code and more readable code, the built-in context manager automatically closes the Timer (so you don't forget it) when the task is done or if an error occurs.
 
 As an added benefit, the `with` statement prevents you from having loose ends lingering in the Python runtime.
@@ -29,7 +28,7 @@ with Timer():
 ### Without Context Manager
 And not recommended to do this:
 
-```python linenums="1"
+```python linenums="1" hl_lines="3-4 8"
 from timer import Timer
 
 timer = Timer()

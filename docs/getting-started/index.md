@@ -22,7 +22,7 @@ Find more details and options in the [installation guide](installation.md).
 ## 2. First Script
 You're now ready to go:
 
-```python linenums="1"
+```python linenums="1" hl_lines="6"
 from timer import Timer
 
 timer = Timer()
