@@ -53,7 +53,7 @@ test_function()
 
 ### Core Features
 #### Decimals
-Instead of the default value of `2` for `decimals``, you can set the output precision up to `9` in the `decimals` argument:
+Instead of the default value of `2` for `decimals``, you can set the output precision up to `9` in the `decimals` parameter:
 
 ```python
 timer = Timer()
@@ -67,7 +67,7 @@ timer.stop() # Output example: 0.12345 seconds
 #### Multiple Threads
 Imagine that you want to troubleshoot which parts of your code are performing better or worse. Or do you want to split-test the performance of different methods? Timer for Python is a quick, easy way to get the job done.
 
-To measure the performance of multiple blocks of code, use the `thread` argument to name different threads:
+To measure the performance of multiple blocks of code, use the `thread` parameter to name different threads:
 
 ```python
 timer = Timer()
