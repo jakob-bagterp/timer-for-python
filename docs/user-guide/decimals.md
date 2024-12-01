@@ -8,7 +8,7 @@ tags:
 
 # How to Use Decimals for Precision
 ## Basic Usage
-To set the number of decimals in the output (only if less than an hour), use the `decimals` argument. Instead of the default value `2` for `decimals`, you can set the output precision up to `9` in the `decimals` argument:
+To set the number of decimals in the output (only if less than an hour), use the `decimals` parameter. Instead of the default value `2` for `decimals`, you can set the output precision up to `9` in the `decimals` parameter:
 
 ```python linenums="1" hl_lines="4"
 from timer import Timer

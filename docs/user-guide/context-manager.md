@@ -40,7 +40,7 @@ timer.stop()
 ```
 
 ## Multiple Threads and Decimals
-It's possible nest multiple instances of context. Simply remember to add a unique `thread` argument to each instance of `Timer()`.
+It's possible nest multiple instances of context. Simply remember to add a unique `thread` parameter to each instance of `Timer()`.
 
 ```python linenums="1" hl_lines="3 6 9"
 from timer import Timer
