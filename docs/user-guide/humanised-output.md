@@ -5,24 +5,21 @@ tags:
     - Features
 ---
 
-# Humanised Output
-## What Is Humanised Time?
+# What Is Humanised Time?
 Timer for Python supports measurement of time from nanoseconds to days.
 
 But. If a program runs for a minute, it doesn't make sense to display the output time in 60,000 milliseconds. And similarly if it runs an hour, it doesn't make sense to display the output time in 3,600 seconds.
 
-Therefore, the output of Timer is _humanised_ so it's easier to read.
+Therefore, the output of Timer is automatically _humanised_ so it's easier to read.
 
-## Examples
+!!! info "How It Impacts the Decimals Configuration"
+    While you can measure time from nanoseconds to seconds with [up to 9 decimals of a floating point number](decimals.md) by using `Timer(decimals=9)`, it doesn't always make sense. That's why the decimal configuration is overridden by humanised output in certain cases.
+
+## Examples and Ranges
 How different time ranges may appear in the terminal from fractions of a second to minutes, hours, days:
 
-```text title=""
-Elapsed time: 123 nanoseconds
-Elapsed time: 4.56 microseconds
-Elapsed time: 56.78 milliseconds
-Elapsed time: 7.89 seconds
-Elapsed time: 67.89 seconds (1m 8s)
-Elapsed time: 3m 4s
-Elapsed time: 2h 3m 4s
-Elapsed time: 1d 2h 3m 4s
-```
+| Range                         | Decimals         | Example Output                                                                                                                                   |
+| ----------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Nanoseconds                   | No decimals      | `Elapsed time: 123 nanoseconds`                                                                                                                  |
+| From microseconds to seconds  | Up to 9 decimals | `Elapsed time: 4.56 microseconds`<br>`Elapsed time: 56.78 milliseconds`<br>`Elapsed time: 7.89 seconds`<br>`Elapsed time: 67.89 seconds (1m 8s)` |
+| From minutes to days          | No decimals      | `Elapsed time: 3m 4s`<br>`Elapsed time: 2h 3m 4s`<br>`Elapsed time: 1d 2h 3m 4s`                                                                 |
