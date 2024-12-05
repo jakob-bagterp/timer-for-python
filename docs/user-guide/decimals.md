@@ -72,7 +72,46 @@ Elapsed time: 0.12345 seconds
 
 ## Different Decimals for Different Threads
 ### General Configuration
-It's also possible to set the decimals when initiating the Timer. Both with or without the `with` statement for [context management](context-manager.md):
+It's also possible to set the decimals when initiating the Timer. This will last throughout the session (unless overridden by a specific thread):
+
+```python linenums="1" hl_lines="3"
+from timer import Timer
+
+timer = Timer(decimals=6)
+timer.start()
+
+# Insert your code here
+
+timer.stop()
+```
+
+Terminal output example:
+
+```text title=""
+Elapsed time: 0.123456 seconds
+```
+
+### How to Bypass General Configuration and Set Decimals by Thread
+Or set the decimals when starting a new thread, which will also override the general decimals defined when initiating the Timer.
+
+```python linenums="1" hl_lines="3 4"
+from timer import Timer
+
+timer = Timer(decimals=5)
+timer.start(decimals=9)
+
+# Insert your code here
+
+timer.stop()
+```
+
+Terminal output example:
+
+```text title=""
+Elapsed time: 0.123456789 seconds
+```
+
+This works both with or without the `with` statement for [context management](context-manager.md):
 
 === "Context Manager"
 
@@ -88,7 +127,7 @@ It's also possible to set the decimals when initiating the Timer. Both with or w
 
 === "Without Context Manager"
 
-    ```python linenums="1" hl_lines="3 8"
+    ```python linenums="1" hl_lines="3-4 8"
     from timer import Timer
 
     timer = Timer(decimals=5)
@@ -110,26 +149,6 @@ Terminal output is the same in both cases:
 ```text title=""
 Elapsed time: 0.12345 seconds for thread A
 Elapsed time: 0.12 seconds for thread B
-```
-
-### How to Bypass General Configuration and Set Decimals by Thread
-Or set the decimals when starting a new thread, which will also override the general decimals defined when initiating the Timer:
-
-```python linenums="1" hl_lines="3 4"
-from timer import Timer
-
-timer = Timer(decimals=5)
-timer.start(decimals=9)
-
-# Insert your code here
-
-timer.stop()
-```
-
-Terminal output example:
-
-```text title=""
-Elapsed time: 0.123456789 seconds
 ```
 
 !!! info "Precision in Nanoseconds"
