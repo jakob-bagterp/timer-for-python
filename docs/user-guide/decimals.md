@@ -76,30 +76,40 @@ It's also possible to set the decimals when initiating the Timer. Both with or w
 
 === "Context Manager"
 
-    ```python linenums="1" hl_lines="3"
+    ```python linenums="1" hl_lines="3 6"
     from timer import Timer
 
-    with Timer(decimals=5):
+    with Timer(thread="A", decimals=5):
         # Insert your code here
+
+        with Timer(thread="B", decimals=2):
+            # Insert more code here
     ```
 
 === "Without Context Manager"
 
-    ```python linenums="1" hl_lines="3"
+    ```python linenums="1" hl_lines="3 8"
     from timer import Timer
 
     timer = Timer(decimals=5)
-    timer.start()
+    timer.start(thread="A")
 
     # Insert your code here
 
-    timer.stop()
+    timer.start(thread="B", decimals=2)
+
+    # Insert more code here
+
+    timer.stop(thread="B")
+
+    timer.stop(thread="A")
     ```
 
 Terminal output is the same in both cases:
 
 ```text title=""
-Elapsed time: 0.12345 seconds
+Elapsed time: 0.12345 seconds for thread A
+Elapsed time: 0.12 seconds for thread B
 ```
 
 ### How to Bypass General Configuration and Set Decimals by Thread
