@@ -53,7 +53,7 @@ Terminal output example:
 Elapsed time: 0.12345 seconds
 ```
 
-Or without with the `with` statement for [context management](context-manager.md):
+Or without the `with` statement for [context management](context-manager.md):
 
 ```python linenums="1" hl_lines="4"
 from timer import Timer
@@ -89,7 +89,7 @@ Terminal output example:
 Elapsed time: 0.12345 seconds
 ```
 
-Or without with the `with` statement for [context management](context-manager.md):
+Or without the `with` statement for [context management](context-manager.md):
 
 ```python linenums="1" hl_lines="3"
 from timer import Timer
