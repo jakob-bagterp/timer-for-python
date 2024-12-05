@@ -38,35 +38,33 @@ Default value for `decimals` is `2`. The range is minimum `0` for no decimals an
     When you measure time in microseconds, decimal precision may be important. But if a program runs for a minute or more, it doesn't make sense to display the output time in milliseconds. Therefore, the decimal configuration will be overridden in certain cases by [humanised output](humanised-output.md).
 
 ## Basic Usage
-To set the number of decimals in the output (only if less than an hour), use the `decimals` parameter. Instead of the default value `2` for `decimals`, you can set the output precision up to `9` in the `decimals` parameter:
+To set the number of decimals in the output (only if less than an hour), use the `decimals` parameter. Instead of the default value `2` for `decimals`, you can set the output precision up to `9` in the `decimals` parameter.
 
-```python linenums="1" hl_lines="3"
-from timer import Timer
+Both with or without the `with` statement for [context management](context-manager.md):
 
-with Timer(decimals=5):
+=== "Context Manager"
+
+    ```python linenums="1" hl_lines="3"
+    from timer import Timer
+
+    with Timer(decimals=5):
+        # Insert your code here
+    ```
+
+=== "Without Context Manager"
+
+    ```python linenums="1" hl_lines="4"
+    from timer import Timer
+
+    timer = Timer()
+    timer.start(decimals=5)
+
     # Insert your code here
-```
 
-Terminal output example:
+    timer.stop()
+    ```
 
-```text title=""
-Elapsed time: 0.12345 seconds
-```
-
-Or without the `with` statement for [context management](context-manager.md):
-
-```python linenums="1" hl_lines="4"
-from timer import Timer
-
-timer = Timer()
-timer.start(decimals=5)
-
-# Insert your code here
-
-timer.stop()
-```
-
-Terminal output is the same:
+Terminal output is the same in both cases:
 
 ```text title=""
 Elapsed time: 0.12345 seconds
@@ -74,35 +72,31 @@ Elapsed time: 0.12345 seconds
 
 ## Different Decimals for Different Threads
 ### General Configuration
-It's also possible to set the decimals when initiating the Timer:
+It's also possible to set the decimals when initiating the Timer. Both with or without the `with` statement for [context management](context-manager.md):
 
-```python linenums="1" hl_lines="3"
-from timer import Timer
+=== "Context Manager"
 
-with Timer(decimals=5):
+    ```python linenums="1" hl_lines="3"
+    from timer import Timer
+
+    with Timer(decimals=5):
+        # Insert your code here
+    ```
+
+=== "Without Context Manager"
+
+    ```python linenums="1" hl_lines="3"
+    from timer import Timer
+
+    timer = Timer(decimals=5)
+    timer.start()
+
     # Insert your code here
-```
 
-Terminal output example:
+    timer.stop()
+    ```
 
-```text title=""
-Elapsed time: 0.12345 seconds
-```
-
-Or without the `with` statement for [context management](context-manager.md):
-
-```python linenums="1" hl_lines="3"
-from timer import Timer
-
-timer = Timer(decimals=5)
-timer.start()
-
-# Insert your code here
-
-timer.stop()
-```
-
-Terminal output is the same:
+Terminal output is the same in both cases:
 
 ```text title=""
 Elapsed time: 0.12345 seconds
