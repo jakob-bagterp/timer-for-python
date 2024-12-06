@@ -5,7 +5,7 @@ from typing import Any
 from ..model.timer import Timer
 
 
-def benchmark_timer(thread: str | None = None, decimals: int = 2) -> Callable[..., Any]:
+def function_timer(thread: str | None = None, decimals: int = 2) -> Callable[..., Any]:
     """Function decorator to measure the performance of a function.
 
     Args:
@@ -16,9 +16,9 @@ def benchmark_timer(thread: str | None = None, decimals: int = 2) -> Callable[..
         Basic usage:
 
         ```python linenums="1" hl_lines="3"
-        from timer import benchmark_timer
+        from timer import function_timer
 
-        @benchmark_timer
+        @function_timer
         def test_function():
             # Insert your code here
 
@@ -34,9 +34,9 @@ def benchmark_timer(thread: str | None = None, decimals: int = 2) -> Callable[..
         With custom thread name and decimals:
 
         ```python linenums="1" hl_lines="3"
-        from timer import benchmark_timer
+        from timer import function_timer
 
-        @benchmark_timer(thread="A", decimals=5)
+        @function_timer(thread="A", decimals=5)
         def test_function():
             # Insert your code here
 
