@@ -1,6 +1,6 @@
 ---
-title: Documentation for Benchmark Function Decorator
-description: Learn how to use the benchmark timer and function decorator to measure the execution time of Python functions. Includes code examples for beginners and advanced users.
+title: Documentation for Function Decorator
+description: Learn how to use the function decorator to measure the execution time of Python functions. Includes code examples for beginners and advanced users.
 tags:
     - Documentation
     - Tutorial
