@@ -7,7 +7,7 @@ from timer.decorator.function import function_timer
 OUTPUT_MESSAGE_REGEX = r"Elapsed time \(thread [\Wx1b]\[32mFUNCTION_TO_BE_TIMED[\Wx1b]\[0m\): \d+\.\d\d milliseconds[\Wn]"
 
 
-@function_timer
+@function_timer()
 def function_to_be_timed(seconds: float) -> None:
     time.sleep(seconds)
 

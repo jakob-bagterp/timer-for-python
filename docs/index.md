@@ -55,12 +55,12 @@ Elapsed time: 12.34 seconds
 ```
 
 ### Function Decorator
-Or use `@function_timer` as function decorator:
+Or use `@function_timer()` as function decorator:
 
 ```python linenums="1" hl_lines="3"
 from timer import function_timer
 
-@function_timer
+@function_timer()
 def test_function():
     # Insert your code here
 

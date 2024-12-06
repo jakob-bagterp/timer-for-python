@@ -18,7 +18,7 @@ def function_timer(thread: str | None = None, decimals: int = 2) -> Callable[...
         ```python linenums="1" hl_lines="3"
         from timer import function_timer
 
-        @function_timer
+        @function_timer()
         def test_function():
             # Insert your code here
 

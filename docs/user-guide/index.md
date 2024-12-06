@@ -84,7 +84,7 @@ with Timer(thread="A"): >----------------------|
 How to apply the [function decorator](function-decorator.md) to measure performance of functions:
 
 ```python title=""
-@function_timer
+@function_timer()
 def some_function():
     # Function code
 ```
