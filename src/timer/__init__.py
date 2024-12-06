@@ -1,5 +1,5 @@
-__all__ = ["benchmark_timer", "Timer"]
+__all__ = ["function_timer", "Timer"]
 
-from .decorator.benchmark import benchmark_timer
+from .decorator.benchmark import function_timer
 from .model.timer import Timer
 from .version import __version__  # noqa

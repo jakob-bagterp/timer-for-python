@@ -19,12 +19,12 @@ def some_function():
 ```
 
 ## Example
-Use the `@benchmark_timer` as function decorator to measure performance time:
+Use the `@function_timer` as function decorator to measure performance time:
 
 ```python linenums="1" hl_lines="3"
-from timer import benchmark_timer
+from timer import function_timer
 
-@benchmark_timer
+@function_timer
 def test_function():
     # Insert your code here
 

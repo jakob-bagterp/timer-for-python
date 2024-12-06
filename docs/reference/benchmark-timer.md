@@ -6,14 +6,14 @@ tags:
     - Tutorial
 ---
 
-# benchmark_timer
+# function_timer
 ## Function Decorator
-How to use `@benchmark_timer` as function decorator:
+How to use `@function_timer` as function decorator:
 
 ```python linenums="1" hl_lines="3"
-from timer import benchmark_timer
+from timer import function_timer
 
-@benchmark_timer
+@function_timer
 def test_function():
     # Insert your code here
 
