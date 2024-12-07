@@ -67,7 +67,7 @@ Elapsed time: 0.12345 seconds for thread A
 
     number = 1
     text = "some text"
-    thread_name = f"test_function_1({number=}, {text=})"
+    thread_name = f"test_function({number=}, {text=})"
 
     @function_timer(thread=thread_name)
     def test_function(number: int, text: str) -> None:
