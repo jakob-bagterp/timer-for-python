@@ -44,7 +44,7 @@ Similar to customising [output decimals](decimals.md) and [thread name](multiple
 ```python linenums="1" hl_lines="3"
 from timer import function_timer
 
-@function_timer(thread="A", decimals=5)
+@function_timer(thread="custom", decimals=5)
 def test_function():
     # Insert your code here
 
@@ -53,7 +53,7 @@ test_function()
 
 Terminal output example:
 
-<pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">A</span></code></pre>
+<pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">CUSTOM</span></code></pre>
 
 !!! tip "How to Use Function and Arguments as Thread Name"
     If you want to keep track of the function and its arguments for troubleshooting, here's a tip on how to do it:
