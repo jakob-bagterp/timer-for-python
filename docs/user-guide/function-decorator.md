@@ -70,7 +70,7 @@ Elapsed time: 0.12345 seconds for thread A
     thread_name = f"test_function({number=}, {text=})"
 
     @function_timer(thread=thread_name)
-    def test_function(number: int, text: str) -> None:
+    def test_function(number, text):
         # Insert your code here
 
     test_function(number, text)
@@ -87,13 +87,13 @@ Elapsed time: 0.12345 seconds for thread A
     ```python linenums="1" hl_lines="8"
     from timer import function_timer
 
-    def test_function(number: int, text: str) -> None:
+    def test_function(number, text):
         # Insert your code here
 
     arguments = (1, "some text")
 
     @function_timer(thread=f"{test_function.__name__}({', '.join(map(str, arguments))})")
-    def wrapper(number: int, text: str) -> None:
+    def wrapper(number, text):
         test_function(number, text)
 
     wrapper(*arguments)
