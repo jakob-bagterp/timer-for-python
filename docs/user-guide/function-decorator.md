@@ -20,7 +20,7 @@ def function():
     # Function code
 ```
 
-## Example
+## Examples
 ### Basic Usage
 Use the `@function_timer()` as decorator to measure performance time of a function:
 
@@ -58,3 +58,26 @@ Terminal output example:
 ```text title=""
 Elapsed time: 0.12345 seconds for thread A
 ```
+
+!!! tip "How to Use Function and Arguments as Thread Name"
+    If you want to keep track of the function and its arguments for troubleshooting, here's a tip on how to do it:
+
+    ```python linenums="1" hl_lines="5 7"
+    from timer import function_timer
+
+    number = 1
+    text = "some text"
+    thread_name = f"test_function_1({number=}, {text=})"
+
+    @function_timer(thread=thread_name)
+    def test_function(number: int, text: str) -> None:
+        # Insert your code here
+
+    test_function(number, text)
+    ```
+
+    Terminal output example:
+
+    ```text title=""
+    Elapsed time (thread TEST_FUNCTION(NUMBER=1, TEXT='SOME TEXT')): 12.34 seconds
+    ```
