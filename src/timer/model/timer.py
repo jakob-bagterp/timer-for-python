@@ -62,12 +62,12 @@ class Timer(TimerBase):
             ```python linenums="1" hl_lines="3"
             from timer import Timer
 
-            timer = Timer(thread="my_thread", decimals=5)
+            timer = Timer(thread="custom", decimals=5)
             timer.start()
 
             # Insert your code here
 
-            timer.stop(thread="my_thread")
+            timer.stop(thread="custom")
             ```
 
             Or with a `with` statement as [context manager](../user-guide/context-manager.md):
@@ -75,15 +75,13 @@ class Timer(TimerBase):
             ```python linenums="1" hl_lines="3"
             from timer import Timer
 
-            with Timer(thread="my_thread", decimals=5):
+            with Timer(thread="custom", decimals=5):
                 # Insert your code here
             ```
 
             As before, the terminal will output the same result in both cases:
 
-            ```text title=""
-            Elapsed time: 0.12345 seconds for thread MY_THREAD
-            ```
+            <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">CUSTOM</span></code></pre>
         """
 
         if not self._lock_init:  # Ensure that initialisation of the lists only runs the first time.
@@ -125,7 +123,7 @@ class Timer(TimerBase):
             timer.stop()
             ```
 
-            Terminal output example:
+            How it appears in the terminal:
 
             ```text title=""
             Elapsed time: 12.34 seconds
@@ -137,18 +135,16 @@ class Timer(TimerBase):
             from timer import Timer
 
             timer = Timer()
-            timer.start(thread="my_thread", decimals=5)
+            timer.start(thread="custom", decimals=5)
 
             # Insert your code here
 
-            timer.stop(thread="my_thread")
+            timer.stop(thread="custom")
             ```
 
-            Terminal output example:
+            How it appears in the terminal:
 
-            ```text title=""
-            Elapsed time: 0.12345 seconds for thread MY_THREAD
-            ```
+            <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">CUSTOM</span></code></pre>
         """
 
         try:
@@ -177,7 +173,7 @@ class Timer(TimerBase):
             timer.stop()
             ```
 
-            Terminal output example:
+            How it appears in the terminal:
 
             ```text title=""
             Elapsed time: 12.34 seconds
@@ -189,18 +185,16 @@ class Timer(TimerBase):
             from timer import Timer
 
             timer = Timer()
-            timer.start(thread="my_thread", decimals=5)
+            timer.start(thread="custom", decimals=5)
 
             # Insert your code here
 
-            timer.stop(thread="my_thread")
+            timer.stop(thread="custom")
             ```
 
-            Terminal output example:
+            How it appears in the terminal:
 
-            ```text title=""
-            Elapsed time: 0.12345 seconds for thread MY_THREAD
-            ```
+            <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">CUSTOM</span></code></pre>
         """
 
         try:

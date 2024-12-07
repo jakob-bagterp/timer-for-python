@@ -22,7 +22,7 @@ Find more details and options in the [installation guide](installation.md).
 ## 2. First Script
 You're now ready to go:
 
-```python linenums="1"
+```python linenums="1" hl_lines="6"
 from timer import Timer
 
 timer = Timer()
@@ -36,7 +36,7 @@ timer.stop()
 After `timer.stop()`, the elapsed time will be printed in your terminal. Example:
 
 ```text title=""
-Elapsed time: 12.34 seconds
+% Elapsed time: 12.34 seconds
 ```
 
 ## Next Steps

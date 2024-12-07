@@ -18,7 +18,7 @@ tags:
 Measuring time and performance should be easy. If you want to measure the time it takes to run Python programs and measure the performance of multiple blocks of code, Timer for Python is a lightweight package that does the job.
 
 ## How It Works
-### Basics
+### Basic Usage
 Simply wrap the Timer around a block of code that you want to measure:
 
 ```python linenums="1" hl_lines="6"
@@ -32,14 +32,14 @@ timer.start()
 timer.stop()
 ```
 
-After `timer.stop()`, the elapsed time will be printed in your terminal. Example:
+After `timer.stop()`, the elapsed time will be printed in the terminal:
 
 ```text title=""
-Elapsed time: 12.34 seconds
+% Elapsed time: 12.34 seconds
 ```
 
 ### Context Manager
-Alternatively, use the `with` statement. This will automatically start and stop the Timer – and so no need to declare `timer.start()` and `timer.stop()`. Same result as before, but less code:
+Alternatively, use the `with` statement. This will [automatically start and stop the Timer](user-guide/context-manager.md) – and so no need to declare `timer.start()` and `timer.stop()`. Same result as before, but less code:
 
 ```python linenums="1" hl_lines="4"
 from timer import Timer
@@ -48,14 +48,34 @@ with Timer():
     # Insert your code here
 ```
 
-Terminal output example:
+How it appears in the terminal:
 
 ```text title=""
-Elapsed time: 12.34 seconds
+% Elapsed time: 12.34 seconds
 ```
 
+### Multiple Threads
+Gain total flexibility to measure the performance of different blocks of code using [multiple threads](user-guide/multiple-threads.md):
+
+```python linenums="1" hl_lines="3 6"
+from timer import Timer
+
+with Timer(thread="A")
+    # Insert your code here
+
+    with Timer(thread="B", decimals=5):
+        # Insert more code here
+
+    # Insert even more code here
+```
+
+How it appears in the terminal:
+
+<pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">B</span>
+% Elapsed time: 6.78 seconds for thread <span class="fg-green">A</span></code></pre>
+
 ### Function Decorator
-Or use `@function_timer()` as function decorator:
+Or use `@function_timer()` as [function decorator](user-guide/function-decorator.md) to measure the performance of a function:
 
 ```python linenums="1" hl_lines="3"
 from timer import function_timer
@@ -67,11 +87,9 @@ def test_function():
 test_function()
 ```
 
-Terminal output example:
+How it appears in the terminal:
 
-```text title=""
-Elapsed time: 12.34 seconds for thread TEST_FUNCTION
-```
+<pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION</span></code></pre>
 
 ## Next Steps
 Ready to try? [Let's get started](./getting-started/index.md).

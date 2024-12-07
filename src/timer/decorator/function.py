@@ -40,29 +40,25 @@ class MkDocstringsWrapper(MkDocstringsWrapper_ABC):
             test_function()
             ```
 
-            Terminal output example:
+            How it appears in the terminal:
 
-            ```text title=""
-            Elapsed time: 12.34 seconds for thread TEST_FUNCTION
-            ```
+            <pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION</span></code></pre>
 
             With custom thread name and decimals:
 
             ```python linenums="1" hl_lines="3"
             from timer import function_timer
 
-            @function_timer(thread="A", decimals=5)
+            @function_timer(thread="custom", decimals=5)
             def test_function():
                 # Insert your code here
 
             test_function()
             ```
 
-            Terminal output example:
+            How it appears in the terminal:
 
-            ```text title=""
-            Elapsed time: 0.12345 seconds for thread A
-            ```
+            <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">CUSTOM</span></code></pre>
         """
 
         return function_timer(thread=thread, decimals=decimals)

@@ -32,11 +32,11 @@ nav:
     - Timer: reference/timer.md
     - timer.start(): reference/start.md
     - timer.stop(): reference/stop.md
-    - function_timer: reference/function-timer.md
+    - "@function_timer()": reference/function-timer.md
 
 theme:
   name: material
-  custom_dir: docs/overrides
+  custom_dir: docs/assets/overrides
   features:
     - search.suggest
     - search.highlight
@@ -84,6 +84,8 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - admonition
   - attr_list
   - footnotes
@@ -131,6 +133,9 @@ extra:
       make our documentation better.
   version:
     provider: mike
+
+extra_css:
+  - assets/stylesheets/colors.css
 
 plugins:
   - search:
