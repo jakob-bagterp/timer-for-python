@@ -9,7 +9,7 @@ def function_timer(thread: str | None = None, decimals: int = 2) -> Callable[...
     """Function decorator to measure the performance of a function.
 
     Args:
-        thread (str | None, optional): Option to start new thread.
+        thread (str | None, optional): Option to start new thread. By default, the thread name is the function name.
         decimals (int | None, optional): Option to define decimals for output. Minimum `0` (for no decimals) and maximum `9`. If `None`, default is `2` decimals. May be overruled in certain cases due to [humanised output](../user-guide/humanised-output.md).
 
     Example:
