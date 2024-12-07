@@ -39,7 +39,7 @@ After `timer.stop()`, the elapsed time will be printed in the terminal:
 ```
 
 ### Context Manager
-Alternatively, use the `with` statement. This will automatically start and stop the Timer – and so no need to declare `timer.start()` and `timer.stop()`. Same result as before, but less code:
+Alternatively, use the `with` statement. This will [automatically start and stop the Timer](user-guide/context-manager.md) – and so no need to declare `timer.start()` and `timer.stop()`. Same result as before, but less code:
 
 ```python linenums="1" hl_lines="4"
 from timer import Timer
@@ -55,7 +55,7 @@ How it appears in the terminal:
 ```
 
 ### Function Decorator
-Or use `@function_timer()` as function decorator:
+Or use `@function_timer()` as [function decorator](user-guide/function-decorator.md) to measure the performance of a function:
 
 ```python linenums="1" hl_lines="3"
 from timer import function_timer
