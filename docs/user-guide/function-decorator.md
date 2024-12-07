@@ -81,3 +81,26 @@ Elapsed time: 0.12345 seconds for thread A
     ```text title=""
     Elapsed time (thread TEST_FUNCTION(NUMBER=1, TEXT='SOME TEXT')): 12.34 seconds
     ```
+
+    Or if you don't know the arguments in advance, you can try a more dynamic approach:
+
+    ```python linenums="1" hl_lines="8"
+    from timer import function_timer
+
+    def test_function(number: int, text: str) -> None:
+        # Insert your code here
+
+    arguments = (1, "some text")
+
+    @function_timer(thread=f"{test_function.__name__}({', '.join(map(str, arguments))})")
+    def wrapper(number: int, text: str) -> None:
+        test_function(number, text)
+
+    wrapper(*arguments)
+    ```
+
+    Terminal output example:
+
+    ```text title=""
+    Elapsed time (thread TEST_FUNCTION(1, SOME TEXT)): 12.34 seconds
+    ```
