@@ -11,7 +11,7 @@ def get_output_message_regex(thread: str, decimals: int = 2, time_unit: str = "m
     """Generate regex pattern that matches, for example: `Elapsed time (thread \x1b[32mFUNCTION_TO_BE_TIMED\x1b[0m): 105.04 milliseconds\n`"""
 
     decimals_pattern = r"\d+\." + r"\d" * decimals if decimals > 0 else r"\d+"
-    return rf"Elapsed time \(thread [\Wx1b]\[32m{thread.upper()}[\Wx1b]\[0m\): {decimals_pattern} \w+ {time_unit}[\Wn]"
+    return rf"Elapsed time \(thread \x1b\[32m{thread.upper()}\x1b\[0m\): {decimals_pattern} {time_unit}\n"
 
 
 @function_timer()
