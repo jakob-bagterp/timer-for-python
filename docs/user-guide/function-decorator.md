@@ -1,6 +1,6 @@
 ---
-title: How to Use Benchmark Timer and Function Decorator
-description: Tutorial on how to use the benchmark timer and function decorator to measure the execution time of Python functions. Includes code examples for beginners and advanced users.
+title: How to Use Timer as Function Decorator
+description: Tutorial on how to use the timer as function decorator to measure the execution time of Python functions. Includes code examples for beginners and advanced users.
 tags:
     - Features
     - Tutorial
@@ -10,12 +10,12 @@ tags:
 When you want to measure the performance of a function, use the function decorator.
 
 ## Example
-Simple add the `@benchmark_timer` on top of the function to measure the time it takes to run the function:
+Use the `@function_timer` as function decorator to measure performance time:
 
 ```python linenums="1" hl_lines="3"
-from timer import benchmark_timer
+from timer import function_timer
 
-@benchmark_timer
+@function_timer
 def test_function():
     # Insert your code here
 

@@ -37,12 +37,12 @@ with Timer():
 ```
 
 #### Decorator
-Or use the `benchmark_timer` as a function decorator:
+Or use the `function_timer` as a function decorator:
 
 ```python
-from timer import benchmark_timer
+from timer import function_timer
 
-@benchmark_timer
+@function_timer
 def test_function():
     # Insert your code here
 
