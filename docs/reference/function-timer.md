@@ -6,22 +6,11 @@ tags:
     - Tutorial
 ---
 
-# function_timer
-## Function Decorator
-How to use `@function_timer()` as function decorator:
+# Function Decorator
+## @function_timer()
 
-```python linenums="1" hl_lines="3"
-from timer import function_timer
-
-@function_timer()
-def test_function():
-    # Insert your code here
-
-test_function()
-```
-
-Terminal output example:
-
-```text title=""
-Elapsed time: 12.34 seconds for thread TEST_FUNCTION
-```
+::: timer.decorator.function.MkDocstringsWrapper.function_timer
+    options:
+      show_category_heading: false
+      heading_level: 3
+      merge_init_into_class: true
