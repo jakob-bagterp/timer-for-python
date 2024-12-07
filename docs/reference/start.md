@@ -6,6 +6,7 @@ tags:
     - Tutorial
 ---
 
-# timer.start()
+# Start Timer
+## timer.start()
 
 ::: timer.model.timer.Timer.start
