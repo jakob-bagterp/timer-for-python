@@ -81,9 +81,7 @@ class Timer(TimerBase):
 
             As before, the terminal will output the same result in both cases:
 
-            ```text title=""
-            Elapsed time: 0.12345 seconds for thread CUSTOM
-            ```
+            <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">CUSTOM</span></code></pre>
         """
 
         if not self._lock_init:  # Ensure that initialisation of the lists only runs the first time.
