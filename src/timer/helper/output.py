@@ -7,7 +7,7 @@ from ..model.time_fractions import TimeFractions
 def message(thread: str, fractions: TimeFractions, decimals: int) -> None:
     try:
         intro = "Elapsed time:"
-        thread_info = "" if helper.thread.is_none(thread) else f" for (thread {Color.GREEN}{thread}{Color.OFF})"
+        thread_info = "" if helper.thread.is_none(thread) else f" for thread {Color.GREEN}{thread}{Color.OFF}"
         time = fractions.time
         if time.days > 0:
             # Format: 1d 2h 3m 4s
