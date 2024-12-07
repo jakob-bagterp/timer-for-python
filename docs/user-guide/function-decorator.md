@@ -34,7 +34,7 @@ def test_function():
 test_function()
 ```
 
-Terminal output example:
+How it appears in the terminal:
 
 <pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION</span></code></pre>
 
@@ -51,7 +51,7 @@ def test_function():
 test_function()
 ```
 
-Terminal output example:
+How it appears in the terminal:
 
 <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">CUSTOM</span></code></pre>
 
@@ -72,7 +72,7 @@ Terminal output example:
     test_function(number, text)
     ```
 
-    Terminal output example:
+    How it appears in the terminal:
 
     <pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION(NUMBER=1, TEXT='SOME TEXT')</span></code></pre>
 
@@ -93,6 +93,6 @@ Terminal output example:
     wrapper(*arguments)
     ```
 
-    Terminal output example:
+    How it appears in the terminal:
 
     <pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION(1, SOME TEXT)</span></code></pre>

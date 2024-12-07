@@ -64,7 +64,7 @@ Both with or without the `with` statement for [context management](context-manag
     timer.stop()
     ```
 
-Terminal output is the same in both cases:
+In both cases, how it appears in the terminal is the same:
 
 ```text title=""
 % Elapsed time: 0.12345 seconds
@@ -85,7 +85,7 @@ timer.start()
 timer.stop()
 ```
 
-Terminal output example:
+How it appears in the terminal:
 
 ```text title=""
 % Elapsed time: 0.123456 seconds
@@ -105,7 +105,7 @@ timer.start(decimals=9)
 timer.stop()
 ```
 
-Terminal output example:
+How it appears in the terminal:
 
 ```text title=""
 % Elapsed time: 0.123456789 seconds
@@ -144,7 +144,7 @@ This works both with or without the `with` statement for [context management](co
     timer.stop(thread="A")
     ```
 
-Terminal output is the same in both cases:
+In both cases, how it appears in the terminal is the same:
 
 <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">A</span>
 % Elapsed time: 0.12 seconds for thread <span class="fg-green">B</span></code></pre>

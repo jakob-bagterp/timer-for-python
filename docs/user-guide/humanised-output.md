@@ -18,7 +18,7 @@ Therefore, the output of Timer is automatically _humanised_ so it's easier to re
 ## Examples and Ranges
 How different time ranges may appear in the terminal from fractions of a second to minutes, hours, days:
 
-| Range                         | Decimals         | Example Output                                                                                                                                   |
+| Range                         | Decimals         | Terminal Output                                                                                                                                  |
 | ----------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Nanoseconds                   | No decimals      | `Elapsed time: 123 nanoseconds`                                                                                                                  |
 | From microseconds to seconds  | Up to 9 decimals | `Elapsed time: 4.56 microseconds`<br>`Elapsed time: 56.78 milliseconds`<br>`Elapsed time: 7.89 seconds`<br>`Elapsed time: 67.89 seconds (1m 8s)` |

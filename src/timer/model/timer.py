@@ -123,7 +123,7 @@ class Timer(TimerBase):
             timer.stop()
             ```
 
-            Terminal output example:
+            How it appears in the terminal:
 
             ```text title=""
             Elapsed time: 12.34 seconds
@@ -142,7 +142,7 @@ class Timer(TimerBase):
             timer.stop(thread="custom")
             ```
 
-            Terminal output example:
+            How it appears in the terminal:
 
             <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">CUSTOM</span></code></pre>
         """
@@ -173,7 +173,7 @@ class Timer(TimerBase):
             timer.stop()
             ```
 
-            Terminal output example:
+            How it appears in the terminal:
 
             ```text title=""
             Elapsed time: 12.34 seconds
@@ -192,7 +192,7 @@ class Timer(TimerBase):
             timer.stop(thread="custom")
             ```
 
-            Terminal output example:
+            How it appears in the terminal:
 
             <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">CUSTOM</span></code></pre>
         """

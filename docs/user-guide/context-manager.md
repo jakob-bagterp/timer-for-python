@@ -57,7 +57,7 @@ with Timer(thread="A")
     # Insert even more code here for thread A
 ```
 
-Terminal output example:
+How it appears in the terminal:
 
 <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">B</span>
 % Elapsed time: 0.123 seconds for thread <span class="fg-green">C</span>

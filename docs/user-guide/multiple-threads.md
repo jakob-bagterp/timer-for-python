@@ -31,7 +31,7 @@ timer.start(thread="A")
 timer.stop(thread="A")
 ```
 
-Terminal output example:
+How it appears in the terminal:
 
 <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">B</span>
 % Elapsed time: 6.78 seconds for thread <span class="fg-green">A</span></code></pre>

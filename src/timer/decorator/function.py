@@ -40,7 +40,7 @@ class MkDocstringsWrapper(MkDocstringsWrapper_ABC):
             test_function()
             ```
 
-            Terminal output example:
+            How it appears in the terminal:
 
             <pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION</span></code></pre>
 
@@ -56,7 +56,7 @@ class MkDocstringsWrapper(MkDocstringsWrapper_ABC):
             test_function()
             ```
 
-            Terminal output example:
+            How it appears in the terminal:
 
             <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">CUSTOM</span></code></pre>
         """
