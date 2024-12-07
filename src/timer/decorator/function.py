@@ -42,9 +42,7 @@ class MkDocstringsWrapper(MkDocstringsWrapper_ABC):
 
             Terminal output example:
 
-            ```text title=""
-            Elapsed time: 12.34 seconds for thread TEST_FUNCTION
-            ```
+            <pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION</span></code></pre>
 
             With custom thread name and decimals:
 
@@ -60,9 +58,7 @@ class MkDocstringsWrapper(MkDocstringsWrapper_ABC):
 
             Terminal output example:
 
-            ```text title=""
-            Elapsed time: 0.12345 seconds for thread A
-            ```
+            <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">A</span></code></pre>
         """
 
         return function_timer(thread=thread, decimals=decimals)

@@ -146,9 +146,7 @@ class Timer(TimerBase):
 
             Terminal output example:
 
-            ```text title=""
-            Elapsed time: 0.12345 seconds for thread MY_THREAD
-            ```
+            <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">MY_THREAD</span></code></pre>
         """
 
         try:
@@ -198,9 +196,7 @@ class Timer(TimerBase):
 
             Terminal output example:
 
-            ```text title=""
-            Elapsed time: 0.12345 seconds for thread MY_THREAD
-            ```
+            <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">MY_THREAD</span></code></pre>
         """
 
         try:

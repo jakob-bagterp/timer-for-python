@@ -35,7 +35,7 @@ timer.stop()
 After `timer.stop()`, the elapsed time will be printed in your terminal. Example:
 
 ```text title=""
-Elapsed time: 12.34 seconds
+% Elapsed time: 12.34 seconds
 ```
 
 ### Context Manager
@@ -51,7 +51,7 @@ with Timer():
 Terminal output example:
 
 ```text title=""
-Elapsed time: 12.34 seconds
+% Elapsed time: 12.34 seconds
 ```
 
 ### Function Decorator
@@ -69,9 +69,7 @@ test_function()
 
 Terminal output example:
 
-```text title=""
-Elapsed time: 12.34 seconds for thread TEST_FUNCTION
-```
+<pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION</span></code></pre>
 
 ## Next Steps
 Ready to try? [Let's get started](./getting-started/index.md).

@@ -36,9 +36,7 @@ test_function()
 
 Terminal output example:
 
-```text title=""
-Elapsed time: 12.34 seconds for thread TEST_FUNCTION
-```
+<pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION</span></code></pre>
 
 ### Custom Thread Name and Decimals
 Similar to customising [output decimals](decimals.md) and [thread name](multiple-threads.md) for the Timer, this is also possible with the `@function_timer()` decorator. Simply use the `thread` and `decimals` arguments:
@@ -55,9 +53,7 @@ test_function()
 
 Terminal output example:
 
-```text title=""
-Elapsed time: 0.12345 seconds for thread A
-```
+<pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">A</span></code></pre>
 
 !!! tip "How to Use Function and Arguments as Thread Name"
     If you want to keep track of the function and its arguments for troubleshooting, here's a tip on how to do it:
@@ -78,9 +74,7 @@ Elapsed time: 0.12345 seconds for thread A
 
     Terminal output example:
 
-    ```text title=""
-    Elapsed time: 12.34 seconds for thread TEST_FUNCTION(NUMBER=1, TEXT='SOME TEXT')
-    ```
+    <pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION(NUMBER=1, TEXT='SOME TEXT')</span></code></pre>
 
     Or if you don't know the arguments in advance, you can try a more dynamic approach:
 
@@ -101,6 +95,4 @@ Elapsed time: 0.12345 seconds for thread A
 
     Terminal output example:
 
-    ```text title=""
-    Elapsed time: 12.34 seconds for thread TEST_FUNCTION(1, SOME TEXT)
-    ```
+    <pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION(1, SOME TEXT)</span></code></pre>

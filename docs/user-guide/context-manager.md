@@ -57,11 +57,11 @@ with Timer(thread="A")
     # Insert even more code here for thread A
 ```
 
-```text title=""
-Elapsed time: 0.12345 seconds for thread B
-Elapsed time: 0.123 seconds for thread C
-Elapsed time: 1.23 seconds for thread A
-```
+Terminal output example:
+
+<pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">B</span>
+% Elapsed time: 0.123 seconds for thread <span class="fg-green">C</span>
+% Elapsed time: 1.23 seconds for thread <span class="fg-green">A</span></code></pre>
 
 Learn more about [decimals](decimals.md) and [threads](multiple-threads.md).
 

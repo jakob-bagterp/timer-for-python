@@ -33,10 +33,9 @@ timer.stop(thread="A")
 
 Terminal output example:
 
-```text title=""
-Elapsed time: 0.12345 seconds for thread B
-Elapsed time: 6.78 seconds for thread A
-```
+<pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">B</span>
+% Elapsed time: 6.78 seconds for thread <span class="fg-green">A</span></code></pre>
+
 
 ## Context Manager
 Or use the [context manager](context-manager.md) `with` statement to get the same result with less code:

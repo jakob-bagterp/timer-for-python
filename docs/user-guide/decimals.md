@@ -19,7 +19,7 @@ with Timer(decimals=5):
 How it appears in the terminal:
 
 ```text title=""
-Elapsed time: 0.12345 seconds
+% Elapsed time: 0.12345 seconds
 ```
 
 ## Configuration Options
@@ -67,7 +67,7 @@ Both with or without the `with` statement for [context management](context-manag
 Terminal output is the same in both cases:
 
 ```text title=""
-Elapsed time: 0.12345 seconds
+% Elapsed time: 0.12345 seconds
 ```
 
 ## Different Decimals for Different Threads
@@ -88,7 +88,7 @@ timer.stop()
 Terminal output example:
 
 ```text title=""
-Elapsed time: 0.123456 seconds
+% Elapsed time: 0.123456 seconds
 ```
 
 ### How to Bypass General Configuration and Set Decimals by Thread
@@ -108,7 +108,7 @@ timer.stop()
 Terminal output example:
 
 ```text title=""
-Elapsed time: 0.123456789 seconds
+% Elapsed time: 0.123456789 seconds
 ```
 
 This works both with or without the `with` statement for [context management](context-manager.md):
@@ -146,10 +146,8 @@ This works both with or without the `with` statement for [context management](co
 
 Terminal output is the same in both cases:
 
-```text title=""
-Elapsed time: 0.12345 seconds for thread A
-Elapsed time: 0.12 seconds for thread B
-```
+<pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">A</span>
+% Elapsed time: 0.12 seconds for thread <span class="fg-green">B</span></code></pre>
 
 !!! info "Precision in Nanoseconds"
     Timer for Python uses the native `time.perf_counter_ns()` function for maximum resolution in nanoseconds.
