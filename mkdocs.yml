@@ -32,7 +32,7 @@ nav:
     - Timer: reference/timer.md
     - timer.start(): reference/start.md
     - timer.stop(): reference/stop.md
-    - function_timer: reference/function-timer.md
+    - "@function_timer()": reference/function-timer.md
 
 theme:
   name: material
