@@ -59,3 +59,20 @@ How it appears in the terminal:
 
 <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">B</span>
 % Elapsed time: 6.78 seconds for thread <span class="fg-green">A</span></code></pre>
+
+## Flow Diagram
+How the Timer starts and stops different threads:
+
+```python title="" hl_lines="1 4 7 11"
+timer.start(thread="A") >------------------|
+# Insert your code here                    |
+                                           |
+timer.start(thread="B", decimals=5) >--|   |
+# Insert more code here                |   |
+                                       |   |
+timer.stop(thread="B") <---------------|   |
+                                           |
+# Insert even more code here               |
+                                           |
+timer.stop(thread="A") <-------------------|
+```

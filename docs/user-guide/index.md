@@ -9,6 +9,8 @@ tags:
 # User Guide 👨‍🔧
 Timer for Python is a lightweight package and intended to be easy to use. A simple tool for measuring performance of Python programs or blocks of code.
 
+Find tutorials and learn how get the most out of the Timer in this section.
+
 ## Basic Usage and How to Wrap Your Code
 ### Manual Start and Stop
 After importing the Timer on top of your Python script, simply wrap the Timer function around your code to measure performance of the executed block of code:
@@ -46,60 +48,49 @@ How it appears in the terminal:
 % Elapsed time: 12.34 seconds
 ```
 
-## Key Features
-When the basics aren't sufficient, Timer for Python also offers more advanced features to measure performance of specific code blocks:
-
-* threads
-* function decorators
-* decimals for precision
-
-And much more. A few excerpts:
-
 ### Decimals
 Set [decimals](decimals.md) to customise the precision of the terminal output:
 
-```python title=""
-timer.start(decimals=5)
+```python linenums="1" hl_lines="3"
+from timer import Timer
+
+with Timer(decimals=5):
+    # Insert your code here
+```
+
+How it appears in the terminal:
+
+```text title=""
+% Elapsed time: 0.12345 seconds
 ```
 
 ### Multiple Threads
-Set [multiple threads](multiple-threads.md) to measure performance of different blocks of code:
+There's total flexibility to measure the performance of different blocks of code using [multiple threads](user-guide/multiple-threads.md):
 
-```python title="" hl_lines="1 4 8 10"
-timer.start(thread="A") >------------------|
-# Insert your code here                    |
-                                           |
-timer.start(thread="B", decimals=5) >--|   |
-for i in range(100):                   |   |
-    # Insert more code here            |   |
-                                       |   |
-timer.stop(thread="B") <---------------|   |
-                                           |
-timer.stop(thread="A") <-------------------|
+```python linenums="1" hl_lines="3 6"
+from timer import Timer
+
+with Timer(thread="A")
+    # Insert your code here
+
+    with Timer(thread="B", decimals=5):
+        # Insert more code here
+
+    # Insert even more code here
 ```
 
-### Context Manager
-Avoid using `start()` and `stop()` by applying the built-in [context manager](context-manager.md) `with` statement. This can be used in combination with decimals and multiple threads:
+How it appears in the terminal:
 
-```python title="" hl_lines="1 4"
-with Timer(thread="A"): >----------------------|
-    # Insert your code here                    |
-                                               |
-    with Timer(thread="B", decimals=5): >--|   |
-        # Insert more code here            |   |
-        |<---------------------------------|   |
-                                               |
-    |<-----------------------------------------|
-```
+<pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">B</span>
+% Elapsed time: 6.78 seconds for thread <span class="fg-green">A</span></code></pre>
 
-### Function Decorator
-How to apply the [function decorator](function-decorator.md) to measure performance of functions:
-
-```python title="" hl_lines="1"
-@function_timer()
-def some_function():
-    # Function code
-```
+## Quick Links
+* [Multiple threads](multiple-threads.md) to measure the performance of different blocks of code
+* [Decimals](decimals.md) to set the precision of the terminal output
+* [Context manager](context-manager.md) to automatically start and stop the Timer
+* [Function decorator](function-decorator.md) to measure the performance of functions
+* [Humanised output](humanised-output.md) to display time measurements in human-readable format
+* [Graceful error handling](graceful-error-handling.md) to gracefully handle exceptions and non-blocking code
 
 ## Support the Project
 

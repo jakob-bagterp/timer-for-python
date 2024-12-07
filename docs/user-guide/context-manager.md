@@ -65,5 +65,24 @@ How it appears in the terminal:
 
 Learn more about [decimals](decimals.md) and [threads](multiple-threads.md).
 
+### Flow Diagram
+How the Timer starts and stops different threads:
+
+```python title="" hl_lines="1 4"
+with Timer(thread="A"): >----------------------|
+    # Insert your code here                    |
+                                               |
+    with Timer(thread="B", decimals=5): >--|   |
+        # Insert more code here            |   |
+        |<---------------------------------|   |
+                                               |
+    with Timer(thread="C", decimals=3): >--|   |
+        # Insert even more code here       |   |
+        |<---------------------------------|   |
+                                               |
+    # Insert even more code here for thread A  |                                               |
+    |<-----------------------------------------|
+```
+
 !!! info "Singleton and Unique Threads"
     The `Timer()` class is a _singleton_, which means that there can only be one instance of the class. This is to ensure that the same `Timer()` is used for all threads and that each thread is unique.
