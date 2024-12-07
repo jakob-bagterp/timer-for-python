@@ -18,7 +18,6 @@ def test_function():
     # Insert your code here
 
 test_function()
-
 ```
 
 Terminal output example:
