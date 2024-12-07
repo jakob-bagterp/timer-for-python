@@ -77,4 +77,4 @@ def test_output_message_hours_with_custom_thread(capfd: object) -> None:
         mock_elapsed_time_ns = random_hours_as_ns(allow_zero=False)
         terminal_output, fractions, time, _, thread = process_terminal_message(
             mock_elapsed_time_ns, capfd, has_thread=True)
-        assert terminal_output == f"Elapsed time (thread {Color.GREEN}{thread}{Color.OFF}): {time.hours}h {time.minutes}m {fractions.seconds_rounded()}s\n"
+        assert terminal_output == f"Elapsed time: {time.hours}h {time.minutes}m {fractions.seconds_rounded()}s for thread {Color.GREEN}{thread}{Color.OFF}\n"
