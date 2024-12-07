@@ -79,7 +79,7 @@ Elapsed time: 0.12345 seconds for thread A
     Terminal output example:
 
     ```text title=""
-    Elapsed time (thread TEST_FUNCTION(NUMBER=1, TEXT='SOME TEXT')): 12.34 seconds
+    Elapsed time: 12.34 seconds for thread TEST_FUNCTION(NUMBER=1, TEXT='SOME TEXT')
     ```
 
     Or if you don't know the arguments in advance, you can try a more dynamic approach:
@@ -102,5 +102,5 @@ Elapsed time: 0.12345 seconds for thread A
     Terminal output example:
 
     ```text title=""
-    Elapsed time (thread TEST_FUNCTION(1, SOME TEXT)): 12.34 seconds
+    Elapsed time: 12.34 seconds for thread TEST_FUNCTION(1, SOME TEXT)
     ```
