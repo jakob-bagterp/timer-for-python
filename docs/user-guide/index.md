@@ -65,7 +65,7 @@ How it appears in the terminal:
 ```
 
 ### Multiple Threads
-There's total flexibility to measure the performance of different blocks of code using [multiple threads](user-guide/multiple-threads.md):
+There's total flexibility to measure the performance of different blocks of code using [multiple threads](multiple-threads.md):
 
 ```python linenums="1" hl_lines="3 6"
 from timer import Timer
