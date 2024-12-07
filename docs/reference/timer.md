@@ -6,7 +6,7 @@ tags:
     - Tutorial
 ---
 
-# Timer
+# Start and Stop Timer
 
 ::: timer.model.timer
     options:
