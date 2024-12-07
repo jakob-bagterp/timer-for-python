@@ -12,7 +12,7 @@ Find details about all methods in this section.
 * [Timer](./timer.md) main class
 * [timer.start()](./start.md)
 * [timer.stop()](./stop.md)
-* [function_timer](./function-timer.md) as function decorator
+* [function_timer()](./function-timer.md) as function decorator
 
 ## Support the Project
 

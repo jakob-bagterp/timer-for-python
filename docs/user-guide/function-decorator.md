@@ -9,13 +9,25 @@ tags:
 # How to Measure Time of Functions
 When you want to measure the performance of a function, use the function decorator.
 
+## What Is a Decorated Function?
+The `@` preceding a function is called a decorator. Such decoractor wraps a function and gives extra functionality without changing the original function.
+
+The pattern is:
+
+```python title=""
+@decorator
+def function():
+    # Function code
+```
+
 ## Example
-Use the `@function_timer` as function decorator to measure performance time:
+### Basic Usage
+Use the `@function_timer()` as decorator to measure performance time of a function:
 
 ```python linenums="1" hl_lines="3"
 from timer import function_timer
 
-@function_timer
+@function_timer()
 def test_function():
     # Insert your code here
 
@@ -28,13 +40,21 @@ Terminal output example:
 Elapsed time: 12.34 seconds for thread TEST_FUNCTION
 ```
 
-## What Is a Decorated Function?
-The `@` preceding a function is called a decorator. Such decoractor wraps a function and gives extra functionality without changing the original function.
+### Custom Thread Name and Decimals
+Similar to customising [output decimals](decimals.md) and [thread name](multiple-threads.md) for the Timer, this is also possible with the `@function_timer()` decorator. Simply use the `thread` and `decimals` arguments:
 
-The pattern is:
+```python linenums="1" hl_lines="3"
+from timer import function_timer
 
-```python title=""
-@decorator
-def some_function():
-    # Function code
+@function_timer(thread="A", decimals=5)
+def test_function():
+    # Insert your code here
+
+test_function()
+```
+
+Terminal output example:
+
+```text title=""
+Elapsed time: 0.12345 seconds for thread A
 ```

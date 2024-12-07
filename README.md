@@ -42,7 +42,7 @@ Or use the `function_timer` as a function decorator:
 ```python
 from timer import function_timer
 
-@function_timer
+@function_timer()
 def test_function():
     # Insert your code here
 
