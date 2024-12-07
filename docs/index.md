@@ -54,6 +54,26 @@ How it appears in the terminal:
 % Elapsed time: 12.34 seconds
 ```
 
+### Multiple Threads
+Gain total flexibility to measure the performance of different blocks of code using [multiple threads](user-guide/multiple-threads.md):
+
+```python linenums="1" hl_lines="3 6"
+from timer import Timer
+
+with Timer(thread="A")
+    # Insert your code here
+
+    with Timer(thread="B", decimals=5):
+        # Insert more code here
+
+    # Insert even more code here
+```
+
+How it appears in the terminal:
+
+<pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">B</span>
+% Elapsed time: 6.78 seconds for thread <span class="fg-green">A</span></code></pre>
+
 ### Function Decorator
 Or use `@function_timer()` as [function decorator](user-guide/function-decorator.md) to measure the performance of a function:
 
