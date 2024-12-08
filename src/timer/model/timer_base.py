@@ -7,11 +7,11 @@ from .thread_item import ThreadItem
 class TimerBase(ABC):
     """Abstract base class of Timer object."""
 
-    __slots__ = ["decimals", "threads"]
+    __slots__ = ["_decimals", "_threads"]
 
     def __init__(self) -> None:
-        self.decimals: int
-        self.threads: list[ThreadItem]
+        self._decimals: int
+        self._threads: list[ThreadItem]
 
     def __enter__(self) -> "TimerBase":
         raise NotImplementedError

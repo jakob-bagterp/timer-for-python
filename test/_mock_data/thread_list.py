@@ -42,5 +42,5 @@ def generate_threads_list() -> list[ThreadItem]:
 
 def generate_timer_with_threads_list() -> Timer:
     timer = Timer()
-    timer.threads = generate_threads_list()
+    timer._threads = generate_threads_list()
     return timer
