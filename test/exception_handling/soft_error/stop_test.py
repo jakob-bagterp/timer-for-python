@@ -32,7 +32,7 @@ def test_timer_stop_not_started_thread_soft_error_1(capfd: object) -> None:
     timer = ensure_all_timer_threads_are_stopped()
     timer.stop()
     terminal_output, _ = capfd.readouterr()
-    assert terminal_output == f"{Color.YELLOW}Timer is not running. Use .start() to start it.{Color.OFF}{linesep}"
+    assert terminal_output == f"{Color.YELLOW}Timer is not running. Use .start() to start it.{Color.OFF}\n"
 
 
 def test_timer_stop_not_started_thread_soft_error_2(capfd: object) -> None:
@@ -41,4 +41,4 @@ def test_timer_stop_not_started_thread_soft_error_2(capfd: object) -> None:
     timer = ensure_all_timer_threads_are_stopped()
     timer.stop(thread=thread)
     terminal_output, _ = capfd.readouterr()
-    assert terminal_output == f"{Color.YELLOW}Timer for thread {thread.upper()} is not running. Use .start(thread='{thread.upper()}') to start it.{Color.OFF}{linesep}"
+    assert terminal_output == f"{Color.YELLOW}Timer for thread {thread.upper()} is not running. Use .start(thread='{thread.upper()}') to start it.{Color.OFF}\n"
