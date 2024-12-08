@@ -9,17 +9,17 @@ class TimerBase(ABC):
     __slots__ = ["decimals", "threads"]
 
     def __init__(self) -> None:
-        self.decimals: int
-        self.threads: list[ThreadItem]
+        self.decimals: int  # pragma: no cover
+        self.threads: list[ThreadItem]  # pragma: no cover
 
     @abstractmethod
     def start(self, thread: str, decimals: int) -> None:
         """Starts the Timer."""
 
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
     def stop(self, thread: str) -> None:
         """Stops the Timer."""
 
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
