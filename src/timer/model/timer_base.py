@@ -13,13 +13,13 @@ class TimerBase(ABC):
         self.threads: list[ThreadItem]
 
     @abstractmethod
-    def start(self, thread: str, decimals: int) -> None:
+    def start(self, thread: str | None = None, decimals: int | None = None) -> None:
         """Starts the Timer."""
 
         raise NotImplementedError
 
     @abstractmethod
-    def stop(self, thread: str) -> None:
+    def stop(self, thread: str | None = None) -> None:
         """Stops the Timer."""
 
         raise NotImplementedError
