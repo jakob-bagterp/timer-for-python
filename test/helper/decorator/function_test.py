@@ -3,19 +3,12 @@ import time
 from collections.abc import Callable
 
 import pytest
+from _helper.terminal_output import get_terminal_output_regex
 
 from timer.decorator.function import function_timer
 
 TEST_THREAD = "test"
 TEST_DECIMALS = 5
-
-
-def get_output_message_regex(thread: str | None = None, decimals: int = 2, time_unit: str = "milliseconds") -> str:
-    """Generate regex pattern that matches, for example: `Elapsed time: 105.04 milliseconds for thread FUNCTION_TO_BE_TIMED`"""
-
-    decimals_pattern = r"\d+\." + r"\d" * decimals if decimals > 0 else r"\d+"
-    thread_info = rf" for thread \x1b\[32m{thread.upper()}\x1b\[0m" if thread is not None else ""
-    return rf"Elapsed time: {decimals_pattern} {time_unit}{thread_info}\n"
 
 
 @function_timer()
@@ -48,5 +41,5 @@ def test_function_timer_decorator(function: Callable[[float], None], thread: str
     _ = function(seconds=0.1)
     terminal_output, _ = capfd.readouterr()
     thread_name = thread if thread is not None else function.__name__
-    output_message_regex = get_output_message_regex(thread_name, decimals) if decimals is not None else get_output_message_regex(thread_name)
+    output_message_regex = get_terminal_output_regex(thread_name, decimals) if decimals is not None else get_terminal_output_regex(thread_name)
     assert bool(re.fullmatch(output_message_regex, terminal_output)) is True
