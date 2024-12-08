@@ -15,7 +15,6 @@ def test_timer_stop_unknown_thread_soft_error_1(capfd: object) -> None:
         return  # pragma: no cover
 
     custom_thread = random_thread_name()
-
     timer = ensure_all_timer_threads_are_stopped()
     timer.start()
     time.sleep(0.1)
@@ -34,7 +33,6 @@ def test_timer_stop_unknown_thread_soft_error_2(capfd: object) -> None:
 
     custom_thread_1 = random_thread_name()
     custom_thread_2 = random_thread_name()
-
     timer = ensure_all_timer_threads_are_stopped()
     timer.start(thread=custom_thread_1)
     time.sleep(0.1)

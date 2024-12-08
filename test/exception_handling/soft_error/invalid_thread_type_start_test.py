@@ -3,7 +3,7 @@ from os import linesep
 import pytest
 from _helper import operating_system
 from _helper.random import random_thread_name
-from _helper.timer import ensure_all_timer_threads_are_stopped
+from _helper.timer import get_timer_with_invalid_thread_type
 from colorist import Color
 
 from timer import Timer
@@ -11,9 +11,7 @@ from timer import Timer
 
 def test_timer_start_invalid_thread_type_soft_error_1(capfd: object) -> None:
     custom_thread = random_thread_name()
-
-    timer = ensure_all_timer_threads_are_stopped()
-    timer._threads = [custom_thread]  # Triggers issue by invalid type as it should be a list[ThreadItem] type.
+    timer = get_timer_with_invalid_thread_type(custom_thread)
     timer.start(thread=custom_thread)
     terminal_output, _ = capfd.readouterr()
     assert terminal_output == f"{Color.YELLOW}Timer: Something went wrong in the Timer's lookup module for thread {custom_thread.upper()}.{Color.OFF}\n"
@@ -26,9 +24,7 @@ def test_timer_start_invalid_thread_type_soft_error_2(capfd: object) -> None:
         return  # pragma: no cover
 
     custom_thread = random_thread_name()
-
-    timer = ensure_all_timer_threads_are_stopped()
-    timer._threads = [custom_thread]  # Triggers issue by invalid type as it should be a list[ThreadItem] type.
+    get_timer_with_invalid_thread_type(custom_thread)
     with Timer(thread=custom_thread):
         pass
     terminal_output, _ = capfd.readouterr()
