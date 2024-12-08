@@ -14,10 +14,10 @@ class TimerBase(ABC):
         self._threads: list[ThreadItem]  # pragma: no cover
 
     def __enter__(self) -> "TimerBase":
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
 
     def __exit__(self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
     def start(self, thread: str | None = None, decimals: int | None = None) -> None:
