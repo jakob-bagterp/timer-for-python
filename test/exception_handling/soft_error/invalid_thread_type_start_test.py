@@ -2,6 +2,7 @@ from os import linesep
 
 import pytest
 from _helper import operating_system
+from _helper.random import random_thread_name
 from _helper.timer import ensure_all_timer_threads_are_stopped
 from colorist import Color
 
@@ -9,7 +10,7 @@ from timer import Timer
 
 
 def test_timer_start_invalid_thread_type_soft_error_1(capfd: object) -> None:
-    custom_thread = "custom"
+    custom_thread = random_thread_name()
 
     timer = ensure_all_timer_threads_are_stopped()
     timer._threads = [custom_thread]  # Triggers issue by invalid type as it should be a list[ThreadItem] type.
@@ -24,7 +25,7 @@ def test_timer_start_invalid_thread_type_soft_error_2(capfd: object) -> None:
         # TODO: Fix line separator issue on Windows.
         return  # pragma: no cover
 
-    custom_thread = "custom"
+    custom_thread = random_thread_name()
 
     timer = ensure_all_timer_threads_are_stopped()
     timer._threads = [custom_thread]  # Triggers issue by invalid type as it should be a list[ThreadItem] type.

@@ -3,6 +3,7 @@ from os import linesep
 
 import pytest
 from _helper import operating_system
+from _helper.random import random_thread_name
 from _helper.timer import ensure_all_timer_threads_are_stopped
 from colorist import Color
 
@@ -13,7 +14,7 @@ def test_timer_stop_unknown_thread_soft_error_1(capfd: object) -> None:
         # TODO: Fix line separator issue on Windows.
         return  # pragma: no cover
 
-    custom_thread = "custom"
+    custom_thread = random_thread_name()
 
     timer = ensure_all_timer_threads_are_stopped()
     timer.start()
@@ -31,8 +32,8 @@ def test_timer_stop_unknown_thread_soft_error_2(capfd: object) -> None:
         # TODO: Fix line separator issue on Windows.
         return  # pragma: no cover
 
-    custom_thread_1 = "custom_1"
-    custom_thread_2 = "custom_2"
+    custom_thread_1 = random_thread_name()
+    custom_thread_2 = random_thread_name()
 
     timer = ensure_all_timer_threads_are_stopped()
     timer.start(thread=custom_thread_1)
@@ -52,7 +53,7 @@ def test_timer_stop_not_started_thread_soft_error_1(capfd: object) -> None:
 
 
 def test_timer_stop_not_started_thread_soft_error_2(capfd: object) -> None:
-    custom_thread = "custom"
+    custom_thread = random_thread_name()
 
     timer = ensure_all_timer_threads_are_stopped()
     timer.stop(thread=custom_thread)
