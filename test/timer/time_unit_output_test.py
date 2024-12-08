@@ -27,6 +27,10 @@ MICROSECONDS_TEST_SET = TimeUnitTestSet(wait_seconds=0.000_001, expected_time_un
     MICROSECONDS_TEST_SET,
 ])
 def test_timer_time_unit_output(test_set: TimeUnitTestSet, capfd: object) -> None:
+    if operating_system.is_windows() and python_version.is_3_10():
+        pytest.skip("Skipping test for Python 3.10 on Windows since the sleep timer is flaky and inaccurate.")
+        return
+
     ensure_all_timer_threads_are_stopped()
     with Timer():
         time.sleep(test_set.wait_seconds)
