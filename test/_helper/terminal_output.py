@@ -1,4 +1,5 @@
 import re
+from os import linesep
 
 DECIMALS_PATTERN = re.compile(r"(?<=\.)\d*")  # Captures "456789" from "Elapsed time: 123.456789 milliseconds".
 
@@ -23,4 +24,4 @@ def get_terminal_output_regex(thread: str | None = None, decimals: int = 2, time
 
     decimals_pattern = r"\d+\." + r"\d" * decimals if decimals > 0 else r"\d+"
     thread_info = rf" for thread \x1b\[32m{thread.upper()}\x1b\[0m" if thread is not None else ""
-    return rf"Elapsed time: {decimals_pattern} {time_unit}{thread_info}\n"
+    return rf"Elapsed time: {decimals_pattern} {time_unit}{thread_info}{linesep}"
