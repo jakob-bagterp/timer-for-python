@@ -16,7 +16,7 @@ def test_number_larger_than_maximum_should_default() -> None:
 
 
 def test_negative_number_should_default() -> None:
-    for decimals in range(-1, -100):
+    for decimals in range(-100, 0):
         assert validate_and_normalise(decimals) == DEFAULT
 
 
