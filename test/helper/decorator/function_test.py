@@ -10,11 +10,12 @@ TEST_THREAD = "test"
 TEST_DECIMALS = 5
 
 
-def get_output_message_regex(thread: str, decimals: int = 2, time_unit: str = "milliseconds") -> str:
+def get_output_message_regex(thread: str | None = None, decimals: int = 2, time_unit: str = "milliseconds") -> str:
     """Generate regex pattern that matches, for example: `Elapsed time: 105.04 milliseconds for thread FUNCTION_TO_BE_TIMED`"""
 
     decimals_pattern = r"\d+\." + r"\d" * decimals if decimals > 0 else r"\d+"
-    return rf"Elapsed time: {decimals_pattern} {time_unit} for thread \x1b\[32m{thread.upper()}\x1b\[0m\n"
+    thread_info = rf" for thread \x1b\[32m{thread.upper()}\x1b\[0m" if thread is not None else ""
+    return rf"Elapsed time: {decimals_pattern} {time_unit}{thread_info}\n"
 
 
 @function_timer()
