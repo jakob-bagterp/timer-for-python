@@ -9,7 +9,7 @@ from colorist import Color
 from timer import Timer
 
 
-def test_timer_start_invalid_thread_type_soft_error_1(capfd: object) -> None:
+def test_timer_start_invalid_thread_type_soft_without_context_manager(capfd: object) -> None:
     custom_thread = random_thread_name()
     timer = get_timer_with_invalid_thread_type(custom_thread)
     timer.start(thread=custom_thread)
@@ -17,7 +17,7 @@ def test_timer_start_invalid_thread_type_soft_error_1(capfd: object) -> None:
     assert terminal_output == f"{Color.YELLOW}Timer: Something went wrong in the Timer's lookup module for thread {custom_thread.upper()}.{Color.OFF}\n"
 
 
-def test_timer_start_invalid_thread_type_soft_error_2(capfd: object) -> None:
+def test_timer_start_invalid_thread_type_soft_with_context_manager(capfd: object) -> None:
     if operating_system.is_windows():
         pytest.skip("Skipping test for Windows due to line separator issue.")  # pragma: no cover
         # TODO: Fix line separator issue on Windows.

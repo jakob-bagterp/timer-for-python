@@ -8,7 +8,7 @@ from _helper.timer import ensure_all_timer_threads_are_stopped
 from colorist import Color
 
 
-def test_timer_stop_unknown_thread_soft_error_1(capfd: object) -> None:
+def test_timer_stop_unknown_thread_soft_error_with_default_and_custom_thread(capfd: object) -> None:
     if operating_system.is_windows():
         pytest.skip("Skipping test for Windows due to line separator issue.")  # pragma: no cover
         # TODO: Fix line separator issue on Windows.
@@ -25,7 +25,7 @@ def test_timer_stop_unknown_thread_soft_error_1(capfd: object) -> None:
         f"Or maybe you aren't stopping the right thread? Currently open threads: NONE{linesep}"
 
 
-def test_timer_stop_unknown_thread_soft_error_2(capfd: object) -> None:
+def test_timer_stop_unknown_thread_soft_error_with_multiple_custom_threads(capfd: object) -> None:
     if operating_system.is_windows():
         pytest.skip("Skipping test for Windows due to line separator issue.")  # pragma: no cover
         # TODO: Fix line separator issue on Windows.
@@ -43,14 +43,14 @@ def test_timer_stop_unknown_thread_soft_error_2(capfd: object) -> None:
         f"Or maybe you aren't stopping the right thread? Currently open threads: {custom_thread_1.upper()}{linesep}"
 
 
-def test_timer_stop_not_started_thread_soft_error_1(capfd: object) -> None:
+def test_timer_stop_not_started_thread_soft_error_without_start(capfd: object) -> None:
     timer = ensure_all_timer_threads_are_stopped()
     timer.stop()
     terminal_output, _ = capfd.readouterr()
     assert terminal_output == f"{Color.YELLOW}Timer is not running. Use .start() to start it.{Color.OFF}\n"
 
 
-def test_timer_stop_not_started_thread_soft_error_2(capfd: object) -> None:
+def test_timer_stop_not_started_thread_soft_error_without_start_and_with_custom_thread(capfd: object) -> None:
     custom_thread = random_thread_name()
 
     timer = ensure_all_timer_threads_are_stopped()

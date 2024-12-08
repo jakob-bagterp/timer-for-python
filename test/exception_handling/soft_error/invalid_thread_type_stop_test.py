@@ -9,7 +9,7 @@ from colorist import Color
 from timer import Timer
 
 
-def test_timer_stop_invalid_thread_type_soft_error_1(capfd: object) -> None:
+def test_timer_stop_invalid_thread_type_soft_error_without_context_manager(capfd: object) -> None:
     if operating_system.is_windows():
         pytest.skip("Skipping test for Windows due to line separator issue.")  # pragma: no cover
         # TODO: Fix line separator issue on Windows.
@@ -25,7 +25,7 @@ def test_timer_stop_invalid_thread_type_soft_error_1(capfd: object) -> None:
         f"{Color.YELLOW}Timer: Something went wrong in the Timer's stop thread controller for thread {custom_thread.upper()}.{Color.OFF}{linesep}"
 
 
-def test_timer_stop_invalid_thread_type_soft_error_2(capfd: object) -> None:
+def test_timer_stop_invalid_thread_type_soft_error_with_context_manager(capfd: object) -> None:
     if operating_system.is_windows():
         pytest.skip("Skipping test for Windows due to line separator issue.")  # pragma: no cover
         # TODO: Fix line separator issue on Windows.
