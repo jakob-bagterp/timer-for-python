@@ -18,8 +18,8 @@ def stop_controller(timer: TimerBase, thread: str | None) -> None:
         print(f"{Color.YELLOW}Timer is not running. Use .start() to start it.{Color.OFF}")
     else:
         print(f"{Color.YELLOW}Timer for thread {thread} is not running. Use .start({thread=}) to start it.{Color.OFF}")
-    if len(timer.threads) > 0:
-        open_threads = [thread_item.name for thread_item in timer.threads]
+    if len(timer._threads) > 0:
+        open_threads = [thread_item.name for thread_item in timer._threads]
         print(f"Or maybe you aren't stopping the right thread? Currently open threads: {', '.join(open_threads)}")
 
 
