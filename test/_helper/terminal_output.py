@@ -19,7 +19,7 @@ def verify_prefix_in_terminal_output(terminal_output: str) -> bool:
 
 
 def get_terminal_output_regex(thread: str | None = None, decimals: int = 2, time_unit: str = "milliseconds") -> str:
-    """Generate regex pattern that matches, for example: `Elapsed time: 105.04 milliseconds for thread FUNCTION_TO_BE_TIMED`"""
+    """Generate regex pattern that matches, for example `Elapsed time: 105.04 milliseconds for thread FUNCTION_TO_BE_TIMED` or `Elapsed time: 105.04 milliseconds`"""
 
     decimals_pattern = r"\d+\." + r"\d" * decimals if decimals > 0 else r"\d+"
     thread_info = rf" for thread \x1b\[32m{thread.upper()}\x1b\[0m" if thread is not None else ""
