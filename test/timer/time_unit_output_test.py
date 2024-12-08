@@ -4,6 +4,7 @@ from dataclasses import dataclass
 
 import pytest
 from _helper.terminal_output import get_terminal_output_regex
+from _helper.timer import ensure_all_timer_threads_are_stopped
 
 from timer import Timer
 
@@ -25,6 +26,7 @@ MICROSECONDS_TEST_SET = TimeUnitTestSet(wait_seconds=0.000_001, expected_time_un
     MICROSECONDS_TEST_SET,
 ])
 def test_timer_time_unit_output(test_set: TimeUnitTestSet, capfd: object) -> None:
+    ensure_all_timer_threads_are_stopped()
     with Timer():
         time.sleep(test_set.wait_seconds)
 
@@ -39,6 +41,7 @@ def test_timer_time_unit_output(test_set: TimeUnitTestSet, capfd: object) -> Non
     (MICROSECONDS_TEST_SET, "custom"),
 ])
 def test_timer_time_unit_output_with_thread(test_set: TimeUnitTestSet, thread: str, capfd: object) -> None:
+    ensure_all_timer_threads_are_stopped()
     with Timer(thread=thread):
         time.sleep(test_set.wait_seconds)
 
