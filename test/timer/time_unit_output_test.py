@@ -3,6 +3,7 @@ import time
 from dataclasses import dataclass
 
 import pytest
+from _helper import operating_system, python_version
 from _helper.terminal_output import get_terminal_output_regex
 from _helper.timer import ensure_all_timer_threads_are_stopped
 
@@ -41,6 +42,10 @@ def test_timer_time_unit_output(test_set: TimeUnitTestSet, capfd: object) -> Non
     (MICROSECONDS_TEST_SET, "custom"),
 ])
 def test_timer_time_unit_output_with_thread(test_set: TimeUnitTestSet, thread: str, capfd: object) -> None:
+    if operating_system.is_windows() and python_version.is_3_10():
+        pytest.skip("Skipping test for Python 3.10 on Windows since the sleep timer is flaky and inaccurate.")
+        return
+
     ensure_all_timer_threads_are_stopped()
     with Timer(thread=thread):
         time.sleep(test_set.wait_seconds)
