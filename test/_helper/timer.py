@@ -1,8 +1,10 @@
 from timer import Timer
+from timer.model.timer_base import TimerBase
 
 
-def ensure_all_timer_threads_are_stopped() -> None:
+def ensure_all_timer_threads_are_stopped() -> TimerBase:
     """Ensures all threads are stopped."""
 
-    Timer()._threads = []
-    assert len(Timer()._threads) == 0
+    timer = Timer()
+    timer._threads = []
+    return timer

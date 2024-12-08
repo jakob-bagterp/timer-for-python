@@ -1,16 +1,14 @@
 import time
 from os import linesep
 
+from _helper.timer import ensure_all_timer_threads_are_stopped
 from colorist import Color
-
-from timer import Timer
 
 
 def test_timer_stop_unknown_thread_soft_error_1(capfd: object) -> None:
     thread = "custom"
 
-    timer = Timer()
-    timer._threads = []
+    timer = ensure_all_timer_threads_are_stopped()
     timer.start()
     time.sleep(0.1)
     timer.stop(thread=thread)
@@ -22,8 +20,7 @@ def test_timer_stop_unknown_thread_soft_error_2(capfd: object) -> None:
     thread_1 = "custom_1"
     thread_2 = "custom_2"
 
-    timer = Timer()
-    timer._threads = []
+    timer = ensure_all_timer_threads_are_stopped()
     timer.start(thread=thread_1)
     time.sleep(0.1)
     timer.stop(thread=thread_2)
@@ -32,8 +29,7 @@ def test_timer_stop_unknown_thread_soft_error_2(capfd: object) -> None:
 
 
 def test_timer_stop_not_started_thread_soft_error_1(capfd: object) -> None:
-    timer = Timer()
-    timer._threads = []
+    timer = ensure_all_timer_threads_are_stopped()
     timer.stop()
     terminal_output, _ = capfd.readouterr()
     assert terminal_output == f"{Color.YELLOW}Timer is not running. Use .start() to start it.{Color.OFF}{linesep}"
@@ -42,8 +38,7 @@ def test_timer_stop_not_started_thread_soft_error_1(capfd: object) -> None:
 def test_timer_stop_not_started_thread_soft_error_2(capfd: object) -> None:
     thread = "custom"
 
-    timer = Timer()
-    timer._threads = []
+    timer = ensure_all_timer_threads_are_stopped()
     timer.stop(thread=thread)
     terminal_output, _ = capfd.readouterr()
     assert terminal_output == f"{Color.YELLOW}Timer for thread {thread.upper()} is not running. Use .start(thread='{thread.upper()}') to start it.{Color.OFF}{linesep}"
