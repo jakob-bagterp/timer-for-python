@@ -3,7 +3,7 @@ from os import linesep
 
 import pytest
 from _helper import operating_system
-from _helper.random import random_thread_name
+from _helper.random import random_thread_name, random_thread_name_but_not
 from _helper.timer import ensure_all_timer_threads_are_stopped
 from colorist import Color
 
@@ -32,7 +32,7 @@ def test_timer_stop_unknown_thread_soft_error_2(capfd: object) -> None:
         return  # pragma: no cover
 
     custom_thread_1 = random_thread_name()
-    custom_thread_2 = random_thread_name()
+    custom_thread_2 = random_thread_name_but_not(custom_thread_1)
     timer = ensure_all_timer_threads_are_stopped()
     timer.start(thread=custom_thread_1)
     time.sleep(0.1)
