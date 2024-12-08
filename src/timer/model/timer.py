@@ -9,8 +9,8 @@ from .timer_base import TimerBase
 
 
 class Timer(TimerBase):
-    __slots__ = ["threads", "decimals",
-                 "context_manager_threads", "context_manager_latest_thread", "context_manager_latest_decimals",
+    __slots__ = ["_threads", "_decimals",
+                 "_context_manager_threads", "_context_manager_latest_thread", "_context_manager_latest_decimals",
                  "__dict__"]
 
     _instance = None
@@ -85,21 +85,21 @@ class Timer(TimerBase):
         """
 
         if not self._lock_init:  # Ensure that initialisation of the lists only runs the first time.
-            self.threads: list[ThreadItem] = []
-            self.context_manager_threads: list[str] = []
+            self._threads: list[ThreadItem] = []
+            self._context_manager_threads: list[str] = []
             self._lock_init = True
-        self.decimals: int = decimals if decimals == constant.decimals.DEFAULT else helper.decimals.validate_and_normalise(
+        self._decimals: int = decimals if decimals == constant.decimals.DEFAULT else helper.decimals.validate_and_normalise(
             decimals)
-        self.context_manager_latest_thread: str = helper.thread.normalise_to_string_and_uppercase(thread)
-        self.context_manager_latest_decimals: int = self.decimals
+        self._context_manager_latest_thread: str = helper.thread.normalise_to_string_and_uppercase(thread)
+        self._context_manager_latest_decimals: int = self._decimals
 
     def __enter__(self) -> Timer:
-        self.context_manager_threads.append(self.context_manager_latest_thread)
-        self.start(self.context_manager_latest_thread, self.context_manager_latest_decimals)
+        self._context_manager_threads.append(self._context_manager_latest_thread)
+        self.start(self._context_manager_latest_thread, self._context_manager_latest_decimals)
         return self
 
     def __exit__(self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
-        last_context_manager_thread = self.context_manager_threads.pop()
+        last_context_manager_thread = self._context_manager_threads.pop()
         self.stop(last_context_manager_thread)
 
     def start(self, thread: str | None = None, decimals: int | None = None) -> None:

@@ -8,7 +8,7 @@ from ..model.timer_base import TimerBase
 def mediate(timer: TimerBase, decimals: int | None) -> int:
     """If the start function doesn't have decimals defined, then use the decimals value defined when the Timer() was initiated."""
 
-    return timer.decimals if decimals is None else validate_and_normalise(decimals)
+    return timer._decimals if decimals is None else validate_and_normalise(decimals)
 
 
 def validate_and_normalise(decimals: int | float | None) -> int:
