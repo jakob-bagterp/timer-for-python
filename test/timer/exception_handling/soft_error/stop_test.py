@@ -52,7 +52,6 @@ def test_timer_stop_not_started_thread_soft_error_without_start(capfd: object) -
 
 def test_timer_stop_not_started_thread_soft_error_without_start_and_with_custom_thread(capfd: object) -> None:
     custom_thread = random_thread_name()
-
     timer = ensure_all_timer_threads_are_stopped()
     timer.stop(thread=custom_thread)
     terminal_output, _ = capfd.readouterr()
