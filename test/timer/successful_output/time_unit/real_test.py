@@ -4,7 +4,7 @@ from dataclasses import dataclass
 
 import pytest
 from _helper import operating_system, python_version
-from _helper.terminal_output import get_terminal_output_regex
+from _helper.terminal_output import successful_output_regex
 from _helper.timer import ensure_all_timer_threads_are_stopped
 
 from timer import Timer
@@ -38,7 +38,7 @@ def test_timer_time_unit_output(test_set: TimeUnitTestSet, capfd: object) -> Non
         time.sleep(test_set.wait_seconds)
 
     terminal_output, _ = capfd.readouterr()
-    expected_output_regex = get_terminal_output_regex(time_unit=test_set.expected_time_unit)
+    expected_output_regex = successful_output_regex(time_unit=test_set.expected_time_unit)
     assert re.fullmatch(expected_output_regex, terminal_output)
 
 
@@ -57,5 +57,5 @@ def test_timer_time_unit_output_with_thread(test_set: TimeUnitTestSet, thread: s
         time.sleep(test_set.wait_seconds)
 
     terminal_output, _ = capfd.readouterr()
-    expected_output_regex = get_terminal_output_regex(thread=thread, time_unit=test_set.expected_time_unit)
+    expected_output_regex = successful_output_regex(thread=thread, time_unit=test_set.expected_time_unit)
     assert re.fullmatch(expected_output_regex, terminal_output)
