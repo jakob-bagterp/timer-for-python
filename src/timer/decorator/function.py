@@ -61,4 +61,4 @@ class MkDocstringsWrapper(MkDocstringsWrapper_ABC):
             <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">CUSTOM</span></code></pre>
         """
 
-        return function_timer(thread=thread, decimals=decimals)
+        return function_timer(thread=thread, decimals=decimals)  # pragma: no cover
