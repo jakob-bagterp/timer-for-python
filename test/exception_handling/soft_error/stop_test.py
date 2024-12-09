@@ -17,7 +17,7 @@ def test_timer_stop_unknown_thread_soft_error_with_default_and_custom_thread(cap
     custom_thread = random_thread_name()
     timer = ensure_all_timer_threads_are_stopped()
     timer.start()
-    time.sleep(0.1)
+    time.sleep(0.001)
     timer.stop(thread=custom_thread)
     terminal_output, _ = capfd.readouterr()
     assert terminal_output == \
@@ -35,7 +35,7 @@ def test_timer_stop_unknown_thread_soft_error_with_multiple_custom_threads(capfd
     custom_thread_2 = random_thread_name_but_not(custom_thread_1)
     timer = ensure_all_timer_threads_are_stopped()
     timer.start(thread=custom_thread_1)
-    time.sleep(0.1)
+    time.sleep(0.001)
     timer.stop(thread=custom_thread_2)
     terminal_output, _ = capfd.readouterr()
     assert terminal_output == \
