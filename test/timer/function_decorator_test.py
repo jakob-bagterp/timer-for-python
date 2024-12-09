@@ -42,4 +42,4 @@ def test_function_timer_decorator(function: Callable[[float], None], thread: str
     terminal_output, _ = capfd.readouterr()
     thread_name = thread if thread is not None else function.__name__
     output_message_regex = get_terminal_output_regex(thread_name, decimals) if decimals is not None else get_terminal_output_regex(thread_name)
-    assert bool(re.fullmatch(output_message_regex, terminal_output)) is True
+    assert re.fullmatch(output_message_regex, terminal_output)
