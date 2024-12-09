@@ -10,7 +10,7 @@ from _helper.timer import ensure_all_timer_threads_are_stopped
 from timer import Timer
 
 
-@dataclass(slots=True)
+@dataclass(frozen=True, slots=True)
 class TimeUnitTestSet:
     wait_seconds: float
     expected_time_unit: str
