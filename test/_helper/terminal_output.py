@@ -19,7 +19,9 @@ def verify_prefix_in_terminal_output(terminal_output: str) -> bool:
 
 
 def successful_output_regex(thread: str | None = None, decimals: int = 2, time_unit: str = "milliseconds") -> str:
-    """Generate regex pattern for the expected output that matches, for example, `Elapsed time: 105.04 milliseconds for thread FUNCTION_TO_BE_TIMED` or `Elapsed time: 105.04 milliseconds`"""
+    """Now that we don't know the time, we can't predict the output. We can only check that the pattern of the output is correct, especially the dynamic part of measured time.
+
+    This method generates a regex pattern for the expected output that matches, for example, `Elapsed time: 123.45 milliseconds for thread CUSTOM` or `Elapsed time: 123.45 milliseconds`"""
 
     decimals_pattern = r"\d+\." + r"\d" * decimals if decimals > 0 else r"\d+"
     thread_info = rf" for thread \x1b\[32m{thread.upper()}\x1b\[0m" if thread is not None else ""
