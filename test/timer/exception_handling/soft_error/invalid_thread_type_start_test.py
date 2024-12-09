@@ -2,32 +2,29 @@ from os import linesep
 
 import pytest
 from _helper import operating_system
-from _helper.timer import ensure_all_timer_threads_are_stopped
+from _helper.random import random_thread_name
+from _helper.timer import get_timer_with_invalid_thread_type
 from colorist import Color
 
 from timer import Timer
 
 
-def test_timer_start_invalid_thread_type_soft_error_1(capfd: object) -> None:
-    custom_thread = "custom"
-
-    timer = ensure_all_timer_threads_are_stopped()
-    timer._threads = [custom_thread]  # Triggers issue by invalid type as it should be a list[ThreadItem] type.
+def test_timer_start_invalid_thread_type_soft_error_without_context_manager(capfd: object) -> None:
+    custom_thread = random_thread_name()
+    timer = get_timer_with_invalid_thread_type(custom_thread)
     timer.start(thread=custom_thread)
     terminal_output, _ = capfd.readouterr()
     assert terminal_output == f"{Color.YELLOW}Timer: Something went wrong in the Timer's lookup module for thread {custom_thread.upper()}.{Color.OFF}\n"
 
 
-def test_timer_start_invalid_thread_type_soft_error_2(capfd: object) -> None:
+def test_timer_start_invalid_thread_type_soft_error_with_context_manager(capfd: object) -> None:
     if operating_system.is_windows():
         pytest.skip("Skipping test for Windows due to line separator issue.")  # pragma: no cover
         # TODO: Fix line separator issue on Windows.
         return  # pragma: no cover
 
-    custom_thread = "custom"
-
-    timer = ensure_all_timer_threads_are_stopped()
-    timer._threads = [custom_thread]  # Triggers issue by invalid type as it should be a list[ThreadItem] type.
+    custom_thread = random_thread_name()
+    get_timer_with_invalid_thread_type(custom_thread)
     with Timer(thread=custom_thread):
         pass
     terminal_output, _ = capfd.readouterr()
