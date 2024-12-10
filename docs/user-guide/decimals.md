@@ -146,8 +146,8 @@ This works both with or without the `with` statement for [context management](co
 
 In both cases, how it appears in the terminal is the same:
 
-<pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">A</span>
-% Elapsed time: 0.12 seconds for thread <span class="fg-green">B</span></code></pre>
+<pre><code>% Elapsed time: 0.12 seconds for thread <span class="fg-green">B</span>
+% Elapsed time: 0.12345 seconds for thread <span class="fg-green">A</span></code></pre>
 
 !!! info "Precision in Nanoseconds"
     Timer for Python uses the native `time.perf_counter_ns()` function for maximum resolution in nanoseconds.
