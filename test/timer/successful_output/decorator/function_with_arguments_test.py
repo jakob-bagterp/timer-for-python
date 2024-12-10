@@ -10,9 +10,6 @@ from _helper.timer import ensure_all_timer_threads_are_stopped
 
 from timer.decorator.function import function_timer
 
-TEST_THREAD = "test"
-TEST_DECIMALS = 5
-
 
 @function_timer()
 def function_with_args(a: int, b: int) -> None:
