@@ -13,11 +13,11 @@ from timer import Timer
 # TODO: Manipulate the Timer's start time to check output for nanoseconds and up days.
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(slots=True)
 class TimeUnitTestSet:
     wait_seconds: float
-    thread: str | None
     expected_time_unit: TimeUnit
+    thread: str | None
 
 
 SECONDS_TEST_SET_WITH_THREAD = TimeUnitTestSet(wait_seconds=1, expected_time_unit=TimeUnit.SECONDS, thread="custom")
