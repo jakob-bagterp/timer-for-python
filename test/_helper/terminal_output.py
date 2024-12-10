@@ -27,20 +27,18 @@ def successful_output_regex(thread: str | None = None, decimals: int = 2, time_u
 
     decimals_pattern = f".\\d{{{decimals}}}" if decimals > 0 else ""
     microseconds_to_seconds_elapsed_time_pattern = rf"\d+{decimals_pattern} {time_unit}"
-
     match time_unit:
         case TimeUnit.NANOSECONDS:
             elapsed_time_pattern = r"\d+ nanoseconds"
         case TimeUnit.SECONDS:
             elapsed_time_pattern = rf"{microseconds_to_seconds_elapsed_time_pattern}( \(\d+m \d+s\))?"
         case TimeUnit.MINUTES:
-            elapsed_time_pattern = r"\d+m \d+s"
+            elapsed_time_pattern = rf"\d+{decimals_pattern} {TimeUnit.SECONDS} \(\d+m \d+s\)"
         case TimeUnit.HOURS:
             elapsed_time_pattern = r"\d+h \d+m \d+s"
         case TimeUnit.DAYS:
             elapsed_time_pattern = r"\d+d \d+h \d+m \d+s"
         case _:
             elapsed_time_pattern = microseconds_to_seconds_elapsed_time_pattern
-
     thread_info = rf" for thread \x1b\[32m{thread.upper()}\x1b\[0m" if thread is not None else ""
     return rf"Elapsed time: {elapsed_time_pattern}{thread_info}\n"
