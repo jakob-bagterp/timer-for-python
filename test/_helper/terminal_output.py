@@ -2,11 +2,11 @@ import re
 
 from _constant.time_unit import TimeUnit
 
-DECIMALS_PATTERN = re.compile(r"(?<=\.)\d*")  # Captures "456789" from "Elapsed time: 123.456789 milliseconds".
+elapsed_time_pattern = re.compile(r"(?<=\.)\d*")  # Captures "456789" from "Elapsed time: 123.456789 milliseconds".
 
 
 def verify_decimals_in_terminal_output(decimals: int, terminal_output: str) -> bool:
-    decimals_output = DECIMALS_PATTERN.search(terminal_output)
+    decimals_output = elapsed_time_pattern.search(terminal_output)
     if decimals == 0:
         return decimals_output is None
     else:
