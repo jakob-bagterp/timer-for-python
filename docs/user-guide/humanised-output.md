@@ -21,5 +21,5 @@ How different time ranges may appear in the terminal from fractions of a second 
 | Range                         | Decimals         | Terminal Output                                                                                                                                  |
 | ----------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Nanoseconds                   | No decimals      | `Elapsed time: 123 nanoseconds`                                                                                                                  |
-| From microseconds to seconds  | Up to 9 decimals | `Elapsed time: 4.56 microseconds`<br>`Elapsed time: 56.78 milliseconds`<br>`Elapsed time: 7.89 seconds`<br>`Elapsed time: 67.89 seconds (1m 8s)` |
-| From minutes to days          | No decimals      | `Elapsed time: 3m 4s`<br>`Elapsed time: 2h 3m 4s`<br>`Elapsed time: 1d 2h 3m 4s`                                                                 |
+| From microseconds to minutes  | Up to 9 decimals | `Elapsed time: 4.56 microseconds`<br>`Elapsed time: 56.78 milliseconds`<br>`Elapsed time: 7.89 seconds`<br>`Elapsed time: 67.89 seconds (1m 8s)` |
+| From hours to days            | No decimals      | `Elapsed time: 2h 3m 4s`<br>`Elapsed time: 1d 2h 3m 4s`                                                                                          |
