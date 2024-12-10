@@ -1,6 +1,7 @@
 import re
 
 from _constant.time_unit import TimeUnit
+from colorist import Color
 
 elapsed_time_pattern = re.compile(r"(?<=\.)\d*")  # Captures "456789" from "Elapsed time: 123.456789 milliseconds".
 
@@ -40,5 +41,5 @@ def successful_output_regex(thread: str | None = None, decimals: int = 2, time_u
             elapsed_time_pattern = r"\d+d \d+h \d+m \d+s"
         case _:
             elapsed_time_pattern = microseconds_to_seconds_elapsed_time_pattern
-    thread_info = rf" for thread \x1b\[32m{thread.upper()}\x1b\[0m" if thread is not None else ""
+    thread_info = re.escape(f" for thread {Color.GREEN}{thread.upper()}{Color.OFF}") if thread is not None else ""
     return rf"Elapsed time: {elapsed_time_pattern}{thread_info}\n"
