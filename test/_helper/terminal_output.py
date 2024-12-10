@@ -30,15 +30,15 @@ def successful_output_regex(thread: str | None = None, decimals: int = 2, time_u
 
     match time_unit:
         case TimeUnit.NANOSECONDS:
-            elapsed_time_pattern = r"Elapsed time: \d+ nanoseconds"
+            elapsed_time_pattern = r"\d+ nanoseconds"
         case TimeUnit.SECONDS:
             elapsed_time_pattern = rf"{microseconds_to_seconds_elapsed_time_pattern}( \(\d+m \d+s\))?"
         case TimeUnit.MINUTES:
-            elapsed_time_pattern = r"Elapsed time: \d+m \d+s"
+            elapsed_time_pattern = r"\d+m \d+s"
         case TimeUnit.HOURS:
-            elapsed_time_pattern = r"Elapsed time: \d+h \d+m \d+s"
+            elapsed_time_pattern = r"\d+h \d+m \d+s"
         case TimeUnit.DAYS:
-            elapsed_time_pattern = r"Elapsed time: \d+d \d+h \d+m \d+s"
+            elapsed_time_pattern = r"\d+d \d+h \d+m \d+s"
         case _:
             elapsed_time_pattern = microseconds_to_seconds_elapsed_time_pattern
 
