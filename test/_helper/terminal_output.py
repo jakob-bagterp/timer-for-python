@@ -25,7 +25,7 @@ def successful_output_regex(thread: str | None = None, decimals: int = 2, time_u
 
     This method generates a regex pattern for the expected output that matches, for example, `Elapsed time: 123.45 milliseconds` or with a custom thread `Elapsed time: 123.45 milliseconds for thread CUSTOM`"""
 
-    decimals_pattern = f".\\d{{{decimals}}}" if decimals > 0 else ""
+    decimals_pattern = rf"\.\d{{{decimals}}}" if decimals > 0 else ""
     microseconds_to_seconds_elapsed_time_pattern = rf"\d+{decimals_pattern} {time_unit}"
     match time_unit:
         case TimeUnit.NANOSECONDS:
