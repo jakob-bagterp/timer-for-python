@@ -3,6 +3,7 @@ import time
 from collections.abc import Callable
 
 import pytest
+from _constant.interval import ULTRA_SHORT_INTERVAL
 from _helper.terminal_output import successful_output_regex
 from _helper.timer import ensure_all_timer_threads_are_stopped
 
@@ -10,27 +11,26 @@ from timer.decorator.function import function_timer
 
 TEST_THREAD = "test"
 TEST_DECIMALS = 5
-ULTRA_SHORT_DELAY = 0.001
 
 
 @function_timer()
 def function_to_be_timed() -> None:
-    time.sleep(ULTRA_SHORT_DELAY)
+    time.sleep(ULTRA_SHORT_INTERVAL)
 
 
 @function_timer(thread=TEST_THREAD)
 def function_to_be_timed_with_custom_thread() -> None:
-    time.sleep(ULTRA_SHORT_DELAY)
+    time.sleep(ULTRA_SHORT_INTERVAL)
 
 
 @function_timer(decimals=TEST_DECIMALS)
 def function_to_be_timed_with_custom_decimals() -> None:
-    time.sleep(ULTRA_SHORT_DELAY)
+    time.sleep(ULTRA_SHORT_INTERVAL)
 
 
 @function_timer(thread=TEST_THREAD, decimals=TEST_DECIMALS)
 def function_to_be_timed_with_custom_thread_and_decimals() -> None:
-    time.sleep(ULTRA_SHORT_DELAY)
+    time.sleep(ULTRA_SHORT_INTERVAL)
 
 
 @pytest.mark.parametrize("function, thread, decimals", [

@@ -4,6 +4,7 @@ from collections.abc import Callable
 from typing import Any
 
 import pytest
+from _constant.interval import ULTRA_SHORT_INTERVAL
 from _helper.terminal_output import successful_output_regex
 from _helper.timer import ensure_all_timer_threads_are_stopped
 
@@ -11,22 +12,21 @@ from timer.decorator.function import function_timer
 
 TEST_THREAD = "test"
 TEST_DECIMALS = 5
-ULTRA_SHORT_DELAY = 0.001
 
 
 @function_timer()
 def function_with_args(a: int, b: int) -> None:
-    time.sleep(ULTRA_SHORT_DELAY)
+    time.sleep(ULTRA_SHORT_INTERVAL)
 
 
 @function_timer()
 def function_with_kwargs(x: int = 1, y: int = 2) -> None:
-    time.sleep(ULTRA_SHORT_DELAY)
+    time.sleep(ULTRA_SHORT_INTERVAL)
 
 
 @function_timer()
 def function_with_args_and_kwargs(a: int, b: int, x: int = 3, y: int = 4) -> None:
-    time.sleep(ULTRA_SHORT_DELAY)
+    time.sleep(ULTRA_SHORT_INTERVAL)
 
 
 @pytest.mark.parametrize("function, args, kwargs, expected_thread_name", [
