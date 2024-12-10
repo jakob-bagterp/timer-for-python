@@ -21,10 +21,28 @@ def verify_prefix_in_terminal_output(terminal_output: str) -> bool:
 
 
 def successful_output_regex(thread: str | None = None, decimals: int = 2, time_unit: TimeUnit = TimeUnit.MILLISECONDS) -> str:
-    """Now that we don't know the time, we can't predict the output. We can only check that the pattern of the output is correct, especially the dynamic part of measured time.
+    """Now that we don't know the elapsed time, we can't predict the output. We can only check that the pattern of the output is correct, especially the dynamic part of elapsed time.
 
-    This method generates a regex pattern for the expected output that matches, for example, `Elapsed time: 123.45 milliseconds for thread CUSTOM` or `Elapsed time: 123.45 milliseconds`"""
+    This method generates a regex pattern for the expected output that matches, for example, `Elapsed time: 123.45 milliseconds` or with a custom thread `Elapsed time: 123.45 milliseconds for thread CUSTOM`"""
 
-    decimals_pattern = r"\d+\." + r"\d" * decimals if decimals > 0 else r"\d+"
+    microseconds_to_seconds_elapsed_time_pattern = rf"\d+ {time_unit}"
+    if decimals > 0:
+        decimals_pattern = r"\d" * decimals
+        microseconds_to_seconds_elapsed_time_pattern = rf"\d+\.{decimals_pattern} {time_unit}"
+
+    match time_unit:
+        case TimeUnit.NANOSECONDS:
+            elapsed_time_pattern = r"Elapsed time: 123 nanoseconds"
+        case TimeUnit.SECONDS:
+            elapsed_time_pattern = rf"{microseconds_to_seconds_elapsed_time_pattern}( \(\d+m \d+s\))?"
+        case TimeUnit.MINUTES:
+            elapsed_time_pattern = r"Elapsed time: 123 minutes"
+        case TimeUnit.HOURS:
+            elapsed_time_pattern = r"milliseconds"
+        case TimeUnit.DAYS:
+            elapsed_time_pattern = r"days"
+        case _:
+            elapsed_time_pattern = microseconds_to_seconds_elapsed_time_pattern
+
     thread_info = rf" for thread \x1b\[32m{thread.upper()}\x1b\[0m" if thread is not None else ""
-    return rf"Elapsed time: {decimals_pattern} {time_unit}{thread_info}\n"
+    return rf"Elapsed time: {elapsed_time_pattern}{thread_info}\n"
