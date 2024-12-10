@@ -150,8 +150,8 @@ class Timer(TimerBase):
         try:
             start_time = time.perf_counter_ns()  # For precision, this is the first operation of the function.
             controller.start(self, thread, start_time, decimals)
-        except Exception:
-            error.message_for_action("when trying to start the Timer", thread)
+        except Exception:  # pragma: no cover
+            error.message_for_action("when trying to start the Timer", thread)  # pragma: no cover
 
     def stop(self, thread: str | None = None) -> None:
         """Stops the Timer. Should always be called after `timer.start()`.
@@ -200,5 +200,5 @@ class Timer(TimerBase):
         try:
             stop_time = time.perf_counter_ns()  # For precision, this is the first operation of the function.
             controller.stop(self, thread, stop_time)
-        except Exception:
-            error.message_for_action("when trying to stop the Timer", thread)
+        except Exception:  # pragma: no cover
+            error.message_for_action("when trying to stop the Timer", thread)  # pragma: no cover
