@@ -1,5 +1,7 @@
 import re
 
+from _constant.time_unit import TimeUnit
+
 DECIMALS_PATTERN = re.compile(r"(?<=\.)\d*")  # Captures "456789" from "Elapsed time: 123.456789 milliseconds".
 
 
@@ -18,7 +20,7 @@ def verify_prefix_in_terminal_output(terminal_output: str) -> bool:
     return bool(PREFIX_PATTERN.match(terminal_output))
 
 
-def successful_output_regex(thread: str | None = None, decimals: int = 2, time_unit: str = "milliseconds") -> str:
+def successful_output_regex(thread: str | None = None, decimals: int = 2, time_unit: TimeUnit = TimeUnit.MILLISECONDS) -> str:
     """Now that we don't know the time, we can't predict the output. We can only check that the pattern of the output is correct, especially the dynamic part of measured time.
 
     This method generates a regex pattern for the expected output that matches, for example, `Elapsed time: 123.45 milliseconds for thread CUSTOM` or `Elapsed time: 123.45 milliseconds`"""

@@ -3,6 +3,7 @@ import time
 from dataclasses import dataclass
 
 import pytest
+from _constant.time_unit import TimeUnit
 from _helper import operating_system, python_version
 from _helper.terminal_output import successful_output_regex
 from _helper.timer import ensure_all_timer_threads_are_stopped
@@ -15,12 +16,12 @@ from timer import Timer
 @dataclass(frozen=True, slots=True)
 class TimeUnitTestSet:
     wait_seconds: float
-    expected_time_unit: str
+    expected_time_unit: TimeUnit
 
 
-SECONDS_TEST_SET = TimeUnitTestSet(wait_seconds=1, expected_time_unit="seconds")
-MILLISECONDS_TEST_SET = TimeUnitTestSet(wait_seconds=0.001, expected_time_unit="milliseconds")
-MICROSECONDS_TEST_SET = TimeUnitTestSet(wait_seconds=0.000_001, expected_time_unit="microseconds")
+SECONDS_TEST_SET = TimeUnitTestSet(wait_seconds=1, expected_time_unit=TimeUnit.SECONDS)
+MILLISECONDS_TEST_SET = TimeUnitTestSet(wait_seconds=0.001, expected_time_unit=TimeUnit.MILLISECONDS)
+MICROSECONDS_TEST_SET = TimeUnitTestSet(wait_seconds=0.000_001, expected_time_unit=TimeUnit.MICROSECONDS)
 
 
 @pytest.mark.parametrize("test_set", [
