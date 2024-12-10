@@ -38,61 +38,52 @@ How it appears in the terminal:
 
 <pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION</span></code></pre>
 
+!!! tip "How to Get Function and Arguments as Thread Name"
+    If you want to keep track of a [function and its arguments](https://www.w3schools.com/python/gloss_python_function_arguments.asp) for troubleshooting and measuring the performance of a function, it's already handled by the `@function_timer()` decorator. For example:
+
+    ```python linenums="1" hl_lines="3-4"
+    from timer import function_timer
+
+    @function_timer()
+    def sum_numbers(a, b):
+        return a + b
+
+    sum_numbers(1, 2)
+    ```
+
+    How it appears in the terminal:
+
+    <pre><code>% Elapsed time: 0.12 seconds for thread <span class="fg-green">SUM_NUMBERS(A=1, B=2)</span></code></pre>
+
+    This also works with [keyword arguments](https://www.w3schools.com/python/gloss_python_function_keyword_arguments.asp):
+
+    ```python linenums="1" hl_lines="3-4"
+    from timer import function_timer
+
+    @function_timer()
+    def anonymous_last_name(first_name, last_name = "unknown"):
+        return f"{first_name} {last_name}"
+
+    anonymous_last_name("John")
+    ```
+
+    How it appears in the terminal:
+
+    <pre><code>% Elapsed time: 0.12 seconds for thread <span class="fg-green">ANONYMOUS_LAST_NAME(FIRST_NAME='JOHN', LAST_NAME='UNKNOWN')</span></code></pre>
+
 ### Custom Thread Name and Decimals
-Similar to customising [output decimals](decimals.md) and [thread name](multiple-threads.md) for the Timer, this is also possible with the `@function_timer()` decorator. Simply use the `thread` and `decimals` arguments:
+Similar to customising [output decimals](decimals.md) and [thread name](multiple-threads.md) for the Timer, this is also possible with the `@function_timer()` decorator. Simply use the `thread` and `decimals` arguments where the custom thread will override the default function name and list of arguments:
 
 ```python linenums="1" hl_lines="3"
 from timer import function_timer
 
 @function_timer(thread="custom", decimals=5)
-def test_function():
-    # Insert your code here
+def sum_numbers(a, b):
+    return a + b
 
-test_function()
+sum_numbers(1, 2)
 ```
 
 How it appears in the terminal:
 
 <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">CUSTOM</span></code></pre>
-
-!!! tip "How to Use Function and Arguments as Thread Name"
-    If you want to keep track of the function and its arguments for troubleshooting, here's a tip on how to do it:
-
-    ```python linenums="1" hl_lines="5 7"
-    from timer import function_timer
-
-    number = 1
-    text = "some text"
-    thread_name = f"test_function({number=}, {text=})"
-
-    @function_timer(thread=thread_name)
-    def test_function(number, text):
-        # Insert your code here
-
-    test_function(number, text)
-    ```
-
-    How it appears in the terminal:
-
-    <pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION(NUMBER=1, TEXT='SOME TEXT')</span></code></pre>
-
-    Or if you don't know the arguments in advance, you can try a more dynamic approach:
-
-    ```python linenums="1" hl_lines="8"
-    from timer import function_timer
-
-    def test_function(number, text):
-        # Insert your code here
-
-    arguments = (1, "some text")
-
-    @function_timer(thread=f"{test_function.__name__}({', '.join(map(str, arguments))})")
-    def wrapper(number, text):
-        test_function(number, text)
-
-    wrapper(*arguments)
-    ```
-
-    How it appears in the terminal:
-
-    <pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION(1, SOME TEXT)</span></code></pre>
