@@ -68,7 +68,7 @@ Learn more about [decimals](decimals.md) and [threads](multiple-threads.md).
 ### Flow Diagram
 How the Timer starts and stops different threads:
 
-```python title="" hl_lines="1 4"
+```python title="" hl_lines="1 4 8"
 with Timer(thread="A"): >----------------------|
     # Insert your code here                    |
                                                |
