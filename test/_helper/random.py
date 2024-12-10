@@ -21,5 +21,5 @@ def random_thread_name_but_not(thread_excluded: str) -> str:
 
     thread = random_thread_name()
     while thread == thread_excluded:
-        thread = random_thread_name()
+        thread = random_thread_name()  # pragma: no cover
     return thread

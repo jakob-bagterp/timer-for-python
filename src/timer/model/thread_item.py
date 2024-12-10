@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(slots=True)
 class ThreadItem:
     """Class to define a thread's name, start time, and decimals."""
 
