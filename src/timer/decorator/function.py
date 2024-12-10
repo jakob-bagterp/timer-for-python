@@ -69,6 +69,22 @@ class MkDocstringsWrapper(MkDocstringsWrapper_ABC):
             How it appears in the terminal:
 
             <pre><code>% Elapsed time: 0.12345 seconds for thread <span class="fg-green">CUSTOM</span></code></pre>
+
+            The `@function_timer` automatically names the function and its arguments as thread name. For example:
+
+            ```python linenums="1" hl_lines="3-4"
+            from timer import function_timer
+
+            @function_timer()
+            def sum_numbers(a, b):
+                return a + b
+
+            sum_numbers(1, 2)
+            ```
+
+            How it appears in the terminal:
+
+            <pre><code>% Elapsed time: 0.12 seconds for thread <span class="fg-green">SUM_NUMBERS(A=1, B=2)</span></code></pre>
         """
 
         return function_timer(thread=thread, decimals=decimals)  # pragma: no cover
