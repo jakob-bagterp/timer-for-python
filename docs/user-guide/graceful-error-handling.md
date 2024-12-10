@@ -6,6 +6,8 @@ tags:
 ---
 
 # Graceful Error Handling and Non-Blocking Code
-Timer for Python won't break your code!
+
+!!! success "No Interruptions"
+    Timer for Python won't break your code!
 
 Timer for Python is designed with several nested `try`/`catch` clauses so it gracefully handles exceptions and therefore shouldn't break your application while running.
