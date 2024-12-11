@@ -3,6 +3,7 @@ from os import linesep
 
 import pytest
 from _constant.interval import ONE_MILLISECOND_AS_SECOND
+from _constant.terminal import LINESEP as LINESEP_TEST
 from _helper import operating_system
 from _helper.random import random_thread_name, random_thread_name_but_not
 from _helper.timer import ensure_all_timer_threads_are_stopped
@@ -24,8 +25,8 @@ def test_timer_stop_unknown_thread_soft_error_with_default_and_custom_thread(cap
     timer.stop(thread=custom_thread)
     terminal_output, _ = capfd.readouterr()
     assert terminal_output == \
-        f"{Color.YELLOW}Timer for thread {custom_thread.upper()} is not running. Use .start(thread='{custom_thread.upper()}') to start it.{Color.OFF}{linesep}" +\
-        f"Or maybe you aren't stopping the right thread? Currently open threads: NONE{linesep}"
+        f"{Color.YELLOW}Timer for thread {custom_thread.upper()} is not running. Use .start(thread='{custom_thread.upper()}') to start it.{Color.OFF}{LINESEP_TEST}" +\
+        f"Or maybe you aren't stopping the right thread? Currently open threads: NONE{LINESEP_TEST}"
 
 
 def test_timer_stop_unknown_thread_soft_error_with_multiple_custom_threads(capfd: object) -> None:
