@@ -10,10 +10,12 @@ from colorist import Color
 
 
 def test_timer_stop_unknown_thread_soft_error_with_default_and_custom_thread(capfd: object) -> None:
+    """
     if operating_system.is_windows():
         pytest.skip("Skipping test for Windows due to line separator issue.")  # pragma: no cover
         # TODO: Fix line separator issue on Windows.
         return  # pragma: no cover
+    """
 
     custom_thread = random_thread_name()
     timer = ensure_all_timer_threads_are_stopped()
