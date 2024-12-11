@@ -2,6 +2,7 @@ import time
 from os import linesep
 
 import pytest
+from _constant.interval import ULTRA_SHORT_INTERVAL
 from _helper import operating_system
 from _helper.random import random_thread_name, random_thread_name_but_not
 from _helper.timer import ensure_all_timer_threads_are_stopped
@@ -17,7 +18,7 @@ def test_timer_stop_unknown_thread_soft_error_with_default_and_custom_thread(cap
     custom_thread = random_thread_name()
     timer = ensure_all_timer_threads_are_stopped()
     timer.start()
-    time.sleep(0.001)
+    time.sleep(ULTRA_SHORT_INTERVAL)
     timer.stop(thread=custom_thread)
     terminal_output, _ = capfd.readouterr()
     assert terminal_output == \
@@ -35,7 +36,7 @@ def test_timer_stop_unknown_thread_soft_error_with_multiple_custom_threads(capfd
     custom_thread_2 = random_thread_name_but_not(custom_thread_1)
     timer = ensure_all_timer_threads_are_stopped()
     timer.start(thread=custom_thread_1)
-    time.sleep(0.001)
+    time.sleep(ULTRA_SHORT_INTERVAL)
     timer.stop(thread=custom_thread_2)
     terminal_output, _ = capfd.readouterr()
     assert terminal_output == \
