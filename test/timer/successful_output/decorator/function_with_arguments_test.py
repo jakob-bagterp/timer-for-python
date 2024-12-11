@@ -4,7 +4,7 @@ from collections.abc import Callable
 from typing import Any
 
 import pytest
-from _constant.interval import ULTRA_SHORT_INTERVAL
+from _constant.interval import ONE_MILLISECOND_AS_SECOND
 from _helper.terminal_output import successful_output_regex
 from _helper.timer import ensure_all_timer_threads_are_stopped
 
@@ -17,32 +17,32 @@ CUSTOM_DECIMALS = 5
 
 @function_timer()
 def function_with_args(a: int, b: int) -> None:
-    time.sleep(ULTRA_SHORT_INTERVAL)
+    time.sleep(ONE_MILLISECOND_AS_SECOND)
 
 
 @function_timer()
 def function_with_kwargs(x: int = 1, y: int = 2) -> None:
-    time.sleep(ULTRA_SHORT_INTERVAL)
+    time.sleep(ONE_MILLISECOND_AS_SECOND)
 
 
 @function_timer()
 def function_with_args_and_kwargs(a: int, b: int, x: int = 3, y: int = 4) -> None:
-    time.sleep(ULTRA_SHORT_INTERVAL)
+    time.sleep(ONE_MILLISECOND_AS_SECOND)
 
 
 @function_timer()
 def function_with_args_and_kwargs_number_and_strings(a: int, b: str, x: int = 3, y: str = "4") -> None:
-    time.sleep(ULTRA_SHORT_INTERVAL)
+    time.sleep(ONE_MILLISECOND_AS_SECOND)
 
 
 @function_timer(thread=CUSTOM_THREAD)
 def function_with_args_kwargs_and_custom_thread(a: int, b: int, x: int = 3, y: int = 4) -> None:
-    time.sleep(ULTRA_SHORT_INTERVAL)
+    time.sleep(ONE_MILLISECOND_AS_SECOND)
 
 
 @function_timer(thread=CUSTOM_THREAD, decimals=CUSTOM_DECIMALS)
 def function_with_args_kwargs_custom_thread_and_custom_decimals(a: int, b: int, x: int = 3, y: int = 4) -> None:
-    time.sleep(ULTRA_SHORT_INTERVAL)
+    time.sleep(ONE_MILLISECOND_AS_SECOND)
 
 
 @pytest.mark.parametrize("function, args, kwargs, expected_thread_name, decimals", [
