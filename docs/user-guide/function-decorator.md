@@ -22,7 +22,7 @@ def function():
 
 ## Examples
 ### Basic Usage
-Use the `@function_timer()` as decorator to measure performance time of a function:
+Use the `@function_timer()` as decorator to measure the performance of a function. Then the Timer will be triggered each time the function is called, and the clock will stop automatically when the function is finished:
 
 ```python linenums="1" hl_lines="3"
 from timer import function_timer
