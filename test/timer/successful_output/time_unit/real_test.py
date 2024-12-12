@@ -10,8 +10,6 @@ from _helper.timer import ensure_all_timer_threads_are_stopped
 
 from timer import Timer
 
-# TODO: Manipulate the Timer's start time to check output for nanoseconds and up days.
-
 
 @dataclass(slots=True)
 class TimeUnitTestSet:
