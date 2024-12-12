@@ -72,7 +72,7 @@ How it appears in the terminal:
     <pre><code>% Elapsed time: 0.12 seconds for thread <span class="fg-green">ANONYMOUS_LAST_NAME(FIRST_NAME='JOHN', LAST_NAME='UNKNOWN')</span></code></pre>
 
 ### Custom Thread Name and Decimals
-Similar to customising [output decimals](decimals.md) and [thread name](multiple-threads.md) for the Timer, this is also possible with the `@function_timer()` decorator. Simply use the `thread` and `decimals` arguments where the custom thread will override the default function name and list of arguments:
+Similar to customising [decimals](decimals.md) and [thread name](multiple-threads.md) for the Timer, this is also possible with the `@function_timer()` decorator. Simply use the `thread` and `decimals` arguments where the custom thread will override the default function name and list of arguments:
 
 ```python linenums="1" hl_lines="3"
 from timer import function_timer
