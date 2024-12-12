@@ -33,7 +33,7 @@ After `timer.stop()`, the elapsed time will be printed in the terminal:
 ```
 
 ### Automatic Start and Stop
-Alternatively, use the `with` statement for [context management](context-manager.md). This will automatically start and stop the Timer – and so no need to declare `timer.start()` and `timer.stop()`. Same result as before, but less code:
+Alternatively, use the `with` statement for [context management](context-manager.md). This will automatically start and stop the clock – and so no need to declare `timer.start()` and `timer.stop()`. Same result as before, but less code:
 
 ```python linenums="1" hl_lines="3"
 from timer import Timer
@@ -87,7 +87,7 @@ How it appears in the terminal:
 ## Quick Links
 * [Multiple threads](multiple-threads.md) to measure the performance of different blocks of code
 * [Decimals](decimals.md) to set the precision of the terminal output
-* [Context manager](context-manager.md) to automatically start and stop the Timer
+* [Context manager](context-manager.md) to automatically start and stop the clock
 * [Function decorator](function-decorator.md) to measure the performance of functions
 * [Humanised output](humanised-output.md) to display time measurements in human-readable format
 * [Graceful error handling](graceful-error-handling.md) to gracefully handle exceptions and non-blocking code

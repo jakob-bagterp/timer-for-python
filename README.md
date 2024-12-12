@@ -27,7 +27,7 @@ timer.stop() # Output example: 12.34 seconds
 ```
 
 #### Context Manager
-Alternatively, use the with statement. This will automatically start and stop the Timer – and so no need to declare `timer.start()` and `timer.stop()`. Same result as before, but less code:
+Alternatively, use the with statement. This will automatically start and stop the clock – and so no need to declare `timer.start()` and `timer.stop()`. Same result as before, but less code:
 
 ```python
 with Timer():
