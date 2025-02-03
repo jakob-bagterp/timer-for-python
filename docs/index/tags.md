@@ -7,4 +7,4 @@ description: List of all tags and relevant pages for Timer for Python, covering 
 
 List of all tags and relevant pages:
 
-[TAGS]
+<!-- material/tags -->
