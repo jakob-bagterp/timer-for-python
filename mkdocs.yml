@@ -179,6 +179,9 @@ plugins:
         tags.md: index/tags.md
         reference/benchmark-timer.md: reference/function-timer.md
 
+exclude_docs: |
+  /requirements.txt
+
 watch:
   - src
 
