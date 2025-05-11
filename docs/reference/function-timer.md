@@ -7,7 +7,7 @@ tags:
 ---
 
 # Function Decorator
-## @function_timer()
+## `@function_timer()`
 
 ::: timer.decorator.function.MkDocstringsWrapper.function_timer
     options:

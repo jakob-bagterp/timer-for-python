@@ -7,6 +7,6 @@ tags:
 ---
 
 # Stop Timer
-## timer.stop()
+## `timer.stop()`
 
 ::: timer.model.timer.Timer.stop

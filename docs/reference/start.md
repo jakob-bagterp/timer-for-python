@@ -7,6 +7,6 @@ tags:
 ---
 
 # Start Timer
-## timer.start()
+## `timer.start()`
 
 ::: timer.model.timer.Timer.start
