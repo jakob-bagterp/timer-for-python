@@ -92,7 +92,7 @@ How it appears in the terminal:
 <pre><code>% Elapsed time: 12.34 seconds for thread <span class="fg-green">TEST_FUNCTION</span></code></pre>
 
 ## Next Steps
-Ready to try? [Let's get started](./getting-started/index.md).
+Ready to try? [Let's get started](getting-started/index.md).
 
 !!! tip "Become a Sponsor"
     If you find this project helpful, please consider supporting its development. Your donations will help keep it alive and growing. Every contribution, no matter the size, makes a difference.
