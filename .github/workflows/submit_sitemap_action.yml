@@ -5,6 +5,8 @@ on:
     branches:
       - "**"
 
+permissions: read-all
+
 jobs:
   test-sitemap-action:
     runs-on: ubuntu-latest
