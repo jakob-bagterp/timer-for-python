@@ -1,4 +1,4 @@
-name: Test Sitemap Action
+name: Submit Sitemap to IndexNow
 
 on:
   pull_request:
