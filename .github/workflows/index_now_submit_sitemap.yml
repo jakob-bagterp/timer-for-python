@@ -8,6 +8,7 @@ permissions: read-all
 jobs:
   submit-sitemap:
     runs-on: ubuntu-latest
+    if: ${{ github.event.build.status == 'succeed' }}
 
     steps:
       - name: Submit sitemap URLs to IndexNow
