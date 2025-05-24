@@ -1,14 +1,15 @@
 name: Submit Sitemap to IndexNow
 
 on:
-  page_build
+  workflow_run:
+    workflows: [pages-build-deployment]
+    types: [completed]
 
 permissions: read-all
 
 jobs:
   submit-sitemap:
     runs-on: ubuntu-latest
-    if: ${{ github.event.build.status == 'succeed' }}
 
     steps:
       - name: Submit sitemap URLs to IndexNow
