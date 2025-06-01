@@ -112,4 +112,4 @@ Thank you for your support! 🙌
 If you have suggestions or changes to the module, feel free to add to the code and create a [pull request](https://github.com/jakob-bagterp/timer-for-python/pulls).
 
 ## Report Bugs
-Report bugs and issues [here](https://github.com/jakob-bagterp/timer-for-python/issues).
+If you encounter any issues, you can [report them as bugs or raise issues](https://github.com/jakob-bagterp/timer-for-python/issues).
