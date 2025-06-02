@@ -4,6 +4,8 @@ description: Learn how to start and stop the timer in Python, with and without c
 tags:
     - Documentation
     - Tutorial
+    - Start Timer
+    - Stop Timer
 ---
 
 # Start and Stop Timer

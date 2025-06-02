@@ -4,6 +4,7 @@ description: Tutorial on how to use the timer as function decorator to measure t
 tags:
     - Features
     - Tutorial
+    - Function Decorator
 ---
 
 # How to Measure Time of Functions

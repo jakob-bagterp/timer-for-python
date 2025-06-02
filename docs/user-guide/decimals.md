@@ -4,6 +4,8 @@ description: Learn how to control the precision in Timer for Python from 0 to 9 
 tags:
     - Features
     - Tutorial
+    - Start Timer
+    - Stop Timer
 ---
 
 # How to Use Decimals for Precision

@@ -4,6 +4,7 @@ description: Learn how to start the timer in Python, with and without custom thr
 tags:
     - Documentation
     - Tutorial
+    - Start Timer
 ---
 
 # Start Timer

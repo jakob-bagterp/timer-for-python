@@ -4,6 +4,7 @@ description: Learn how to stop the timer in Python, with and without custom thre
 tags:
     - Documentation
     - Tutorial
+    - Stop Timer
 ---
 
 # Stop Timer

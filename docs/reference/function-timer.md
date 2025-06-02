@@ -4,6 +4,9 @@ description: Learn how to use the function decorator to measure the execution ti
 tags:
     - Documentation
     - Tutorial
+    - Function Decorator
+    - Start Timer
+    - Stop Timer
 ---
 
 # Function Decorator

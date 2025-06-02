@@ -4,6 +4,8 @@ description: Learn how to use the context manager in Timer for Python to automat
 tags:
     - Features
     - Tutorial
+    - Start Timer
+    - Stop Timer
 ---
 
 # How to Automatically Start and Stop the Timer
