@@ -23,7 +23,7 @@ Here's a comparison of different time measurement methods from the standard libr
 | `perf_counter()`    | High-resolution performance counter for benchmarking. Most suitable for measuring elapsed time. Returns floating-point seconds. Not affected by system clock updates. | `float` seconds   |
 | `perf_counter_ns()` | Similar to `perf_counter()`, but returns nanoseconds as integer. Highest precision timing available in Python. Best for very precise measurements.                    | `int` nanoseconds |
 
-## Examples
+## Basic Examples
 Each method follows the same pattern:
 
 1. Start the timer
@@ -44,7 +44,7 @@ start_time = time()
 end_time = time()
 elapsed_time = end_time - start_time
 
-print(f"Elapsed time: {elapsed_time:.4f} seconds")
+print(f"Elapsed time: {elapsed_time:.2f} seconds")
 ```
 
 ### Using `perf_counter()`
@@ -58,7 +58,7 @@ start_time = perf_counter()
 end_time = perf_counter()
 elapsed_time = end_time - start_time
 
-print(f"Elapsed time: {elapsed_time:.4f} seconds")
+print(f"Elapsed time: {elapsed_time:.2f} seconds")
 ```
 
 ### Using `perf_counter_ns()`
@@ -75,9 +75,32 @@ elapsed_time_ns = end_time - start_time
 print(f"Elapsed time: {elapsed_time_ns} nanoseconds")
 
 elapsed_time = elapsed_time_ns / 1_000_000_000
-print(f"Elapsed time: {elapsed_time:.4f} seconds")
+print(f"Elapsed time: {elapsed_time:.2f} seconds")
 ```
 
+### Using Timer for Python
+Alternatively, you can achieve the same result with Timer for Python using less code. Simply wrap the Timer around the code you want to measure. This can be done with or without the `with` statement for [context management](../context-manager.md):
+
+```python linenums="1" hl_lines="3"
+from timer import Timer
+
+with Timer():
+    # Insert your code here
+```
+
+Or use the `@function_timer()` as [function decorator](../function-decorator.md) to measure the performance of a function:
+
+```python linenums="1" hl_lines="3"
+from timer import function_timer
+
+@function_timer()
+def test_function():
+    # Insert your code here
+
+test_function()
+```
+
+## Advanced Examples
 ### Calculate the Average of Multiple Runs
 Imagine you want to measure the performance of a function. Since each run may vary from run to run, let's calculate the average execution time of the function across multiple runs.
 
