@@ -8,7 +8,7 @@ tags:
     - Stop Timer
 ---
 
-# How to Measure Start and Stop Time with Python
+# How to Start and Stop Time Measurements with Python
 Instead of using Timer for Python, you can also make your own performance timer.
 
 ## Adding a Stop Watch to Your Code
