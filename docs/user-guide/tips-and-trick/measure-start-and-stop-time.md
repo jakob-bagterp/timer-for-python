@@ -9,8 +9,10 @@ tags:
 ---
 
 # How to Measure Start and Stop Time with Python
+Instead of using Timer for Python, you can also make your own performance timer.
+
 ## Adding a Stop Watch to Your Code
-Instead of using Timer for Python, you can also make your own performance timer. Python has different methods to measurement time as a stop watch. The most common is the [`time` standard library](https://docs.python.org/3/library/time.html), and this will be sufficient for most use cases.
+Python has different methods to measurement time as a stop watch. The most common is the [`time` standard library](https://docs.python.org/3/library/time.html), and this will be sufficient for most use cases.
 
 But if you want higher precision, you can use the out-of-the box methods [`perf_counter`](https://docs.python.org/3/library/time.html#time.perf_counter) or [`perf_counter_ns`](https://docs.python.org/3/library/time.html#time.perf_counter_ns). Both part of the `time` standard library, so you don't need to install anything beyond a Python interpreter.
 
