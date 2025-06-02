@@ -1,5 +1,5 @@
 ---
-title: The Easy Way to Measure Start and Stop Time with Python
+title: The Easy Way to Measure Start and Stop Time
 description: Learn how to measure elapsed time of your Python code like a stop watch. Includes code examples for beginners and advanced users.
 tags:
     - Features
