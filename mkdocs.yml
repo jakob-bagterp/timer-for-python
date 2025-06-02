@@ -27,6 +27,8 @@ nav:
     - Function Decorator: user-guide/function-decorator.md
     - Humanised Output: user-guide/humanised-output.md
     - Graceful Error Handling: user-guide/graceful-error-handling.md
+    - Tips and Tricks:
+      - How to Measure Elapsed Time: user-guide/tips-and-trick/measure-start-and-stop-time.md
   - Reference:
     - reference/index.md
     - Timer: reference/timer.md
