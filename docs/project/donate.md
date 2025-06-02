@@ -9,6 +9,8 @@ This project is a community-driven open-source initiative, developed without com
 
 [![Downloads](https://static.pepy.tech/badge/timer-for-python)](https://pepy.tech/project/timer-for-python)
 
+If you have already downloaded and tried the package, perhaps you would like to support its development?
+
 ## How to Support
 Your support – whether through contributions, feedback, or simply spreading the word – is vital to help us maintain and continue enhancing the project for everyone.
 
