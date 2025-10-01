@@ -4,5 +4,5 @@ mypy==1.17.1
 numpy==2.2.4
 pre-commit==4.2.0
 pytest==8.4.1
-pytest-cov==6.2.1
+pytest-cov==7.0.0
 tox==4.29.0
