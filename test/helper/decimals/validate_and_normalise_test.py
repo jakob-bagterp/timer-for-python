@@ -1,4 +1,4 @@
-import numpy
+from _helper.range import generate_range
 from _mock_data.decimals import DECIMALS_RANGE
 
 from timer.constant.decimals import DEFAULT, MAXIMUM, MINIMUM
@@ -21,17 +21,17 @@ def test_negative_number_should_default() -> None:
 
 
 def test_float_within_minimum_to_maximum_should_not_default() -> None:
-    for decimals in numpy.arange(MINIMUM, MAXIMUM + 0.4, 0.1):
+    for decimals in generate_range(MINIMUM, MAXIMUM + 0.4, 0.1):
         assert validate_and_normalise(decimals) == int(round(decimals))
 
 
 def test_float_larger_than_maximum_should_default() -> None:
-    for decimals in numpy.arange(MAXIMUM + 0.5, 100, 0.1):
+    for decimals in generate_range(MAXIMUM + 0.5, 100, 0.1):
         assert validate_and_normalise(decimals) == MAXIMUM
 
 
 def test_negative_float_should_default() -> None:
-    for decimals in numpy.arange(-100, 0, 0.1):
+    for decimals in generate_range(-100, 0, 0.1):
         assert validate_and_normalise(decimals) == DEFAULT
 
 
