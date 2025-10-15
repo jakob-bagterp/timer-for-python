@@ -15,3 +15,7 @@ def is_3_12() -> bool:
 
 def is_3_13() -> bool:
     return python_version().startswith("3.13")  # pragma: no cover
+
+
+def is_3_14() -> bool:
+    return python_version().startswith("3.14")  # pragma: no cover
