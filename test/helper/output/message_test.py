@@ -1,9 +1,6 @@
 from _helper.random import random_decimals, random_thread_name
-from _helper.time_fractions import (random_days_as_ns, random_hours_as_ns,
-                                    random_microseconds_as_ns,
-                                    random_milliseconds_as_ns,
-                                    random_minutes_as_ns,
-                                    random_nanoseconds_as_ns,
+from _helper.time_fractions import (random_days_as_ns, random_hours_as_ns, random_microseconds_as_ns,
+                                    random_milliseconds_as_ns, random_minutes_as_ns, random_nanoseconds_as_ns,
                                     random_seconds_as_ns)
 from colorist import Color
 

@@ -1,8 +1,6 @@
 import math
 
-from _helper.time_fractions import (random_microseconds_as_ns,
-                                    random_milliseconds_as_ns,
-                                    random_seconds_as_ns)
+from _helper.time_fractions import random_microseconds_as_ns, random_milliseconds_as_ns, random_seconds_as_ns
 
 from timer.model.time_fractions import TimeFractions
 

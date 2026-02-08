@@ -2,8 +2,7 @@ import time
 
 from _constant.interval import ONE_MILLISECOND_AS_SECOND
 from _helper.random import random_thread_name
-from _helper.terminal_output import (verify_decimals_in_terminal_output,
-                                     verify_prefix_in_terminal_output)
+from _helper.terminal_output import verify_decimals_in_terminal_output, verify_prefix_in_terminal_output
 from _mock_data.decimals import DECIMALS_RANGE
 
 from timer import Timer

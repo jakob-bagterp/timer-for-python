@@ -6,9 +6,8 @@ import pytest
 from _constant.time_unit import TimeUnit
 from _helper.terminal_output import successful_output_regex
 from _helper.thread_item import set_start_time_back_in_time
-from _helper.time_fractions import (days_as_ns, hours_as_ns,
-                                    microseconds_as_ns, milliseconds_as_ns,
-                                    minutes_as_ns, seconds_as_ns)
+from _helper.time_fractions import (days_as_ns, hours_as_ns, microseconds_as_ns, milliseconds_as_ns, minutes_as_ns,
+                                    seconds_as_ns)
 from _helper.timer import ensure_all_timer_threads_are_stopped
 
 from timer import Timer

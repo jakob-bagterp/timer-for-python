@@ -1,7 +1,5 @@
-from _mock_data.thread_list import (THREAD_ITEM_A, THREAD_ITEM_B,
-                                    THREAD_ITEM_C, THREAD_ITEM_DEFAULT,
-                                    generate_threads_list,
-                                    generate_timer_with_threads_list)
+from _mock_data.thread_list import (THREAD_ITEM_A, THREAD_ITEM_B, THREAD_ITEM_C, THREAD_ITEM_DEFAULT,
+                                    generate_threads_list, generate_timer_with_threads_list)
 
 import timer.helper.thread as thread
 from timer import Timer

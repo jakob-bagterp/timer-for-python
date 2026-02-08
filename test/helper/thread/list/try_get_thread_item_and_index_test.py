@@ -1,5 +1,4 @@
-from _mock_data.thread_list import (THREAD_ITEM_A, THREAD_ITEM_B,
-                                    THREAD_ITEM_C, THREAD_ITEM_DEFAULT,
+from _mock_data.thread_list import (THREAD_ITEM_A, THREAD_ITEM_B, THREAD_ITEM_C, THREAD_ITEM_DEFAULT,
                                     generate_threads_list)
 
 import timer.constant as constant
