@@ -1,3 +1,20 @@
+[project]
+name = "timer-for-python"
+version = "0.9.6"
+description = "Lightweight package that makes it easy to measure how much time it takes to run Python programs and gauge performance of multiple, smaller bits of code"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "colorist==1.8.9",
+    "coverage==7.13.2",
+    "flake8==7.3.0",
+    "mypy==1.19.1",
+    "pre-commit==4.5.1",
+    "pytest==9.0.2",
+    "pytest-cov==6.2.1",
+    "tox==4.34.1",
+]
+
 [build-system]
 requires = [
     "setuptools==80.9.0",
