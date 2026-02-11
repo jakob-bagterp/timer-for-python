@@ -1115,7 +1115,7 @@ wheels = [
 ]
 
 [[package]]
-name = "timer"
+name = "timer-for-python"
 version = "0.9.6"
 source = { editable = "." }
 dependencies = [
