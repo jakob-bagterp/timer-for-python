@@ -45,15 +45,43 @@ def function_with_args_kwargs_custom_thread_and_custom_decimals(a: int, b: int, 
     time.sleep(ONE_MILLISECOND_AS_SECOND)
 
 
-@pytest.mark.parametrize("function, args, kwargs, expected_thread_name, decimals", [
-    (function_with_args, (1, 2), {}, "FUNCTION_WITH_ARGS(A=1, B=2)", DEFAULT_DECIMALS),
-    (function_with_kwargs, (), {"x": 3, "y": 4}, "FUNCTION_WITH_KWARGS(X=3, Y=4)", DEFAULT_DECIMALS),
-    (function_with_args_and_kwargs, (1, 2), {"x": 3, "y": 4}, "FUNCTION_WITH_ARGS_AND_KWARGS(A=1, B=2, X=3, Y=4)", DEFAULT_DECIMALS),
-    (function_with_args_and_kwargs_number_and_strings, (1, "2"), {"x": 3, "y": "4"}, "FUNCTION_WITH_ARGS_AND_KWARGS_NUMBER_AND_STRINGS(A=1, B='2', X=3, Y='4')", DEFAULT_DECIMALS),
-    (function_with_args_kwargs_and_custom_thread, (1, 2), {"x": 3, "y": 4}, CUSTOM_THREAD, DEFAULT_DECIMALS),
-    (function_with_args_kwargs_custom_thread_and_custom_decimals, (1, 2), {"x": 3, "y": 4}, CUSTOM_THREAD, CUSTOM_DECIMALS),
-])
-def test_function_timer_decorator_for_function_with_arguments(function: Callable[..., None], args: tuple[Any, ...], kwargs: dict[str, Any], expected_thread_name: str, decimals: int, capfd: object) -> None:
+@pytest.mark.parametrize(
+    "function, args, kwargs, expected_thread_name, decimals",
+    [
+        (function_with_args, (1, 2), {}, "FUNCTION_WITH_ARGS(A=1, B=2)", DEFAULT_DECIMALS),
+        (function_with_kwargs, (), {"x": 3, "y": 4}, "FUNCTION_WITH_KWARGS(X=3, Y=4)", DEFAULT_DECIMALS),
+        (
+            function_with_args_and_kwargs,
+            (1, 2),
+            {"x": 3, "y": 4},
+            "FUNCTION_WITH_ARGS_AND_KWARGS(A=1, B=2, X=3, Y=4)",
+            DEFAULT_DECIMALS,
+        ),
+        (
+            function_with_args_and_kwargs_number_and_strings,
+            (1, "2"),
+            {"x": 3, "y": "4"},
+            "FUNCTION_WITH_ARGS_AND_KWARGS_NUMBER_AND_STRINGS(A=1, B='2', X=3, Y='4')",
+            DEFAULT_DECIMALS,
+        ),
+        (function_with_args_kwargs_and_custom_thread, (1, 2), {"x": 3, "y": 4}, CUSTOM_THREAD, DEFAULT_DECIMALS),
+        (
+            function_with_args_kwargs_custom_thread_and_custom_decimals,
+            (1, 2),
+            {"x": 3, "y": 4},
+            CUSTOM_THREAD,
+            CUSTOM_DECIMALS,
+        ),
+    ],
+)
+def test_function_timer_decorator_for_function_with_arguments(
+    function: Callable[..., None],
+    args: tuple[Any, ...],
+    kwargs: dict[str, Any],
+    expected_thread_name: str,
+    decimals: int,
+    capfd: object,
+) -> None:
     ensure_all_timer_threads_are_stopped()
     function(*args, **kwargs)
     terminal_output, _ = capfd.readouterr()

@@ -9,10 +9,12 @@ from ..model.timer import Timer
 def function_timer(thread: str | None = None, decimals: int = 2) -> Callable[..., Any]:
     """Function decorator to measure the performance of a function."""
 
-    def get_function_with_arguments_as_thread_name(function: Callable[..., Any], args: tuple[Any, ...], kwargs: dict[str, Any]) -> str:
+    def get_function_with_arguments_as_thread_name(
+        function: Callable[..., Any], args: tuple[Any, ...], kwargs: dict[str, Any]
+    ) -> str:
         thread_name = function.__name__
         if args or kwargs:
-            arg_names = function.__code__.co_varnames[:function.__code__.co_argcount]
+            arg_names = function.__code__.co_varnames[: function.__code__.co_argcount]
             mapped_args = [f"{name}={value!r}" for name, value in zip(arg_names, args)]
             mapped_kwargs = [f"{key}={value!r}" for key, value in kwargs.items()]
             all_mapped_args = ", ".join(mapped_args + mapped_kwargs)
@@ -25,7 +27,9 @@ def function_timer(thread: str | None = None, decimals: int = 2) -> Callable[...
             thread_name = thread if thread else get_function_with_arguments_as_thread_name(function, args, kwargs)
             with Timer(thread=thread_name, decimals=decimals):
                 return function(*args, **kwargs)
+
         return wrapper
+
     return decorator
 
 

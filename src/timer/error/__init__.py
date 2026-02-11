@@ -24,4 +24,6 @@ def stop_controller(timer: TimerBase, thread: str | None) -> None:
 
 
 def message_for_action(action: str, thread: str | None = None) -> None:
-    print(f"{Color.YELLOW}Timer: Something went wrong {action}{'' if helper.thread.is_none(thread) else f' for thread {thread}'}.{Color.OFF}")
+    print(
+        f"{Color.YELLOW}Timer: Something went wrong {action}{'' if helper.thread.is_none(thread) else f' for thread {thread}'}.{Color.OFF}"
+    )

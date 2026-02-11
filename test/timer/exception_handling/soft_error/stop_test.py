@@ -14,9 +14,11 @@ def test_timer_stop_unknown_thread_soft_error_with_default_and_custom_thread(cap
     time.sleep(ONE_MILLISECOND_AS_SECOND)
     timer.stop(thread=custom_thread)
     terminal_output, _ = capfd.readouterr()
-    assert terminal_output == \
-        f"{Color.YELLOW}Timer for thread {custom_thread.upper()} is not running. Use .start(thread='{custom_thread.upper()}') to start it.{Color.OFF}{LINESEP}" +\
-        f"Or maybe you aren't stopping the right thread? Currently open threads: NONE{LINESEP}"
+    assert (
+        terminal_output
+        == f"{Color.YELLOW}Timer for thread {custom_thread.upper()} is not running. Use .start(thread='{custom_thread.upper()}') to start it.{Color.OFF}{LINESEP}"
+        + f"Or maybe you aren't stopping the right thread? Currently open threads: NONE{LINESEP}"
+    )
 
 
 def test_timer_stop_unknown_thread_soft_error_with_multiple_custom_threads(capfd: object) -> None:
@@ -27,9 +29,11 @@ def test_timer_stop_unknown_thread_soft_error_with_multiple_custom_threads(capfd
     time.sleep(ONE_MILLISECOND_AS_SECOND)
     timer.stop(thread=custom_thread_2)
     terminal_output, _ = capfd.readouterr()
-    assert terminal_output == \
-        f"{Color.YELLOW}Timer for thread {custom_thread_2.upper()} is not running. Use .start(thread='{custom_thread_2.upper()}') to start it.{Color.OFF}{LINESEP}" +\
-        f"Or maybe you aren't stopping the right thread? Currently open threads: {custom_thread_1.upper()}{LINESEP}"
+    assert (
+        terminal_output
+        == f"{Color.YELLOW}Timer for thread {custom_thread_2.upper()} is not running. Use .start(thread='{custom_thread_2.upper()}') to start it.{Color.OFF}{LINESEP}"
+        + f"Or maybe you aren't stopping the right thread? Currently open threads: {custom_thread_1.upper()}{LINESEP}"
+    )
 
 
 def test_timer_stop_not_started_thread_soft_error_without_start(capfd: object) -> None:
@@ -44,7 +48,10 @@ def test_timer_stop_not_started_thread_soft_error_without_start_and_with_custom_
     timer = ensure_all_timer_threads_are_stopped()
     timer.stop(thread=custom_thread)
     terminal_output, _ = capfd.readouterr()
-    assert terminal_output == f"{Color.YELLOW}Timer for thread {custom_thread.upper()} is not running. Use .start(thread='{custom_thread.upper()}') to start it.{Color.OFF}\n"
+    assert (
+        terminal_output
+        == f"{Color.YELLOW}Timer for thread {custom_thread.upper()} is not running. Use .start(thread='{custom_thread.upper()}') to start it.{Color.OFF}\n"
+    )
 
 
 def test_timer_stop_default_thread_while_custom_thread_is_running_soft_error(capfd: object) -> None:
@@ -53,6 +60,8 @@ def test_timer_stop_default_thread_while_custom_thread_is_running_soft_error(cap
     timer.start(thread=custom_thread)
     timer.stop()
     terminal_output, _ = capfd.readouterr()
-    assert terminal_output ==  \
-        f"{Color.YELLOW}Timer is not running. Use .start() to start it.{Color.OFF}{LINESEP}" +\
-        f"Or maybe you aren't stopping the right thread? Currently open threads: {custom_thread.upper()}{LINESEP}"
+    assert (
+        terminal_output
+        == f"{Color.YELLOW}Timer is not running. Use .start() to start it.{Color.OFF}{LINESEP}"
+        + f"Or maybe you aren't stopping the right thread? Currently open threads: {custom_thread.upper()}{LINESEP}"
+    )

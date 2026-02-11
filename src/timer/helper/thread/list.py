@@ -31,4 +31,5 @@ def remove(timer: TimerBase, entry_index: int) -> None:
         timer._threads.pop(entry_index)
     except Exception:
         error.message_for_action(
-            f"when trying to remove entry from the Timer's thread list for entry index \"{entry_index}\"")
+            f'when trying to remove entry from the Timer\'s thread list for entry index "{entry_index}"'
+        )

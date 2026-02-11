@@ -21,7 +21,9 @@ def verify_prefix_in_terminal_output(terminal_output: str) -> bool:
     return bool(PREFIX_PATTERN.match(terminal_output))
 
 
-def successful_output_regex(thread: str | None = None, decimals: int = 2, time_unit: TimeUnit = TimeUnit.MILLISECONDS) -> str:
+def successful_output_regex(
+    thread: str | None = None, decimals: int = 2, time_unit: TimeUnit = TimeUnit.MILLISECONDS
+) -> str:
     """Now that we don't know the elapsed time, we can't predict the output. We can only check that the pattern of the output is correct, especially the dynamic part of elapsed time.
 
     This method generates a regex pattern for the expected output that matches, for example, `Elapsed time: 123.45 milliseconds` or with a custom thread `Elapsed time: 123.45 milliseconds for thread CUSTOM`"""

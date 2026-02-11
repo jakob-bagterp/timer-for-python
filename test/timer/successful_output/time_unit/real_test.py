@@ -20,23 +20,36 @@ class TimeUnitTestSet:
 
 SECONDS_TEST_SET_WITH_THREAD = TimeUnitTestSet(wait_seconds=1, expected_time_unit=TimeUnit.SECONDS, thread="custom")
 SECONDS_TEST_SET_WITHOUT_THREAD = TimeUnitTestSet(wait_seconds=1, expected_time_unit=TimeUnit.SECONDS, thread=None)
-MILLISECONDS_TEST_SET_WITH_THREAD = TimeUnitTestSet(wait_seconds=0.001, expected_time_unit=TimeUnit.MILLISECONDS, thread="custom")
-MILLISECONDS_TEST_SET_WITHOUT_THREAD = TimeUnitTestSet(wait_seconds=0.001, expected_time_unit=TimeUnit.MILLISECONDS, thread=None)
-MICROSECONDS_TEST_SET_WITH_THREAD = TimeUnitTestSet(wait_seconds=0.000_001, expected_time_unit=TimeUnit.MICROSECONDS, thread="custom")
-MICROSECONDS_TEST_SET_WITHOUT_THREAD = TimeUnitTestSet(wait_seconds=0.000_001, expected_time_unit=TimeUnit.MICROSECONDS, thread=None)
+MILLISECONDS_TEST_SET_WITH_THREAD = TimeUnitTestSet(
+    wait_seconds=0.001, expected_time_unit=TimeUnit.MILLISECONDS, thread="custom"
+)
+MILLISECONDS_TEST_SET_WITHOUT_THREAD = TimeUnitTestSet(
+    wait_seconds=0.001, expected_time_unit=TimeUnit.MILLISECONDS, thread=None
+)
+MICROSECONDS_TEST_SET_WITH_THREAD = TimeUnitTestSet(
+    wait_seconds=0.000_001, expected_time_unit=TimeUnit.MICROSECONDS, thread="custom"
+)
+MICROSECONDS_TEST_SET_WITHOUT_THREAD = TimeUnitTestSet(
+    wait_seconds=0.000_001, expected_time_unit=TimeUnit.MICROSECONDS, thread=None
+)
 
 
-@pytest.mark.parametrize("test_set", [
-    SECONDS_TEST_SET_WITH_THREAD,
-    SECONDS_TEST_SET_WITHOUT_THREAD,
-    MILLISECONDS_TEST_SET_WITH_THREAD,
-    MILLISECONDS_TEST_SET_WITHOUT_THREAD,
-    MICROSECONDS_TEST_SET_WITH_THREAD,
-    MICROSECONDS_TEST_SET_WITHOUT_THREAD,
-])
+@pytest.mark.parametrize(
+    "test_set",
+    [
+        SECONDS_TEST_SET_WITH_THREAD,
+        SECONDS_TEST_SET_WITHOUT_THREAD,
+        MILLISECONDS_TEST_SET_WITH_THREAD,
+        MILLISECONDS_TEST_SET_WITHOUT_THREAD,
+        MICROSECONDS_TEST_SET_WITH_THREAD,
+        MICROSECONDS_TEST_SET_WITHOUT_THREAD,
+    ],
+)
 def test_timer_time_unit_output(test_set: TimeUnitTestSet, capfd: object) -> None:
     if operating_system.is_windows() and python_version.is_3_10():
-        pytest.skip("Skipping test for Python 3.10 on Windows since the sleep timer is flaky and inaccurate.")  # pragma: no cover
+        pytest.skip(
+            "Skipping test for Python 3.10 on Windows since the sleep timer is flaky and inaccurate."
+        )  # pragma: no cover
         return  # pragma: no cover
 
     ensure_all_timer_threads_are_stopped()
