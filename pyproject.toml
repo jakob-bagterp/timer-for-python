@@ -42,17 +42,17 @@ build-backend = "uv_build"
 package = true
 
 [tool.uv.sources]
-timer = { path = "./src/timer" }
+timer = { path = "." }
 
 [dependency-groups]
 dev = [
     "coverage==7.13.2",
-    "flake8==7.3.0",
     "mypy==1.19.1",
     "pre-commit==4.5.1",
     "pytest==9.0.2",
     "pytest-cov==6.2.1",
     "pytest-xdist==3.8.0",
+    "ruff==0.15.0",
     "tox==4.34.1",
 ]
 docs = [
@@ -74,5 +74,17 @@ show_error_codes = true
 strict = true
 warn_unreachable = true
 
-[tool.isort]
-line_length = 120
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP"]
+ignore = ["E501", "COM812"]
+
+[tool.ruff.lint.isort]
+split-on-trailing-comma = false
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = true
