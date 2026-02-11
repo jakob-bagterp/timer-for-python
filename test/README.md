@@ -1,4 +1,4 @@
-# Unit Testing of Timer for Python
+# Unit Testing
 ## Prerequisites
 The test framework is `pytest`, which can be installed from [here](https://docs.pytest.org/en/stable/getting-started.html).
 
