@@ -176,7 +176,7 @@ jobs:
           while [ $ATTEMPT -le $MAX_ATTEMPTS ]
           do
             echo "Attempt $ATTEMPT of $MAX_ATTEMPTS to install and verify package version from PyPI..."
-            if ! uv pip install --upgrade "${{ env.PACKAGE_NAME }}"; then
+            if ! uv pip install --no-cache --system "${{ env.PACKAGE_NAME }}"; then
               echo "Installation failed. Waiting for $WAIT_SECONDS seconds before retrying..."
               sleep $WAIT_SECONDS
               continue
