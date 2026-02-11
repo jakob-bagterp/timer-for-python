@@ -43,4 +43,4 @@ jobs:
         run: uv sync --group docs
 
       - name: Test MkDocs build
-        run: mkdocs build --strict --verbose
+        run: uv run mkdocs build --strict --verbose
