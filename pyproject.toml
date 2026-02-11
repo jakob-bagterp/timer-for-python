@@ -1,13 +1,61 @@
 [project]
-name = "timer-for-python"
+name = "timer"
 version = "0.9.6"
 description = "Lightweight package that makes it easy to measure how much time it takes to run Python programs and gauge performance of multiple, smaller bits of code"
+authors = [
+  { name = "Jakob Bagterp", email = "jakob_bagterp@hotmail.com" }
+]
+maintainers = [
+  { name = "Jakob Bagterp", email = "jakob_bagterp@hotmail.com" }
+]
+license = { text = "MIT License" }
 readme = "README.md"
+keywords = ["python", "timer"]
 requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
 dependencies = [
     "colorist==1.8.9",
+]
+
+[project.urls]
+"Bug Tracker" = "https://github.com/jakob-bagterp/timer-for-python/issues"
+"Documentation" = "https://jakob-bagterp.github.io/timer-for-python/"
+"API Reference" = "https://jakob-bagterp.github.io/timer-for-python/reference/"
+"Source Code" = "https://github.com/jakob-bagterp/timer-for-python"
+"Release Notes" = "https://github.com/jakob-bagterp/timer-for-python/releases"
+
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
+
+[tool.uv]
+package = true
+
+[tool.uv.sources]
+timer = { path = "./src/timer" }
+
+[dependency-groups]
+dev = [
     "coverage==7.13.2",
     "flake8==7.3.0",
+    "mypy==1.19.1",
+    "pre-commit==4.5.1",
+    "pytest==9.0.2",
+    "pytest-cov==6.2.1",
+    "pytest-xdist==3.8.0",
+    "tox==4.34.1",
+]
+docs = [
     "mkdocs==1.6.1",
     "mkdocs-git-revision-date-localized-plugin==1.5.1",
     "mkdocs-material==9.7.1",
@@ -16,21 +64,15 @@ dependencies = [
     "mkdocs-redirects==1.2.2",
     "mkdocstrings==1.0.2",
     "mkdocstrings-python==2.0.1",
-    "mypy==1.19.1",
-    "pre-commit==4.5.1",
-    "pytest==9.0.2",
-    "pytest-cov==6.2.1",
-    "pytest-xdist==3.8.0",
-    "tox==4.34.1",
-    "uv-build==0.10.2",
 ]
 
-[build-system]
-requires = [
-    "setuptools==80.9.0",
-    "wheel"
-]
-build-backend = "setuptools.build_meta"
+[tool.mypy]
+files = ["src"]
+disallow_any_unimported = true
+no_implicit_reexport = true
+show_error_codes = true
+strict = true
+warn_unreachable = true
 
 [tool.isort]
 line_length = 120
