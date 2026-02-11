@@ -14,5 +14,6 @@ Alternatively, other variations of this command to run all tests in parallel wit
 
 ```shell
 pytest -n auto  # Run all tests in parallel on all available CPU cores.
-pytest -n auto -v  # As before, but with verbose output.
+pytest -n auto -v  # Same as before, but with verbose output.
+pytest --numprocesses 4 -v  # Same as before, but limit to 4 CPU cores.
 ```
