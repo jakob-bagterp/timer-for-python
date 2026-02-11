@@ -1,6 +1,6 @@
 [project]
 name = "timer-for-python"
-version = "0.9.6"
+version = "0.9.7"
 description = "Lightweight package that makes it easy to measure how much time it takes to run Python programs and gauge performance of multiple, smaller bits of code"
 authors = [
   { name = "Jakob Bagterp", email = "jakob_bagterp@hotmail.com" }
