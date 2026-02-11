@@ -172,22 +172,28 @@ jobs:
           MAX_ATTEMPTS=10
           ATTEMPT=1
           WAIT_SECONDS=30
+          TARGET_VERSION="${{ needs.details.outputs.new_version }}"
+
+          if [ -z "$TARGET_VERSION" ]; then
+            echo "TARGET_VERSION is empty and workflow output not set correctly. Aborting..."
+            exit 1
+          fi
 
           while [ $ATTEMPT -le $MAX_ATTEMPTS ]
           do
-            echo "Attempt $ATTEMPT of $MAX_ATTEMPTS to install and verify package version from PyPI..."
-            if ! uv pip install --no-cache --system "${{ env.PACKAGE_NAME }}"; then
-              echo "Installation failed. Waiting for $WAIT_SECONDS seconds before retrying..."
-              sleep $WAIT_SECONDS
-              continue
+            echo "Attempt $ATTEMPT of $MAX_ATTEMPTS to install and verify package version $TARGET_VERSION from PyPI..."
+
+            if uv pip install --system --no-cache "${{ env.PACKAGE_NAME }}==$TARGET_VERSION"; then
+              INSTALLED_VERSION=$(uv pip show ${{ env.PACKAGE_NAME }} | grep Version | cut -d ' ' -f 2)
+              echo "New version: ${{ needs.details.outputs.new_version }}"
+              echo "Installed version: $INSTALLED_VERSION"
+
+              if [ "$INSTALLED_VERSION" = "$TARGET_VERSION" ]; then
+                echo "Version from PyPI matched the new version and was successfully installed."
+                exit 0
+              fi
             fi
-            INSTALLED_VERSION=$(uv pip show ${{ env.PACKAGE_NAME }} | grep Version | cut -d ' ' -f 2)
-            echo "New version: ${{ needs.details.outputs.new_version }}"
-            echo "Installed version: $INSTALLED_VERSION"
-            if [ "$INSTALLED_VERSION" = "${{ needs.details.outputs.new_version }}" ]; then
-              echo "Version from PyPI matched the new version and was successfully installed."
-              exit 0
-            fi
+
             echo "New version not yet available on PyPI. Waiting for $WAIT_SECONDS seconds before retrying..."
             sleep $WAIT_SECONDS
             ATTEMPT=$((ATTEMPT + 1))
