@@ -28,7 +28,7 @@ jobs:
         run: uv sync --frozen --group dev
 
       - name: Generate coverage report
-        run: pytest --numprocesses=auto --cov=./ --cov-report=xml -vv -rA
+        run: uv run pytest --numprocesses=auto --cov=./ --cov-report=xml -vv -rA
 
       - name: Upload coverage report to CodeCov
         uses: codecov/codecov-action@v5
