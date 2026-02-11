@@ -19,4 +19,5 @@ def calculate_time_fractions(elapsed_time_ns: int) -> ElapsedTimeFractions:
         seconds=int(seconds),
         minutes=int(minutes),
         hours=int(hours),
-        days=int(days))
+        days=int(days),
+    )

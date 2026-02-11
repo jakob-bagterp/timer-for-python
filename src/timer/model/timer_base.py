@@ -16,7 +16,9 @@ class TimerBase(ABC):
     def __enter__(self) -> "TimerBase":
         raise NotImplementedError  # pragma: no cover
 
-    def __exit__(self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
+    def __exit__(
+        self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None
+    ) -> None:
         raise NotImplementedError  # pragma: no cover
 
     @abstractmethod

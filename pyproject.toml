@@ -2,12 +2,50 @@
 name = "timer-for-python"
 version = "0.9.6"
 description = "Lightweight package that makes it easy to measure how much time it takes to run Python programs and gauge performance of multiple, smaller bits of code"
+authors = [
+  { name = "Jakob Bagterp", email = "jakob_bagterp@hotmail.com" }
+]
+maintainers = [
+  { name = "Jakob Bagterp", email = "jakob_bagterp@hotmail.com" }
+]
+license = { text = "MIT License" }
 readme = "README.md"
+keywords = ["python", "timer"]
 requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
 dependencies = [
     "colorist==1.8.9",
+]
+
+[project.urls]
+"Bug Tracker" = "https://github.com/jakob-bagterp/timer-for-python/issues"
+"Documentation" = "https://jakob-bagterp.github.io/timer-for-python/"
+"API Reference" = "https://jakob-bagterp.github.io/timer-for-python/reference/"
+"Source Code" = "https://github.com/jakob-bagterp/timer-for-python"
+"Release Notes" = "https://github.com/jakob-bagterp/timer-for-python/releases"
+
+[dependency-groups]
+dev = [
     "coverage==7.13.2",
-    "flake8==7.3.0",
+    "mypy==1.19.1",
+    "pre-commit==4.5.1",
+    "pytest==9.0.2",
+    "pytest-cov==6.2.1",
+    "pytest-xdist==3.8.0",
+    "ruff==0.15.0",
+    "tox==4.34.1",
+]
+docs = [
     "mkdocs==1.6.1",
     "mkdocs-git-revision-date-localized-plugin==1.5.1",
     "mkdocs-material==9.7.1",
@@ -16,20 +54,43 @@ dependencies = [
     "mkdocs-redirects==1.2.2",
     "mkdocstrings==1.0.2",
     "mkdocstrings-python==2.0.1",
-    "mypy==1.19.1",
-    "pre-commit==4.5.1",
-    "pytest==9.0.2",
-    "pytest-cov==6.2.1",
-    "pytest-xdist>=3.8.0",
-    "tox==4.34.1",
 ]
 
 [build-system]
-requires = [
-    "setuptools==80.9.0",
-    "wheel"
-]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.isort]
-line_length = 120
+[tool.hatch.build.targets.wheel]
+packages = ["src/timer"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/src"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/timer" = "timer"
+
+[tool.uv]
+package = true
+
+[tool.mypy]
+files = ["src"]
+disallow_any_unimported = true
+no_implicit_reexport = true
+show_error_codes = true
+strict = true
+warn_unreachable = true
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP"]
+ignore = ["E501", "COM812"]
+
+[tool.ruff.lint.isort]
+split-on-trailing-comma = false
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = true

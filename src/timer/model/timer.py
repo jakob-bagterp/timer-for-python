@@ -9,9 +9,14 @@ from .timer_base import TimerBase
 
 
 class Timer(TimerBase):
-    __slots__ = ["_threads", "_decimals",
-                 "_context_manager_threads", "_context_manager_latest_thread", "_context_manager_latest_decimals",
-                 "__dict__"]
+    __slots__ = [
+        "_threads",
+        "_decimals",
+        "_context_manager_threads",
+        "_context_manager_latest_thread",
+        "_context_manager_latest_decimals",
+        "__dict__",
+    ]
 
     _instance = None
     _lock_init = False
@@ -88,8 +93,9 @@ class Timer(TimerBase):
             self._threads: list[ThreadItem] = []
             self._context_manager_threads: list[str] = []
             self._lock_init = True
-        self._decimals: int = decimals if decimals == constant.decimals.DEFAULT else helper.decimals.validate_and_normalise(
-            decimals)
+        self._decimals: int = (
+            decimals if decimals == constant.decimals.DEFAULT else helper.decimals.validate_and_normalise(decimals)
+        )
         self._context_manager_latest_thread: str = helper.thread.normalise_to_string_and_uppercase(thread)
         self._context_manager_latest_decimals: int = self._decimals
 
@@ -98,7 +104,9 @@ class Timer(TimerBase):
         self.start(self._context_manager_latest_thread, self._context_manager_latest_decimals)
         return self
 
-    def __exit__(self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
+    def __exit__(
+        self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None
+    ) -> None:
         last_context_manager_thread = self._context_manager_threads.pop()
         self.stop(last_context_manager_thread)
 

@@ -38,17 +38,19 @@ def random_elapsed_time_ns_and_fractions() -> tuple[int, ElapsedTimeFractions]:
     microseconds = randint(0, 1000 - 1)
     nanoseconds = randint(0, 1000 - 1)
 
-    elapsed_time_ns = days_as_ns(days) + hours_as_ns(hours) + minutes_as_ns(minutes) + seconds_as_ns(seconds) + \
-        milliseconds_as_ns(milliseconds) + microseconds_as_ns(microseconds) + nanoseconds
+    elapsed_time_ns = (
+        days_as_ns(days)
+        + hours_as_ns(hours)
+        + minutes_as_ns(minutes)
+        + seconds_as_ns(seconds)
+        + milliseconds_as_ns(milliseconds)
+        + microseconds_as_ns(microseconds)
+        + nanoseconds
+    )
 
     elapsed_time_fractions = ElapsedTimeFractions(
-        nanoseconds,
-        microseconds,
-        milliseconds,
-        seconds,
-        minutes,
-        hours,
-        days)
+        nanoseconds, microseconds, milliseconds, seconds, minutes, hours, days
+    )
 
     return elapsed_time_ns, elapsed_time_fractions
 
