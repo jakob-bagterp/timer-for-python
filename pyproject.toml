@@ -24,7 +24,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "colorist==1.8.13",
+    "colorist==1.8.14",
 ]
 
 [project.urls]
