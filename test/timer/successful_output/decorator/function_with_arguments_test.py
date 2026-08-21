@@ -5,6 +5,7 @@ from typing import Any
 
 import pytest
 from _constant.interval import ONE_MILLISECOND_AS_SECOND
+from _helper import operating_system, python_version
 from _helper.terminal_output import successful_output_regex
 from _helper.timer import ensure_all_timer_threads_are_stopped
 
@@ -73,6 +74,10 @@ def function_with_args_kwargs_custom_thread_and_custom_decimals(a: int, b: int, 
             CUSTOM_DECIMALS,
         ),
     ],
+)
+@pytest.mark.skipif(
+    operating_system.is_windows() and python_version.is_3_10(),
+    reason="Skipping test for Python 3.10 on Windows since the sleep timer is flaky and inaccurate.",
 )
 def test_function_timer_decorator_for_function_with_arguments(
     function: Callable[..., None],
