@@ -45,13 +45,11 @@ MICROSECONDS_TEST_SET_WITHOUT_THREAD = TimeUnitTestSet(
         MICROSECONDS_TEST_SET_WITHOUT_THREAD,
     ],
 )
+@pytest.mark.skipif(
+    operating_system.is_windows() and python_version.is_3_10(),
+    reason="Skipping test for Python 3.10 on Windows since the sleep timer is flaky and inaccurate.",
+)
 def test_timer_time_unit_output(test_set: TimeUnitTestSet, capfd: object) -> None:
-    if operating_system.is_windows() and python_version.is_3_10():
-        pytest.skip(
-            "Skipping test for Python 3.10 on Windows since the sleep timer is flaky and inaccurate."
-        )  # pragma: no cover
-        return  # pragma: no cover
-
     ensure_all_timer_threads_are_stopped()
     with Timer():
         time.sleep(test_set.wait_seconds)
