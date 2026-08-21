@@ -11,7 +11,10 @@ from timer import Timer
 from timer.constant.decimals import MAXIMUM, MINIMUM
 
 
-@pytest.mark.skipif(operating_system.is_windows() and python_version.is_3_10(), reason="Skipping test for Python 3.10 on Windows since the sleep timer is flaky and inaccurate.")
+@pytest.mark.skipif(
+    operating_system.is_windows() and python_version.is_3_10(),
+    reason="Skipping test for Python 3.10 on Windows since the sleep timer is flaky and inaccurate.",
+)
 def test_timer_decimals_output(capfd: object) -> None:
     ensure_all_timer_threads_are_stopped()
     for decimals in range(MINIMUM, MAXIMUM + 1):
