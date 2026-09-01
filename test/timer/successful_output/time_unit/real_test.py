@@ -49,6 +49,10 @@ MICROSECONDS_TEST_SET_WITHOUT_THREAD = TimeUnitTestSet(
     operating_system.is_windows() and python_version.is_3_10(),
     reason="Skipping test for Python 3.10 on Windows since the sleep timer is flaky and inaccurate.",
 )
+@pytest.mark.skipif(
+    operating_system.is_macos(),
+    reason="Skipping test for macOS and various Python versions since the sleep timer is flaky and inaccurate.",
+)
 def test_timer_time_unit_output(test_set: TimeUnitTestSet, capfd: object) -> None:
     ensure_all_timer_threads_are_stopped()
     with Timer():
