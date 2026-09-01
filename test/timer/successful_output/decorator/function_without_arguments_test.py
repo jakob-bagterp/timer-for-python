@@ -4,6 +4,7 @@ from collections.abc import Callable
 
 import pytest
 from _constant.interval import ONE_MILLISECOND_AS_SECOND
+from _helper import operating_system, python_version
 from _helper.terminal_output import successful_output_regex
 from _helper.timer import ensure_all_timer_threads_are_stopped
 
