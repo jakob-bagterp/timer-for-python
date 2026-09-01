@@ -42,6 +42,10 @@ def function_to_be_timed_with_custom_thread_and_decimals() -> None:
         (function_to_be_timed_with_custom_thread_and_decimals, CUSTOM_THREAD, CUSTOM_DECIMALS),
     ],
 )
+@pytest.mark.skipif(
+    operating_system.is_windows() and python_version.is_3_10(),
+    reason="Skipping test for Python 3.10 on Windows since the sleep timer is flaky and inaccurate.",
+)
 def test_function_timer_decorator_for_function_without_arguments(
     function: Callable[..., None], thread: str | None, decimals: int | None, capfd: object
 ) -> None:
