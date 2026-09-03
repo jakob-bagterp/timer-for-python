@@ -5,13 +5,13 @@ tags:
     - Tutorial
 ---
 
-[![Latest version](https://img.shields.io/static/v1?label=version&message=0.9.12&color=yellowgreen)](https://github.com/jakob-bagterp/timer-for-python/releases/latest)
-[![Python 3.10 | 3.11 | 3.12 | 3.13 | 3.14+](https://img.shields.io/static/v1?label=python&message=3.10%20|%203.11%20|%203.12%20|%203.13%20|%203.14%2B&color=blueviolet)](https://www.python.org)
-[![MIT license](https://img.shields.io/static/v1?label=license&message=MIT&color=blue)](https://github.com/jakob-bagterp/timer-for-python/blob/master/LICENSE.md)
+[![Latest version](https://img.shields.io/static/v1?label=Version&message=0.9.12&color=yellowgreen)](https://github.com/jakob-bagterp/timer-for-python/releases/latest)
+[![Python 3.10 | 3.11 | 3.12 | 3.13 | 3.14+](https://img.shields.io/static/v1?label=Python&message=3.10%20|%203.11%20|%203.12%20|%203.13%20|%203.14%2B&color=blueviolet)](https://www.python.org)
+[![MIT license](https://img.shields.io/static/v1?label=License&message=MIT&color=blue)](https://github.com/jakob-bagterp/timer-for-python/blob/master/LICENSE.md)
 [![Codecov](https://codecov.io/gh/jakob-bagterp/timer-for-python/branch/master/graph/badge.svg?token=P4IT8WQO0R)](https://codecov.io/gh/jakob-bagterp/timer-for-python)
 [![CodeQL](https://github.com/jakob-bagterp/timer-for-python/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/jakob-bagterp/timer-for-python/actions/workflows/github-code-scanning/codeql)
 [![Test](https://github.com/jakob-bagterp/timer-for-python/actions/workflows/test.yml/badge.svg)](https://github.com/jakob-bagterp/timer-for-python/actions/workflows/test.yml)
-[![Downloads](https://static.pepy.tech/badge/timer-for-python)](https://pepy.tech/project/timer-for-python)
+[![Downloads](https://api.pepy.tech/personalized-badge/timer-for-python?period=total&units=international_system&left_color=grey&right_color=blue&left_text=Downloads)](https://pepy.tech/project/timer-for-python)
 
 # Timer for Python ⏳
 ## Why Use a Timer?
