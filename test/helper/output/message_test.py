@@ -73,7 +73,7 @@ def test_output_message_microseconds(capfd: object) -> None:
     for _ in range(100):
         mock_elapsed_time_ns = random_microseconds_as_ns(allow_zero=False)
         terminal_output, fractions, _, decimals, _ = process_terminal_message(mock_elapsed_time_ns, capfd)
-        assert terminal_output == f"Elapsed time: {fractions.count_microseconds_to_float():.{decimals}f} microseconds\n"
+        assert terminal_output == f"Elapsed time: {fractions.total_microseconds():.{decimals}f} microseconds\n"
 
 
 def test_output_message_nanoseconds(capfd: object) -> None:

@@ -9,13 +9,13 @@ class TimeFractions:
     def __init__(self, elapsed_time_ns: int) -> None:
         self.time: ElapsedTimeFractions = helper.time_fractions.calculate_time_fractions(elapsed_time_ns)
 
-    def count_microseconds_to_float(self) -> float:
+    def total_microseconds(self) -> float:
         return self.time.microseconds + self.time.nanoseconds / 1_000
 
     def count_milliseconds_to_float(self) -> float:
         """This could potentially be faster by dividing self.microseconds by a 1,000 directly, yet we don't want to lose precision in the decimals."""
 
-        return self.time.milliseconds + self.count_microseconds_to_float() / 1_000
+        return self.time.milliseconds + self.total_microseconds() / 1_000
 
     def count_seconds_to_float(self) -> float:
         """This could potentially be faster by dividing self.milliseconds by a 1,000 directly, yet we don't want to lose precision in the decimals."""

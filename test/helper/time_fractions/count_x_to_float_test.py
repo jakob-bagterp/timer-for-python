@@ -5,13 +5,11 @@ from _helper.time_fractions import random_microseconds_as_ns, random_millisecond
 from timer.model.time_fractions import TimeFractions
 
 
-def test_count_microseconds_to_float() -> None:
+def test_total_microseconds() -> None:
     float_precision = 6
     for _ in range(1_000):
         mock_elapsed_time_ns = random_microseconds_as_ns()
-        rounded_microseconds_to_float = round(
-            TimeFractions(mock_elapsed_time_ns).count_microseconds_to_float(), float_precision
-        )
+        rounded_microseconds_to_float = round(TimeFractions(mock_elapsed_time_ns).total_microseconds(), float_precision)
         rounded_mock_microseconds_to_float = round(mock_elapsed_time_ns / 1_000, float_precision)
         assert math.isclose(rounded_microseconds_to_float, rounded_mock_microseconds_to_float, rel_tol=1e-6)
 
