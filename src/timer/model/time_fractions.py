@@ -1,4 +1,5 @@
 from .. import helper
+from ..constant.various import SECONDS_PER_MINUTE
 from .elapsed_time_fractions import ElapsedTimeFractions
 
 
@@ -27,4 +28,4 @@ class TimeFractions:
         return int(round(self.count_seconds_to_float(), 0))
 
     def count_minutes_to_seconds(self) -> float:
-        return self.time.minutes * 60 + self.count_seconds_to_float()
+        return self.time.minutes * SECONDS_PER_MINUTE + self.count_seconds_to_float()
