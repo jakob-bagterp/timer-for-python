@@ -17,7 +17,7 @@ class TimeFractions:
 
         return self.time.milliseconds + self.total_microseconds() / 1_000
 
-    def count_seconds_to_float(self) -> float:
+    def total_seconds(self) -> float:
         """This could potentially be faster by dividing self.milliseconds by a 1,000 directly, yet we don't want to lose precision in the decimals."""
 
         return self.time.seconds + self.total_milliseconds() / 1_000
@@ -25,7 +25,7 @@ class TimeFractions:
     def seconds_rounded(self) -> float:
         """For instance, if 2 seconds and 567 milliseconds, ensure it'll be rounded up to 3 seconds."""
 
-        return int(round(self.count_seconds_to_float(), 0))
+        return int(round(self.total_seconds(), 0))
 
     def count_minutes_to_seconds(self) -> float:
-        return self.time.minutes * SECONDS_PER_MINUTE + self.count_seconds_to_float()
+        return self.time.minutes * SECONDS_PER_MINUTE + self.total_seconds()

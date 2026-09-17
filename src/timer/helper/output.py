@@ -22,7 +22,7 @@ def message(thread: str, fractions: TimeFractions, decimals: int) -> None:
             )
         elif time.seconds > 0:
             # Format: 0.123456789 seconds
-            print(f"{intro} {fractions.count_seconds_to_float():.{decimals}f} seconds{thread_info}")
+            print(f"{intro} {fractions.total_seconds():.{decimals}f} seconds{thread_info}")
         elif time.milliseconds > 0:
             # Format: 123.45 milliseconds
             print(f"{intro} {fractions.total_milliseconds():.{decimals}f} milliseconds{thread_info}")
