@@ -27,5 +27,5 @@ class TimeFractions:
 
         return int(round(self.total_seconds(), 0))
 
-    def count_minutes_to_seconds(self) -> float:
+    def total_minutes_as_seconds(self) -> float:
         return self.time.minutes * SECONDS_PER_MINUTE + self.total_seconds()

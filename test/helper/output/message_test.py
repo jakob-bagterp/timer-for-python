@@ -51,7 +51,7 @@ def test_output_message_minutes(capfd: object) -> None:
         terminal_output, fractions, time, decimals, _ = process_terminal_message(mock_elapsed_time_ns, capfd)
         assert (
             terminal_output
-            == f"Elapsed time: {fractions.count_minutes_to_seconds():.{decimals}f} seconds ({time.minutes}m {fractions.seconds_rounded()}s)\n"
+            == f"Elapsed time: {fractions.total_minutes_as_seconds():.{decimals}f} seconds ({time.minutes}m {fractions.seconds_rounded()}s)\n"
         )
 
 
