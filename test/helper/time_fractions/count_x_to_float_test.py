@@ -9,7 +9,7 @@ def test_total_microseconds() -> None:
     float_precision = 6
     for _ in range(1_000):
         mock_elapsed_time_ns = random_microseconds_as_ns()
-        rounded_microseconds_to_float = round(TimeFractions(mock_elapsed_time_ns).total_microseconds(), float_precision)
+        rounded_microseconds_to_float = round(TimeFractions(mock_elapsed_time_ns).total_microseconds, float_precision)
         rounded_mock_microseconds_to_float = round(mock_elapsed_time_ns / 1_000, float_precision)
         assert math.isclose(rounded_microseconds_to_float, rounded_mock_microseconds_to_float, rel_tol=1e-6)
 
@@ -18,7 +18,7 @@ def test_total_milliseconds() -> None:
     float_precision = 9
     for _ in range(1_000):
         mock_elapsed_time_ns = random_milliseconds_as_ns()
-        rounded_milliseconds_to_float = round(TimeFractions(mock_elapsed_time_ns).total_milliseconds(), float_precision)
+        rounded_milliseconds_to_float = round(TimeFractions(mock_elapsed_time_ns).total_milliseconds, float_precision)
         rounded_mock_milliseconds_to_float = round(mock_elapsed_time_ns / 1_000 / 1_000, float_precision)
         assert math.isclose(rounded_milliseconds_to_float, rounded_mock_milliseconds_to_float, rel_tol=1e-9)
 
@@ -27,6 +27,6 @@ def test_total_seconds() -> None:
     float_precision = 12
     for _ in range(1_000):
         mock_elapsed_time_ns = random_seconds_as_ns()
-        rounded_seconds_to_float = round(TimeFractions(mock_elapsed_time_ns).total_seconds(), float_precision)
+        rounded_seconds_to_float = round(TimeFractions(mock_elapsed_time_ns).total_seconds, float_precision)
         rounded_mock_seconds_to_float = round(mock_elapsed_time_ns / 1_000 / 1_000 / 1_000, float_precision)
         assert math.isclose(rounded_seconds_to_float, rounded_mock_seconds_to_float, rel_tol=1e-12)

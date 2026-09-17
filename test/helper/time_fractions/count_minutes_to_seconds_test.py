@@ -9,6 +9,6 @@ def test_total_minutes_as_seconds() -> None:
     float_precision = 6
     for _ in range(100):
         mock_elapsed_time_ns = random_minutes_as_ns()
-        rounded_seconds = round(TimeFractions(mock_elapsed_time_ns).total_minutes_as_seconds(), float_precision)
+        rounded_seconds = round(TimeFractions(mock_elapsed_time_ns).total_minutes_as_seconds, float_precision)
         rounded_mock_seconds = round(mock_elapsed_time_ns / 1_000 / 1_000 / 1_000, float_precision)
         assert math.isclose(rounded_seconds, rounded_mock_seconds, rel_tol=1e-6)

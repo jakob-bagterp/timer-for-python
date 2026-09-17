@@ -11,26 +11,24 @@ def message(thread: str, fractions: TimeFractions, decimals: int) -> None:
         time = fractions.time
         if time.days > 0:
             # Format: 1d 2h 3m 4s
-            print(
-                f"{intro} {time.days}d {time.hours}h {time.minutes}m {fractions.total_seconds_rounded()}s{thread_info}"
-            )
+            print(f"{intro} {time.days}d {time.hours}h {time.minutes}m {fractions.total_seconds_rounded}s{thread_info}")
         elif time.hours > 0:
             # Format: 1h 2m 3s
-            print(f"{intro} {time.hours}h {time.minutes}m {fractions.total_seconds_rounded()}s{thread_info}")
+            print(f"{intro} {time.hours}h {time.minutes}m {fractions.total_seconds_rounded}s{thread_info}")
         elif time.minutes > 0:
             # Format: 62.34 seconds (1m 2s)
             print(
-                f"{intro} {fractions.total_minutes_as_seconds():.{decimals}f} seconds ({time.minutes}m {fractions.total_seconds_rounded()}s){thread_info}"
+                f"{intro} {fractions.total_minutes_as_seconds:.{decimals}f} seconds ({time.minutes}m {fractions.total_seconds_rounded}s){thread_info}"
             )
         elif time.seconds > 0:
             # Format: 0.123456789 seconds
-            print(f"{intro} {fractions.total_seconds():.{decimals}f} seconds{thread_info}")
+            print(f"{intro} {fractions.total_seconds:.{decimals}f} seconds{thread_info}")
         elif time.milliseconds > 0:
             # Format: 123.45 milliseconds
-            print(f"{intro} {fractions.total_milliseconds():.{decimals}f} milliseconds{thread_info}")
+            print(f"{intro} {fractions.total_milliseconds:.{decimals}f} milliseconds{thread_info}")
         elif time.microseconds > 0:
             # Format: 234.56 microseconds
-            print(f"{intro} {fractions.total_microseconds():.{decimals}f} microseconds{thread_info}")
+            print(f"{intro} {fractions.total_microseconds:.{decimals}f} microseconds{thread_info}")
         else:
             # Format: 345 nanoseconds
             print(f"{intro} {time.nanoseconds} nanoseconds{thread_info}")

@@ -8,6 +8,6 @@ from timer.model.time_fractions import TimeFractions
 def test_total_seconds_rounded() -> None:
     for _ in range(100):
         mock_elapsed_time_ns = random_seconds_as_ns()
-        round_seconds = TimeFractions(mock_elapsed_time_ns).total_seconds_rounded()
+        round_seconds = TimeFractions(mock_elapsed_time_ns).total_seconds_rounded
         rounded_mock_seconds = round(mock_elapsed_time_ns / 1_000 / 1_000 / 1_000, 0)
         assert math.isclose(round_seconds, rounded_mock_seconds, rel_tol=1e-9)
