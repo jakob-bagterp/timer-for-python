@@ -14,13 +14,11 @@ def test_total_microseconds() -> None:
         assert math.isclose(rounded_microseconds_to_float, rounded_mock_microseconds_to_float, rel_tol=1e-6)
 
 
-def test_count_milliseconds_to_float() -> None:
+def test_total_milliseconds() -> None:
     float_precision = 9
     for _ in range(1_000):
         mock_elapsed_time_ns = random_milliseconds_as_ns()
-        rounded_milliseconds_to_float = round(
-            TimeFractions(mock_elapsed_time_ns).count_milliseconds_to_float(), float_precision
-        )
+        rounded_milliseconds_to_float = round(TimeFractions(mock_elapsed_time_ns).total_milliseconds(), float_precision)
         rounded_mock_milliseconds_to_float = round(mock_elapsed_time_ns / 1_000 / 1_000, float_precision)
         assert math.isclose(rounded_milliseconds_to_float, rounded_mock_milliseconds_to_float, rel_tol=1e-9)
 
