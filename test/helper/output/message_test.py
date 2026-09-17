@@ -34,7 +34,7 @@ def test_output_message_days(capfd: object) -> None:
         terminal_output, fractions, time, _, _ = process_terminal_message(mock_elapsed_time_ns, capfd)
         assert (
             terminal_output
-            == f"Elapsed time: {time.days}d {time.hours}h {time.minutes}m {fractions.seconds_rounded()}s\n"
+            == f"Elapsed time: {time.days}d {time.hours}h {time.minutes}m {fractions.total_seconds_rounded()}s\n"
         )
 
 
@@ -42,7 +42,7 @@ def test_output_message_hours(capfd: object) -> None:
     for _ in range(100):
         mock_elapsed_time_ns = random_hours_as_ns(allow_zero=False)
         terminal_output, fractions, time, _, _ = process_terminal_message(mock_elapsed_time_ns, capfd)
-        assert terminal_output == f"Elapsed time: {time.hours}h {time.minutes}m {fractions.seconds_rounded()}s\n"
+        assert terminal_output == f"Elapsed time: {time.hours}h {time.minutes}m {fractions.total_seconds_rounded()}s\n"
 
 
 def test_output_message_minutes(capfd: object) -> None:
@@ -51,7 +51,7 @@ def test_output_message_minutes(capfd: object) -> None:
         terminal_output, fractions, time, decimals, _ = process_terminal_message(mock_elapsed_time_ns, capfd)
         assert (
             terminal_output
-            == f"Elapsed time: {fractions.total_minutes_as_seconds():.{decimals}f} seconds ({time.minutes}m {fractions.seconds_rounded()}s)\n"
+            == f"Elapsed time: {fractions.total_minutes_as_seconds():.{decimals}f} seconds ({time.minutes}m {fractions.total_seconds_rounded()}s)\n"
         )
 
 
@@ -91,5 +91,5 @@ def test_output_message_hours_with_custom_thread(capfd: object) -> None:
         )
         assert (
             terminal_output
-            == f"Elapsed time: {time.hours}h {time.minutes}m {fractions.seconds_rounded()}s for thread {Color.GREEN}{thread}{Color.OFF}\n"
+            == f"Elapsed time: {time.hours}h {time.minutes}m {fractions.total_seconds_rounded()}s for thread {Color.GREEN}{thread}{Color.OFF}\n"
         )

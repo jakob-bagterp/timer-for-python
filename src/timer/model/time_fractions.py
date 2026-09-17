@@ -22,7 +22,7 @@ class TimeFractions:
 
         return self.time.seconds + self.total_milliseconds() / 1_000
 
-    def seconds_rounded(self) -> float:
+    def total_seconds_rounded(self) -> float:
         """For instance, if 2 seconds and 567 milliseconds, ensure it'll be rounded up to 3 seconds."""
 
         return int(round(self.total_seconds(), 0))
