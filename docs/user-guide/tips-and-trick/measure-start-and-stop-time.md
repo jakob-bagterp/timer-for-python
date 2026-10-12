@@ -111,8 +111,10 @@ Here's a simple example:
 ```python linenums="1"
 from time import perf_counter
 
+
 def function_to_measure():
     sum([i * i for i in range(1_000)])
+
 
 runs = 1_000
 measurements = []

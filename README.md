@@ -23,7 +23,7 @@ timer.start()
 
 # Insert your code here
 
-timer.stop() # Output example: 12.34 seconds
+timer.stop()  # Output example: 12.34 seconds
 ```
 
 #### Context Manager
@@ -61,7 +61,7 @@ timer.start(decimals=5)
 
 # Insert your code here
 
-timer.stop() # Output example: 0.12345 seconds
+timer.stop()  # Output example: 0.12345 seconds
 ```
 
 #### Multiple Threads

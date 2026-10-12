@@ -45,9 +45,11 @@ How it appears in the terminal:
     ```python linenums="1" hl_lines="3-4"
     from timer import function_timer
 
+
     @function_timer()
     def sum_numbers(a, b):
         return a + b
+
 
     sum_numbers(1, 2)
     ```
@@ -61,9 +63,11 @@ How it appears in the terminal:
     ```python linenums="1" hl_lines="3-4"
     from timer import function_timer
 
+
     @function_timer()
-    def anonymous_last_name(first_name, last_name = "unknown"):
+    def anonymous_last_name(first_name, last_name="unknown"):
         return f"{first_name} {last_name}"
+
 
     anonymous_last_name("John")
     ```
@@ -78,9 +82,11 @@ Similar to customising [decimals](decimals.md) and [thread name](multiple-thread
 ```python linenums="1" hl_lines="3"
 from timer import function_timer
 
+
 @function_timer(thread="custom", decimals=5)
 def sum_numbers(a, b):
     return a + b
+
 
 sum_numbers(1, 2)
 ```
