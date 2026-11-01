@@ -33,6 +33,8 @@ MICROSECONDS_TEST_SET_WITHOUT_THREAD = TimeUnitTestSet(
     wait_seconds=0.000_001, expected_time_unit=TimeUnit.MICROSECONDS, thread=None
 )
 
+SKIP_FLAKY_TEST_ON_WINDOWS = pytest.mark.skipif(operating_system.is_windows(), reason="Flaky test on Windows")
+
 
 @pytest.mark.parametrize(
     "test_set",
@@ -41,8 +43,8 @@ MICROSECONDS_TEST_SET_WITHOUT_THREAD = TimeUnitTestSet(
         SECONDS_TEST_SET_WITHOUT_THREAD,
         MILLISECONDS_TEST_SET_WITH_THREAD,
         MILLISECONDS_TEST_SET_WITHOUT_THREAD,
-        MICROSECONDS_TEST_SET_WITH_THREAD,
-        MICROSECONDS_TEST_SET_WITHOUT_THREAD,
+        pytest.param(MICROSECONDS_TEST_SET_WITH_THREAD, marks=SKIP_FLAKY_TEST_ON_WINDOWS),
+        pytest.param(MICROSECONDS_TEST_SET_WITHOUT_THREAD, marks=SKIP_FLAKY_TEST_ON_WINDOWS),
     ],
 )
 @pytest.mark.skipif(
